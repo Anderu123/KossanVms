@@ -10,7 +10,23 @@ namespace KossanVMS.Data
 {
     public class VmsContext:DbContext
     {
+
+        public VmsContext(DbContextOptions<VmsContext> options) :base(options) { }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+
+        //    optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Application Name=\"SQL Server Management Studio\";Command Timeout=30");
+        //}
+        public DbSet<VmsUser> VmsUsers { get; set; }
         public DbSet<VisitCategory> VisitCategories{ get; set; }
+        public DbSet<VisitBranch> VisitBranches{ get; set; }
+        public DbSet<Visitor> Visitors{ get; set; }
+        public DbSet<VisitorBlackList> VisitorBlackList{ get; set; }
+        public DbSet<VisitorCompany> VisitorCompanies { get; set; } 
+        public DbSet<VisitorContact> VisitorContacts { get; set; }  
+        public DbSet<VisitorPhoto> VisitorPhotos { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -1,3 +1,6 @@
+using KossanVMS.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace KossanVMS
 {
     internal static class Program
@@ -8,10 +11,15 @@ namespace KossanVMS
         [STAThread]
         static void Main()
         {
+            ApplicationConfiguration.Initialize();
+            var optionsBuilder = new DbContextOptionsBuilder<VmsContext>();
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=newVMS;User Id=root; Password=Kossan@123456;");
+
+            var dbContext = new VmsContext(optionsBuilder.Options);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new MainPage());
+           
+            Application.Run(new MainPage(dbContext));
         }
     }
 }

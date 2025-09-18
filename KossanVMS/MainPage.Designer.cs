@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            statusStrip1 = new StatusStrip();
+            toolStrip1 = new ToolStrip();
+            SuspendLayout();
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Location = new Point(3, 425);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(576, 22);
+            statusStrip1.TabIndex = 0;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Location = new Point(3, 64);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(576, 25);
+            toolStrip1.TabIndex = 1;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // MainPage
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.MenuText;
+            ClientSize = new Size(582, 450);
+            Controls.Add(toolStrip1);
+            Controls.Add(statusStrip1);
+            Name = "MainPage";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form1";
+            WindowState = FormWindowState.Maximized;
+            Load += MainPage_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private StatusStrip statusStrip1;
+        private ToolStrip toolStrip1;
     }
 }

@@ -82,7 +82,8 @@ namespace KossanVMS.Data
         public string? Company { get; set; }
 
     }
-    public class VisitorPhoto{
+    public class VisitorPhoto
+    {
         [Key]
         public int PhotoID { get; set; }
         public int VisitorID { get; set; }
@@ -92,9 +93,22 @@ namespace KossanVMS.Data
         public string PhotoPath { get; set; }
         public DateTime CaptureDate { get; set; } = DateTime.UtcNow;
 
-        }
-        public class Visitor
-        {
+    }
+    public class VisitorBlackList
+    {
+        [Key]
+        public int VisitorID { get; set; }
+
+        public bool IsBlackList { get;set; }
+
+        public Visitor Visitor { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime UpdateTime { get; set; }
+        public string LastEditUser { get; set; }
+
+    }
+    public class Visitor
+    {
         [Key]
         public int VisitorID { get; set; }
         [Required, MaxLength(100)]
@@ -106,5 +120,5 @@ namespace KossanVMS.Data
         //public ICollection<VisitorBiometric> Biometrics { get; set; } = new List<VisitorBiometric>();
         public ICollection<VisitorPhoto> Photos { get; set; } = new List<VisitorPhoto>();
     }
-    
+
 }
