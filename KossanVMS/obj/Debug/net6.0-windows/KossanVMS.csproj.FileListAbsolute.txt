@@ -56,3 +56,4 @@ C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\bin\Debug\net6.0-windows\Materia
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.Utility.RoundedPanel.resources
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\bin\Debug\net6.0-windows\Humanizer.dll
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\bin\Debug\net6.0-windows\ReaLTaiizor.dll

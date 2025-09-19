@@ -13,7 +13,7 @@ namespace KossanVMS
         {
             ApplicationConfiguration.Initialize();
             var optionsBuilder = new DbContextOptionsBuilder<VmsContext>();
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=newVMS;User Id=root; Password=Kossan@123456;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=newVms;User Id=root; Password=Kossan@123456;");
 
             var dbContext = new VmsContext(optionsBuilder.Options);
             // To customize application configuration such as set high DPI settings or default font,
