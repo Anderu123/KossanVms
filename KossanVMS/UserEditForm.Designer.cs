@@ -29,18 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserEditForm));
             parrotSlidingPanel1 = new ReaLTaiizor.Controls.ParrotSlidingPanel();
             nightPanel1 = new ReaLTaiizor.Controls.NightPanel();
             VisitorGridView = new DataGridView();
             visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            iCNoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            contactsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            companiesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            photosDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            visitorBlackListDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             visitorBindingSource = new BindingSource(components);
             parrotToolStrip1 = new ReaLTaiizor.Controls.ParrotToolStrip();
             toolStripButton2 = new ToolStripButton();
@@ -96,16 +91,16 @@
             VisitorGridView.AutoGenerateColumns = false;
             VisitorGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             VisitorGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisitorGridView.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, iCNoDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, contactsDataGridViewTextBoxColumn, companiesDataGridViewTextBoxColumn, photosDataGridViewTextBoxColumn, visitorBlackListDataGridViewTextBoxColumn });
+            VisitorGridView.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn });
             VisitorGridView.DataSource = visitorBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(41, 44, 61);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(48, 52, 70);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            VisitorGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(41, 44, 61);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(250, 250, 250);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            VisitorGridView.DefaultCellStyle = dataGridViewCellStyle1;
             VisitorGridView.Location = new Point(0, 25);
             VisitorGridView.Name = "VisitorGridView";
             VisitorGridView.RowTemplate.Height = 25;
@@ -118,41 +113,11 @@
             visitorIDDataGridViewTextBoxColumn.HeaderText = "VisitorID";
             visitorIDDataGridViewTextBoxColumn.Name = "visitorIDDataGridViewTextBoxColumn";
             // 
-            // iCNoDataGridViewTextBoxColumn
-            // 
-            iCNoDataGridViewTextBoxColumn.DataPropertyName = "ICNo";
-            iCNoDataGridViewTextBoxColumn.HeaderText = "ICNo";
-            iCNoDataGridViewTextBoxColumn.Name = "iCNoDataGridViewTextBoxColumn";
-            // 
             // fullNameDataGridViewTextBoxColumn
             // 
             fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
             fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
             fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            // 
-            // contactsDataGridViewTextBoxColumn
-            // 
-            contactsDataGridViewTextBoxColumn.DataPropertyName = "Contacts";
-            contactsDataGridViewTextBoxColumn.HeaderText = "Contacts";
-            contactsDataGridViewTextBoxColumn.Name = "contactsDataGridViewTextBoxColumn";
-            // 
-            // companiesDataGridViewTextBoxColumn
-            // 
-            companiesDataGridViewTextBoxColumn.DataPropertyName = "Companies";
-            companiesDataGridViewTextBoxColumn.HeaderText = "Companies";
-            companiesDataGridViewTextBoxColumn.Name = "companiesDataGridViewTextBoxColumn";
-            // 
-            // photosDataGridViewTextBoxColumn
-            // 
-            photosDataGridViewTextBoxColumn.DataPropertyName = "Photos";
-            photosDataGridViewTextBoxColumn.HeaderText = "Photos";
-            photosDataGridViewTextBoxColumn.Name = "photosDataGridViewTextBoxColumn";
-            // 
-            // visitorBlackListDataGridViewTextBoxColumn
-            // 
-            visitorBlackListDataGridViewTextBoxColumn.DataPropertyName = "VisitorBlackList";
-            visitorBlackListDataGridViewTextBoxColumn.HeaderText = "VisitorBlackList";
-            visitorBlackListDataGridViewTextBoxColumn.Name = "visitorBlackListDataGridViewTextBoxColumn";
             // 
             // visitorBindingSource
             // 
