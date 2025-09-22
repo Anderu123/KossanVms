@@ -29,22 +29,28 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserEditForm));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             parrotSlidingPanel1 = new ReaLTaiizor.Controls.ParrotSlidingPanel();
             nightPanel1 = new ReaLTaiizor.Controls.NightPanel();
-            VisitorGridView = new DataGridView();
-            visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            visitorBindingSource = new BindingSource(components);
+            visitorBindingSource1 = new BindingSource(components);
             parrotToolStrip1 = new ReaLTaiizor.Controls.ParrotToolStrip();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
             toolStripButton1 = new ToolStripButton();
+            visitorBindingSource = new BindingSource(components);
+            VisitorGridView = new DataGridView();
+            visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Contact = new DataGridViewTextBoxColumn();
+            Company = new DataGridViewTextBoxColumn();
+            Photo = new DataGridViewTextBoxColumn();
+            BlackList = new DataGridViewTextBoxColumn();
             nightPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridView).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)visitorBindingSource1).BeginInit();
             parrotToolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridView).BeginInit();
             SuspendLayout();
             // 
             // parrotSlidingPanel1
@@ -85,43 +91,9 @@
             nightPanel1.Size = new Size(743, 450);
             nightPanel1.TabIndex = 1;
             // 
-            // VisitorGridView
+            // visitorBindingSource1
             // 
-            VisitorGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            VisitorGridView.AutoGenerateColumns = false;
-            VisitorGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            VisitorGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisitorGridView.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn });
-            VisitorGridView.DataSource = visitorBindingSource;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(41, 44, 61);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(250, 250, 250);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            VisitorGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            VisitorGridView.Location = new Point(0, 25);
-            VisitorGridView.Name = "VisitorGridView";
-            VisitorGridView.RowTemplate.Height = 25;
-            VisitorGridView.Size = new Size(743, 425);
-            VisitorGridView.TabIndex = 1;
-            // 
-            // visitorIDDataGridViewTextBoxColumn
-            // 
-            visitorIDDataGridViewTextBoxColumn.DataPropertyName = "VisitorID";
-            visitorIDDataGridViewTextBoxColumn.HeaderText = "VisitorID";
-            visitorIDDataGridViewTextBoxColumn.Name = "visitorIDDataGridViewTextBoxColumn";
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            // 
-            // visitorBindingSource
-            // 
-            visitorBindingSource.DataSource = typeof(Data.Visitor);
+            visitorBindingSource1.DataSource = typeof(Data.Visitor);
             // 
             // parrotToolStrip1
             // 
@@ -166,6 +138,68 @@
             toolStripButton1.Size = new Size(23, 22);
             toolStripButton1.Text = "toolStripButton1";
             // 
+            // visitorBindingSource
+            // 
+            visitorBindingSource.DataSource = typeof(Data.Visitor);
+            // 
+            // VisitorGridView
+            // 
+            VisitorGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            VisitorGridView.AutoGenerateColumns = false;
+            VisitorGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            VisitorGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            VisitorGridView.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, Contact, Company, Photo, BlackList });
+            VisitorGridView.DataSource = visitorBindingSource1;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(41, 44, 61);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(250, 250, 250);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            VisitorGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            VisitorGridView.Location = new Point(0, 25);
+            VisitorGridView.Name = "VisitorGridView";
+            VisitorGridView.RowTemplate.Height = 25;
+            VisitorGridView.Size = new Size(743, 425);
+            VisitorGridView.TabIndex = 1;
+            // 
+            // visitorIDDataGridViewTextBoxColumn
+            // 
+            visitorIDDataGridViewTextBoxColumn.DataPropertyName = "VisitorID";
+            visitorIDDataGridViewTextBoxColumn.HeaderText = "VisitorID";
+            visitorIDDataGridViewTextBoxColumn.Name = "visitorIDDataGridViewTextBoxColumn";
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            // 
+            // Contact
+            // 
+            Contact.DataPropertyName = "Contact";
+            Contact.HeaderText = "Contact";
+            Contact.Name = "Contact";
+            // 
+            // Company
+            // 
+            Company.DataPropertyName = "Company";
+            Company.HeaderText = "Company";
+            Company.Name = "Company";
+            // 
+            // Photo
+            // 
+            Photo.DataPropertyName = "Photo";
+            Photo.HeaderText = "Photo";
+            Photo.Name = "Photo";
+            // 
+            // BlackList
+            // 
+            BlackList.DataPropertyName = "BlackList";
+            BlackList.HeaderText = "BlackList";
+            BlackList.Name = "BlackList";
+            // 
             // UserEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -178,10 +212,11 @@
             Text = "UserEditForm";
             nightPanel1.ResumeLayout(false);
             nightPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridView).EndInit();
-            ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)visitorBindingSource1).EndInit();
             parrotToolStrip1.ResumeLayout(false);
             parrotToolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -194,13 +229,18 @@
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton3;
         private BindingSource visitorBindingSource;
-        private DataGridView VisitorGridView;
-        private DataGridViewTextBoxColumn visitorIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn iCNoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn contactsDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn companiesDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn photosDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn visitorBlackListDataGridViewTextBoxColumn;
+        private BindingSource visitorBindingSource1;
+        private DataGridView VisitorGridView;
+        private DataGridViewTextBoxColumn visitorIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Contact;
+        private DataGridViewTextBoxColumn Company;
+        private DataGridViewTextBoxColumn Photo;
+        private DataGridViewTextBoxColumn BlackList;
     }
 }
