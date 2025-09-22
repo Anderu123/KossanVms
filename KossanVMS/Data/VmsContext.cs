@@ -12,12 +12,14 @@ namespace KossanVMS.Data
     {
 
         public VmsContext(DbContextOptions<VmsContext> options) :base(options) { }
+        public VmsContext()
+        {
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-
-        //    optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Application Name=\"SQL Server Management Studio\";Command Timeout=30");
-        //}
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
+        }
         public DbSet<VmsUser> VmsUsers { get; set; }
         public DbSet<VisitCategory> VisitCategories{ get; set; }
         public DbSet<VisitBranch> VisitBranches{ get; set; }
@@ -34,10 +36,37 @@ namespace KossanVMS.Data
             modelBuilder.Entity<VisitCategory>().HasIndex(x => x.CategoryName).IsUnique();
             modelBuilder.Entity<VisitBranch>().HasIndex(x => x.BranchName).IsUnique();
             modelBuilder.Entity<VisitPurpose>().HasIndex(x => x.PurposeName).IsUnique();
-            modelBuilder.Entity<Visitor>().HasIndex(x => x.ICNo).IsUnique();
+            //modelBuilder.Entity<Visitor>().HasIndex(x => x.ICNo).IsUnique();
 
-            modelBuilder.Entity<VisitorContact>().HasOne(x => x.Visitor).WithMany(v => v.Contacts).HasForeignKey(x => x.VisitorID);
-            modelBuilder.Entity<VisitorPhoto>().HasOne(x => x.Visitor).WithMany(v => v.Photos).HasForeignKey(x => x.VisitorID);
+            modelBuilder.Entity<VisitorContact>().HasOne(x => x.Visitor);
+            modelBuilder.Entity<VisitorPhoto>().HasOne(x => x.Visitor);
+            modelBuilder.Entity<VisitorBlackList>()
+    .HasOne(vb => vb.Visitor).WithOne(v => v.BlackList)     // or .WithOne() if you didn’t add the nav
+    .HasForeignKey<VisitorBlackList>(vb => vb.VisitorID);
+            // VisitRecord relationships
+            modelBuilder.Entity<VisitRecord>()
+                .HasOne(v => v.Visitor)
+                .WithMany() // or .WithMany(nav => nav.VisitRecords) if you add a collection on Visitor
+                .HasForeignKey(v => v.VisitorID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<VisitRecord>()
+                .HasOne(v => v.Branch)
+                .WithMany() // or .WithMany(nav => nav.VisitRecords)
+                .HasForeignKey(v => v.BranchID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<VisitRecord>()
+                .HasOne(v => v.Purpose)
+                .WithMany()
+                .HasForeignKey(v => v.PurposeID)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<VisitRecord>()
+                .HasOne(v => v.Category)
+                .WithMany()
+                .HasForeignKey(v => v.CategoryID)
+                .OnDelete(DeleteBehavior.SetNull);
         }
 
         public override int SaveChanges()

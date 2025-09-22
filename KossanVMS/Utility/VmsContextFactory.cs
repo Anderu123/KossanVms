@@ -14,7 +14,7 @@ namespace KossanVMS.Utility
         public VmsContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<VmsContext>();
-            optionsBuilder.UseSqlServer ("Server=(localdb)\\MSSQLLocalDB; Database=newVMS;User Id=root; Password=Kossan@123456;");
+            optionsBuilder.UseSqlServer ("Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
 
             return new VmsContext(optionsBuilder.Options);
         }

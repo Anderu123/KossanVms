@@ -41,15 +41,17 @@ namespace KossanVMS
         public MainPage(VmsContext db)
         {
             InitializeComponent();
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red900, Primary.Red500, Accent.Amber200, TextShade.WHITE);
-            this.Hide();
+            //var materialSkinManager = MaterialSkinManager.Instance;
+            //materialSkinManager.AddFormToManage(this);
+            //materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            //materialSkinManager.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red900, Primary.Red500, Accent.Amber200, TextShade.WHITE);
+            //this.Hide();
             _db = db;
             UserLoginForm userLoginForm = new UserLoginForm();
            
-            userLoginForm.Show();
+            //userLoginForm.Show();
+            UserEditForm userEditForm = new UserEditForm();
+            userEditForm.Show();
            
         }
 

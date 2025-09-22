@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    [Migration("20250918071758_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250922091308_Update2")]
+    partial class Update2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -120,15 +120,7 @@ namespace KossanVMS.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<string>("ICNo")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.HasKey("VisitorID");
-
-                    b.HasIndex("ICNo")
-                        .IsUnique();
 
                     b.ToTable("Visitors");
                 });
@@ -136,10 +128,7 @@ namespace KossanVMS.Migrations
             modelBuilder.Entity("KossanVMS.Data.VisitorBlackList", b =>
                 {
                     b.Property<int>("VisitorID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitorID"), 1L, 1);
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
@@ -154,12 +143,7 @@ namespace KossanVMS.Migrations
                     b.Property<DateTime>("UpdateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("VisitorID1")
-                        .HasColumnType("int");
-
                     b.HasKey("VisitorID");
-
-                    b.HasIndex("VisitorID1");
 
                     b.ToTable("VisitorBlackList");
                 });
@@ -181,7 +165,8 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("CompanyID");
 
-                    b.HasIndex("VisitorID");
+                    b.HasIndex("VisitorID")
+                        .IsUnique();
 
                     b.ToTable("VisitorCompanies");
                 });
@@ -214,7 +199,8 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("ContactID");
 
-                    b.HasIndex("VisitorID");
+                    b.HasIndex("VisitorID")
+                        .IsUnique();
 
                     b.ToTable("VisitorContacts");
                 });
@@ -240,7 +226,8 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("PhotoID");
 
-                    b.HasIndex("VisitorID");
+                    b.HasIndex("VisitorID")
+                        .IsUnique();
 
                     b.ToTable("VisitorPhotos");
                 });
@@ -286,6 +273,89 @@ namespace KossanVMS.Migrations
                     b.ToTable("VisitPurpose");
                 });
 
+            modelBuilder.Entity("KossanVMS.Data.VisitRecord", b =>
+                {
+                    b.Property<Guid>("VisitID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("BranchID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GatePass")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("InContainer")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("InContainerNO")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InPBID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InPhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastEditUser")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<byte>("OutContainer")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("OutContainerNO")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OutPBID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OutPhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OutRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("OutTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("PurposeID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("VehicleNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VisitorID")
+                        .HasColumnType("int");
+
+                    b.HasKey("VisitID");
+
+                    b.HasIndex("BranchID");
+
+                    b.HasIndex("CategoryID");
+
+                    b.HasIndex("PurposeID");
+
+                    b.HasIndex("VisitorID");
+
+                    b.ToTable("VisitRecord");
+                });
+
             modelBuilder.Entity("KossanVMS.Data.VmsUser", b =>
                 {
                     b.Property<int>("Id")
@@ -327,8 +397,8 @@ namespace KossanVMS.Migrations
             modelBuilder.Entity("KossanVMS.Data.VisitorBlackList", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithMany()
-                        .HasForeignKey("VisitorID1")
+                        .WithOne("BlackList")
+                        .HasForeignKey("KossanVMS.Data.VisitorBlackList", "VisitorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -338,8 +408,8 @@ namespace KossanVMS.Migrations
             modelBuilder.Entity("KossanVMS.Data.VisitorCompany", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithMany("Companies")
-                        .HasForeignKey("VisitorID")
+                        .WithOne("Company")
+                        .HasForeignKey("KossanVMS.Data.VisitorCompany", "VisitorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -349,8 +419,8 @@ namespace KossanVMS.Migrations
             modelBuilder.Entity("KossanVMS.Data.VisitorContact", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithMany("Contacts")
-                        .HasForeignKey("VisitorID")
+                        .WithOne("Contact")
+                        .HasForeignKey("KossanVMS.Data.VisitorContact", "VisitorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -360,21 +430,59 @@ namespace KossanVMS.Migrations
             modelBuilder.Entity("KossanVMS.Data.VisitorPhoto", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithMany("Photos")
-                        .HasForeignKey("VisitorID")
+                        .WithOne("Photo")
+                        .HasForeignKey("KossanVMS.Data.VisitorPhoto", "VisitorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Visitor");
                 });
 
+            modelBuilder.Entity("KossanVMS.Data.VisitRecord", b =>
+                {
+                    b.HasOne("KossanVMS.Data.VisitBranch", "Branch")
+                        .WithMany()
+                        .HasForeignKey("BranchID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("KossanVMS.Data.VisitCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("KossanVMS.Data.VisitPurpose", "Purpose")
+                        .WithMany()
+                        .HasForeignKey("PurposeID")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("KossanVMS.Data.Visitor", "Visitor")
+                        .WithMany()
+                        .HasForeignKey("VisitorID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Branch");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Purpose");
+
+                    b.Navigation("Visitor");
+                });
+
             modelBuilder.Entity("KossanVMS.Data.Visitor", b =>
                 {
-                    b.Navigation("Companies");
+                    b.Navigation("BlackList");
 
-                    b.Navigation("Contacts");
+                    b.Navigation("Company")
+                        .IsRequired();
 
-                    b.Navigation("Photos");
+                    b.Navigation("Contact")
+                        .IsRequired();
+
+                    b.Navigation("Photo")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

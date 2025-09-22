@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KossanVMS.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Update : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -103,10 +103,8 @@ namespace KossanVMS.Migrations
                 name: "VisitorBlackList",
                 columns: table => new
                 {
-                    VisitorID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VisitorID = table.Column<int>(type: "int", nullable: false),
                     IsBlackList = table.Column<bool>(type: "bit", nullable: false),
-                    VisitorID1 = table.Column<int>(type: "int", nullable: false),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastEditUser = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -115,8 +113,8 @@ namespace KossanVMS.Migrations
                 {
                     table.PrimaryKey("PK_VisitorBlackList", x => x.VisitorID);
                     table.ForeignKey(
-                        name: "FK_VisitorBlackList_Visitors_VisitorID1",
-                        column: x => x.VisitorID1,
+                        name: "FK_VisitorBlackList_Visitors_VisitorID",
+                        column: x => x.VisitorID,
                         principalTable: "Visitors",
                         principalColumn: "VisitorID",
                         onDelete: ReferentialAction.Cascade);
@@ -187,6 +185,62 @@ namespace KossanVMS.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "VisitRecord",
+                columns: table => new
+                {
+                    VisitID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    VisitorID = table.Column<int>(type: "int", nullable: false),
+                    BranchID = table.Column<int>(type: "int", nullable: false),
+                    PurposeID = table.Column<int>(type: "int", nullable: true),
+                    CategoryID = table.Column<int>(type: "int", nullable: true),
+                    InTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OutTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    InPBID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OutPBID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VehicleNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InContainer = table.Column<byte>(type: "tinyint", nullable: false),
+                    InContainerNO = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OutContainer = table.Column<byte>(type: "tinyint", nullable: false),
+                    OutContainerNO = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InRemarks = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OutRemarks = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InPhotoPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OutPhotoPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GatePass = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastEditUser = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VisitRecord", x => x.VisitID);
+                    table.ForeignKey(
+                        name: "FK_VisitRecord_VisitBranches_BranchID",
+                        column: x => x.BranchID,
+                        principalTable: "VisitBranches",
+                        principalColumn: "BranchID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_VisitRecord_VisitCategories_CategoryID",
+                        column: x => x.CategoryID,
+                        principalTable: "VisitCategories",
+                        principalColumn: "CategoryID",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "FK_VisitRecord_Visitors_VisitorID",
+                        column: x => x.VisitorID,
+                        principalTable: "Visitors",
+                        principalColumn: "VisitorID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_VisitRecord_VisitPurpose_PurposeID",
+                        column: x => x.PurposeID,
+                        principalTable: "VisitPurpose",
+                        principalColumn: "PurposeID",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_VisitBranches_BranchName",
                 table: "VisitBranches",
@@ -198,11 +252,6 @@ namespace KossanVMS.Migrations
                 table: "VisitCategories",
                 column: "CategoryName",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_VisitorBlackList_VisitorID1",
-                table: "VisitorBlackList",
-                column: "VisitorID1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_VisitorCompanies_VisitorID",
@@ -230,16 +279,30 @@ namespace KossanVMS.Migrations
                 table: "VisitPurpose",
                 column: "PurposeName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VisitRecord_BranchID",
+                table: "VisitRecord",
+                column: "BranchID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VisitRecord_CategoryID",
+                table: "VisitRecord",
+                column: "CategoryID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VisitRecord_PurposeID",
+                table: "VisitRecord",
+                column: "PurposeID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VisitRecord_VisitorID",
+                table: "VisitRecord",
+                column: "VisitorID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "VisitBranches");
-
-            migrationBuilder.DropTable(
-                name: "VisitCategories");
-
             migrationBuilder.DropTable(
                 name: "VisitorBlackList");
 
@@ -253,13 +316,22 @@ namespace KossanVMS.Migrations
                 name: "VisitorPhotos");
 
             migrationBuilder.DropTable(
-                name: "VisitPurpose");
+                name: "VisitRecord");
 
             migrationBuilder.DropTable(
                 name: "VmsUsers");
 
             migrationBuilder.DropTable(
+                name: "VisitBranches");
+
+            migrationBuilder.DropTable(
+                name: "VisitCategories");
+
+            migrationBuilder.DropTable(
                 name: "Visitors");
+
+            migrationBuilder.DropTable(
+                name: "VisitPurpose");
         }
     }
 }

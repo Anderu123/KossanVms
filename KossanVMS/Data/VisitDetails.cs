@@ -7,6 +7,18 @@ using System.Threading.Tasks;
 
 namespace KossanVMS.Data
 {
+    public enum ContainerState : byte
+    {
+        None = 0,
+        Empty = 1,
+        Laden = 2
+    }
+    public enum VisitStatus :byte
+    {
+        In = 1, 
+        Out = 2,
+        Cancelled = 9
+    }
 
     public class VisitCategory
     {
@@ -111,14 +123,66 @@ namespace KossanVMS.Data
     {
         [Key]
         public int VisitorID { get; set; }
-        [Required, MaxLength(100)]
-        public string ICNo { get; set; } = null!;
+        //[Required, MaxLength(100)]
+        //public string ICNo { get; set; } = null!;
         [Required, MaxLength(150)]
         public string FullName { get; set; } = null!;
-        public ICollection<VisitorContact> Contacts { get; set; } = new List<VisitorContact>();
-        public ICollection<VisitorCompany> Companies { get; set; } = new List<VisitorCompany>();
+        public VisitorContact Contact {get;set;} 
+        public VisitorCompany Company { get; set; }
         //public ICollection<VisitorBiometric> Biometrics { get; set; } = new List<VisitorBiometric>();
-        public ICollection<VisitorPhoto> Photos { get; set; } = new List<VisitorPhoto>();
+        public VisitorPhoto Photo { get; set; }
+        public VisitorBlackList? BlackList { get; set; }
     }
 
+    public class VisitRecord
+    {
+        [Key]
+        public Guid VisitID { get; set; } = Guid.NewGuid();
+
+        [Required]
+        public int VisitorID { get; set; }
+
+        [Required]
+        public int BranchID { get; set; }
+
+        public int? PurposeID { get; set; }
+
+        public int? CategoryID { get; set; }
+
+        public DateTime InTime { get; set; }
+
+        public DateTime? OutTime { get; set; }
+
+        public string? InPBID {  get; set; }    
+
+        public string? OutPBID { get; set; }
+
+        public string? VehicleNo { get; set; }
+        public ContainerState InContainer { get; set; } = ContainerState.None;
+        public string? InContainerNO { get; set; }
+        public ContainerState OutContainer { get; set;} = ContainerState.None;
+
+        public string? OutContainerNO { get;set; }
+
+    
+
+        public string? InRemarks { get; set; }
+        public string? OutRemarks { get; set; }
+        public string? InPhotoPath { get; set; }
+
+        public string? OutPhotoPath { get;set; }
+        public string? GatePass { get; set; }
+        public DateTime CreateTime { get; set; } = DateTime.UtcNow;
+        public DateTime UpdateTime { get; set; } = DateTime.UtcNow;
+
+        [MaxLength(50)]
+        public string? LastEditUser { get; set; }
+
+        // Navigation properties
+        public Visitor Visitor { get; set; } = null!;
+        public VisitBranch Branch { get; set; } = null!;
+        public VisitPurpose? Purpose { get; set; }
+        public VisitCategory? Category { get; set; }
+
+    }
 }

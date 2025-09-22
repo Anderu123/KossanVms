@@ -4,6 +4,7 @@ using KossanVMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    partial class VmsContextModelSnapshot : ModelSnapshot
+    [Migration("20250922032747_Update")]
+    partial class Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,7 +120,15 @@ namespace KossanVMS.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<string>("ICNo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.HasKey("VisitorID");
+
+                    b.HasIndex("ICNo")
+                        .IsUnique();
 
                     b.ToTable("Visitors");
                 });
@@ -163,8 +173,7 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("CompanyID");
 
-                    b.HasIndex("VisitorID")
-                        .IsUnique();
+                    b.HasIndex("VisitorID");
 
                     b.ToTable("VisitorCompanies");
                 });
@@ -197,8 +206,7 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("ContactID");
 
-                    b.HasIndex("VisitorID")
-                        .IsUnique();
+                    b.HasIndex("VisitorID");
 
                     b.ToTable("VisitorContacts");
                 });
@@ -224,8 +232,7 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("PhotoID");
 
-                    b.HasIndex("VisitorID")
-                        .IsUnique();
+                    b.HasIndex("VisitorID");
 
                     b.ToTable("VisitorPhotos");
                 });
@@ -395,7 +402,7 @@ namespace KossanVMS.Migrations
             modelBuilder.Entity("KossanVMS.Data.VisitorBlackList", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithOne("BlackList")
+                        .WithOne("VisitorBlackList")
                         .HasForeignKey("KossanVMS.Data.VisitorBlackList", "VisitorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -406,8 +413,8 @@ namespace KossanVMS.Migrations
             modelBuilder.Entity("KossanVMS.Data.VisitorCompany", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithOne("Company")
-                        .HasForeignKey("KossanVMS.Data.VisitorCompany", "VisitorID")
+                        .WithMany("Companies")
+                        .HasForeignKey("VisitorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -417,8 +424,8 @@ namespace KossanVMS.Migrations
             modelBuilder.Entity("KossanVMS.Data.VisitorContact", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithOne("Contact")
-                        .HasForeignKey("KossanVMS.Data.VisitorContact", "VisitorID")
+                        .WithMany("Contacts")
+                        .HasForeignKey("VisitorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -428,8 +435,8 @@ namespace KossanVMS.Migrations
             modelBuilder.Entity("KossanVMS.Data.VisitorPhoto", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithOne("Photo")
-                        .HasForeignKey("KossanVMS.Data.VisitorPhoto", "VisitorID")
+                        .WithMany("Photos")
+                        .HasForeignKey("VisitorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -471,16 +478,13 @@ namespace KossanVMS.Migrations
 
             modelBuilder.Entity("KossanVMS.Data.Visitor", b =>
                 {
-                    b.Navigation("BlackList");
+                    b.Navigation("Companies");
 
-                    b.Navigation("Company")
-                        .IsRequired();
+                    b.Navigation("Contacts");
 
-                    b.Navigation("Contact")
-                        .IsRequired();
+                    b.Navigation("Photos");
 
-                    b.Navigation("Photo")
-                        .IsRequired();
+                    b.Navigation("VisitorBlackList");
                 });
 #pragma warning restore 612, 618
         }
