@@ -4,7 +4,10 @@
     <Compile Update="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserForm.cs">
+    <Compile Update="UserControlPage\VisitorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserLoginForm.cs">
@@ -18,6 +21,9 @@
     </Compile>
     <Compile Update="Utility\VisitorCard.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="VisitorEditForm.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 </Project>

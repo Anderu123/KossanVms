@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace KossanVMS
 {
-    public partial class UserForm : Form
+    public partial class VisitorEditForm : Form
     {
-        public UserForm()
+        public VisitorEditForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace KossanVMS
 {
-    partial class UserForm
+    partial class UserDialogForm
     {
         /// <summary>
         /// Required designer variable.

@@ -29,16 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserEditForm));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserEditForm));
             parrotSlidingPanel1 = new ReaLTaiizor.Controls.ParrotSlidingPanel();
             nightPanel1 = new ReaLTaiizor.Controls.NightPanel();
-            visitorBindingSource1 = new BindingSource(components);
-            parrotToolStrip1 = new ReaLTaiizor.Controls.ParrotToolStrip();
-            toolStripButton2 = new ToolStripButton();
-            toolStripButton3 = new ToolStripButton();
-            toolStripButton1 = new ToolStripButton();
-            visitorBindingSource = new BindingSource(components);
             VisitorGridView = new DataGridView();
             visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -46,11 +40,17 @@
             Company = new DataGridViewTextBoxColumn();
             Photo = new DataGridViewTextBoxColumn();
             BlackList = new DataGridViewTextBoxColumn();
+            visitorBindingSource1 = new BindingSource(components);
+            parrotToolStrip1 = new ReaLTaiizor.Controls.ParrotToolStrip();
+            toolStripButton2 = new ToolStripButton();
+            toolStripButton3 = new ToolStripButton();
+            toolStripButton1 = new ToolStripButton();
+            visitorBindingSource = new BindingSource(components);
             nightPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource1).BeginInit();
             parrotToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridView).BeginInit();
             SuspendLayout();
             // 
             // parrotSlidingPanel1
@@ -91,62 +91,12 @@
             nightPanel1.Size = new Size(743, 450);
             nightPanel1.TabIndex = 1;
             // 
-            // visitorBindingSource1
-            // 
-            visitorBindingSource1.DataSource = typeof(Data.Visitor);
-            // 
-            // parrotToolStrip1
-            // 
-            parrotToolStrip1.BackColor = Color.White;
-            parrotToolStrip1.BorderColor = Color.DodgerBlue;
-            parrotToolStrip1.ForeColor = Color.Black;
-            parrotToolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            parrotToolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton2, toolStripButton3, toolStripButton1 });
-            parrotToolStrip1.Location = new Point(0, 0);
-            parrotToolStrip1.Name = "parrotToolStrip1";
-            parrotToolStrip1.Size = new Size(743, 25);
-            parrotToolStrip1.TabIndex = 0;
-            parrotToolStrip1.Text = "parrotToolStrip1";
-            // 
-            // toolStripButton2
-            // 
-            toolStripButton2.Alignment = ToolStripItemAlignment.Right;
-            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(23, 22);
-            toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            toolStripButton3.Alignment = ToolStripItemAlignment.Right;
-            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(23, 22);
-            toolStripButton3.Text = "toolStripButton3";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.Alignment = ToolStripItemAlignment.Right;
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(23, 22);
-            toolStripButton1.Text = "toolStripButton1";
-            // 
-            // visitorBindingSource
-            // 
-            visitorBindingSource.DataSource = typeof(Data.Visitor);
-            // 
             // VisitorGridView
             // 
             VisitorGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             VisitorGridView.AutoGenerateColumns = false;
             VisitorGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            VisitorGridView.BackgroundColor = SystemColors.ActiveCaptionText;
             VisitorGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             VisitorGridView.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, Contact, Company, Photo, BlackList });
             VisitorGridView.DataSource = visitorBindingSource1;
@@ -200,6 +150,57 @@
             BlackList.HeaderText = "BlackList";
             BlackList.Name = "BlackList";
             // 
+            // visitorBindingSource1
+            // 
+            visitorBindingSource1.DataSource = typeof(Data.Visitor);
+            // 
+            // parrotToolStrip1
+            // 
+            parrotToolStrip1.BackColor = Color.White;
+            parrotToolStrip1.BorderColor = Color.DodgerBlue;
+            parrotToolStrip1.ForeColor = Color.Black;
+            parrotToolStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            parrotToolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton2, toolStripButton3, toolStripButton1 });
+            parrotToolStrip1.Location = new Point(0, 0);
+            parrotToolStrip1.Name = "parrotToolStrip1";
+            parrotToolStrip1.Size = new Size(743, 25);
+            parrotToolStrip1.TabIndex = 0;
+            parrotToolStrip1.Text = "parrotToolStrip1";
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.Alignment = ToolStripItemAlignment.Right;
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(23, 22);
+            toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton3
+            // 
+            toolStripButton3.Alignment = ToolStripItemAlignment.Right;
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(23, 22);
+            toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.Alignment = ToolStripItemAlignment.Right;
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(23, 22);
+            toolStripButton1.Text = "toolStripButton1";
+            // 
+            // visitorBindingSource
+            // 
+            visitorBindingSource.DataSource = typeof(Data.Visitor);
+            // 
             // UserEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -212,11 +213,11 @@
             Text = "UserEditForm";
             nightPanel1.ResumeLayout(false);
             nightPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource1).EndInit();
             parrotToolStrip1.ResumeLayout(false);
             parrotToolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridView).EndInit();
             ResumeLayout(false);
         }
 
