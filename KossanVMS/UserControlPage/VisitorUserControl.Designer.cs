@@ -35,18 +35,18 @@ namespace KossanVMS.UserControlPage
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             toolStrip1 = new ToolStrip();
-            toolStripButton3 = new ToolStripButton();
-            toolStripButton2 = new ToolStripButton();
-            toolStripButton1 = new ToolStripButton();
+            toolStripDelButton = new ToolStripButton();
+            toolStripAddButton = new ToolStripButton();
+            toolStripEditButton = new ToolStripButton();
             VisitorGridViewUserControl = new DataGridView();
+            visitorBindingSource = new BindingSource(components);
+            visitorPictureBox = new PictureBox();
             visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             contactDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             companyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             photoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             blackListDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            visitorBindingSource = new BindingSource(components);
-            visitorPictureBox = new PictureBox();
             tableLayoutPanel1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)VisitorGridViewUserControl).BeginInit();
@@ -76,43 +76,49 @@ namespace KossanVMS.UserControlPage
             // 
             toolStrip1.BackColor = SystemColors.MenuBar;
             tableLayoutPanel1.SetColumnSpan(toolStrip1, 2);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton3, toolStripButton2, toolStripButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDelButton, toolStripAddButton, toolStripEditButton });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(972, 25);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
-            //toolStrip1.ItemClicked += this.toolStrip1_ItemClicked_1;
             // 
-            // toolStripButton3
+            // toolStripDelButton
             // 
-            toolStripButton3.Alignment = ToolStripItemAlignment.Right;
-            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(23, 22);
-            toolStripButton3.Text = "toolStripDelButton";
+            toolStripDelButton.Alignment = ToolStripItemAlignment.Right;
+            toolStripDelButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripDelButton.Image = (Image)resources.GetObject("toolStripDelButton.Image");
+            toolStripDelButton.ImageTransparentColor = Color.Magenta;
+            toolStripDelButton.Name = "toolStripDelButton";
+            toolStripDelButton.Size = new Size(23, 22);
+            toolStripDelButton.Text = "toolStripDelButton";
+            toolStripDelButton.ToolTipText = "Delete";
+            toolStripDelButton.Click += toolStripDelButton_Click;
             // 
-            // toolStripButton2
+            // toolStripAddButton
             // 
-            toolStripButton2.Alignment = ToolStripItemAlignment.Right;
-            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(23, 22);
-            toolStripButton2.Text = "toolStripAddButton";
+            toolStripAddButton.Alignment = ToolStripItemAlignment.Right;
+            toolStripAddButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripAddButton.Image = (Image)resources.GetObject("toolStripAddButton.Image");
+            toolStripAddButton.ImageTransparentColor = Color.Magenta;
+            toolStripAddButton.Name = "toolStripAddButton";
+            toolStripAddButton.RightToLeftAutoMirrorImage = true;
+            toolStripAddButton.Size = new Size(23, 22);
+            toolStripAddButton.Text = "toolStripAddButton";
+            toolStripAddButton.ToolTipText = "Add";
+            toolStripAddButton.Click += toolStripAddButton_Click;
             // 
-            // toolStripButton1
+            // toolStripEditButton
             // 
-            toolStripButton1.Alignment = ToolStripItemAlignment.Right;
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(23, 22);
-            toolStripButton1.Text = "toolStripEditButton";
+            toolStripEditButton.Alignment = ToolStripItemAlignment.Right;
+            toolStripEditButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripEditButton.Image = (Image)resources.GetObject("toolStripEditButton.Image");
+            toolStripEditButton.ImageTransparentColor = Color.Magenta;
+            toolStripEditButton.Name = "toolStripEditButton";
+            toolStripEditButton.Size = new Size(23, 22);
+            toolStripEditButton.Text = "toolStripEditButton";
+            toolStripEditButton.ToolTipText = "Edit";
+            toolStripEditButton.Click += toolStripEditButton_Click;
             // 
             // VisitorGridViewUserControl
             // 
@@ -140,6 +146,23 @@ namespace KossanVMS.UserControlPage
             VisitorGridViewUserControl.Size = new Size(718, 482);
             VisitorGridViewUserControl.TabIndex = 0;
             // 
+            // visitorBindingSource
+            // 
+            visitorBindingSource.DataSource = typeof(Data.Visitor);
+            // 
+            // visitorPictureBox
+            // 
+            visitorPictureBox.Cursor = Cursors.IBeam;
+            visitorPictureBox.Dock = DockStyle.Top;
+            visitorPictureBox.Image = (Image)resources.GetObject("visitorPictureBox.Image");
+            visitorPictureBox.InitialImage = (Image)resources.GetObject("visitorPictureBox.InitialImage");
+            visitorPictureBox.Location = new Point(3, 30);
+            visitorPictureBox.Name = "visitorPictureBox";
+            visitorPictureBox.Size = new Size(242, 332);
+            visitorPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            visitorPictureBox.TabIndex = 1;
+            visitorPictureBox.TabStop = false;
+            // 
             // visitorIDDataGridViewTextBoxColumn
             // 
             visitorIDDataGridViewTextBoxColumn.DataPropertyName = "VisitorID";
@@ -154,7 +177,7 @@ namespace KossanVMS.UserControlPage
             // 
             // contactDataGridViewTextBoxColumn
             // 
-            contactDataGridViewTextBoxColumn.DataPropertyName = "Contact";
+            contactDataGridViewTextBoxColumn.DataPropertyName = "Contact.Tel.ToString()";
             contactDataGridViewTextBoxColumn.HeaderText = "Contact";
             contactDataGridViewTextBoxColumn.Name = "contactDataGridViewTextBoxColumn";
             // 
@@ -175,23 +198,6 @@ namespace KossanVMS.UserControlPage
             blackListDataGridViewTextBoxColumn.DataPropertyName = "BlackList";
             blackListDataGridViewTextBoxColumn.HeaderText = "BlackList";
             blackListDataGridViewTextBoxColumn.Name = "blackListDataGridViewTextBoxColumn";
-            // 
-            // visitorBindingSource
-            // 
-            visitorBindingSource.DataSource = typeof(Data.Visitor);
-            // 
-            // visitorPictureBox
-            // 
-            visitorPictureBox.Cursor = Cursors.IBeam;
-            visitorPictureBox.Dock = DockStyle.Top;
-            visitorPictureBox.Image = (Image)resources.GetObject("visitorPictureBox.Image");
-            visitorPictureBox.InitialImage = (Image)resources.GetObject("visitorPictureBox.InitialImage");
-            visitorPictureBox.Location = new Point(3, 30);
-            visitorPictureBox.Name = "visitorPictureBox";
-            visitorPictureBox.Size = new Size(242, 332);
-            visitorPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            visitorPictureBox.TabIndex = 1;
-            visitorPictureBox.TabStop = false;
             // 
             // VisitorUserControl
             // 
@@ -214,17 +220,17 @@ namespace KossanVMS.UserControlPage
 
         private TableLayoutPanel tableLayoutPanel1;
         private DataGridView VisitorGridViewUserControl;
+        private BindingSource visitorBindingSource;
+        private PictureBox visitorPictureBox;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStripEditButton;
+        private ToolStripButton toolStripAddButton;
+        private ToolStripButton toolStripDelButton;
         private DataGridViewTextBoxColumn visitorIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn companyDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn photoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn blackListDataGridViewTextBoxColumn;
-        private BindingSource visitorBindingSource;
-        private PictureBox visitorPictureBox;
-        private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton3;
     }
 }

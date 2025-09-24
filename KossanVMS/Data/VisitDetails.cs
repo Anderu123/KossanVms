@@ -123,8 +123,8 @@ namespace KossanVMS.Data
     {
         [Key]
         public int VisitorID { get; set; }
-        //[Required, MaxLength(100)]
-        //public string ICNo { get; set; } = null!;
+        [Required, MaxLength(100)]
+        public string ICNo { get; set; } = null!;
         [Required, MaxLength(150)]
         public string FullName { get; set; } = null!;
         public VisitorContact Contact {get;set;} 
@@ -132,6 +132,7 @@ namespace KossanVMS.Data
         //public ICollection<VisitorBiometric> Biometrics { get; set; } = new List<VisitorBiometric>();
         public VisitorPhoto Photo { get; set; }
         public VisitorBlackList? BlackList { get; set; }
+        public ICollection<VisitRecord> VisitRecords { get; set; } = new List<VisitRecord>();
     }
 
     public class VisitRecord
