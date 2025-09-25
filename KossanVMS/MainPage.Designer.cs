@@ -92,7 +92,7 @@
             cyberButton1.Effect_2 = true;
             cyberButton1.Effect_2_ColorBackground = Color.White;
             cyberButton1.Effect_2_Transparency = 20;
-            cyberButton1.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            cyberButton1.Font = new Font("Arial", 11F);
             cyberButton1.ForeColor = Color.FromArgb(245, 245, 245);
             cyberButton1.Lighting = false;
             cyberButton1.LinearGradient_Background = false;

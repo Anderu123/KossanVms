@@ -65,6 +65,14 @@
               "target": "Package",
               "version": "[6.0.36, )"
             },
+            "OpenCvSharp4.Extensions": {
+              "target": "Package",
+              "version": "[4.11.0.20250507, )"
+            },
+            "OpenCvSharp4.Windows": {
+              "target": "Package",
+              "version": "[4.11.0.20250507, )"
+            },
             "ReaLTaiizor": {
               "target": "Package",
               "version": "[3.8.1.3, )"

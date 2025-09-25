@@ -176,7 +176,7 @@
             textboxVisitorFullName.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxVisitorFullName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxVisitorFullName.Dock = DockStyle.Fill;
-            textboxVisitorFullName.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textboxVisitorFullName.Font = new Font("Arial", 12F);
             textboxVisitorFullName.ForeColor = Color.FromArgb(245, 245, 245);
             textboxVisitorFullName.Lighting = false;
             textboxVisitorFullName.LinearGradientPen = false;
@@ -218,7 +218,7 @@
             textboxVisitorIC.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxVisitorIC.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxVisitorIC.Dock = DockStyle.Fill;
-            textboxVisitorIC.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textboxVisitorIC.Font = new Font("Arial", 12F);
             textboxVisitorIC.ForeColor = Color.FromArgb(245, 245, 245);
             textboxVisitorIC.Lighting = false;
             textboxVisitorIC.LinearGradientPen = false;
@@ -259,7 +259,7 @@
             skyComboBox1.Dock = DockStyle.Fill;
             skyComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
             skyComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            skyComboBox1.Font = new Font("Verdana", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
+            skyComboBox1.Font = new Font("Verdana", 6.75F, FontStyle.Bold);
             skyComboBox1.ForeColor = Color.FromArgb(27, 94, 137);
             skyComboBox1.FormattingEnabled = true;
             skyComboBox1.ItemHeight = 40;
@@ -314,7 +314,7 @@
             radioVisitorBlackListY.Effect_2 = true;
             radioVisitorBlackListY.Effect_2_ColorBackground = Color.White;
             radioVisitorBlackListY.Effect_2_Transparency = 15;
-            radioVisitorBlackListY.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            radioVisitorBlackListY.Font = new Font("Arial", 11F);
             radioVisitorBlackListY.ForeColor = Color.FromArgb(245, 245, 245);
             radioVisitorBlackListY.LinearGradient_Background = false;
             radioVisitorBlackListY.LinearGradient_Value = false;
@@ -356,7 +356,7 @@
             radioVisitorBlackListN.Effect_2 = true;
             radioVisitorBlackListN.Effect_2_ColorBackground = Color.White;
             radioVisitorBlackListN.Effect_2_Transparency = 15;
-            radioVisitorBlackListN.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            radioVisitorBlackListN.Font = new Font("Arial", 11F);
             radioVisitorBlackListN.ForeColor = Color.FromArgb(245, 245, 245);
             radioVisitorBlackListN.LinearGradient_Background = false;
             radioVisitorBlackListN.LinearGradient_Value = false;
@@ -408,7 +408,7 @@
             buttonVisitorVideoCapture.Effect_2 = true;
             buttonVisitorVideoCapture.Effect_2_ColorBackground = Color.White;
             buttonVisitorVideoCapture.Effect_2_Transparency = 20;
-            buttonVisitorVideoCapture.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonVisitorVideoCapture.Font = new Font("Arial", 11F);
             buttonVisitorVideoCapture.ForeColor = Color.FromArgb(245, 245, 245);
             buttonVisitorVideoCapture.Lighting = false;
             buttonVisitorVideoCapture.LinearGradient_Background = false;
@@ -426,6 +426,7 @@
             buttonVisitorVideoCapture.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             buttonVisitorVideoCapture.Timer_Effect_1 = 5;
             buttonVisitorVideoCapture.Timer_RGB = 300;
+            buttonVisitorVideoCapture.Click += buttonVisitorVideoCapture_Click;
             // 
             // foxLinkLabel1
             // 
@@ -433,7 +434,7 @@
             foxLinkLabel1.Dock = DockStyle.Left;
             foxLinkLabel1.DownColor = Color.FromArgb(255, 149, 0);
             foxLinkLabel1.EnabledCalc = true;
-            foxLinkLabel1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            foxLinkLabel1.Font = new Font("Segoe UI", 10F);
             foxLinkLabel1.ForeColor = Color.FromArgb(0, 149, 221);
             foxLinkLabel1.Location = new Point(0, 0);
             foxLinkLabel1.Name = "foxLinkLabel1";
@@ -490,7 +491,7 @@
             // 
             labelUpdateID.Customization = "/v7+/yoqKv8=";
             labelUpdateID.Dock = DockStyle.Fill;
-            labelUpdateID.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelUpdateID.Font = new Font("Verdana", 8F);
             labelUpdateID.Image = null;
             labelUpdateID.Location = new Point(142, 5);
             labelUpdateID.Name = "labelUpdateID";
@@ -514,7 +515,7 @@
             // 
             labelUpdateContact.Customization = "/v7+/yoqKv8=";
             labelUpdateContact.Dock = DockStyle.Fill;
-            labelUpdateContact.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelUpdateContact.Font = new Font("Verdana", 8F);
             labelUpdateContact.Image = null;
             labelUpdateContact.Location = new Point(0, 0);
             labelUpdateContact.Name = "labelUpdateContact";
@@ -546,7 +547,7 @@
             buttonEditContact.Effect_2 = true;
             buttonEditContact.Effect_2_ColorBackground = Color.White;
             buttonEditContact.Effect_2_Transparency = 20;
-            buttonEditContact.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEditContact.Font = new Font("Arial", 11F);
             buttonEditContact.ForeColor = Color.FromArgb(245, 245, 245);
             buttonEditContact.Lighting = false;
             buttonEditContact.LinearGradient_Background = false;
