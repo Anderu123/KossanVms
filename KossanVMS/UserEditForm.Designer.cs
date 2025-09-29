@@ -30,9 +30,12 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserEditForm));
-            parrotSlidingPanel1 = new ReaLTaiizor.Controls.ParrotSlidingPanel();
-            nightPanel1 = new ReaLTaiizor.Controls.NightPanel();
+            visitorBindingSource1 = new BindingSource(components);
+            visitorBindingSource = new BindingSource(components);
+            panel1 = new Panel();
             VisitorGridView = new DataGridView();
             visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -40,79 +43,73 @@
             Company = new DataGridViewTextBoxColumn();
             Photo = new DataGridViewTextBoxColumn();
             BlackList = new DataGridViewTextBoxColumn();
-            visitorBindingSource1 = new BindingSource(components);
             parrotToolStrip1 = new ReaLTaiizor.Controls.ParrotToolStrip();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
             toolStripButton1 = new ToolStripButton();
-            visitorBindingSource = new BindingSource(components);
-            nightPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource1).BeginInit();
-            parrotToolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridView).BeginInit();
+            parrotToolStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // parrotSlidingPanel1
+            // visitorBindingSource1
             // 
-            parrotSlidingPanel1.BottomLeft = Color.Black;
-            parrotSlidingPanel1.BottomRight = Color.DodgerBlue;
-            parrotSlidingPanel1.CollapseControl = null;
-            parrotSlidingPanel1.Collapsed = true;
-            parrotSlidingPanel1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotSlidingPanel1.Dock = DockStyle.Left;
-            parrotSlidingPanel1.HideControls = false;
-            parrotSlidingPanel1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            parrotSlidingPanel1.Location = new Point(0, 0);
-            parrotSlidingPanel1.Name = "parrotSlidingPanel1";
-            parrotSlidingPanel1.PanelWidthCollapsed = 50;
-            parrotSlidingPanel1.PanelWidthExpanded = 200;
-            parrotSlidingPanel1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotSlidingPanel1.PrimerColor = Color.White;
-            parrotSlidingPanel1.Size = new Size(87, 450);
-            parrotSlidingPanel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            parrotSlidingPanel1.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
-            parrotSlidingPanel1.TabIndex = 0;
-            parrotSlidingPanel1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            parrotSlidingPanel1.TopLeft = Color.Black;
-            parrotSlidingPanel1.TopRight = Color.Black;
+            visitorBindingSource1.DataSource = typeof(Data.Visitor);
             // 
-            // nightPanel1
+            // visitorBindingSource
             // 
-            nightPanel1.Controls.Add(VisitorGridView);
-            nightPanel1.Controls.Add(parrotToolStrip1);
-            nightPanel1.Dock = DockStyle.Fill;
-            nightPanel1.ForeColor = Color.FromArgb(250, 250, 250);
-            nightPanel1.LeftSideColor = Color.FromArgb(41, 44, 61);
-            nightPanel1.Location = new Point(87, 0);
-            nightPanel1.Name = "nightPanel1";
-            nightPanel1.RightSideColor = Color.FromArgb(41, 44, 61);
-            nightPanel1.Side = ReaLTaiizor.Controls.NightPanel.PanelSide.Left;
-            nightPanel1.Size = new Size(743, 450);
-            nightPanel1.TabIndex = 1;
+            visitorBindingSource.DataSource = typeof(Data.Visitor);
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(VisitorGridView);
+            panel1.Controls.Add(parrotToolStrip1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(830, 450);
+            panel1.TabIndex = 1;
             // 
             // VisitorGridView
             // 
             VisitorGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             VisitorGridView.AutoGenerateColumns = false;
             VisitorGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            VisitorGridView.BackgroundColor = SystemColors.ActiveCaptionText;
+            VisitorGridView.BackgroundColor = Color.PaleTurquoise;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.LightGray;
+            dataGridViewCellStyle1.SelectionBackColor = Color.PaleTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            VisitorGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             VisitorGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             VisitorGridView.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, Contact, Company, Photo, BlackList });
             VisitorGridView.DataSource = visitorBindingSource1;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(41, 44, 61);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(250, 250, 250);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            VisitorGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.LightGray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(250, 250, 250);
+            dataGridViewCellStyle2.SelectionBackColor = Color.DarkTurquoise;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            VisitorGridView.DefaultCellStyle = dataGridViewCellStyle2;
             VisitorGridView.Location = new Point(0, 25);
             VisitorGridView.Name = "VisitorGridView";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.PaleTurquoise;
+            dataGridViewCellStyle3.SelectionBackColor = Color.Turquoise;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            VisitorGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             VisitorGridView.RowTemplate.Height = 25;
-            VisitorGridView.Size = new Size(743, 425);
-            VisitorGridView.TabIndex = 1;
+            VisitorGridView.Size = new Size(830, 425);
+            VisitorGridView.TabIndex = 3;
             // 
             // visitorIDDataGridViewTextBoxColumn
             // 
@@ -150,10 +147,6 @@
             BlackList.HeaderText = "BlackList";
             BlackList.Name = "BlackList";
             // 
-            // visitorBindingSource1
-            // 
-            visitorBindingSource1.DataSource = typeof(Data.Visitor);
-            // 
             // parrotToolStrip1
             // 
             parrotToolStrip1.BackColor = Color.White;
@@ -163,8 +156,8 @@
             parrotToolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton2, toolStripButton3, toolStripButton1 });
             parrotToolStrip1.Location = new Point(0, 0);
             parrotToolStrip1.Name = "parrotToolStrip1";
-            parrotToolStrip1.Size = new Size(743, 25);
-            parrotToolStrip1.TabIndex = 0;
+            parrotToolStrip1.Size = new Size(830, 25);
+            parrotToolStrip1.TabIndex = 2;
             parrotToolStrip1.Text = "parrotToolStrip1";
             // 
             // toolStripButton2
@@ -197,38 +190,26 @@
             toolStripButton1.Size = new Size(23, 22);
             toolStripButton1.Text = "toolStripButton1";
             // 
-            // visitorBindingSource
-            // 
-            visitorBindingSource.DataSource = typeof(Data.Visitor);
-            // 
             // UserEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(830, 450);
-            Controls.Add(nightPanel1);
-            Controls.Add(parrotSlidingPanel1);
+            Controls.Add(panel1);
             Name = "UserEditForm";
             Text = "UserEditForm";
-            nightPanel1.ResumeLayout(false);
-            nightPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridView).EndInit();
             parrotToolStrip1.ResumeLayout(false);
             parrotToolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.ParrotSlidingPanel parrotSlidingPanel1;
-        private ReaLTaiizor.Controls.NightPanel nightPanel1;
-        private ReaLTaiizor.Controls.ParrotToolStrip parrotToolStrip1;
-        private ToolStripButton toolStripButton1;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton3;
         private BindingSource visitorBindingSource;
         private DataGridViewTextBoxColumn iCNoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn contactsDataGridViewTextBoxColumn;
@@ -236,6 +217,7 @@
         private DataGridViewTextBoxColumn photosDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn visitorBlackListDataGridViewTextBoxColumn;
         private BindingSource visitorBindingSource1;
+        private Panel panel1;
         private DataGridView VisitorGridView;
         private DataGridViewTextBoxColumn visitorIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
@@ -243,5 +225,9 @@
         private DataGridViewTextBoxColumn Company;
         private DataGridViewTextBoxColumn Photo;
         private DataGridViewTextBoxColumn BlackList;
+        private ReaLTaiizor.Controls.ParrotToolStrip parrotToolStrip1;
+        private ToolStripButton toolStripButton2;
+        private ToolStripButton toolStripButton3;
+        private ToolStripButton toolStripButton1;
     }
 }

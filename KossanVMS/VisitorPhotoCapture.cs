@@ -31,7 +31,7 @@ namespace KossanVMS
 
             capture.Open(0, VideoCaptureAPIs.DSHOW);
             capture.Set(VideoCaptureProperties.FourCC, VideoWriter.FourCC('M', 'J', 'P', 'G'));
-            capture.Set(VideoCaptureProperties.FrameWidth, 640);
+            capture.Set(VideoCaptureProperties.FrameWidth, 700);
             capture.Set(VideoCaptureProperties.FrameHeight, 480);
             capture.Set(VideoCaptureProperties.Fps, 15);             // 15–20fps is realistic in VB
             capture.Set(VideoCaptureProperties.BufferSize, 1);
@@ -72,7 +72,7 @@ namespace KossanVMS
             if (backgroundWorkerWebcam.IsBusy)
             {
                 backgroundWorkerWebcam.CancelAsync();
-                progressbarWebCam.Percentage = 100;
+                //progressbarWebCam.Percentage = 100;
             }
         }
 
@@ -81,7 +81,7 @@ namespace KossanVMS
             if (!backgroundWorkerWebcam.IsBusy)
             {
                 backgroundWorkerWebcam.RunWorkerAsync();
-                progressbarWebCam.Percentage = 50;
+                //progressbarWebCam.Percentage = 50;
             }
         }
         protected override void OnFormClosed(FormClosedEventArgs e)

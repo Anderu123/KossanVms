@@ -30,10 +30,10 @@ namespace KossanVMS
                 Text = "Edit Visitor";
                 visitorModel = existingVisitor;
             }
-            labelUpdateID.Text = visitorModel.VisitorID.ToString();
+            buttonUpdateID.Text = visitorModel.VisitorID.ToString();
             textboxVisitorIC.textBox.Text = visitorModel.ICNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
-            labelUpdateContact.Text = visitorModel.Contact?.Tel ?? "";
+            buttonLabelUpdateContact.Text = visitorModel.Contact?.Tel ?? "";
 
             //form alignment
             //visitorPhotoCapture = new VisitorPhotoCapture();
@@ -110,7 +110,7 @@ namespace KossanVMS
             visitorModel.ICNo = textboxVisitorIC.textBox.Text.Trim();
             visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
             visitorModel.Contact ??= new VisitorContact();
-            visitorModel.Contact.Tel = labelUpdateContact.Text?.Trim();
+            visitorModel.Contact.Tel = buttonLabelUpdateContact.Text?.Trim();
 
             return true;
         }

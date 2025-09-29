@@ -16,6 +16,9 @@
     <Compile Update="UserEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Utility\FocusableLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Utility\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>

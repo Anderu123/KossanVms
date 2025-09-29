@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Load += new System.EventHandler(this.VisitorPhotoCapture_Load);
             splitContainer1 = new SplitContainer();
             pictureBoxWebCam = new PictureBox();
             flowLayoutPanelPhotoCaptureControl = new FlowLayoutPanel();
-            progressbarWebCam = new ReaLTaiizor.Controls.ParrotCircleProgressBar();
-            buttonCapturePhoto = new ReaLTaiizor.Controls.DreamButton();
-            buttonRetakePhoto = new ReaLTaiizor.Controls.DreamButton();
-            buttonCancelPhoto = new ReaLTaiizor.Controls.DreamButton();
+            buttonCapturePhoto = new ReaLTaiizor.Controls.CyberButton();
+            buttonRetakePhoto = new ReaLTaiizor.Controls.CyberButton();
+            buttonCancelPhoto = new ReaLTaiizor.Controls.CyberButton();
             backgroundWorkerWebcam = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -59,7 +57,7 @@
             // 
             splitContainer1.Panel2.Controls.Add(flowLayoutPanelPhotoCaptureControl);
             splitContainer1.Size = new Size(800, 450);
-            splitContainer1.SplitterDistance = 665;
+            splitContainer1.SplitterDistance = 657;
             splitContainer1.TabIndex = 0;
             // 
             // pictureBoxWebCam
@@ -68,93 +66,144 @@
             pictureBoxWebCam.Dock = DockStyle.Fill;
             pictureBoxWebCam.Location = new Point(0, 0);
             pictureBoxWebCam.Name = "pictureBoxWebCam";
-            pictureBoxWebCam.Size = new Size(665, 450);
+            pictureBoxWebCam.Size = new Size(657, 450);
+            pictureBoxWebCam.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxWebCam.TabIndex = 0;
             pictureBoxWebCam.TabStop = false;
             // 
             // flowLayoutPanelPhotoCaptureControl
             // 
             flowLayoutPanelPhotoCaptureControl.BackColor = Color.FromArgb(41, 44, 61);
-            flowLayoutPanelPhotoCaptureControl.Controls.Add(progressbarWebCam);
             flowLayoutPanelPhotoCaptureControl.Controls.Add(buttonCapturePhoto);
             flowLayoutPanelPhotoCaptureControl.Controls.Add(buttonRetakePhoto);
             flowLayoutPanelPhotoCaptureControl.Controls.Add(buttonCancelPhoto);
             flowLayoutPanelPhotoCaptureControl.Dock = DockStyle.Fill;
             flowLayoutPanelPhotoCaptureControl.Location = new Point(0, 0);
             flowLayoutPanelPhotoCaptureControl.Name = "flowLayoutPanelPhotoCaptureControl";
-            flowLayoutPanelPhotoCaptureControl.Size = new Size(131, 450);
+            flowLayoutPanelPhotoCaptureControl.Size = new Size(139, 450);
             flowLayoutPanelPhotoCaptureControl.TabIndex = 0;
-            // 
-            // progressbarWebCam
-            // 
-            progressbarWebCam.AnimationSpeed = 5;
-            progressbarWebCam.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            progressbarWebCam.FilledColor = Color.FromArgb(60, 220, 210);
-            progressbarWebCam.FilledColorAlpha = 130;
-            progressbarWebCam.FilledThickness = 40;
-            progressbarWebCam.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            progressbarWebCam.IsAnimated = false;
-            progressbarWebCam.Location = new Point(3, 3);
-            progressbarWebCam.Name = "progressbarWebCam";
-            progressbarWebCam.Percentage = 50;
-            progressbarWebCam.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            progressbarWebCam.ShowText = true;
-            progressbarWebCam.Size = new Size(125, 109);
-            progressbarWebCam.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            progressbarWebCam.TabIndex = 3;
-            progressbarWebCam.TextColor = Color.Gray;
-            progressbarWebCam.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            progressbarWebCam.TextSize = 25;
-            progressbarWebCam.UnFilledColor = Color.FromArgb(114, 114, 114);
-            progressbarWebCam.UnfilledThickness = 24;
             // 
             // buttonCapturePhoto
             // 
-            buttonCapturePhoto.ColorA = Color.FromArgb(31, 31, 31);
-            buttonCapturePhoto.ColorB = Color.FromArgb(41, 41, 41);
-            buttonCapturePhoto.ColorC = Color.FromArgb(51, 51, 51);
-            buttonCapturePhoto.ColorD = Color.FromArgb(0, 0, 0, 0);
-            buttonCapturePhoto.ColorE = Color.FromArgb(25, 255, 255, 255);
-            buttonCapturePhoto.ForeColor = Color.Lime;
-            buttonCapturePhoto.Location = new Point(3, 118);
+            buttonCapturePhoto.Alpha = 20;
+            buttonCapturePhoto.BackColor = Color.Transparent;
+            buttonCapturePhoto.Background = true;
+            buttonCapturePhoto.Background_WidthPen = 6F;
+            buttonCapturePhoto.BackgroundPen = true;
+            buttonCapturePhoto.ColorBackground = Color.Lime;
+            buttonCapturePhoto.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonCapturePhoto.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonCapturePhoto.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonCapturePhoto.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonCapturePhoto.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonCapturePhoto.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonCapturePhoto.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonCapturePhoto.Effect_1 = true;
+            buttonCapturePhoto.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonCapturePhoto.Effect_1_Transparency = 25;
+            buttonCapturePhoto.Effect_2 = true;
+            buttonCapturePhoto.Effect_2_ColorBackground = Color.White;
+            buttonCapturePhoto.Effect_2_Transparency = 20;
+            buttonCapturePhoto.Font = new Font("Arial", 11F);
+            buttonCapturePhoto.ForeColor = Color.Black;
+            buttonCapturePhoto.Lighting = false;
+            buttonCapturePhoto.LinearGradient_Background = false;
+            buttonCapturePhoto.LinearGradientPen = false;
+            buttonCapturePhoto.Location = new Point(3, 3);
             buttonCapturePhoto.Name = "buttonCapturePhoto";
-            buttonCapturePhoto.Size = new Size(128, 42);
+            buttonCapturePhoto.PenWidth = 15;
+            buttonCapturePhoto.Rounding = true;
+            buttonCapturePhoto.RoundingInt = 70;
+            buttonCapturePhoto.Size = new Size(130, 50);
+            buttonCapturePhoto.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonCapturePhoto.TabIndex = 0;
-            buttonCapturePhoto.Text = "Capture";
-            buttonCapturePhoto.UseVisualStyleBackColor = true;
+            buttonCapturePhoto.Tag = "Cyber";
+            buttonCapturePhoto.TextButton = "Capture";
+            buttonCapturePhoto.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonCapturePhoto.Timer_Effect_1 = 5;
+            buttonCapturePhoto.Timer_RGB = 300;
             buttonCapturePhoto.Click += buttonCapturePhoto_Click;
             // 
             // buttonRetakePhoto
             // 
-            buttonRetakePhoto.ColorA = Color.FromArgb(31, 31, 31);
-            buttonRetakePhoto.ColorB = Color.FromArgb(41, 41, 41);
-            buttonRetakePhoto.ColorC = Color.FromArgb(51, 51, 51);
-            buttonRetakePhoto.ColorD = Color.FromArgb(0, 0, 0, 0);
-            buttonRetakePhoto.ColorE = Color.FromArgb(25, 255, 255, 255);
-            buttonRetakePhoto.ForeColor = Color.FromArgb(255, 128, 0);
-            buttonRetakePhoto.Location = new Point(3, 166);
+            buttonRetakePhoto.Alpha = 20;
+            buttonRetakePhoto.BackColor = Color.Transparent;
+            buttonRetakePhoto.Background = true;
+            buttonRetakePhoto.Background_WidthPen = 6F;
+            buttonRetakePhoto.BackgroundPen = true;
+            buttonRetakePhoto.ColorBackground = Color.FromArgb(255, 128, 0);
+            buttonRetakePhoto.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonRetakePhoto.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonRetakePhoto.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonRetakePhoto.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonRetakePhoto.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonRetakePhoto.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonRetakePhoto.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonRetakePhoto.Effect_1 = true;
+            buttonRetakePhoto.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonRetakePhoto.Effect_1_Transparency = 25;
+            buttonRetakePhoto.Effect_2 = true;
+            buttonRetakePhoto.Effect_2_ColorBackground = Color.White;
+            buttonRetakePhoto.Effect_2_Transparency = 20;
+            buttonRetakePhoto.Font = new Font("Arial", 11F);
+            buttonRetakePhoto.ForeColor = Color.Black;
+            buttonRetakePhoto.Lighting = false;
+            buttonRetakePhoto.LinearGradient_Background = false;
+            buttonRetakePhoto.LinearGradientPen = false;
+            buttonRetakePhoto.Location = new Point(3, 59);
             buttonRetakePhoto.Name = "buttonRetakePhoto";
-            buttonRetakePhoto.Size = new Size(128, 42);
-            buttonRetakePhoto.TabIndex = 1;
-            buttonRetakePhoto.Text = "Retake";
-            buttonRetakePhoto.UseVisualStyleBackColor = true;
+            buttonRetakePhoto.PenWidth = 15;
+            buttonRetakePhoto.Rounding = true;
+            buttonRetakePhoto.RoundingInt = 70;
+            buttonRetakePhoto.Size = new Size(130, 50);
+            buttonRetakePhoto.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonRetakePhoto.TabIndex = 2;
+            buttonRetakePhoto.Tag = "Cyber";
+            buttonRetakePhoto.TextButton = "Retake";
+            buttonRetakePhoto.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonRetakePhoto.Timer_Effect_1 = 5;
+            buttonRetakePhoto.Timer_RGB = 300;
             buttonRetakePhoto.Click += buttonRetakePhoto_Click;
             // 
             // buttonCancelPhoto
             // 
-            buttonCancelPhoto.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonCancelPhoto.ColorA = Color.FromArgb(31, 31, 31);
-            buttonCancelPhoto.ColorB = Color.FromArgb(41, 41, 41);
-            buttonCancelPhoto.ColorC = Color.FromArgb(51, 51, 51);
-            buttonCancelPhoto.ColorD = Color.FromArgb(0, 0, 0, 0);
-            buttonCancelPhoto.ColorE = Color.FromArgb(25, 255, 255, 255);
-            buttonCancelPhoto.ForeColor = Color.Red;
-            buttonCancelPhoto.Location = new Point(3, 214);
+            buttonCancelPhoto.Alpha = 20;
+            buttonCancelPhoto.BackColor = Color.Transparent;
+            buttonCancelPhoto.Background = true;
+            buttonCancelPhoto.Background_WidthPen = 6F;
+            buttonCancelPhoto.BackgroundPen = true;
+            buttonCancelPhoto.ColorBackground = Color.Red;
+            buttonCancelPhoto.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonCancelPhoto.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonCancelPhoto.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonCancelPhoto.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonCancelPhoto.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonCancelPhoto.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonCancelPhoto.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonCancelPhoto.Effect_1 = true;
+            buttonCancelPhoto.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonCancelPhoto.Effect_1_Transparency = 25;
+            buttonCancelPhoto.Effect_2 = true;
+            buttonCancelPhoto.Effect_2_ColorBackground = Color.White;
+            buttonCancelPhoto.Effect_2_Transparency = 20;
+            buttonCancelPhoto.Font = new Font("Arial", 11F);
+            buttonCancelPhoto.ForeColor = Color.Black;
+            buttonCancelPhoto.Lighting = false;
+            buttonCancelPhoto.LinearGradient_Background = false;
+            buttonCancelPhoto.LinearGradientPen = false;
+            buttonCancelPhoto.Location = new Point(3, 115);
             buttonCancelPhoto.Name = "buttonCancelPhoto";
-            buttonCancelPhoto.Size = new Size(128, 42);
-            buttonCancelPhoto.TabIndex = 2;
-            buttonCancelPhoto.Text = "Cancel";
-            buttonCancelPhoto.UseVisualStyleBackColor = true;
+            buttonCancelPhoto.PenWidth = 15;
+            buttonCancelPhoto.Rounding = true;
+            buttonCancelPhoto.RoundingInt = 70;
+            buttonCancelPhoto.Size = new Size(130, 50);
+            buttonCancelPhoto.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonCancelPhoto.TabIndex = 3;
+            buttonCancelPhoto.Tag = "Cyber";
+            buttonCancelPhoto.TextButton = "Cancel";
+            buttonCancelPhoto.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonCancelPhoto.Timer_Effect_1 = 5;
+            buttonCancelPhoto.Timer_RGB = 300;
             // 
             // backgroundWorkerWebcam
             // 
@@ -169,8 +218,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(splitContainer1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "VisitorPhotoCapture";
             Text = "VisitorPhotoCapture";
+            Load += VisitorPhotoCapture_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -190,10 +241,9 @@
         private SplitContainer splitContainer1;
         private PictureBox pictureBoxWebCam;
         private FlowLayoutPanel flowLayoutPanelPhotoCaptureControl;
-        private ReaLTaiizor.Controls.DreamButton buttonCapturePhoto;
-        private ReaLTaiizor.Controls.DreamButton buttonRetakePhoto;
-        private ReaLTaiizor.Controls.DreamButton buttonCancelPhoto;
         private System.ComponentModel.BackgroundWorker backgroundWorkerWebcam;
-        private ReaLTaiizor.Controls.ParrotCircleProgressBar progressbarWebCam;
+        private ReaLTaiizor.Controls.CyberButton buttonCapturePhoto;
+        private ReaLTaiizor.Controls.CyberButton buttonRetakePhoto;
+        private ReaLTaiizor.Controls.CyberButton buttonCancelPhoto;
     }
 }
