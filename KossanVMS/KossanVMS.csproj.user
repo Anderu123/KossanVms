@@ -4,16 +4,13 @@
     <Compile Update="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UserControlPage\BranchUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControlPage\VisitorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserDialogForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="UserLoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="UserEditForm.cs">
+    <Compile Update="VisitorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Utility\FocusableLabel.cs">

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ namespace KossanVMS
         private  CascadeClassifier cascadeClassifier;
         private readonly VisitorEditForm mainForm;
         private bool isMoving = false;
+        private string savePhotoFilePath = @"C:\Vms\VisitorPhotos";
         public VisitorPhotoCapture(VisitorEditForm mainForm)
         {
             this.mainForm = mainForm;
@@ -72,8 +75,28 @@ namespace KossanVMS
             if (backgroundWorkerWebcam.IsBusy)
             {
                 backgroundWorkerWebcam.CancelAsync();
+                var messageBoxResults = MessageBox.Show("Save photo?", "Save Photo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 //progressbarWebCam.Percentage = 100;
+
+                if (messageBoxResults == DialogResult.Yes)
+                {
+                    if (!Directory.Exists(savePhotoFilePath))
+                    {
+                        Directory.CreateDirectory(savePhotoFilePath);
+                    }
+                    try {
+                        pictureBoxWebCam.Image.Save(savePhotoFilePath + @"\"  + ConfigurationManager.AppSettings["branch"] + "_" + DateTime.UtcNow.ToString("yyyyMMddhhmmss") + ".jpg", ImageFormat.Jpeg);
+
+                        MessageBox.Show("Photo successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch ( Exception ex)
+                    {
+                            MessageBox.Show("Error saaving photo: " + ex.Message);
+                    }
+                }
+
             }
+            
         }
 
         private void buttonRetakePhoto_Click(object sender, EventArgs e)

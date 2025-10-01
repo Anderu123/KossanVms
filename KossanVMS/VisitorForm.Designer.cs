@@ -1,6 +1,6 @@
 ﻿namespace KossanVMS
 {
-    partial class UserEditForm
+    partial class VisitorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserEditForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisitorForm));
             visitorBindingSource1 = new BindingSource(components);
             visitorBindingSource = new BindingSource(components);
             panel1 = new Panel();

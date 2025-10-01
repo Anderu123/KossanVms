@@ -29,102 +29,104 @@ namespace KossanVMS.Data
         public DbSet<VisitorContact> VisitorContacts { get; set; }  
         public DbSet<VisitorPhoto> VisitorPhotos { get; set; }
         public DbSet<VisitRecord> VisitRecords { get; set; }
+        public DbSet<VisitPurpose> VisitPurposes { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder mb)
+        protected override void OnModelCreating(ModelBuilder model)
         {
-            base.OnModelCreating(mb);
+            base.OnModelCreating(model);
 
-            // Keys / indexes
-            mb.Entity<VisitCategory>().HasIndex(x => x.CategoryName).IsUnique();
-            mb.Entity<VisitBranch>().HasIndex(x => x.BranchName).IsUnique();
-            mb.Entity<VisitPurpose>().HasIndex(x => x.PurposeName).IsUnique();
-            // mb.Entity<Visitor>().HasIndex(x => x.ICNo).IsUnique(); // optional
+            // 1–1s: declare dependents explicitly
+            model.Entity<Visitor>()
+                .HasOne(v => v.Contact)
+                .WithOne(c => c.Visitor)
+                .HasForeignKey<VisitorContact>(c => c.VisitorID)
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // Force EF to use the int PK on Visitor explicitly (avoid any shadow PK)
-            mb.Entity<Visitor>(b =>
+            model.Entity<Visitor>()
+                .HasOne(v => v.Company)
+                .WithOne(c => c.Visitor)
+                .HasForeignKey<VisitorCompany>(c => c.VisitorID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            model.Entity<Visitor>()
+                .HasOne(v => v.Photo)
+                .WithOne(p => p.Visitor)
+                .HasForeignKey<VisitorPhoto>(p => p.VisitorID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            model.Entity<Visitor>()
+                .HasOne(v => v.BlackList)
+                .WithOne(b => b.Visitor)
+                .HasForeignKey<VisitorBlackList>(b => b.VisitorID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // VisitRecord (many-to-one): keep your delete rules
+            model.Entity<VisitRecord>()
+                .HasOne(vr => vr.Visitor)
+                .WithMany(v => v.VisitRecords)
+                .HasForeignKey(vr => vr.VisitorID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            model.Entity<VisitRecord>()
+                .HasOne(vr => vr.Branch)
+                .WithMany()
+                .HasForeignKey(vr => vr.BranchID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            model.Entity<VisitRecord>()
+                .HasOne(vr => vr.Purpose)
+                .WithMany()
+                .HasForeignKey(vr => vr.PurposeID)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            model.Entity<VisitRecord>()
+                .HasOne(vr => vr.Category)
+                .WithMany()
+                .HasForeignKey(vr => vr.CategoryID)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            // Uniques
+            model.Entity<VisitBranch>().HasIndex(x => x.BranchName).IsUnique();
+            model.Entity<VisitCategory>().HasIndex(x => x.CategoryName).IsUnique();
+            model.Entity<VisitPurpose>().HasIndex(x => x.PurposeName).IsUnique();
+            model.Entity<Visitor>().HasIndex(x => x.ICNo).IsUnique();
+
+            // Audit defaults (example)
+            foreach (var et in model.Model.GetEntityTypes()
+                     .Where(t => typeof(VmsAuditEntity).IsAssignableFrom(t.ClrType)))
             {
-                b.HasKey(v => v.VisitorID);
-                b.Property(v => v.VisitorID).ValueGeneratedOnAdd();
-            });
+                model.Entity(et.ClrType).Property("CreatedDate")
+                    .HasDefaultValueSql("GETUTCDATE()")
+                    .ValueGeneratedOnAdd();
 
-            // 1:1 Contact (dependent has unique FK VisitorID)
-            mb.Entity<VisitorContact>(b =>
-            {
-                b.HasKey(c => c.ContactID);
-                b.HasIndex(c => c.VisitorID).IsUnique();
-                b.HasOne(c => c.Visitor)
-                 .WithOne(v => v.Contact)
-                 .HasForeignKey<VisitorContact>(c => c.VisitorID)
-                 .OnDelete(DeleteBehavior.Cascade);
-            });
-
-            // 1:1 Company
-            mb.Entity<VisitorCompany>(b =>
-            {
-                b.HasKey(c => c.CompanyID);
-                b.HasIndex(c => c.VisitorID).IsUnique();
-                b.HasOne(c => c.Visitor)
-                 .WithOne(v => v.Company)
-                 .HasForeignKey<VisitorCompany>(c => c.VisitorID)
-                 .OnDelete(DeleteBehavior.Cascade);
-            });
-
-            // 1:1 Photo
-            mb.Entity<VisitorPhoto>(b =>
-            {
-                b.HasKey(p => p.PhotoID);
-                b.HasIndex(p => p.VisitorID).IsUnique();
-                b.HasOne(p => p.Visitor)
-                 .WithOne(v => v.Photo)
-                 .HasForeignKey<VisitorPhoto>(p => p.VisitorID)
-                 .OnDelete(DeleteBehavior.Cascade);
-            });
-
-            // 1:1 BlackList (PK=FK pattern)
-            mb.Entity<VisitorBlackList>(b =>
-            {
-                b.HasKey(x => x.VisitorID);
-                b.HasOne(x => x.Visitor)
-                 .WithOne(v => v.BlackList)   // <- must match the property name on Visitor
-                 .HasForeignKey<VisitorBlackList>(x => x.VisitorID)
-                 .OnDelete(DeleteBehavior.Cascade);
-            });
-
-            // Visits 1:many
-            mb.Entity<VisitRecord>(b =>
-            {
-                b.HasKey(r => r.VisitID);
-                b.HasOne(r => r.Visitor)
-                 .WithMany(v => v.VisitRecords)
-                 .HasForeignKey(r => r.VisitorID)
-                 .OnDelete(DeleteBehavior.Restrict);
-
-                b.HasOne(r => r.Branch).WithMany().HasForeignKey(r => r.BranchID).OnDelete(DeleteBehavior.Restrict);
-                b.HasOne(r => r.Purpose).WithMany().HasForeignKey(r => r.PurposeID).OnDelete(DeleteBehavior.SetNull);
-                b.HasOne(r => r.Category).WithMany().HasForeignKey(r => r.CategoryID).OnDelete(DeleteBehavior.SetNull);
-            });
-
-            // IMPORTANT: remove any old ambiguous lines like:
-            // mb.Entity<VisitorContact>().HasOne(x => x.Visitor);   // <- delete
-            // mb.Entity<VisitorPhoto>().HasOne(x => x.Visitor);     // <- delete
+                model.Entity(et.ClrType).Property("UpdatedDate")
+                    .HasDefaultValueSql("GETUTCDATE()")
+                    .ValueGeneratedOnAddOrUpdate();
+            }
         }
+
 
 
         public override int SaveChanges()
         {
             var now = DateTime.UtcNow;
-            foreach(var e in ChangeTracker.Entries())
+            foreach (var e in ChangeTracker.Entries())
             {
-                if(e.State == EntityState.Modified)
+                if (e.Entity is VmsAuditEntity aud)
                 {
-                    if(e.Properties.Any(p => p.Metadata.Name =="UpdateTime"))
+                    if (e.State == EntityState.Added)
                     {
-                        e.Property("UpdateTime").CurrentValue = now;
+                        aud.CreatedDate = now;
+                        aud.UpdatedDate = now;
+                    }
+                    else if (e.State == EntityState.Modified)
+                    {
+                        aud.UpdatedDate = now;
                     }
                 }
             }
             return base.SaveChanges();
-
         }
+
     }
 }

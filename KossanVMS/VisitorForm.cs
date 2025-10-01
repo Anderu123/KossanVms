@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace KossanVMS
 {
-    public partial class UserEditForm : Form
+    public partial class VisitorForm : Form
     {
         public BindingList<Visitor> _items = new();
-        private readonly VmsContext _db = new();
+      //  private readonly VmsContext _db = new();
 
         private Visitor? CurrentItem
         {
@@ -45,7 +45,7 @@ namespace KossanVMS
             }
 
         }
-        public UserEditForm()
+        public VisitorForm()
         {
             InitializeComponent();
             VisitorGridView.DataSource = _items;

@@ -104,10 +104,10 @@ namespace KossanVMS.UserControlPage
                 {
                     if (selectedItem.BlackList == null)
                     {
-                        selectedItem.BlackList = new VisitorBlackList { VisitorID = selectedItem.VisitorID, CreateTime = DateTime.UtcNow };
+                        selectedItem.BlackList = new VisitorBlackList { VisitorID = selectedItem.VisitorID };
                         selectedItem.BlackList.IsBlackList = true;
-                        selectedItem.BlackList.UpdateTime = DateTime.UtcNow;
-                        selectedItem.BlackList.LastEditUser = Environment.UserName;
+                        //selectedItem.BlackList.UpdateTime = DateTime.UtcNow;
+                        //selectedItem.BlackList.LastEditUser = Environment.UserName;
                     }
 
                 }
