@@ -94,6 +94,10 @@ namespace KossanVMS
                             MessageBox.Show("Error saaving photo: " + ex.Message);
                     }
                 }
+                else
+                {
+                    backgroundWorkerWebcam.RunWorkerAsync();
+                }
 
             }
             

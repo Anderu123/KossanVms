@@ -71,8 +71,8 @@ namespace KossanVMS.Data
         public string? BranchDescription { get; set; }
         [Column("branch_status")]
         public bool BranchStatus { get; set; }
-        [Column("branch_contract")]
-        public bool BranchContract { get; set; }
+        [Column("branch_connection_string")]
+        public bool BranchConnectionString { get; set; }
       
 
 

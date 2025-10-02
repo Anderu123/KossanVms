@@ -196,7 +196,7 @@ namespace KossanVMS
             textboxVisitorFullName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxVisitorFullName.Dock = DockStyle.Fill;
             textboxVisitorFullName.Font = new Font("Arial", 12F);
-            textboxVisitorFullName.ForeColor = Color.FromArgb(245, 245, 245);
+            textboxVisitorFullName.ForeColor = Color.Black;
             textboxVisitorFullName.Lighting = false;
             textboxVisitorFullName.LinearGradientPen = false;
             textboxVisitorFullName.Location = new Point(143, 122);
@@ -212,6 +212,7 @@ namespace KossanVMS
             textboxVisitorFullName.TextButton = "";
             textboxVisitorFullName.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             textboxVisitorFullName.Timer_RGB = 300;
+            textboxVisitorFullName.Load += textboxVisitorFullName_Load;
             textboxVisitorFullName.Enter += textBoxUpdate_Enter;
             textboxVisitorFullName.Leave += textBoxUpdate_Leave;
             // 
@@ -240,7 +241,7 @@ namespace KossanVMS
             textboxVisitorIC.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxVisitorIC.Dock = DockStyle.Fill;
             textboxVisitorIC.Font = new Font("Arial", 12F);
-            textboxVisitorIC.ForeColor = Color.FromArgb(245, 245, 245);
+            textboxVisitorIC.ForeColor = Color.Black;
             textboxVisitorIC.Lighting = false;
             textboxVisitorIC.LinearGradientPen = false;
             textboxVisitorIC.Location = new Point(143, 64);

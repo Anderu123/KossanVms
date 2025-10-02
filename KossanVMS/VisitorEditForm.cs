@@ -45,7 +45,7 @@ namespace KossanVMS
         // VisitorEditForm.cs
         private void VisitorEditForm_LocationChanged(object sender, EventArgs e)
         {
-            if(isMoving) return;
+            if (isMoving) return;
 
             isMoving = true;
 
@@ -64,14 +64,14 @@ namespace KossanVMS
                 visitorPhotoCapture.Location = new Point(newX, visitorPhotoCapture.Top);
                 this.Location = new Point(newX - this.Width, this.Top);
             }
-            
+
             isMoving = false;
         }
 
         // MyOtherForm.cs
         private void VisitorPhotoCaptureForm_LocationChanged(object sender, EventArgs e)
         {
-            if(isMoving) return;
+            if (isMoving) return;
 
             isMoving = true;
 
@@ -90,11 +90,11 @@ namespace KossanVMS
                 this.Location = new Point(newX, this.Top);
                 visitorPhotoCapture.Location = new Point(newX + this.Width, visitorPhotoCapture.Top);
             }
-          
+
             isMoving = false;
         }
 
-        
+
         private bool SaveResults()
         {
             var ic = (textboxVisitorIC.textBox.Text ?? "").Trim();   // trim!
@@ -158,7 +158,7 @@ namespace KossanVMS
 
         private void VisitorPhotoCapture_Load(object sender, EventArgs e)
         {
-            CenterForms(this, visitorPhotoCapture); 
+            CenterForms(this, visitorPhotoCapture);
         }
         private void CenterForms(Form leftForm, Form rightForm)
         {
@@ -192,12 +192,17 @@ namespace KossanVMS
             int totalWidth = this.Width + visitorPhotoCapture.Width;
 
             // Calculate the new starting X and Y coordinates to center them
-            int startX = (workingArea.Width - totalWidth/2);
+            int startX = (workingArea.Width - totalWidth / 2);
             int startY = (workingArea.Height - this.Height) / 2;
 
             // Apply the new location to the forms
             this.Location = new Point(startX, startY);
             visitorPhotoCapture.Location = new Point(this.Right, this.Top);
+        }
+
+        private void textboxVisitorFullName_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -1,4 +1,6 @@
-﻿namespace KossanVMS.UserControlPage
+﻿using ReaLTaiizor.Controls;
+
+namespace KossanVMS.UserControlPage
 {
     partial class BranchUserControl
     {
@@ -29,8 +31,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BranchUserControl));
             toolStrip1 = new ToolStrip();
-            BranchGridView = new DataGridView();
+            toolStripButton1 = new ToolStripButton();
+            toolStripEditButton = new ToolStripButton();
+            toolStripAddButton = new ToolStripButton();
+            BranchGridViewUserControl = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             BranchDescription = new DataGridViewTextBoxColumn();
             BranchStatus = new DataGridViewCheckBoxColumn();
@@ -42,7 +48,8 @@
             visitBranchBindingSource = new BindingSource(components);
             visitorBindingSource = new BindingSource(components);
             vmsUserBindingSource = new BindingSource(components);
-            ((System.ComponentModel.ISupportInitialize)BranchGridView).BeginInit();
+            toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)BranchGridViewUserControl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitBranchBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)vmsUserBindingSource).BeginInit();
@@ -50,26 +57,60 @@
             // 
             // toolStrip1
             // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripEditButton, toolStripAddButton });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(770, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
-            // BranchGridView
+            // toolStripButton1
             // 
-            BranchGridView.AutoGenerateColumns = false;
-            BranchGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            BranchGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            BranchGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            BranchGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, BranchDescription, BranchStatus, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
-            BranchGridView.DataSource = visitBranchBindingSource;
-            BranchGridView.Dock = DockStyle.Fill;
-            BranchGridView.Location = new Point(0, 25);
-            BranchGridView.Name = "BranchGridView";
-            BranchGridView.RowTemplate.Height = 25;
-            BranchGridView.Size = new Size(770, 365);
-            BranchGridView.TabIndex = 1;
+            toolStripButton1.Alignment = ToolStripItemAlignment.Right;
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(23, 22);
+            toolStripButton1.Text = "toolStripDelButton";
+            
+            // 
+            // toolStripEditButton
+            // 
+            toolStripEditButton.Alignment = ToolStripItemAlignment.Right;
+            toolStripEditButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripEditButton.Image = (Image)resources.GetObject("toolStripEditButton.Image");
+            toolStripEditButton.ImageTransparentColor = Color.Magenta;
+            toolStripEditButton.Name = "toolStripEditButton";
+            toolStripEditButton.Size = new Size(23, 22);
+            toolStripEditButton.Text = "toolStripButton2";
+            toolStripEditButton.Click += toolStripEditButton_Click;
+            // 
+            // toolStripAddButton
+            // 
+            toolStripAddButton.Alignment = ToolStripItemAlignment.Right;
+            toolStripAddButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripAddButton.Image = (Image)resources.GetObject("toolStripAddButton.Image");
+            toolStripAddButton.ImageTransparentColor = Color.Magenta;
+            toolStripAddButton.Name = "toolStripAddButton";
+            toolStripAddButton.Size = new Size(23, 22);
+            toolStripAddButton.Text = "toolStripButton2";
+            toolStripAddButton.Click += toolStripAddButton_Click;
+            // 
+            // BranchGridViewUserControl
+            // 
+            BranchGridViewUserControl.AutoGenerateColumns = false;
+            BranchGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            BranchGridViewUserControl.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            BranchGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BranchGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { Column1, BranchDescription, BranchStatus, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
+            BranchGridViewUserControl.DataSource = visitBranchBindingSource;
+            BranchGridViewUserControl.Dock = DockStyle.Fill;
+            BranchGridViewUserControl.Location = new Point(0, 25);
+            BranchGridViewUserControl.Name = "BranchGridViewUserControl";
+            BranchGridViewUserControl.RowTemplate.Height = 25;
+            BranchGridViewUserControl.Size = new Size(770, 365);
+            BranchGridViewUserControl.TabIndex = 1;
             // 
             // Column1
             // 
@@ -143,11 +184,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(BranchGridView);
+            Controls.Add(BranchGridViewUserControl);
             Controls.Add(toolStrip1);
             Name = "BranchUserControl";
             Size = new Size(770, 390);
-            ((System.ComponentModel.ISupportInitialize)BranchGridView).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)BranchGridViewUserControl).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitBranchBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)vmsUserBindingSource).EndInit();
@@ -158,7 +201,7 @@
         #endregion
 
         private ToolStrip toolStrip1;
-        private DataGridView BranchGridView;
+        private DataGridView BranchGridViewUserControl;
         private BindingSource visitBranchBindingSource;
         private BindingSource visitorBindingSource;
         private BindingSource vmsUserBindingSource;
@@ -170,5 +213,51 @@
         private DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn updatedDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private ToolStripButton toolStripButton1;
+        private ToolStripButton toolStripEditButton;
+        private ToolStripButton toolStripAddButton;
+
+        private void buttonUpdate_Enter(object sender, EventArgs e)
+        {
+            CyberButton clickedButton = sender as CyberButton;
+            if (clickedButton != null)
+            {
+                clickedButton.ColorBackground_Pen = Color.PaleTurquoise;
+                clickedButton.ColorBackground = Color.White;
+                clickedButton.Invalidate();
+            }
+        }
+        private void buttonUpdate_Leave(object sender, EventArgs e)
+        {
+            CyberButton clickedButton = sender as CyberButton;
+            if(clickedButton != null)
+            {
+                clickedButton.ColorBackground_Pen = Color.PaleTurquoise;
+                clickedButton.ColorBackground = Color.LightGray ;
+            }
+        }
+        private void textBoxUpdate_Enter(object sender, EventArgs e)
+        {
+            CyberTextBox clickedTextBox = sender as CyberTextBox;
+            if(clickedTextBox != null)
+            {
+                clickedTextBox.ColorBackground_Pen = Color.Turquoise;
+                clickedTextBox.ColorBackground = Color.White;
+                clickedTextBox.Invalidate();
+
+            }
+        }
+
+        private void textBoxUpdate_Leave(object sender, EventArgs e)
+        {
+            CyberTextBox clickedTextBox = sender as CyberTextBox ;
+            if(clickedTextBox != null)
+            {
+                clickedTextBox.ColorBackground_Pen = Color.Turquoise;
+                clickedTextBox.ColorBackground = Color.White;
+                clickedTextBox.Invalidate();
+
+            }
+        }
     }
 }

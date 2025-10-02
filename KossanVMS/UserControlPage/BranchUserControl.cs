@@ -15,11 +15,13 @@ namespace KossanVMS.UserControlPage
     public partial class BranchUserControl : UserControl
     {
         private readonly VmsContext _db;
+        private VisitBranch? CurrentItem => (VisitBranch)visitBranchBindingSource.Current;
         public BranchUserControl(VmsContext db)
         {
             InitializeComponent();
             _db = db;
-            BranchGridView.DataSource = visitBranchBindingSource;
+            BranchGridViewUserControl.DataSource = visitBranchBindingSource;
+            BranchGridViewUserControl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.Load += BranchUserControl_Load;
 
         }
@@ -30,7 +32,20 @@ namespace KossanVMS.UserControlPage
                 .Include(v => v.BranchName)
                 .Include(v => v.BranchDescription)
                 .LoadAsync();
+            visitBranchBindingSource.DataSource = _db.VisitBranches.Local.ToBindingList();
         }
 
+       
+        private void toolStripEditButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void toolStripAddButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
