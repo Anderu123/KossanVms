@@ -29,20 +29,23 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
+            textBoxBranchName = new ReaLTaiizor.Controls.CyberTextBox();
             thunderLabel7 = new ReaLTaiizor.Controls.ThunderLabel();
-            textBoxBranchContract = new ReaLTaiizor.Controls.CyberTextBox();
-            labelBranchContract = new ReaLTaiizor.Controls.ThunderLabel();
-            textBoxBranchStatus = new ReaLTaiizor.Controls.CyberTextBox();
+            textBoxBranchConnStr = new ReaLTaiizor.Controls.CyberTextBox();
+            labelBranchConnString = new ReaLTaiizor.Controls.ThunderLabel();
             labelBranchStatus = new ReaLTaiizor.Controls.ThunderLabel();
             labelBranchDescription = new ReaLTaiizor.Controls.ThunderLabel();
             labelBranchName = new ReaLTaiizor.Controls.ThunderLabel();
-            buttonBranchName = new ReaLTaiizor.Controls.CyberButton();
             textBoxBranchDescription = new ReaLTaiizor.Controls.CyberTextBox();
             panel1 = new Panel();
-            cyberButton3 = new ReaLTaiizor.Controls.CyberButton();
-            cyberButton2 = new ReaLTaiizor.Controls.CyberButton();
+            buttonSave = new ReaLTaiizor.Controls.CyberButton();
+            buttonCancel = new ReaLTaiizor.Controls.CyberButton();
+            radioPanelBranch = new Panel();
+            buttonBranchInactive = new ReaLTaiizor.Controls.CyberRadioButton();
+            buttonBranchActive = new ReaLTaiizor.Controls.CyberRadioButton();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
+            radioPanelBranch.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -52,16 +55,16 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.10917F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.89083F));
+            tableLayoutPanel1.Controls.Add(textBoxBranchName, 1, 0);
             tableLayoutPanel1.Controls.Add(thunderLabel7, 0, 4);
-            tableLayoutPanel1.Controls.Add(textBoxBranchContract, 1, 3);
-            tableLayoutPanel1.Controls.Add(labelBranchContract, 0, 3);
-            tableLayoutPanel1.Controls.Add(textBoxBranchStatus, 1, 2);
+            tableLayoutPanel1.Controls.Add(textBoxBranchConnStr, 1, 3);
+            tableLayoutPanel1.Controls.Add(labelBranchConnString, 0, 3);
             tableLayoutPanel1.Controls.Add(labelBranchStatus, 0, 2);
             tableLayoutPanel1.Controls.Add(labelBranchDescription, 0, 1);
             tableLayoutPanel1.Controls.Add(labelBranchName, 0, 0);
-            tableLayoutPanel1.Controls.Add(buttonBranchName, 1, 0);
             tableLayoutPanel1.Controls.Add(textBoxBranchDescription, 1, 1);
             tableLayoutPanel1.Controls.Add(panel1, 1, 4);
+            tableLayoutPanel1.Controls.Add(radioPanelBranch, 1, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -73,100 +76,100 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.9999962F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(628, 503);
+            tableLayoutPanel1.Size = new Size(702, 361);
             tableLayoutPanel1.TabIndex = 1;
+            // 
+            // textBoxBranchName
+            // 
+            textBoxBranchName.Alpha = 20;
+            textBoxBranchName.BackColor = Color.Transparent;
+            textBoxBranchName.Background_WidthPen = 6F;
+            textBoxBranchName.BackgroundPen = true;
+            textBoxBranchName.ColorBackground = Color.LightGray;
+            textBoxBranchName.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            textBoxBranchName.ColorLighting = Color.FromArgb(29, 200, 238);
+            textBoxBranchName.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            textBoxBranchName.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            textBoxBranchName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            textBoxBranchName.Dock = DockStyle.Fill;
+            textBoxBranchName.Font = new Font("Arial", 15F);
+            textBoxBranchName.ForeColor = Color.Black;
+            textBoxBranchName.Lighting = false;
+            textBoxBranchName.LinearGradientPen = false;
+            textBoxBranchName.Location = new Point(183, 6);
+            textBoxBranchName.Name = "textBoxBranchName";
+            textBoxBranchName.PenWidth = 15;
+            textBoxBranchName.RGB = false;
+            textBoxBranchName.Rounding = true;
+            textBoxBranchName.RoundingInt = 60;
+            textBoxBranchName.Size = new Size(513, 62);
+            textBoxBranchName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            textBoxBranchName.TabIndex = 15;
+            textBoxBranchName.Tag = "Cyber";
+            textBoxBranchName.TextButton = "";
+            textBoxBranchName.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            textBoxBranchName.Timer_RGB = 300;
             // 
             // thunderLabel7
             // 
             thunderLabel7.BackColor = Color.PaleTurquoise;
             thunderLabel7.Dock = DockStyle.Fill;
             thunderLabel7.ForeColor = Color.Transparent;
-            thunderLabel7.Location = new Point(6, 405);
+            thunderLabel7.Location = new Point(6, 290);
             thunderLabel7.Name = "thunderLabel7";
-            thunderLabel7.Size = new Size(149, 92);
+            thunderLabel7.Size = new Size(168, 65);
             thunderLabel7.TabIndex = 12;
             // 
-            // textBoxBranchContract
+            // textBoxBranchConnStr
             // 
-            textBoxBranchContract.Alpha = 20;
-            textBoxBranchContract.BackColor = Color.Transparent;
-            textBoxBranchContract.Background_WidthPen = 6F;
-            textBoxBranchContract.BackgroundPen = true;
-            textBoxBranchContract.ColorBackground = Color.LightGray;
-            textBoxBranchContract.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            textBoxBranchContract.ColorLighting = Color.FromArgb(29, 200, 238);
-            textBoxBranchContract.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            textBoxBranchContract.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            textBoxBranchContract.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            textBoxBranchContract.Dock = DockStyle.Fill;
-            textBoxBranchContract.Font = new Font("Arial", 22F);
-            textBoxBranchContract.ForeColor = Color.Black;
-            textBoxBranchContract.Lighting = false;
-            textBoxBranchContract.LinearGradientPen = false;
-            textBoxBranchContract.Location = new Point(164, 305);
-            textBoxBranchContract.Name = "textBoxBranchContract";
-            textBoxBranchContract.PenWidth = 15;
-            textBoxBranchContract.RGB = false;
-            textBoxBranchContract.Rounding = true;
-            textBoxBranchContract.RoundingInt = 60;
-            textBoxBranchContract.Size = new Size(458, 91);
-            textBoxBranchContract.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            textBoxBranchContract.TabIndex = 7;
-            textBoxBranchContract.Tag = "Cyber";
-            textBoxBranchContract.TextButton = "";
-            textBoxBranchContract.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            textBoxBranchContract.Timer_RGB = 300;
+            textBoxBranchConnStr.Alpha = 20;
+            textBoxBranchConnStr.BackColor = Color.Transparent;
+            textBoxBranchConnStr.Background_WidthPen = 6F;
+            textBoxBranchConnStr.BackgroundPen = true;
+            textBoxBranchConnStr.ColorBackground = Color.LightGray;
+            textBoxBranchConnStr.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            textBoxBranchConnStr.ColorLighting = Color.FromArgb(29, 200, 238);
+            textBoxBranchConnStr.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            textBoxBranchConnStr.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            textBoxBranchConnStr.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            textBoxBranchConnStr.Dock = DockStyle.Fill;
+            textBoxBranchConnStr.Font = new Font("Arial", 15F);
+            textBoxBranchConnStr.ForeColor = Color.Black;
+            textBoxBranchConnStr.Lighting = false;
+            textBoxBranchConnStr.LinearGradientPen = false;
+            textBoxBranchConnStr.Location = new Point(183, 219);
+            textBoxBranchConnStr.Name = "textBoxBranchConnStr";
+            textBoxBranchConnStr.PenWidth = 15;
+            textBoxBranchConnStr.RGB = false;
+            textBoxBranchConnStr.Rounding = true;
+            textBoxBranchConnStr.RoundingInt = 60;
+            textBoxBranchConnStr.Size = new Size(513, 62);
+            textBoxBranchConnStr.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            textBoxBranchConnStr.TabIndex = 7;
+            textBoxBranchConnStr.Tag = "Cyber";
+            textBoxBranchConnStr.TextButton = "";
+            textBoxBranchConnStr.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            textBoxBranchConnStr.Timer_RGB = 300;
             // 
-            // labelBranchContract
+            // labelBranchConnString
             // 
-            labelBranchContract.BackColor = Color.PaleTurquoise;
-            labelBranchContract.Dock = DockStyle.Fill;
-            labelBranchContract.ForeColor = Color.Transparent;
-            labelBranchContract.Location = new Point(6, 305);
-            labelBranchContract.Name = "labelBranchContract";
-            labelBranchContract.Size = new Size(149, 91);
-            labelBranchContract.TabIndex = 6;
-            labelBranchContract.Text = "BranchContract";
-            // 
-            // textBoxBranchStatus
-            // 
-            textBoxBranchStatus.Alpha = 20;
-            textBoxBranchStatus.BackColor = Color.Transparent;
-            textBoxBranchStatus.Background_WidthPen = 6F;
-            textBoxBranchStatus.BackgroundPen = true;
-            textBoxBranchStatus.ColorBackground = Color.LightGray;
-            textBoxBranchStatus.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            textBoxBranchStatus.ColorLighting = Color.FromArgb(29, 200, 238);
-            textBoxBranchStatus.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            textBoxBranchStatus.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            textBoxBranchStatus.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            textBoxBranchStatus.Dock = DockStyle.Fill;
-            textBoxBranchStatus.Font = new Font("Arial", 22F);
-            textBoxBranchStatus.ForeColor = Color.Black;
-            textBoxBranchStatus.Lighting = false;
-            textBoxBranchStatus.LinearGradientPen = false;
-            textBoxBranchStatus.Location = new Point(164, 205);
-            textBoxBranchStatus.Name = "textBoxBranchStatus";
-            textBoxBranchStatus.PenWidth = 15;
-            textBoxBranchStatus.RGB = false;
-            textBoxBranchStatus.Rounding = true;
-            textBoxBranchStatus.RoundingInt = 60;
-            textBoxBranchStatus.Size = new Size(458, 91);
-            textBoxBranchStatus.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            textBoxBranchStatus.TabIndex = 5;
-            textBoxBranchStatus.Tag = "Cyber";
-            textBoxBranchStatus.TextButton = "";
-            textBoxBranchStatus.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            textBoxBranchStatus.Timer_RGB = 300;
+            labelBranchConnString.BackColor = Color.PaleTurquoise;
+            labelBranchConnString.Dock = DockStyle.Fill;
+            labelBranchConnString.ForeColor = Color.Transparent;
+            labelBranchConnString.Location = new Point(6, 219);
+            labelBranchConnString.Name = "labelBranchConnString";
+            labelBranchConnString.Size = new Size(168, 62);
+            labelBranchConnString.TabIndex = 6;
+            labelBranchConnString.Text = "Branch Connection String";
             // 
             // labelBranchStatus
             // 
             labelBranchStatus.BackColor = Color.PaleTurquoise;
             labelBranchStatus.Dock = DockStyle.Fill;
             labelBranchStatus.ForeColor = Color.Transparent;
-            labelBranchStatus.Location = new Point(6, 205);
+            labelBranchStatus.Location = new Point(6, 148);
             labelBranchStatus.Name = "labelBranchStatus";
-            labelBranchStatus.Size = new Size(149, 91);
+            labelBranchStatus.Size = new Size(168, 62);
             labelBranchStatus.TabIndex = 4;
             labelBranchStatus.Text = "Branch Status";
             // 
@@ -175,9 +178,9 @@
             labelBranchDescription.BackColor = Color.PaleTurquoise;
             labelBranchDescription.Dock = DockStyle.Fill;
             labelBranchDescription.ForeColor = Color.Transparent;
-            labelBranchDescription.Location = new Point(6, 105);
+            labelBranchDescription.Location = new Point(6, 77);
             labelBranchDescription.Name = "labelBranchDescription";
-            labelBranchDescription.Size = new Size(149, 91);
+            labelBranchDescription.Size = new Size(168, 62);
             labelBranchDescription.TabIndex = 3;
             labelBranchDescription.Text = "Branch Description";
             // 
@@ -188,50 +191,9 @@
             labelBranchName.ForeColor = Color.Transparent;
             labelBranchName.Location = new Point(6, 6);
             labelBranchName.Name = "labelBranchName";
-            labelBranchName.Size = new Size(149, 90);
+            labelBranchName.Size = new Size(168, 62);
             labelBranchName.TabIndex = 0;
             labelBranchName.Text = "Branch Name";
-            // 
-            // buttonBranchName
-            // 
-            buttonBranchName.Alpha = 20;
-            buttonBranchName.BackColor = Color.Transparent;
-            buttonBranchName.Background = true;
-            buttonBranchName.Background_WidthPen = 6F;
-            buttonBranchName.BackgroundPen = true;
-            buttonBranchName.ColorBackground = Color.LightGray;
-            buttonBranchName.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            buttonBranchName.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            buttonBranchName.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            buttonBranchName.ColorLighting = Color.FromArgb(29, 200, 238);
-            buttonBranchName.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            buttonBranchName.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            buttonBranchName.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            buttonBranchName.Dock = DockStyle.Fill;
-            buttonBranchName.Effect_1 = true;
-            buttonBranchName.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            buttonBranchName.Effect_1_Transparency = 25;
-            buttonBranchName.Effect_2 = true;
-            buttonBranchName.Effect_2_ColorBackground = Color.White;
-            buttonBranchName.Effect_2_Transparency = 20;
-            buttonBranchName.Font = new Font("Arial", 11F);
-            buttonBranchName.ForeColor = Color.Black;
-            buttonBranchName.Lighting = false;
-            buttonBranchName.LinearGradient_Background = false;
-            buttonBranchName.LinearGradientPen = false;
-            buttonBranchName.Location = new Point(164, 6);
-            buttonBranchName.Name = "buttonBranchName";
-            buttonBranchName.PenWidth = 15;
-            buttonBranchName.Rounding = true;
-            buttonBranchName.RoundingInt = 70;
-            buttonBranchName.Size = new Size(458, 90);
-            buttonBranchName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonBranchName.TabIndex = 1;
-            buttonBranchName.Tag = "Cyber";
-            buttonBranchName.TextButton = "";
-            buttonBranchName.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            buttonBranchName.Timer_Effect_1 = 5;
-            buttonBranchName.Timer_RGB = 300;
             // 
             // textBoxBranchDescription
             // 
@@ -246,17 +208,17 @@
             textBoxBranchDescription.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textBoxBranchDescription.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textBoxBranchDescription.Dock = DockStyle.Fill;
-            textBoxBranchDescription.Font = new Font("Arial", 22F);
+            textBoxBranchDescription.Font = new Font("Arial", 15F);
             textBoxBranchDescription.ForeColor = Color.Black;
             textBoxBranchDescription.Lighting = false;
             textBoxBranchDescription.LinearGradientPen = false;
-            textBoxBranchDescription.Location = new Point(164, 105);
+            textBoxBranchDescription.Location = new Point(183, 77);
             textBoxBranchDescription.Name = "textBoxBranchDescription";
             textBoxBranchDescription.PenWidth = 15;
             textBoxBranchDescription.RGB = false;
             textBoxBranchDescription.Rounding = true;
             textBoxBranchDescription.RoundingInt = 60;
-            textBoxBranchDescription.Size = new Size(458, 91);
+            textBoxBranchDescription.Size = new Size(513, 62);
             textBoxBranchDescription.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textBoxBranchDescription.TabIndex = 2;
             textBoxBranchDescription.Tag = "Cyber";
@@ -266,106 +228,205 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(cyberButton3);
-            panel1.Controls.Add(cyberButton2);
+            panel1.Controls.Add(buttonSave);
+            panel1.Controls.Add(buttonCancel);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(164, 405);
+            panel1.Location = new Point(183, 290);
             panel1.Name = "panel1";
-            panel1.Size = new Size(458, 92);
+            panel1.Size = new Size(513, 65);
             panel1.TabIndex = 13;
             // 
-            // cyberButton3
+            // buttonSave
             // 
-            cyberButton3.Alpha = 20;
-            cyberButton3.BackColor = Color.Transparent;
-            cyberButton3.Background = true;
-            cyberButton3.Background_WidthPen = 4F;
-            cyberButton3.BackgroundPen = true;
-            cyberButton3.ColorBackground = Color.FromArgb(37, 52, 68);
-            cyberButton3.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            cyberButton3.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            cyberButton3.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberButton3.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberButton3.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            cyberButton3.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            cyberButton3.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberButton3.Dock = DockStyle.Right;
-            cyberButton3.Effect_1 = true;
-            cyberButton3.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            cyberButton3.Effect_1_Transparency = 25;
-            cyberButton3.Effect_2 = true;
-            cyberButton3.Effect_2_ColorBackground = Color.White;
-            cyberButton3.Effect_2_Transparency = 20;
-            cyberButton3.Font = new Font("Arial", 11F);
-            cyberButton3.ForeColor = Color.Lime;
-            cyberButton3.Lighting = false;
-            cyberButton3.LinearGradient_Background = false;
-            cyberButton3.LinearGradientPen = false;
-            cyberButton3.Location = new Point(198, 0);
-            cyberButton3.Name = "cyberButton3";
-            cyberButton3.PenWidth = 15;
-            cyberButton3.Rounding = true;
-            cyberButton3.RoundingInt = 70;
-            cyberButton3.Size = new Size(130, 92);
-            cyberButton3.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberButton3.TabIndex = 1;
-            cyberButton3.Tag = "Cyber";
-            cyberButton3.TextButton = "OK";
-            cyberButton3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberButton3.Timer_Effect_1 = 5;
-            cyberButton3.Timer_RGB = 300;
+            buttonSave.Alpha = 20;
+            buttonSave.BackColor = Color.Transparent;
+            buttonSave.Background = true;
+            buttonSave.Background_WidthPen = 4F;
+            buttonSave.BackgroundPen = true;
+            buttonSave.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonSave.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonSave.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonSave.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonSave.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonSave.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonSave.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonSave.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonSave.Dock = DockStyle.Right;
+            buttonSave.Effect_1 = true;
+            buttonSave.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonSave.Effect_1_Transparency = 25;
+            buttonSave.Effect_2 = true;
+            buttonSave.Effect_2_ColorBackground = Color.White;
+            buttonSave.Effect_2_Transparency = 20;
+            buttonSave.Font = new Font("Arial", 11F);
+            buttonSave.ForeColor = Color.Lime;
+            buttonSave.Lighting = false;
+            buttonSave.LinearGradient_Background = false;
+            buttonSave.LinearGradientPen = false;
+            buttonSave.Location = new Point(253, 0);
+            buttonSave.Name = "buttonSave";
+            buttonSave.PenWidth = 15;
+            buttonSave.Rounding = true;
+            buttonSave.RoundingInt = 70;
+            buttonSave.Size = new Size(130, 65);
+            buttonSave.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonSave.TabIndex = 1;
+            buttonSave.Tag = "Cyber";
+            buttonSave.TextButton = "OK";
+            buttonSave.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonSave.Timer_Effect_1 = 5;
+            buttonSave.Timer_RGB = 300;
+            buttonSave.Click += buttonSave_Click;
             // 
-            // cyberButton2
+            // buttonCancel
             // 
-            cyberButton2.Alpha = 20;
-            cyberButton2.BackColor = Color.Transparent;
-            cyberButton2.Background = true;
-            cyberButton2.Background_WidthPen = 4F;
-            cyberButton2.BackgroundPen = true;
-            cyberButton2.ColorBackground = Color.FromArgb(37, 52, 68);
-            cyberButton2.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            cyberButton2.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            cyberButton2.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberButton2.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberButton2.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            cyberButton2.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            cyberButton2.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberButton2.Dock = DockStyle.Right;
-            cyberButton2.Effect_1 = true;
-            cyberButton2.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            cyberButton2.Effect_1_Transparency = 25;
-            cyberButton2.Effect_2 = true;
-            cyberButton2.Effect_2_ColorBackground = Color.White;
-            cyberButton2.Effect_2_Transparency = 20;
-            cyberButton2.Font = new Font("Arial", 11F);
-            cyberButton2.ForeColor = Color.Red;
-            cyberButton2.Lighting = false;
-            cyberButton2.LinearGradient_Background = false;
-            cyberButton2.LinearGradientPen = false;
-            cyberButton2.Location = new Point(328, 0);
-            cyberButton2.Name = "cyberButton2";
-            cyberButton2.PenWidth = 15;
-            cyberButton2.Rounding = true;
-            cyberButton2.RoundingInt = 70;
-            cyberButton2.Size = new Size(130, 92);
-            cyberButton2.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberButton2.TabIndex = 0;
-            cyberButton2.Tag = "Cyber";
-            cyberButton2.TextButton = "Cancel";
-            cyberButton2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberButton2.Timer_Effect_1 = 5;
-            cyberButton2.Timer_RGB = 300;
+            buttonCancel.Alpha = 20;
+            buttonCancel.BackColor = Color.Transparent;
+            buttonCancel.Background = true;
+            buttonCancel.Background_WidthPen = 4F;
+            buttonCancel.BackgroundPen = true;
+            buttonCancel.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonCancel.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonCancel.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonCancel.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonCancel.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonCancel.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonCancel.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonCancel.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonCancel.Dock = DockStyle.Right;
+            buttonCancel.Effect_1 = true;
+            buttonCancel.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonCancel.Effect_1_Transparency = 25;
+            buttonCancel.Effect_2 = true;
+            buttonCancel.Effect_2_ColorBackground = Color.White;
+            buttonCancel.Effect_2_Transparency = 20;
+            buttonCancel.Font = new Font("Arial", 11F);
+            buttonCancel.ForeColor = Color.Red;
+            buttonCancel.Lighting = false;
+            buttonCancel.LinearGradient_Background = false;
+            buttonCancel.LinearGradientPen = false;
+            buttonCancel.Location = new Point(383, 0);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.PenWidth = 15;
+            buttonCancel.Rounding = true;
+            buttonCancel.RoundingInt = 70;
+            buttonCancel.Size = new Size(130, 65);
+            buttonCancel.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonCancel.TabIndex = 0;
+            buttonCancel.Tag = "Cyber";
+            buttonCancel.TextButton = "Cancel";
+            buttonCancel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonCancel.Timer_Effect_1 = 5;
+            buttonCancel.Timer_RGB = 300;
+            buttonCancel.Click += buttonCancel_Click;
+            // 
+            // radioPanelBranch
+            // 
+            radioPanelBranch.Controls.Add(buttonBranchInactive);
+            radioPanelBranch.Controls.Add(buttonBranchActive);
+            radioPanelBranch.Dock = DockStyle.Fill;
+            radioPanelBranch.Location = new Point(183, 148);
+            radioPanelBranch.Name = "radioPanelBranch";
+            radioPanelBranch.Size = new Size(513, 62);
+            radioPanelBranch.TabIndex = 14;
+            // 
+            // buttonBranchInactive
+            // 
+            buttonBranchInactive.BackColor = Color.Transparent;
+            buttonBranchInactive.Background = true;
+            buttonBranchInactive.Background_WidthPen = 2F;
+            buttonBranchInactive.BackgroundPen = true;
+            buttonBranchInactive.Checked = false;
+            buttonBranchInactive.Color_1_Background_value = Color.Empty;
+            buttonBranchInactive.Color_2_Background_value = Color.Empty;
+            buttonBranchInactive.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonBranchInactive.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonBranchInactive.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonBranchInactive.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonBranchInactive.ColorChecked = Color.FromArgb(29, 200, 238);
+            buttonBranchInactive.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonBranchInactive.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonBranchInactive.CyberRadioButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonBranchInactive.Dock = DockStyle.Left;
+            buttonBranchInactive.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonBranchInactive.Effect_1_Transparency = 25;
+            buttonBranchInactive.Effect_2 = true;
+            buttonBranchInactive.Effect_2_ColorBackground = Color.White;
+            buttonBranchInactive.Effect_2_Transparency = 15;
+            buttonBranchInactive.Font = new Font("Arial", 11F);
+            buttonBranchInactive.ForeColor = Color.FromArgb(245, 245, 245);
+            buttonBranchInactive.LinearGradient_Background = false;
+            buttonBranchInactive.LinearGradient_Value = false;
+            buttonBranchInactive.LinearGradientPen = false;
+            buttonBranchInactive.Location = new Point(180, 0);
+            buttonBranchInactive.Name = "buttonBranchInactive";
+            buttonBranchInactive.RGB = false;
+            buttonBranchInactive.Rounding = true;
+            buttonBranchInactive.RoundingInt = 100;
+            buttonBranchInactive.Size = new Size(180, 45);
+            buttonBranchInactive.SizeChecked = 8;
+            buttonBranchInactive.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonBranchInactive.TabIndex = 1;
+            buttonBranchInactive.Tag = "Cyber";
+            buttonBranchInactive.TextButton = "Inactive";
+            buttonBranchInactive.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonBranchInactive.Timer_Effect_1 = 1;
+            buttonBranchInactive.Timer_RGB = 300;
+            // 
+            // buttonBranchActive
+            // 
+            buttonBranchActive.BackColor = Color.Transparent;
+            buttonBranchActive.Background = true;
+            buttonBranchActive.Background_WidthPen = 2F;
+            buttonBranchActive.BackgroundPen = true;
+            buttonBranchActive.Checked = false;
+            buttonBranchActive.Color_1_Background_value = Color.Empty;
+            buttonBranchActive.Color_2_Background_value = Color.Empty;
+            buttonBranchActive.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonBranchActive.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonBranchActive.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonBranchActive.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonBranchActive.ColorChecked = Color.FromArgb(29, 200, 238);
+            buttonBranchActive.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonBranchActive.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonBranchActive.CyberRadioButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonBranchActive.Dock = DockStyle.Left;
+            buttonBranchActive.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonBranchActive.Effect_1_Transparency = 25;
+            buttonBranchActive.Effect_2 = true;
+            buttonBranchActive.Effect_2_ColorBackground = Color.White;
+            buttonBranchActive.Effect_2_Transparency = 15;
+            buttonBranchActive.Font = new Font("Arial", 11F);
+            buttonBranchActive.ForeColor = Color.FromArgb(245, 245, 245);
+            buttonBranchActive.LinearGradient_Background = false;
+            buttonBranchActive.LinearGradient_Value = false;
+            buttonBranchActive.LinearGradientPen = false;
+            buttonBranchActive.Location = new Point(0, 0);
+            buttonBranchActive.Name = "buttonBranchActive";
+            buttonBranchActive.RGB = false;
+            buttonBranchActive.Rounding = true;
+            buttonBranchActive.RoundingInt = 100;
+            buttonBranchActive.Size = new Size(180, 45);
+            buttonBranchActive.SizeChecked = 8;
+            buttonBranchActive.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonBranchActive.TabIndex = 0;
+            buttonBranchActive.Tag = "Cyber";
+            buttonBranchActive.TextButton = "Active";
+            buttonBranchActive.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonBranchActive.Timer_Effect_1 = 1;
+            buttonBranchActive.Timer_RGB = 300;
             // 
             // VisitBranchEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(628, 503);
+            ClientSize = new Size(702, 361);
             Controls.Add(tableLayoutPanel1);
             Name = "VisitBranchEditForm";
             Text = "VisitBranchEditForm";
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            radioPanelBranch.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -373,16 +434,18 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private ReaLTaiizor.Controls.ThunderLabel thunderLabel7;
-        private ReaLTaiizor.Controls.CyberTextBox textBoxBranchContract;
-        private ReaLTaiizor.Controls.ThunderLabel labelBranchContract;
-        private ReaLTaiizor.Controls.CyberTextBox textBoxBranchStatus;
+        private ReaLTaiizor.Controls.CyberTextBox textBoxBranchConnStr;
+        private ReaLTaiizor.Controls.ThunderLabel labelBranchConnString;
         private ReaLTaiizor.Controls.ThunderLabel labelBranchStatus;
         private ReaLTaiizor.Controls.ThunderLabel labelBranchDescription;
         private ReaLTaiizor.Controls.ThunderLabel labelBranchName;
-        private ReaLTaiizor.Controls.CyberButton buttonBranchName;
         private ReaLTaiizor.Controls.CyberTextBox textBoxBranchDescription;
         private Panel panel1;
-        private ReaLTaiizor.Controls.CyberButton cyberButton3;
-        private ReaLTaiizor.Controls.CyberButton cyberButton2;
+        private ReaLTaiizor.Controls.CyberButton buttonSave;
+        private ReaLTaiizor.Controls.CyberButton buttonCancel;
+        private Panel radioPanelBranch;
+        private ReaLTaiizor.Controls.CyberRadioButton buttonBranchActive;
+        private ReaLTaiizor.Controls.CyberRadioButton buttonBranchInactive;
+        private ReaLTaiizor.Controls.CyberTextBox textBoxBranchName;
     }
 }

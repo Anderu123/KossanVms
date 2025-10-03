@@ -17,6 +17,7 @@ namespace KossanVMS
         public Visitor visitorModel { get; set; }
         private Form visitorPhotoCapture;
         private bool isMoving = false;
+        private readonly VmsContext _db;
         public VisitorEditForm(Visitor existingVisitor = null)
         {
             InitializeComponent();

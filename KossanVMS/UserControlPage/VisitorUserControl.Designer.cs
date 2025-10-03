@@ -17,6 +17,7 @@ namespace KossanVMS.UserControlPage
         {
             if (disposing && (components != null))
             {
+                _db?.Dispose();
                 components.Dispose();
             }
             base.Dispose(disposing);

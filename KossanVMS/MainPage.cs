@@ -4,6 +4,7 @@ using MaterialSkin.Controls;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using KossanVMS.UserControlPage;
+using ReaLTaiizor.Controls;
 
 namespace KossanVMS
 {
@@ -37,9 +38,9 @@ namespace KossanVMS
 
         //    this.Region = new Region(path);
 
-        
+
         //}
-        
+
         public MainPage(VmsContext db)
         {
             InitializeComponent();
@@ -59,10 +60,35 @@ namespace KossanVMS
             //userEditForm.Show();
 
         }
-
+        private void ShowPage(UserControl page, CyberButton activeBtn)
+        {
+            mainPanel.SuspendLayout();
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(page);
+            mainPanel.ResumeLayout();
+            Control navContainer = activeBtn.Parent; // 
+            foreach (var cb in navContainer.Controls.OfType<CyberButton>())
+            {
+                bool isActive = cb == activeBtn;
+                cb.BackColor = isActive ? Color.SteelBlue : SystemColors.Control;
+                cb.ForeColor = isActive ? Color.White : SystemColors.ControlText;
+            }
+        }
         private void MainPage_Load(object sender, EventArgs e)
         {
             //toolStripLoginLabel.Text = $"Welcome, {AppSession.UserName} ({AppSession.Role})";
+        }
+
+        private void buttonNavBranch_Click(object sender, EventArgs e)
+        {
+            var visitBranch = new BranchUserControl(_db) { Dock = DockStyle.Fill };
+            ShowPage(visitBranch, buttonNavBranch);
+        }
+
+        private void buttonNavMain_Click(object sender, EventArgs e)
+        {
+            var visitForm = new VisitorUserControl(_db) { Dock = DockStyle.Fill };
+            ShowPage(visitForm, buttonNavMain);
         }
     }
 }

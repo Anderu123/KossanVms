@@ -17,6 +17,7 @@ namespace KossanVMS.UserControlPage
         {
             if (disposing && (components != null))
             {
+                _db?.Dispose();
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -37,7 +38,7 @@ namespace KossanVMS.UserControlPage
             toolStripEditButton = new ToolStripButton();
             toolStripAddButton = new ToolStripButton();
             BranchGridViewUserControl = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
+            BranchName = new DataGridViewTextBoxColumn();
             BranchDescription = new DataGridViewTextBoxColumn();
             BranchStatus = new DataGridViewCheckBoxColumn();
             createdByDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -60,7 +61,7 @@ namespace KossanVMS.UserControlPage
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripEditButton, toolStripAddButton });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(770, 25);
+            toolStrip1.Size = new Size(768, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -73,7 +74,7 @@ namespace KossanVMS.UserControlPage
             toolStripButton1.Name = "toolStripButton1";
             toolStripButton1.Size = new Size(23, 22);
             toolStripButton1.Text = "toolStripDelButton";
-            
+            toolStripButton1.Click += toolStripButton1_Click;
             // 
             // toolStripEditButton
             // 
@@ -103,21 +104,21 @@ namespace KossanVMS.UserControlPage
             BranchGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             BranchGridViewUserControl.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             BranchGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            BranchGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { Column1, BranchDescription, BranchStatus, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
+            BranchGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { BranchName, BranchDescription, BranchStatus, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
             BranchGridViewUserControl.DataSource = visitBranchBindingSource;
             BranchGridViewUserControl.Dock = DockStyle.Fill;
             BranchGridViewUserControl.Location = new Point(0, 25);
             BranchGridViewUserControl.Name = "BranchGridViewUserControl";
             BranchGridViewUserControl.RowTemplate.Height = 25;
-            BranchGridViewUserControl.Size = new Size(770, 365);
+            BranchGridViewUserControl.Size = new Size(768, 432);
             BranchGridViewUserControl.TabIndex = 1;
             // 
-            // Column1
+            // BranchName
             // 
-            Column1.DataPropertyName = "BranchID";
-            Column1.HeaderText = "BranchID";
-            Column1.Name = "Column1";
-            Column1.Width = 80;
+            BranchName.DataPropertyName = "BranchName";
+            BranchName.HeaderText = "BranchName";
+            BranchName.Name = "BranchName";
+            BranchName.Width = 101;
             // 
             // BranchDescription
             // 
@@ -184,10 +185,11 @@ namespace KossanVMS.UserControlPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             Controls.Add(BranchGridViewUserControl);
             Controls.Add(toolStrip1);
             Name = "BranchUserControl";
-            Size = new Size(770, 390);
+            Size = new Size(768, 457);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)BranchGridViewUserControl).EndInit();
@@ -205,14 +207,6 @@ namespace KossanVMS.UserControlPage
         private BindingSource visitBranchBindingSource;
         private BindingSource visitorBindingSource;
         private BindingSource vmsUserBindingSource;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn BranchDescription;
-        private DataGridViewCheckBoxColumn BranchStatus;
-        private DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn updatedDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private ToolStripButton toolStripButton1;
         private ToolStripButton toolStripEditButton;
         private ToolStripButton toolStripAddButton;
@@ -259,5 +253,13 @@ namespace KossanVMS.UserControlPage
 
             }
         }
+        private DataGridViewTextBoxColumn BranchName;
+        private DataGridViewTextBoxColumn BranchDescription;
+        private DataGridViewCheckBoxColumn BranchStatus;
+        private DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn updatedDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
     }
 }
