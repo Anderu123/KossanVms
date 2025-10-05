@@ -32,7 +32,7 @@ namespace KossanVMS
                 visitorModel = existingVisitor;
             }
             buttonUpdateID.Text = visitorModel.VisitorID.ToString();
-            textboxVisitorIC.textBox.Text = visitorModel.ICNo ?? "";
+            //textboxVisitorIC.textBox.Text = visitorModel.ICNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
             buttonLabelUpdateContact.Text = visitorModel.Contact?.Tel ?? "";
 
@@ -98,17 +98,17 @@ namespace KossanVMS
 
         private bool SaveResults()
         {
-            var ic = (textboxVisitorIC.textBox.Text ?? "").Trim();   // trim!
-            System.Diagnostics.Debug.WriteLine($"DBG name={textboxVisitorIC.Name}, text='{textboxVisitorIC.textBox.Text}', len={textboxVisitorIC.Text?.Length ?? -1}");
+            //var ic = (textboxVisitorIC.textBox.Text ?? "").Trim();   // trim!
+            //System.Diagnostics.Debug.WriteLine($"DBG name={textboxVisitorIC.Name}, text='{textboxVisitorIC.textBox.Text}', len={textboxVisitorIC.Text?.Length ?? -1}");
 
-            if (ic.Length == 0)
-            {
-                MessageBox.Show("Please fill in the Visitor IC.");
-                textboxVisitorIC.Focus();
-                return false;
-            }
+            //if (ic.Length == 0)
+            //{
+            //    MessageBox.Show("Please fill in the Visitor IC.");
+            //    textboxVisitorIC.Focus();
+            //    return false;
+            //}
             // push values back into the model (if you’re not using data-binding)
-            visitorModel.ICNo = textboxVisitorIC.textBox.Text.Trim();
+            //visitorModel.ICNo = textboxVisitorIC.textBox.Text.Trim();
             visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
             visitorModel.Contact ??= new VisitorContact();
             visitorModel.Contact.Tel = buttonLabelUpdateContact.Text?.Trim();

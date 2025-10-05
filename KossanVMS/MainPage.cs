@@ -90,5 +90,10 @@ namespace KossanVMS
             var visitForm = new VisitorUserControl(_db) { Dock = DockStyle.Fill };
             ShowPage(visitForm, buttonNavMain);
         }
+
+        private void cyberButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

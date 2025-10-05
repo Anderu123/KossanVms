@@ -36,20 +36,15 @@ namespace KossanVMS
         {
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            textboxVisitorFullName = new CyberTextBox();
             thunderLabel2 = new ThunderLabel();
             labelVisitorID = new ThunderLabel();
             thunderLabel1 = new ThunderLabel();
-            labelVisitorBlackList = new ThunderLabel();
             labelVisitorCompany = new ThunderLabel();
             labelVisitorContact = new ThunderLabel();
-            textboxVisitorFullName = new CyberTextBox();
             labelVisitorFullName = new ThunderLabel();
-            textboxVisitorIC = new CyberTextBox();
             labelVisitorIC = new ThunderLabel();
             skyComboBox1 = new SkyComboBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            radioVisitorBlackListY = new CyberRadioButton();
-            radioVisitorBlackListN = new CyberRadioButton();
             panel2 = new Panel();
             buttonVisitorVideoCapture = new CyberButton();
             foxLinkLabel1 = new FoxLinkLabel();
@@ -60,9 +55,9 @@ namespace KossanVMS
             buttonLabelUpdateContact = new CyberButton();
             buttonEditContact = new CyberButton();
             buttonUpdateID = new CyberButton();
+            maskedTextBox1 = new MaskedTextBox();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
@@ -86,101 +81,34 @@ namespace KossanVMS
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.44555F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.55445F));
-            tableLayoutPanel1.Controls.Add(thunderLabel2, 0, 7);
+            tableLayoutPanel1.Controls.Add(textboxVisitorFullName, 1, 2);
+            tableLayoutPanel1.Controls.Add(thunderLabel2, 0, 6);
             tableLayoutPanel1.Controls.Add(labelVisitorID, 0, 0);
-            tableLayoutPanel1.Controls.Add(thunderLabel1, 0, 6);
-            tableLayoutPanel1.Controls.Add(labelVisitorBlackList, 0, 5);
+            tableLayoutPanel1.Controls.Add(thunderLabel1, 0, 5);
             tableLayoutPanel1.Controls.Add(labelVisitorCompany, 0, 4);
             tableLayoutPanel1.Controls.Add(labelVisitorContact, 0, 3);
-            tableLayoutPanel1.Controls.Add(textboxVisitorFullName, 1, 2);
             tableLayoutPanel1.Controls.Add(labelVisitorFullName, 0, 2);
-            tableLayoutPanel1.Controls.Add(textboxVisitorIC, 1, 1);
             tableLayoutPanel1.Controls.Add(labelVisitorIC, 0, 1);
             tableLayoutPanel1.Controls.Add(skyComboBox1, 1, 4);
-            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 1, 5);
-            tableLayoutPanel1.Controls.Add(panel2, 1, 6);
-            tableLayoutPanel1.Controls.Add(panel3, 1, 7);
+            tableLayoutPanel1.Controls.Add(panel2, 1, 5);
+            tableLayoutPanel1.Controls.Add(panel3, 1, 6);
             tableLayoutPanel1.Controls.Add(panel4, 1, 3);
             tableLayoutPanel1.Controls.Add(buttonUpdateID, 1, 0);
+            tableLayoutPanel1.Controls.Add(maskedTextBox1, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 8;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.67901F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.4740648F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.4740725F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.4740725F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.4740725F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.4740725F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.4740667F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.4765711F));
+            tableLayoutPanel1.RowCount = 7;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.4860039F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.25185F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2518587F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2518587F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2518587F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2518559F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.254714F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(451, 468);
             tableLayoutPanel1.TabIndex = 0;
-            // 
-            // thunderLabel2
-            // 
-            thunderLabel2.BackColor = Color.PaleTurquoise;
-            thunderLabel2.Dock = DockStyle.Fill;
-            thunderLabel2.ForeColor = Color.WhiteSmoke;
-            thunderLabel2.Location = new Point(6, 412);
-            thunderLabel2.Name = "thunderLabel2";
-            thunderLabel2.Size = new Size(128, 50);
-            thunderLabel2.TabIndex = 17;
-            // 
-            // labelVisitorID
-            // 
-            labelVisitorID.BackColor = Color.PaleTurquoise;
-            labelVisitorID.Dock = DockStyle.Fill;
-            labelVisitorID.ForeColor = Color.Transparent;
-            labelVisitorID.Location = new Point(6, 6);
-            labelVisitorID.Name = "labelVisitorID";
-            labelVisitorID.Size = new Size(128, 49);
-            labelVisitorID.TabIndex = 13;
-            labelVisitorID.Text = "ID";
-            // 
-            // thunderLabel1
-            // 
-            thunderLabel1.BackColor = Color.PaleTurquoise;
-            thunderLabel1.Dock = DockStyle.Fill;
-            thunderLabel1.ForeColor = Color.Transparent;
-            thunderLabel1.Location = new Point(6, 354);
-            thunderLabel1.Name = "thunderLabel1";
-            thunderLabel1.Size = new Size(128, 49);
-            thunderLabel1.TabIndex = 10;
-            thunderLabel1.Text = "Photo";
-            // 
-            // labelVisitorBlackList
-            // 
-            labelVisitorBlackList.BackColor = Color.PaleTurquoise;
-            labelVisitorBlackList.Dock = DockStyle.Fill;
-            labelVisitorBlackList.ForeColor = Color.Transparent;
-            labelVisitorBlackList.Location = new Point(6, 296);
-            labelVisitorBlackList.Name = "labelVisitorBlackList";
-            labelVisitorBlackList.Size = new Size(128, 49);
-            labelVisitorBlackList.TabIndex = 8;
-            labelVisitorBlackList.Text = "BlackList";
-            // 
-            // labelVisitorCompany
-            // 
-            labelVisitorCompany.BackColor = Color.PaleTurquoise;
-            labelVisitorCompany.Dock = DockStyle.Fill;
-            labelVisitorCompany.ForeColor = Color.Transparent;
-            labelVisitorCompany.Location = new Point(6, 238);
-            labelVisitorCompany.Name = "labelVisitorCompany";
-            labelVisitorCompany.Size = new Size(128, 49);
-            labelVisitorCompany.TabIndex = 6;
-            labelVisitorCompany.Text = "Company";
-            // 
-            // labelVisitorContact
-            // 
-            labelVisitorContact.BackColor = Color.PaleTurquoise;
-            labelVisitorContact.Dock = DockStyle.Fill;
-            labelVisitorContact.ForeColor = Color.Transparent;
-            labelVisitorContact.Location = new Point(6, 180);
-            labelVisitorContact.Name = "labelVisitorContact";
-            labelVisitorContact.Size = new Size(128, 49);
-            labelVisitorContact.TabIndex = 4;
-            labelVisitorContact.Text = "Contact";
             // 
             // textboxVisitorFullName
             // 
@@ -195,79 +123,97 @@ namespace KossanVMS
             textboxVisitorFullName.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxVisitorFullName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxVisitorFullName.Dock = DockStyle.Fill;
-            textboxVisitorFullName.Font = new Font("Arial", 12F);
+            textboxVisitorFullName.Font = new Font("Arial", 14F);
             textboxVisitorFullName.ForeColor = Color.Black;
             textboxVisitorFullName.Lighting = false;
             textboxVisitorFullName.LinearGradientPen = false;
-            textboxVisitorFullName.Location = new Point(143, 122);
+            textboxVisitorFullName.Location = new Point(143, 139);
             textboxVisitorFullName.Name = "textboxVisitorFullName";
             textboxVisitorFullName.PenWidth = 15;
             textboxVisitorFullName.RGB = false;
             textboxVisitorFullName.Rounding = true;
             textboxVisitorFullName.RoundingInt = 60;
-            textboxVisitorFullName.Size = new Size(302, 49);
+            textboxVisitorFullName.Size = new Size(302, 57);
             textboxVisitorFullName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            textboxVisitorFullName.TabIndex = 3;
+            textboxVisitorFullName.TabIndex = 18;
             textboxVisitorFullName.Tag = "Cyber";
             textboxVisitorFullName.TextButton = "";
             textboxVisitorFullName.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             textboxVisitorFullName.Timer_RGB = 300;
-            textboxVisitorFullName.Load += textboxVisitorFullName_Load;
-            textboxVisitorFullName.Enter += textBoxUpdate_Enter;
-            textboxVisitorFullName.Leave += textBoxUpdate_Leave;
+            // 
+            // thunderLabel2
+            // 
+            thunderLabel2.BackColor = Color.PaleTurquoise;
+            thunderLabel2.Dock = DockStyle.Fill;
+            thunderLabel2.ForeColor = Color.WhiteSmoke;
+            thunderLabel2.Location = new Point(6, 403);
+            thunderLabel2.Name = "thunderLabel2";
+            thunderLabel2.Size = new Size(128, 59);
+            thunderLabel2.TabIndex = 17;
+            // 
+            // labelVisitorID
+            // 
+            labelVisitorID.BackColor = Color.PaleTurquoise;
+            labelVisitorID.Dock = DockStyle.Fill;
+            labelVisitorID.ForeColor = Color.Transparent;
+            labelVisitorID.Location = new Point(6, 6);
+            labelVisitorID.Name = "labelVisitorID";
+            labelVisitorID.Size = new Size(128, 58);
+            labelVisitorID.TabIndex = 13;
+            labelVisitorID.Text = "ID";
+            // 
+            // thunderLabel1
+            // 
+            thunderLabel1.BackColor = Color.PaleTurquoise;
+            thunderLabel1.Dock = DockStyle.Fill;
+            thunderLabel1.ForeColor = Color.Transparent;
+            thunderLabel1.Location = new Point(6, 337);
+            thunderLabel1.Name = "thunderLabel1";
+            thunderLabel1.Size = new Size(128, 57);
+            thunderLabel1.TabIndex = 10;
+            thunderLabel1.Text = "Photo";
+            // 
+            // labelVisitorCompany
+            // 
+            labelVisitorCompany.BackColor = Color.PaleTurquoise;
+            labelVisitorCompany.Dock = DockStyle.Fill;
+            labelVisitorCompany.ForeColor = Color.Transparent;
+            labelVisitorCompany.Location = new Point(6, 271);
+            labelVisitorCompany.Name = "labelVisitorCompany";
+            labelVisitorCompany.Size = new Size(128, 57);
+            labelVisitorCompany.TabIndex = 6;
+            labelVisitorCompany.Text = "Company";
+            // 
+            // labelVisitorContact
+            // 
+            labelVisitorContact.BackColor = Color.PaleTurquoise;
+            labelVisitorContact.Dock = DockStyle.Fill;
+            labelVisitorContact.ForeColor = Color.Transparent;
+            labelVisitorContact.Location = new Point(6, 205);
+            labelVisitorContact.Name = "labelVisitorContact";
+            labelVisitorContact.Size = new Size(128, 57);
+            labelVisitorContact.TabIndex = 4;
+            labelVisitorContact.Text = "Contact";
             // 
             // labelVisitorFullName
             // 
             labelVisitorFullName.BackColor = Color.PaleTurquoise;
             labelVisitorFullName.Dock = DockStyle.Fill;
             labelVisitorFullName.ForeColor = Color.Transparent;
-            labelVisitorFullName.Location = new Point(6, 122);
+            labelVisitorFullName.Location = new Point(6, 139);
             labelVisitorFullName.Name = "labelVisitorFullName";
-            labelVisitorFullName.Size = new Size(128, 49);
+            labelVisitorFullName.Size = new Size(128, 57);
             labelVisitorFullName.TabIndex = 2;
             labelVisitorFullName.Text = "Full Name";
-            // 
-            // textboxVisitorIC
-            // 
-            textboxVisitorIC.Alpha = 20;
-            textboxVisitorIC.BackColor = Color.Transparent;
-            textboxVisitorIC.Background_WidthPen = 6F;
-            textboxVisitorIC.BackgroundPen = true;
-            textboxVisitorIC.ColorBackground = Color.LightGray;
-            textboxVisitorIC.ColorBackground_Pen = Color.PaleTurquoise;
-            textboxVisitorIC.ColorLighting = Color.FromArgb(29, 200, 238);
-            textboxVisitorIC.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            textboxVisitorIC.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            textboxVisitorIC.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            textboxVisitorIC.Dock = DockStyle.Fill;
-            textboxVisitorIC.Font = new Font("Arial", 12F);
-            textboxVisitorIC.ForeColor = Color.Black;
-            textboxVisitorIC.Lighting = false;
-            textboxVisitorIC.LinearGradientPen = false;
-            textboxVisitorIC.Location = new Point(143, 64);
-            textboxVisitorIC.Name = "textboxVisitorIC";
-            textboxVisitorIC.PenWidth = 15;
-            textboxVisitorIC.RGB = false;
-            textboxVisitorIC.Rounding = true;
-            textboxVisitorIC.RoundingInt = 60;
-            textboxVisitorIC.Size = new Size(302, 49);
-            textboxVisitorIC.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            textboxVisitorIC.TabIndex = 0;
-            textboxVisitorIC.Tag = "Cyber";
-            textboxVisitorIC.TextButton = "";
-            textboxVisitorIC.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            textboxVisitorIC.Timer_RGB = 300;
-            textboxVisitorIC.Enter += textBoxUpdate_Enter;
-            textboxVisitorIC.Leave += textBoxUpdate_Leave;
             // 
             // labelVisitorIC
             // 
             labelVisitorIC.BackColor = Color.PaleTurquoise;
             labelVisitorIC.Dock = DockStyle.Fill;
             labelVisitorIC.ForeColor = Color.Transparent;
-            labelVisitorIC.Location = new Point(6, 64);
+            labelVisitorIC.Location = new Point(6, 73);
             labelVisitorIC.Name = "labelVisitorIC";
-            labelVisitorIC.Size = new Size(128, 49);
+            labelVisitorIC.Size = new Size(128, 57);
             labelVisitorIC.TabIndex = 1;
             labelVisitorIC.Text = "IC";
             // 
@@ -297,7 +243,7 @@ namespace KossanVMS
             skyComboBox1.ListForeColor = Color.Black;
             skyComboBox1.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
             skyComboBox1.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
-            skyComboBox1.Location = new Point(143, 238);
+            skyComboBox1.Location = new Point(143, 271);
             skyComboBox1.Name = "skyComboBox1";
             skyComboBox1.Size = new Size(302, 46);
             skyComboBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -306,110 +252,14 @@ namespace KossanVMS
             skyComboBox1.TriangleColorA = Color.FromArgb(121, 176, 214);
             skyComboBox1.TriangleColorB = Color.FromArgb(27, 94, 137);
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.BackColor = Color.PaleTurquoise;
-            flowLayoutPanel1.Controls.Add(radioVisitorBlackListY);
-            flowLayoutPanel1.Controls.Add(radioVisitorBlackListN);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.ForeColor = Color.PaleTurquoise;
-            flowLayoutPanel1.Location = new Point(143, 296);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(302, 49);
-            flowLayoutPanel1.TabIndex = 9;
-            // 
-            // radioVisitorBlackListY
-            // 
-            radioVisitorBlackListY.BackColor = Color.Transparent;
-            radioVisitorBlackListY.Background = true;
-            radioVisitorBlackListY.Background_WidthPen = 2F;
-            radioVisitorBlackListY.BackgroundPen = true;
-            radioVisitorBlackListY.Checked = false;
-            radioVisitorBlackListY.Color_1_Background_value = Color.Empty;
-            radioVisitorBlackListY.Color_2_Background_value = Color.Empty;
-            radioVisitorBlackListY.ColorBackground = Color.FromArgb(37, 52, 68);
-            radioVisitorBlackListY.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            radioVisitorBlackListY.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            radioVisitorBlackListY.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            radioVisitorBlackListY.ColorChecked = Color.FromArgb(29, 200, 238);
-            radioVisitorBlackListY.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            radioVisitorBlackListY.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            radioVisitorBlackListY.CyberRadioButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            radioVisitorBlackListY.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            radioVisitorBlackListY.Effect_1_Transparency = 25;
-            radioVisitorBlackListY.Effect_2 = true;
-            radioVisitorBlackListY.Effect_2_ColorBackground = Color.White;
-            radioVisitorBlackListY.Effect_2_Transparency = 15;
-            radioVisitorBlackListY.Font = new Font("Arial", 11F);
-            radioVisitorBlackListY.ForeColor = Color.Black;
-            radioVisitorBlackListY.LinearGradient_Background = false;
-            radioVisitorBlackListY.LinearGradient_Value = false;
-            radioVisitorBlackListY.LinearGradientPen = false;
-            radioVisitorBlackListY.Location = new Point(3, 3);
-            radioVisitorBlackListY.Name = "radioVisitorBlackListY";
-            radioVisitorBlackListY.RGB = false;
-            radioVisitorBlackListY.Rounding = true;
-            radioVisitorBlackListY.RoundingInt = 100;
-            radioVisitorBlackListY.Size = new Size(102, 45);
-            radioVisitorBlackListY.SizeChecked = 8;
-            radioVisitorBlackListY.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            radioVisitorBlackListY.TabIndex = 0;
-            radioVisitorBlackListY.Tag = "Cyber";
-            radioVisitorBlackListY.TextButton = "Y";
-            radioVisitorBlackListY.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            radioVisitorBlackListY.Timer_Effect_1 = 1;
-            radioVisitorBlackListY.Timer_RGB = 300;
-            // 
-            // radioVisitorBlackListN
-            // 
-            radioVisitorBlackListN.BackColor = Color.Transparent;
-            radioVisitorBlackListN.Background = true;
-            radioVisitorBlackListN.Background_WidthPen = 2F;
-            radioVisitorBlackListN.BackgroundPen = true;
-            radioVisitorBlackListN.Checked = false;
-            radioVisitorBlackListN.Color_1_Background_value = Color.Empty;
-            radioVisitorBlackListN.Color_2_Background_value = Color.Empty;
-            radioVisitorBlackListN.ColorBackground = Color.FromArgb(37, 52, 68);
-            radioVisitorBlackListN.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            radioVisitorBlackListN.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            radioVisitorBlackListN.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            radioVisitorBlackListN.ColorChecked = Color.FromArgb(29, 200, 238);
-            radioVisitorBlackListN.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            radioVisitorBlackListN.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            radioVisitorBlackListN.CyberRadioButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            radioVisitorBlackListN.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            radioVisitorBlackListN.Effect_1_Transparency = 25;
-            radioVisitorBlackListN.Effect_2 = true;
-            radioVisitorBlackListN.Effect_2_ColorBackground = Color.White;
-            radioVisitorBlackListN.Effect_2_Transparency = 15;
-            radioVisitorBlackListN.Font = new Font("Arial", 11F);
-            radioVisitorBlackListN.ForeColor = Color.Black;
-            radioVisitorBlackListN.LinearGradient_Background = false;
-            radioVisitorBlackListN.LinearGradient_Value = false;
-            radioVisitorBlackListN.LinearGradientPen = false;
-            radioVisitorBlackListN.Location = new Point(111, 3);
-            radioVisitorBlackListN.Name = "radioVisitorBlackListN";
-            radioVisitorBlackListN.RGB = false;
-            radioVisitorBlackListN.Rounding = true;
-            radioVisitorBlackListN.RoundingInt = 100;
-            radioVisitorBlackListN.Size = new Size(102, 45);
-            radioVisitorBlackListN.SizeChecked = 8;
-            radioVisitorBlackListN.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            radioVisitorBlackListN.TabIndex = 1;
-            radioVisitorBlackListN.Tag = "Cyber";
-            radioVisitorBlackListN.TextButton = "N";
-            radioVisitorBlackListN.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            radioVisitorBlackListN.Timer_Effect_1 = 1;
-            radioVisitorBlackListN.Timer_RGB = 300;
-            // 
             // panel2
             // 
             panel2.Controls.Add(buttonVisitorVideoCapture);
             panel2.Controls.Add(foxLinkLabel1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(143, 354);
+            panel2.Location = new Point(143, 337);
             panel2.Name = "panel2";
-            panel2.Size = new Size(302, 49);
+            panel2.Size = new Size(302, 57);
             panel2.TabIndex = 11;
             // 
             // buttonVisitorVideoCapture
@@ -444,7 +294,7 @@ namespace KossanVMS
             buttonVisitorVideoCapture.PenWidth = 15;
             buttonVisitorVideoCapture.Rounding = true;
             buttonVisitorVideoCapture.RoundingInt = 70;
-            buttonVisitorVideoCapture.Size = new Size(101, 49);
+            buttonVisitorVideoCapture.Size = new Size(101, 57);
             buttonVisitorVideoCapture.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonVisitorVideoCapture.TabIndex = 1;
             buttonVisitorVideoCapture.Tag = "Cyber";
@@ -465,7 +315,7 @@ namespace KossanVMS
             foxLinkLabel1.Location = new Point(0, 0);
             foxLinkLabel1.Name = "foxLinkLabel1";
             foxLinkLabel1.OverColor = Color.FromArgb(23, 140, 229);
-            foxLinkLabel1.Size = new Size(201, 49);
+            foxLinkLabel1.Size = new Size(201, 57);
             foxLinkLabel1.TabIndex = 0;
             foxLinkLabel1.Text = "foxLinkLabel1";
             // 
@@ -475,9 +325,9 @@ namespace KossanVMS
             panel3.Controls.Add(buttonSave);
             panel3.Controls.Add(cyberButton1);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(143, 412);
+            panel3.Location = new Point(143, 403);
             panel3.Name = "panel3";
-            panel3.Size = new Size(302, 50);
+            panel3.Size = new Size(302, 59);
             panel3.TabIndex = 12;
             // 
             // buttonSave
@@ -512,7 +362,7 @@ namespace KossanVMS
             buttonSave.PenWidth = 15;
             buttonSave.Rounding = true;
             buttonSave.RoundingInt = 70;
-            buttonSave.Size = new Size(103, 50);
+            buttonSave.Size = new Size(103, 59);
             buttonSave.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonSave.TabIndex = 4;
             buttonSave.Tag = "Cyber";
@@ -553,7 +403,7 @@ namespace KossanVMS
             cyberButton1.PenWidth = 15;
             cyberButton1.Rounding = true;
             cyberButton1.RoundingInt = 70;
-            cyberButton1.Size = new Size(103, 50);
+            cyberButton1.Size = new Size(103, 59);
             cyberButton1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberButton1.TabIndex = 3;
             cyberButton1.Tag = "Cyber";
@@ -567,9 +417,9 @@ namespace KossanVMS
             panel4.Controls.Add(buttonLabelUpdateContact);
             panel4.Controls.Add(buttonEditContact);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(143, 180);
+            panel4.Location = new Point(143, 205);
             panel4.Name = "panel4";
-            panel4.Size = new Size(302, 49);
+            panel4.Size = new Size(302, 57);
             panel4.TabIndex = 15;
             // 
             // buttonLabelUpdateContact
@@ -605,7 +455,7 @@ namespace KossanVMS
             buttonLabelUpdateContact.RightToLeft = RightToLeft.No;
             buttonLabelUpdateContact.Rounding = true;
             buttonLabelUpdateContact.RoundingInt = 70;
-            buttonLabelUpdateContact.Size = new Size(199, 49);
+            buttonLabelUpdateContact.Size = new Size(199, 57);
             buttonLabelUpdateContact.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonLabelUpdateContact.TabIndex = 17;
             buttonLabelUpdateContact.Tag = "Cyber";
@@ -646,7 +496,7 @@ namespace KossanVMS
             buttonEditContact.PenWidth = 15;
             buttonEditContact.Rounding = true;
             buttonEditContact.RoundingInt = 70;
-            buttonEditContact.Size = new Size(103, 49);
+            buttonEditContact.Size = new Size(103, 57);
             buttonEditContact.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonEditContact.TabIndex = 2;
             buttonEditContact.Tag = "Cyber";
@@ -688,7 +538,7 @@ namespace KossanVMS
             buttonUpdateID.RightToLeft = RightToLeft.No;
             buttonUpdateID.Rounding = true;
             buttonUpdateID.RoundingInt = 70;
-            buttonUpdateID.Size = new Size(302, 49);
+            buttonUpdateID.Size = new Size(302, 58);
             buttonUpdateID.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonUpdateID.TabIndex = 16;
             buttonUpdateID.Tag = "Cyber";
@@ -698,6 +548,17 @@ namespace KossanVMS
             buttonUpdateID.Timer_RGB = 300;
             buttonUpdateID.Enter += buttonUpdate_Enter;
             buttonUpdateID.Leave += buttonUpdate_Leave;
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Dock = DockStyle.Fill;
+            maskedTextBox1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox1.Location = new Point(145, 75);
+            maskedTextBox1.Margin = new Padding(5);
+            maskedTextBox1.Mask = "000000-00-0000";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(298, 50);
+            maskedTextBox1.TabIndex = 19;
             // 
             // VisitorEditForm
             // 
@@ -714,7 +575,7 @@ namespace KossanVMS
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
@@ -725,17 +586,11 @@ namespace KossanVMS
 
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
-        private ReaLTaiizor.Controls.CyberTextBox textboxVisitorIC;
         private ReaLTaiizor.Controls.ThunderLabel labelVisitorIC;
-        private ReaLTaiizor.Controls.CyberTextBox textboxVisitorFullName;
         private ReaLTaiizor.Controls.ThunderLabel labelVisitorFullName;
         private ReaLTaiizor.Controls.ThunderLabel labelVisitorContact;
         private ReaLTaiizor.Controls.ThunderLabel labelVisitorCompany;
-        private ReaLTaiizor.Controls.ThunderLabel labelVisitorBlackList;
         private ReaLTaiizor.Controls.SkyComboBox skyComboBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private ReaLTaiizor.Controls.CyberRadioButton radioVisitorBlackListY;
-        private ReaLTaiizor.Controls.CyberRadioButton radioVisitorBlackListN;
         private ReaLTaiizor.Controls.ThunderLabel thunderLabel1;
         private Panel panel2;
         private ReaLTaiizor.Controls.CyberButton buttonVisitorVideoCapture;
@@ -800,5 +655,7 @@ namespace KossanVMS
         private CyberButton buttonLabelUpdateContact;
         private CyberButton buttonSave;
         private CyberButton cyberButton1;
+        private CyberTextBox textboxVisitorFullName;
+        private MaskedTextBox maskedTextBox1;
     }
 }
