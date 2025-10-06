@@ -15,7 +15,7 @@ namespace KossanVMS.Data
         Admin = 1
     }
     [Table("vms_users")]
-    public class VmsUser : VmsAuditEntity
+    public class VmsUser 
     {
         [Column("id")]
         public int Id { get;set; }
@@ -23,16 +23,25 @@ namespace KossanVMS.Data
         [Required, MaxLength(50)]
         public string UserName { get; set; }
         [Column("password_hash")]
-        [Required]
-        public byte[] PasswordHash { get; set; } = Array.Empty<byte>();
+        
+        public byte[]? PasswordHash { get; set; } = Array.Empty<byte>();
         [Column("password_salt")]
-        [Required]
-        public byte[] PasswordSalt { get; set; } = Array.Empty<byte> ();
+   
+        public byte[]? PasswordSalt { get; set; } = Array.Empty<byte> ();
         [Column("user_role")]
         [Required]
         public UserRole Role { get; set; } = UserRole.User;
+        [Column("status")]
+        public int? Status { get; set; } = 1;
+        [Column("created_by")]
+        public int? CreatedBy { get; set; }
+        [Column("created_date")]
+        public DateTime? CreatedDate { get; set; }
+        [Column("updated_by")]
+        public int? UpdatedBy { get; set; }
+        [Column("updated_date")]
+        public DateTime? UpdatedDate { get; set; }
 
-       
 
     }
     public static class PasswordHelper

@@ -247,6 +247,7 @@
             cyberButton1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             cyberButton1.Timer_Effect_1 = 5;
             cyberButton1.Timer_RGB = 300;
+            cyberButton1.Visible = false;
             cyberButton1.Click += cyberButton1_Click;
             // 
             // buttonNavBranch
