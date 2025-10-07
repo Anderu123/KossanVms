@@ -1,4 +1,7 @@
-﻿using System;
+﻿using KossanVMS.Data;
+using KossanVMS.Utility;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,24 +10,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KossanVMS.Data;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace KossanVMS
 {
+    
     public partial class VisitorEditForm : Form
     {
         public Visitor visitorModel { get; set; }
         private Form visitorPhotoCapture;
         private bool isMoving = false;
         private readonly VmsContext _db;
+        private bool _isNew = false;
+        private List<VisitCategory> _category { get; set; }
+        
         public VisitorEditForm(Visitor existingVisitor = null)
         {
             InitializeComponent();
+            _db = new VmsContext();
             if (existingVisitor == null)
             {
                 Text = "Add Visitor";
                 visitorModel = new Visitor();
+                _isNew = true;
             }
             else
             {
@@ -41,9 +48,46 @@ namespace KossanVMS
             //this.LocationChanged += VisitorEditForm_LocationChanged;
             //visitorPhotoCapture.LocationChanged += VisitorPhotoCaptureForm_LocationChanged;
 
+            LoadCategoryCheckList();
+          
+
+
+            }
+        // VisitorEditForm.cs
+        // VisitorEditForm.cs
+
+        private void LoadCategoryCheckList()
+        {
+            checkedListBoxCat.Items.Clear();
+
+            // master list
+            var allCats = _db.VisitCategories
+                             .OrderBy(c => c.CategoryName)
+                             .ToList();
+
+            // currently linked (only if editing)
+            
+            var linkedIds = _isNew
+                ? new List<int>()
+                : _db.VisitorCategoryLinks
+                     .Where(x => x.VisitorID == visitorModel.VisitorID)
+                     .Select(x => x.CategoryID)
+                     .ToList();
+
+            // add items (objects)
+            for (int i = 0; i < allCats.Count; i++)
+            {
+                var cat = allCats[i];
+                int idx = checkedListBoxCat.Items.Add(new ListItem
+                {
+                    Id = cat.CategoryID,
+                    Text = cat.CategoryName
+                });
+
+                if (linkedIds.Contains(cat.CategoryID))
+                    checkedListBoxCat.SetItemChecked(idx, true);
+            }
         }
-        // VisitorEditForm.cs
-        // VisitorEditForm.cs
         private void VisitorEditForm_LocationChanged(object sender, EventArgs e)
         {
             if (isMoving) return;

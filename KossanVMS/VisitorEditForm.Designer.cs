@@ -36,6 +36,7 @@ namespace KossanVMS
         {
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            thunderLabel3 = new ThunderLabel();
             textboxVisitorFullName = new CyberTextBox();
             thunderLabel2 = new ThunderLabel();
             labelVisitorID = new ThunderLabel();
@@ -56,6 +57,7 @@ namespace KossanVMS
             buttonEditContact = new CyberButton();
             buttonUpdateID = new CyberButton();
             maskedTextBox1 = new MaskedTextBox();
+            checkedListBoxCat = new CheckedListBox();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -70,7 +72,7 @@ namespace KossanVMS
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(451, 468);
+            panel1.Size = new Size(451, 523);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -81,8 +83,9 @@ namespace KossanVMS
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.44555F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.55445F));
+            tableLayoutPanel1.Controls.Add(thunderLabel3, 0, 6);
             tableLayoutPanel1.Controls.Add(textboxVisitorFullName, 1, 2);
-            tableLayoutPanel1.Controls.Add(thunderLabel2, 0, 6);
+            tableLayoutPanel1.Controls.Add(thunderLabel2, 0, 7);
             tableLayoutPanel1.Controls.Add(labelVisitorID, 0, 0);
             tableLayoutPanel1.Controls.Add(thunderLabel1, 0, 5);
             tableLayoutPanel1.Controls.Add(labelVisitorCompany, 0, 4);
@@ -91,24 +94,36 @@ namespace KossanVMS
             tableLayoutPanel1.Controls.Add(labelVisitorIC, 0, 1);
             tableLayoutPanel1.Controls.Add(skyComboBox1, 1, 4);
             tableLayoutPanel1.Controls.Add(panel2, 1, 5);
-            tableLayoutPanel1.Controls.Add(panel3, 1, 6);
+            tableLayoutPanel1.Controls.Add(panel3, 1, 7);
             tableLayoutPanel1.Controls.Add(panel4, 1, 3);
             tableLayoutPanel1.Controls.Add(buttonUpdateID, 1, 0);
             tableLayoutPanel1.Controls.Add(maskedTextBox1, 1, 1);
+            tableLayoutPanel1.Controls.Add(checkedListBoxCat, 1, 6);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 7;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.4860039F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.25185F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2518587F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2518587F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2518587F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2518559F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.254714F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(451, 468);
+            tableLayoutPanel1.RowCount = 8;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1003828F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.9209585F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.9209642F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.9209642F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.9209642F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.9209642F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 23.3716488F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.92315F));
+            tableLayoutPanel1.Size = new Size(451, 523);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // thunderLabel3
+            // 
+            thunderLabel3.BackColor = Color.PaleTurquoise;
+            thunderLabel3.Dock = DockStyle.Fill;
+            thunderLabel3.ForeColor = Color.Transparent;
+            thunderLabel3.Location = new Point(6, 349);
+            thunderLabel3.Name = "thunderLabel3";
+            thunderLabel3.Size = new Size(128, 109);
+            thunderLabel3.TabIndex = 21;
+            thunderLabel3.Text = "Category";
             // 
             // textboxVisitorFullName
             // 
@@ -123,17 +138,17 @@ namespace KossanVMS
             textboxVisitorFullName.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxVisitorFullName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxVisitorFullName.Dock = DockStyle.Fill;
-            textboxVisitorFullName.Font = new Font("Arial", 14F);
+            textboxVisitorFullName.Font = new Font("Arial", 12F);
             textboxVisitorFullName.ForeColor = Color.Black;
             textboxVisitorFullName.Lighting = false;
             textboxVisitorFullName.LinearGradientPen = false;
-            textboxVisitorFullName.Location = new Point(143, 139);
+            textboxVisitorFullName.Location = new Point(143, 121);
             textboxVisitorFullName.Name = "textboxVisitorFullName";
             textboxVisitorFullName.PenWidth = 15;
             textboxVisitorFullName.RGB = false;
             textboxVisitorFullName.Rounding = true;
             textboxVisitorFullName.RoundingInt = 60;
-            textboxVisitorFullName.Size = new Size(302, 57);
+            textboxVisitorFullName.Size = new Size(302, 48);
             textboxVisitorFullName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxVisitorFullName.TabIndex = 18;
             textboxVisitorFullName.Tag = "Cyber";
@@ -146,9 +161,9 @@ namespace KossanVMS
             thunderLabel2.BackColor = Color.PaleTurquoise;
             thunderLabel2.Dock = DockStyle.Fill;
             thunderLabel2.ForeColor = Color.WhiteSmoke;
-            thunderLabel2.Location = new Point(6, 403);
+            thunderLabel2.Location = new Point(6, 467);
             thunderLabel2.Name = "thunderLabel2";
-            thunderLabel2.Size = new Size(128, 59);
+            thunderLabel2.Size = new Size(128, 50);
             thunderLabel2.TabIndex = 17;
             // 
             // labelVisitorID
@@ -158,7 +173,7 @@ namespace KossanVMS
             labelVisitorID.ForeColor = Color.Transparent;
             labelVisitorID.Location = new Point(6, 6);
             labelVisitorID.Name = "labelVisitorID";
-            labelVisitorID.Size = new Size(128, 58);
+            labelVisitorID.Size = new Size(128, 49);
             labelVisitorID.TabIndex = 13;
             labelVisitorID.Text = "ID";
             // 
@@ -167,9 +182,9 @@ namespace KossanVMS
             thunderLabel1.BackColor = Color.PaleTurquoise;
             thunderLabel1.Dock = DockStyle.Fill;
             thunderLabel1.ForeColor = Color.Transparent;
-            thunderLabel1.Location = new Point(6, 337);
+            thunderLabel1.Location = new Point(6, 292);
             thunderLabel1.Name = "thunderLabel1";
-            thunderLabel1.Size = new Size(128, 57);
+            thunderLabel1.Size = new Size(128, 48);
             thunderLabel1.TabIndex = 10;
             thunderLabel1.Text = "Photo";
             // 
@@ -178,9 +193,9 @@ namespace KossanVMS
             labelVisitorCompany.BackColor = Color.PaleTurquoise;
             labelVisitorCompany.Dock = DockStyle.Fill;
             labelVisitorCompany.ForeColor = Color.Transparent;
-            labelVisitorCompany.Location = new Point(6, 271);
+            labelVisitorCompany.Location = new Point(6, 235);
             labelVisitorCompany.Name = "labelVisitorCompany";
-            labelVisitorCompany.Size = new Size(128, 57);
+            labelVisitorCompany.Size = new Size(128, 48);
             labelVisitorCompany.TabIndex = 6;
             labelVisitorCompany.Text = "Company";
             // 
@@ -189,9 +204,9 @@ namespace KossanVMS
             labelVisitorContact.BackColor = Color.PaleTurquoise;
             labelVisitorContact.Dock = DockStyle.Fill;
             labelVisitorContact.ForeColor = Color.Transparent;
-            labelVisitorContact.Location = new Point(6, 205);
+            labelVisitorContact.Location = new Point(6, 178);
             labelVisitorContact.Name = "labelVisitorContact";
-            labelVisitorContact.Size = new Size(128, 57);
+            labelVisitorContact.Size = new Size(128, 48);
             labelVisitorContact.TabIndex = 4;
             labelVisitorContact.Text = "Contact";
             // 
@@ -200,9 +215,9 @@ namespace KossanVMS
             labelVisitorFullName.BackColor = Color.PaleTurquoise;
             labelVisitorFullName.Dock = DockStyle.Fill;
             labelVisitorFullName.ForeColor = Color.Transparent;
-            labelVisitorFullName.Location = new Point(6, 139);
+            labelVisitorFullName.Location = new Point(6, 121);
             labelVisitorFullName.Name = "labelVisitorFullName";
-            labelVisitorFullName.Size = new Size(128, 57);
+            labelVisitorFullName.Size = new Size(128, 48);
             labelVisitorFullName.TabIndex = 2;
             labelVisitorFullName.Text = "Full Name";
             // 
@@ -211,9 +226,9 @@ namespace KossanVMS
             labelVisitorIC.BackColor = Color.PaleTurquoise;
             labelVisitorIC.Dock = DockStyle.Fill;
             labelVisitorIC.ForeColor = Color.Transparent;
-            labelVisitorIC.Location = new Point(6, 73);
+            labelVisitorIC.Location = new Point(6, 64);
             labelVisitorIC.Name = "labelVisitorIC";
-            labelVisitorIC.Size = new Size(128, 57);
+            labelVisitorIC.Size = new Size(128, 48);
             labelVisitorIC.TabIndex = 1;
             labelVisitorIC.Text = "IC";
             // 
@@ -243,7 +258,7 @@ namespace KossanVMS
             skyComboBox1.ListForeColor = Color.Black;
             skyComboBox1.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
             skyComboBox1.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
-            skyComboBox1.Location = new Point(143, 271);
+            skyComboBox1.Location = new Point(143, 235);
             skyComboBox1.Name = "skyComboBox1";
             skyComboBox1.Size = new Size(302, 46);
             skyComboBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -257,9 +272,9 @@ namespace KossanVMS
             panel2.Controls.Add(buttonVisitorVideoCapture);
             panel2.Controls.Add(foxLinkLabel1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(143, 337);
+            panel2.Location = new Point(143, 292);
             panel2.Name = "panel2";
-            panel2.Size = new Size(302, 57);
+            panel2.Size = new Size(302, 48);
             panel2.TabIndex = 11;
             // 
             // buttonVisitorVideoCapture
@@ -294,7 +309,7 @@ namespace KossanVMS
             buttonVisitorVideoCapture.PenWidth = 15;
             buttonVisitorVideoCapture.Rounding = true;
             buttonVisitorVideoCapture.RoundingInt = 70;
-            buttonVisitorVideoCapture.Size = new Size(101, 57);
+            buttonVisitorVideoCapture.Size = new Size(101, 48);
             buttonVisitorVideoCapture.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonVisitorVideoCapture.TabIndex = 1;
             buttonVisitorVideoCapture.Tag = "Cyber";
@@ -315,7 +330,7 @@ namespace KossanVMS
             foxLinkLabel1.Location = new Point(0, 0);
             foxLinkLabel1.Name = "foxLinkLabel1";
             foxLinkLabel1.OverColor = Color.FromArgb(23, 140, 229);
-            foxLinkLabel1.Size = new Size(201, 57);
+            foxLinkLabel1.Size = new Size(201, 48);
             foxLinkLabel1.TabIndex = 0;
             foxLinkLabel1.Text = "foxLinkLabel1";
             // 
@@ -325,9 +340,9 @@ namespace KossanVMS
             panel3.Controls.Add(buttonSave);
             panel3.Controls.Add(cyberButton1);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(143, 403);
+            panel3.Location = new Point(143, 467);
             panel3.Name = "panel3";
-            panel3.Size = new Size(302, 59);
+            panel3.Size = new Size(302, 50);
             panel3.TabIndex = 12;
             // 
             // buttonSave
@@ -362,7 +377,7 @@ namespace KossanVMS
             buttonSave.PenWidth = 15;
             buttonSave.Rounding = true;
             buttonSave.RoundingInt = 70;
-            buttonSave.Size = new Size(103, 59);
+            buttonSave.Size = new Size(103, 50);
             buttonSave.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonSave.TabIndex = 4;
             buttonSave.Tag = "Cyber";
@@ -403,7 +418,7 @@ namespace KossanVMS
             cyberButton1.PenWidth = 15;
             cyberButton1.Rounding = true;
             cyberButton1.RoundingInt = 70;
-            cyberButton1.Size = new Size(103, 59);
+            cyberButton1.Size = new Size(103, 50);
             cyberButton1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberButton1.TabIndex = 3;
             cyberButton1.Tag = "Cyber";
@@ -417,9 +432,9 @@ namespace KossanVMS
             panel4.Controls.Add(buttonLabelUpdateContact);
             panel4.Controls.Add(buttonEditContact);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(143, 205);
+            panel4.Location = new Point(143, 178);
             panel4.Name = "panel4";
-            panel4.Size = new Size(302, 57);
+            panel4.Size = new Size(302, 48);
             panel4.TabIndex = 15;
             // 
             // buttonLabelUpdateContact
@@ -455,7 +470,7 @@ namespace KossanVMS
             buttonLabelUpdateContact.RightToLeft = RightToLeft.No;
             buttonLabelUpdateContact.Rounding = true;
             buttonLabelUpdateContact.RoundingInt = 70;
-            buttonLabelUpdateContact.Size = new Size(199, 57);
+            buttonLabelUpdateContact.Size = new Size(199, 48);
             buttonLabelUpdateContact.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonLabelUpdateContact.TabIndex = 17;
             buttonLabelUpdateContact.Tag = "Cyber";
@@ -496,7 +511,7 @@ namespace KossanVMS
             buttonEditContact.PenWidth = 15;
             buttonEditContact.Rounding = true;
             buttonEditContact.RoundingInt = 70;
-            buttonEditContact.Size = new Size(103, 57);
+            buttonEditContact.Size = new Size(103, 48);
             buttonEditContact.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonEditContact.TabIndex = 2;
             buttonEditContact.Tag = "Cyber";
@@ -538,7 +553,7 @@ namespace KossanVMS
             buttonUpdateID.RightToLeft = RightToLeft.No;
             buttonUpdateID.Rounding = true;
             buttonUpdateID.RoundingInt = 70;
-            buttonUpdateID.Size = new Size(302, 58);
+            buttonUpdateID.Size = new Size(302, 49);
             buttonUpdateID.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonUpdateID.TabIndex = 16;
             buttonUpdateID.Tag = "Cyber";
@@ -553,19 +568,29 @@ namespace KossanVMS
             // 
             maskedTextBox1.Dock = DockStyle.Fill;
             maskedTextBox1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox1.Location = new Point(145, 75);
+            maskedTextBox1.Location = new Point(145, 66);
             maskedTextBox1.Margin = new Padding(5);
             maskedTextBox1.Mask = "000000-00-0000";
             maskedTextBox1.Name = "maskedTextBox1";
             maskedTextBox1.Size = new Size(298, 50);
             maskedTextBox1.TabIndex = 19;
             // 
+            // checkedListBoxCat
+            // 
+            checkedListBoxCat.BackColor = Color.PaleTurquoise;
+            checkedListBoxCat.Dock = DockStyle.Fill;
+            checkedListBoxCat.FormattingEnabled = true;
+            checkedListBoxCat.Location = new Point(143, 349);
+            checkedListBoxCat.Name = "checkedListBoxCat";
+            checkedListBoxCat.Size = new Size(302, 109);
+            checkedListBoxCat.TabIndex = 22;
+            // 
             // VisitorEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 52, 68);
-            ClientSize = new Size(451, 468);
+            ClientSize = new Size(451, 523);
             Controls.Add(panel1);
             ForeColor = Color.FromArgb(37, 52, 68);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -657,5 +682,7 @@ namespace KossanVMS
         private CyberButton cyberButton1;
         private CyberTextBox textboxVisitorFullName;
         private MaskedTextBox maskedTextBox1;
+        private ThunderLabel thunderLabel3;
+        private CheckedListBox checkedListBoxCat;
     }
 }

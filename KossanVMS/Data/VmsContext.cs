@@ -8,44 +8,75 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KossanVMS.Data
 {
-    public class VmsContext:DbContext
+    public class VmsContext : DbContext
     {
+        public VmsContext(DbContextOptions<VmsContext> options) : base(options) { }
+        public VmsContext() { }
 
-        public VmsContext(DbContextOptions<VmsContext> options) :base(options) { }
-        public VmsContext()
-        {
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
+            if (!optionsBuilder.IsConfigured)
+                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
         }
-        public DbSet<VmsUser> VmsUsers { get; set; }
-        public DbSet<VisitCategory> VisitCategories{ get; set; }
-        public DbSet<VisitBranch> VisitBranches{ get; set; }
-        public DbSet<Visitor> Visitors{ get; set; }
-        public DbSet<VisitorBlackList> VisitorBlackList{ get; set; }
-        public DbSet<VisitorCompany> VisitorCompanies { get; set; } 
-        public DbSet<VisitorContact> VisitorContacts { get; set; }  
-        public DbSet<VisitorPhoto> VisitorPhotos { get; set; }
-        public DbSet<VisitRecord> VisitRecords { get; set; }
-        public DbSet<VisitPurpose> VisitPurposes { get; set; }
+
+        public DbSet<VmsUser> VmsUsers => Set<VmsUser>();
+        public DbSet<VisitCategory> VisitCategories => Set<VisitCategory>();
+        public DbSet<VisitPurpose> VisitPurposes => Set<VisitPurpose>();
+        public DbSet<VisitBranch> VisitBranches => Set<VisitBranch>();
+        public DbSet<VisitorCompany> VisitorCompanies => Set<VisitorCompany>();
+
+        public DbSet<Visitor> Visitors => Set<Visitor>();
+        public DbSet<VisitorContact> VisitorContacts => Set<VisitorContact>();
+        public DbSet<VisitorPhoto> VisitorPhotos => Set<VisitorPhoto>();
+        public DbSet<VisitorBlackList> VisitorBlackList => Set<VisitorBlackList>();
+        public DbSet<VisitorAffiliation> VisitorAffiliations => Set<VisitorAffiliation>();
+
+        public DbSet<VisitorCategoryLink> VisitorCategoryLinks => Set<VisitorCategoryLink>();
+        public DbSet<VisitorPurposeLink> VisitorPurposeLinks => Set<VisitorPurposeLink>();
+
+        public DbSet<VisitRecord> VisitRecords => Set<VisitRecord>();
 
         protected override void OnModelCreating(ModelBuilder model)
         {
             base.OnModelCreating(model);
 
-            // 1–1s: declare dependents explicitly
+            // Masters unique
+            model.Entity<VisitCategory>().HasIndex(x => x.CategoryName).IsUnique();
+            model.Entity<VisitPurpose>().HasIndex(x => x.PurposeName).IsUnique();
+            model.Entity<VisitBranch>().HasIndex(x => x.BranchName).IsUnique();
+
+            // Visitors
+            model.Entity<Visitor>().HasIndex(x => x.ICNo).IsUnique();
+
+            // Junction uniqueness
+            model.Entity<VisitorCategoryLink>()
+                 .HasIndex(x => new { x.VisitorID, x.CategoryID }).IsUnique();
+
+            model.Entity<VisitorPurposeLink>()
+                 .HasIndex(x => new { x.VisitorID, x.PurposeID }).IsUnique();
+
+            // Junction FKs
+            model.Entity<VisitorCategoryLink>()
+                 .HasOne(x => x.Visitor).WithMany(v => v.VisitorCategories)
+                 .HasForeignKey(x => x.VisitorID).OnDelete(DeleteBehavior.Cascade);
+
+            model.Entity<VisitorCategoryLink>()
+                 .HasOne(x => x.Category).WithMany()
+                 .HasForeignKey(x => x.CategoryID).OnDelete(DeleteBehavior.Restrict);
+
+            model.Entity<VisitorPurposeLink>()
+                 .HasOne(x => x.Visitor).WithMany(v => v.VisitorPurposes)
+                 .HasForeignKey(x => x.VisitorID).OnDelete(DeleteBehavior.Cascade);
+
+            model.Entity<VisitorPurposeLink>()
+                 .HasOne(x => x.Purpose).WithMany()
+                 .HasForeignKey(x => x.PurposeID).OnDelete(DeleteBehavior.Restrict);
+
+            // 1:1s explicit dependents
             model.Entity<Visitor>()
                 .HasOne(v => v.Contact)
                 .WithOne(c => c.Visitor)
                 .HasForeignKey<VisitorContact>(c => c.VisitorID)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            model.Entity<Visitor>()
-                .HasOne(v => v.Company)
-                .WithOne(c => c.Visitor)
-                .HasForeignKey<VisitorCompany>(c => c.VisitorID)
                 .OnDelete(DeleteBehavior.Cascade);
 
             model.Entity<Visitor>()
@@ -60,52 +91,51 @@ namespace KossanVMS.Data
                 .HasForeignKey<VisitorBlackList>(b => b.VisitorID)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // VisitRecord (many-to-one): keep your delete rules
+            // Affiliation (M:N with payload)
+            model.Entity<VisitorAffiliation>()
+                .HasOne(a => a.Visitor).WithMany(v => v.VisitorAffiliations)
+                .HasForeignKey(a => a.VisitorID).OnDelete(DeleteBehavior.Cascade);
+
+            model.Entity<VisitorAffiliation>()
+                .HasOne(a => a.VisitorCompany).WithMany()
+                .HasForeignKey(a => a.CompanyID).OnDelete(DeleteBehavior.Restrict);
+
+            model.Entity<VisitorAffiliation>()
+                .HasIndex(a => new { a.VisitorID, a.CompanyID, a.ValidFrom });
+
+            // VisitRecord (1:N) + snapshot lookups
             model.Entity<VisitRecord>()
-                .HasOne(vr => vr.Visitor)
-                .WithMany(v => v.VisitRecords)
+                .HasOne(vr => vr.Visitor).WithMany(v => v.VisitRecords)
                 .HasForeignKey(vr => vr.VisitorID)
                 .OnDelete(DeleteBehavior.Restrict);
 
             model.Entity<VisitRecord>()
-                .HasOne(vr => vr.Branch)
-                .WithMany()
+                .HasOne(vr => vr.Branch).WithMany()
                 .HasForeignKey(vr => vr.BranchID)
                 .OnDelete(DeleteBehavior.Restrict);
 
             model.Entity<VisitRecord>()
-                .HasOne(vr => vr.Purpose)
-                .WithMany()
+                .HasOne(vr => vr.Purpose).WithMany()
                 .HasForeignKey(vr => vr.PurposeID)
                 .OnDelete(DeleteBehavior.SetNull);
 
             model.Entity<VisitRecord>()
-                .HasOne(vr => vr.Category)
-                .WithMany()
+                .HasOne(vr => vr.Category).WithMany()
                 .HasForeignKey(vr => vr.CategoryID)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            // Uniques
-            model.Entity<VisitBranch>().HasIndex(x => x.BranchName).IsUnique();
-            model.Entity<VisitCategory>().HasIndex(x => x.CategoryName).IsUnique();
-            model.Entity<VisitPurpose>().HasIndex(x => x.PurposeName).IsUnique();
-            model.Entity<Visitor>().HasIndex(x => x.ICNo).IsUnique();
-
-            // Audit defaults (example)
-            foreach (var et in model.Model.GetEntityTypes()
-                     .Where(t => typeof(VmsAuditEntity).IsAssignableFrom(t.ClrType)))
+            // Audit defaults
+            foreach (var et in model.Model.GetEntityTypes())
             {
-                model.Entity(et.ClrType).Property("CreatedDate")
-                    .HasDefaultValueSql("GETUTCDATE()")
-                    .ValueGeneratedOnAdd();
-
-                model.Entity(et.ClrType).Property("UpdatedDate")
-                    .HasDefaultValueSql("GETUTCDATE()")
-                    .ValueGeneratedOnAddOrUpdate();
+                if (typeof(VmsAuditEntity).IsAssignableFrom(et.ClrType))
+                {
+                    model.Entity(et.ClrType).Property("CreatedDate")
+                        .HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAdd();
+                    model.Entity(et.ClrType).Property("UpdatedDate")
+                        .HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAddOrUpdate();
+                }
             }
         }
-
-
 
         public override int SaveChanges()
         {
@@ -127,6 +157,6 @@ namespace KossanVMS.Data
             }
             return base.SaveChanges();
         }
-
     }
 }
+

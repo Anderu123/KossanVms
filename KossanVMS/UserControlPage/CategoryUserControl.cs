@@ -8,16 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KossanVMS.Utility
+namespace KossanVMS.UserControlPage
 {
-    public partial class VisitorCard : UserControl
+    public partial class CategoryUserControl : UserControl
     {
-        public VisitorCard()
+        public CategoryUserControl()
         {
             InitializeComponent();
-            DoubleBuffered = true;
-
-
         }
     }
 }

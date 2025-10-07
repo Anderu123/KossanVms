@@ -61,7 +61,6 @@ C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanV
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.UserControlPage.EditFormTemplateUserControl.resources
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.UserControlPage.VisitorUserControl.resources
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.Utility.RoundedPanel.resources
-C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.Utility.VisitorCard.resources
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.VisitBranchEditForm.resources
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.VisitorCompanies_EditForm.resources
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.VisitorEditForm.resources
@@ -80,3 +79,5 @@ C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\refint\
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.pdb
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.genruntimeconfig.cache
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\ref\KossanVMS.dll
+C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.UserControlPage.CategoryUserControl.resources
+C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.VisitorCategoryEditForm.resources

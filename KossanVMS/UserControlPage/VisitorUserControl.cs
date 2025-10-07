@@ -35,7 +35,7 @@ namespace KossanVMS.UserControlPage
             // LOAD INTO THE CONTEXT (no AsNoTracking, no ToListAsync)
             await _db.Visitors
                 .Include(v => v.BlackList)
-                .Include(v => v.Company)
+                //.Include(v => v.Company)
                 .Include(v => v.Contact)
                 .Include(v => v.Photo)
                 .LoadAsync();
@@ -57,7 +57,7 @@ namespace KossanVMS.UserControlPage
                 VisitorID = selectedItem.VisitorID,
                 ICNo = selectedItem.ICNo,
                 FullName = selectedItem.FullName,
-                Company = selectedItem.Company,
+                //Company = selectedItem.Company,
                 Contact = selectedItem.Contact,
                 Photo = selectedItem.Photo,
                 BlackList = selectedItem.BlackList
@@ -86,20 +86,20 @@ namespace KossanVMS.UserControlPage
                     selectedItem.Contact = null;
                 }
 
-                if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Company?.Company))
-                {
-                    if (selectedItem.Company == null)
-                    {
-                        selectedItem.Company = new VisitorCompany { VisitorID = selectedItem.VisitorID };
-                        selectedItem.Company.Company = updatedVisitorModel.Company.Company;
-                    }
+                //if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Company?.Company))
+                //{
+                //    if (selectedItem.Company == null)
+                //    {
+                //        selectedItem.Company = new VisitorCompany { VisitorID = selectedItem.VisitorID };
+                //        selectedItem.Company.Company = updatedVisitorModel.Company.Company;
+                //    }
 
-                }
-                else if (selectedItem.Company != null)
-                {
-                    _db.Remove(selectedItem.Company);
-                    selectedItem.Company = null;
-                }
+                //}
+                //else if (selectedItem.Company != null)
+                //{
+                //    _db.Remove(selectedItem.Company);
+                //    selectedItem.Company = null;
+                //}
                 if (updatedVisitorModel?.BlackList.IsBlackList == true)
                 {
                     if (selectedItem.BlackList == null)

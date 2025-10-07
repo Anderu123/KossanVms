@@ -10,6 +10,9 @@
     <Compile Update="UserControlPage\BranchUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControlPage\CategoryUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControlPage\EditFormTemplateUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -19,7 +22,13 @@
     <Compile Update="VisitBranchEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="VisitorCategoryEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="VisitorCompaniesEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VisitorEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="VisitorForm.cs">
@@ -30,12 +39,6 @@
     </Compile>
     <Compile Update="Utility\RoundedPanel.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Utility\VisitorCard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="VisitorEditForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Update="VisitorPhotoCapture.cs">
       <SubType>Form</SubType>

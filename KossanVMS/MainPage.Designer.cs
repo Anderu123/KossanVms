@@ -1,4 +1,6 @@
-﻿namespace KossanVMS
+﻿using KossanVMS.Security;
+
+namespace KossanVMS
 {
     partial class MainPage
     {

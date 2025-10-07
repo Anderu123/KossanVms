@@ -29,9 +29,7 @@ using System.Threading.Tasks;
             }
 
             // Helper methods for easy RBAC checks
-            public static bool IsSuperAdmin() => CurrentUserRole == UserRole.SuperAdmin;
-
-            public static bool HasRole(UserRole role) => CurrentUserRole == role || IsSuperAdmin();
+           
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,20 +15,22 @@ namespace KossanVMS.Data
         Empty = 1,
         Laden = 2
     }
-    public enum VisitStatus :byte
+    public enum VisitStatus : byte
     {
-        In = 1, 
+        In = 1,
         Out = 2,
         Cancelled = 9
     }
 
     [Table("visit_categories")]
 
-    public class VisitCategory :VmsAuditEntity
+    public class VisitCategory : VmsAuditEntity
     {
         [Column("category_id")]
         [Key]
         public int CategoryID { get; set; }
+        //[Column("visitor_id")]
+        //public int VisitorID { get; set; }
         [Column("category_name")]
         [Required, MaxLength(100)]
         public string CategoryName { get; set; }
@@ -38,14 +41,28 @@ namespace KossanVMS.Data
         public bool CategoryStatus { get; set; }
         [Column("category_contract")]
         public bool CategoryContract { get; set; }
-       
+
     }
+    [Table("visitor_category_links")]
+    public class VisitorCategoryLink:VmsAuditEntity
+    {
+    [Key]
+    public int ID { get; set; }
+        [Column("visitor_id")]
+        public int VisitorID { get;set; }
+        [Column("category_id")]
+        public int CategoryID { get; set; }
+        public Visitor Visitor { get; set; } = null;
+        public VisitCategory Category { get; set; } = null;
+}
     [Table("visit_purposes")]
     public class VisitPurpose:VmsAuditEntity
     {
         [Column("purpose_id")]
         [Key]
         public int PurposeID { get; set; }
+        //[Column("visitor_id")]
+        //public int VisitorID { get; set; }
         [Column("purpose_name")]
         [Required, MaxLength(100)]
         public string PurposeName { get; set; }
@@ -57,6 +74,22 @@ namespace KossanVMS.Data
         [Column("purpose_contract")]
         public bool PurposeContract { get; set; }
     }
+
+    [Table("visitor_purpose_links")]
+    public class VisitorPurposeLink:VmsAuditEntity
+    {
+        [Key]
+        public int ID { get; set; }
+        [Column("visitor_id")]
+        public int VisitorID { get; set; }
+        [Column("purpose_id")]
+        public int PurposeID { get; set; }
+        public Visitor Visitor { get; set; } = null;
+
+        public VisitPurpose Purpose { get; set; } = null;
+    }
+
+
     [Table("visit_branches")]
     public class VisitBranch :VmsAuditEntity
     {
@@ -104,14 +137,41 @@ namespace KossanVMS.Data
         [Column("company_id")]
         [Key]
         public int CompanyID { get; set; }
+        [Column("company_name")]
+        [MaxLength(100)]
+        public string? CompanyName { get; set; }
+        //[Column("visitor_id")]
+        //public int VisitorID { get; set; }
+        //[ForeignKey(nameof(VisitorID))]
+        //public Visitor Visitor { get; set; }
+        [Column("registration_no")]
+        [MaxLength(50)]
+        public string? RegistrationNo { get; set; }
+
+        [Column("company_address")]
+        public string? CompanyAddress { get; set; }
+    }
+
+    [Table("visitor_affiliations")]
+    public class VisitorAffiliation : VmsAuditEntity
+    {
+        [Key]
+        [Column("affiliation_id")]
+        public int AffiliationID { get; set; }
         [Column("visitor_id")]
         public int VisitorID { get; set; }
-        [ForeignKey(nameof(VisitorID))]
+        [Column("company_id")]
+        public int CompanyID { get; set; }
+        [MaxLength(50)]
+        [Column("relationship")]
+        public string? Relationship { get; set; } = "Visitor";
+        [Column("valid_from")]
+        public DateTime? ValidFrom { get; set; }
+        [Column("valid_to")]
+        public DateTime? ValidTo { get; set; }
         public Visitor Visitor { get; set; }
-        [Column("company")]
-        [MaxLength(100)]
-        public string? Company { get; set; }
 
+        public VisitorCompany VisitorCompany { get; set; }
     }
     [Table("visitor_photos")]
     public class VisitorPhoto:VmsAuditEntity
@@ -160,8 +220,11 @@ namespace KossanVMS.Data
         public string FullName { get; set; } = null!;
       
         public VisitorContact Contact {get;set;}
-      
-        public VisitorCompany Company { get; set; }
+
+        public ICollection<VisitorAffiliation> VisitorAffiliations { get; set; } = new List<VisitorAffiliation>();
+        public ICollection<VisitorCategoryLink> VisitorCategories { get; set;} = new List<VisitorCategoryLink>();
+
+        public ICollection<VisitorPurposeLink> VisitorPurposes { get; set; }    = new List<VisitorPurposeLink>();
         //public ICollection<VisitorBiometric> Biometrics { get; set; } = new List<VisitorBiometric>();
         public VisitorPhoto Photo { get; set; }
         public VisitorBlackList? BlackList { get; set; }
@@ -172,7 +235,7 @@ namespace KossanVMS.Data
     {
         [Column("visit_id")]
         [Key]
-        public Guid VisitID { get; set; } = Guid.NewGuid();
+        public int VisitID { get; set; } 
         [Column("visitor_id")]
         [Required]
         public int VisitorID { get; set; }
@@ -213,17 +276,19 @@ namespace KossanVMS.Data
         public string? OutPhotoPath { get;set; }
         [Column("gate_pass")]
         public string? GatePass { get; set; }
+        public VisitPurpose? Purpose { get; set; }
+        public VisitCategory? Category { get; set; }
 
 
         // Navigation properties
         //[ForeignKey(nameof(VisitorID))]
-        public  Visitor Visitor { get; set; } = null!;
+        public Visitor Visitor { get; set; } = null!;
       //  [ForeignKey(nameof(BranchID))]
         public  VisitBranch Branch { get; set; } = null!;
        // [ForeignKey(nameof(PurposeID))]
-        public VisitPurpose? Purpose { get; set; }
-     //   [ForeignKey(nameof(CategoryID))]
-        public  VisitCategory? Category { get; set; }
+     //   public VisitPurpose? Purpose { get; set; }
+     ////   [ForeignKey(nameof(CategoryID))]
+     //   public  VisitCategory? Category { get; set; }
 
     }
 }
