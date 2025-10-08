@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenCvSharp;
 using OpenCvSharp.Extensions;
-
+using KossanVMS.Data;
 
 namespace KossanVMS
 {
@@ -22,6 +22,7 @@ namespace KossanVMS
         private readonly VisitorEditForm mainForm;
         private bool isMoving = false;
         private string savePhotoFilePath = @"C:\Vms\VisitorPhotos";
+        public string? capturePath { get; set; }
         public VisitorPhotoCapture(VisitorEditForm mainForm)
         {
             this.mainForm = mainForm;
@@ -53,11 +54,11 @@ namespace KossanVMS
             {
                 using (var frameMat = capture.RetrieveMat())
                 {
-                    var rects = cascadeClassifier.DetectMultiScale(frameMat, 1.1, 5, HaarDetectionTypes.ScaleImage, new OpenCvSharp.Size(30, 30));
-                    if (rects.Length > 0)
-                    {
-                        Cv2.Rectangle(frameMat, rects[0], Scalar.Red);
-                    }
+                    //var rects = cascadeClassifier.DetectMultiScale(frameMat, 1.1, 5, HaarDetectionTypes.ScaleImage, new OpenCvSharp.Size(30, 30));
+                    //if (rects.Length > 0)
+                    //{
+                    //    Cv2.Rectangle(frameMat, rects[0], Scalar.Red);
+                    //}
                     var frameBitmap = BitmapConverter.ToBitmap(frameMat);
                     bgWorker.ReportProgress(0, frameBitmap);
                 }
@@ -85,9 +86,12 @@ namespace KossanVMS
                         Directory.CreateDirectory(savePhotoFilePath);
                     }
                     try {
-                        pictureBoxWebCam.Image.Save(savePhotoFilePath + @"\"  + ConfigurationManager.AppSettings["branch"] + "_" + DateTime.UtcNow.ToString("yyyyMMddhhmmss") + ".jpg", ImageFormat.Jpeg);
+                        capturePath = savePhotoFilePath + @"\" + ConfigurationManager.AppSettings["branch"] + "_" + DateTime.UtcNow.ToString("yyyyMMddhhmmss") + ".jpg";
+                        pictureBoxWebCam.Image.Save(capturePath, ImageFormat.Jpeg);
 
                         MessageBox.Show("Photo successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult = DialogResult.OK;
+                        Close();
                     }
                     catch ( Exception ex)
                     {

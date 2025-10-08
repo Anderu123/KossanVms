@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    [Migration("20251007094700_AddVisitorLinks")]
-    partial class AddVisitorLinks
+    [Migration("20251008022059_InitAll")]
+    partial class InitAll
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

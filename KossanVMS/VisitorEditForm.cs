@@ -13,16 +13,16 @@ using System.Windows.Forms;
 
 namespace KossanVMS
 {
-    
+
     public partial class VisitorEditForm : Form
     {
         public Visitor visitorModel { get; set; }
-        private Form visitorPhotoCapture;
+        private VisitorPhotoCapture visitorPhotoCapture;
         private bool isMoving = false;
         private readonly VmsContext _db;
         private bool _isNew = false;
         private List<VisitCategory> _category { get; set; }
-        
+
         public VisitorEditForm(Visitor existingVisitor = null)
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace KossanVMS
                 visitorModel = existingVisitor;
             }
             buttonUpdateID.Text = visitorModel.VisitorID.ToString();
-            //textboxVisitorIC.textBox.Text = visitorModel.ICNo ?? "";
+            maskedTextBoxIC.Text = visitorModel.ICNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
             buttonLabelUpdateContact.Text = visitorModel.Contact?.Tel ?? "";
 
@@ -49,43 +49,88 @@ namespace KossanVMS
             //visitorPhotoCapture.LocationChanged += VisitorPhotoCaptureForm_LocationChanged;
 
             LoadCategoryCheckList();
-          
 
 
-            }
+
+        }
         // VisitorEditForm.cs
         // VisitorEditForm.cs
 
         private void LoadCategoryCheckList()
         {
-            checkedListBoxCat.Items.Clear();
-
-            // master list
-            var allCats = _db.VisitCategories
-                             .OrderBy(c => c.CategoryName)
-                             .ToList();
-
-            // currently linked (only if editing)
-            
-            var linkedIds = _isNew
-                ? new List<int>()
-                : _db.VisitorCategoryLinks
-                     .Where(x => x.VisitorID == visitorModel.VisitorID)
-                     .Select(x => x.CategoryID)
-                     .ToList();
-
-            // add items (objects)
-            for (int i = 0; i < allCats.Count; i++)
+            checkedListBoxCat.BeginUpdate();
+            try
             {
-                var cat = allCats[i];
-                int idx = checkedListBoxCat.Items.Add(new ListItem
-                {
-                    Id = cat.CategoryID,
-                    Text = cat.CategoryName
-                });
+                // 1) Load masters
+                var items = _db.VisitCategories
+                               .OrderBy(c => c.CategoryName)
+                               .Select(c => new ListItem { Id = c.CategoryID, Text = c.CategoryName })
+                               .ToList();
 
-                if (linkedIds.Contains(cat.CategoryID))
-                    checkedListBoxCat.SetItemChecked(idx, true);
+                // 2) Bind once
+                checkedListBoxCat.DataSource = null;          // clear any previous binding
+                checkedListBoxCat.Items.Clear();
+                checkedListBoxCat.DisplayMember = nameof(ListItem.Text);
+                checkedListBoxCat.ValueMember = nameof(ListItem.Id);
+                checkedListBoxCat.DataSource = items;
+
+                // 3) Load linked ids ONLY if we have a valid visitor id
+                var linkedIds = (visitorModel?.VisitorID > 0)
+                    ? new HashSet<int>(
+                        _db.VisitorCategoryLinks
+                           .Where(x => x.VisitorID == visitorModel.VisitorID)
+                           .Select(x => x.CategoryID)
+                           .ToList())
+                    : new HashSet<int>();
+
+                // 4) Pre-check after DataSource is set
+                for (int i = 0; i < items.Count; i++)
+                {
+                    if (linkedIds.Contains(items[i].Id))
+                        checkedListBoxCat.SetItemChecked(i, true);
+                }
+            }
+            finally
+            {
+                checkedListBoxCat.EndUpdate();
+            }
+        }
+
+        public void SaveVisitorCategories()
+        {
+            if (_isNew) return; // no categories for new visitor yet
+            var selectedIds = checkedListBoxCat.CheckedItems
+                                .Cast<ListItem>()
+                                .Select(li => li.Id)
+                                .ToList();
+            var existingLinks = _db.VisitorCategoryLinks
+                                   .Where(x => x.VisitorID == visitorModel.VisitorID)
+                                   .ToList();
+            // Delete unselected links
+            var toDelete = existingLinks
+                            .Where(link => !selectedIds.Contains(link.CategoryID))
+                            .ToList();
+            if (toDelete.Count > 0)
+            {
+                _db.VisitorCategoryLinks.RemoveRange(toDelete);
+            }
+            // Add new links
+            var existingIds = existingLinks.Select(x => x.CategoryID).ToHashSet();
+            var toAdd = selectedIds
+                        .Where(id => !existingIds.Contains(id))
+                        .Select(id => new VisitorCategoryLink
+                        {
+                            VisitorID = visitorModel.VisitorID,
+                            CategoryID = id
+                        })
+                        .ToList();
+            if (toAdd.Count > 0)
+            {
+                _db.VisitorCategoryLinks.AddRange(toAdd);
+            }
+            if (toDelete.Count > 0 || toAdd.Count > 0)
+            {
+                _db.SaveChanges();
             }
         }
         private void VisitorEditForm_LocationChanged(object sender, EventArgs e)
@@ -142,17 +187,17 @@ namespace KossanVMS
 
         private bool SaveResults()
         {
-            //var ic = (textboxVisitorIC.textBox.Text ?? "").Trim();   // trim!
-            //System.Diagnostics.Debug.WriteLine($"DBG name={textboxVisitorIC.Name}, text='{textboxVisitorIC.textBox.Text}', len={textboxVisitorIC.Text?.Length ?? -1}");
+            var ic = (maskedTextBoxIC.Text ?? "").Trim();   // trim!
+            //System.Diagnostics.Debug.WriteLine($"DBG name={maskedTextBoxIC.Name}, text='{textboxVisitorIC.textBox.Text}', len={textboxVisitorIC.Text?.Length ?? -1}");
 
-            //if (ic.Length == 0)
-            //{
-            //    MessageBox.Show("Please fill in the Visitor IC.");
-            //    textboxVisitorIC.Focus();
-            //    return false;
-            //}
+            if (ic.Length == 0)
+            {
+                MessageBox.Show("Please fill in the Visitor IC.");
+                maskedTextBoxIC.Focus();
+                return false;
+            }
             // push values back into the model (if you’re not using data-binding)
-            //visitorModel.ICNo = textboxVisitorIC.textBox.Text.Trim();
+            visitorModel.ICNo = maskedTextBoxIC.Text.Trim();
             visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
             visitorModel.Contact ??= new VisitorContact();
             visitorModel.Contact.Tel = buttonLabelUpdateContact.Text?.Trim();
@@ -163,6 +208,7 @@ namespace KossanVMS
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if (!SaveResults()) return;
+            SaveVisitorCategories();
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -197,7 +243,15 @@ namespace KossanVMS
             visitorPhotoCapture.Load += VisitorPhotoCapture_Load;
             // Use owner so z-order is stable. Show() if you want side-by-side live.
             // If you must block, use ShowDialog(this) but keep the Load centering above.
-            visitorPhotoCapture.ShowDialog(this);
+            //visitorPhotoCapture.ShowDialog(this);
+            
+            if(visitorPhotoCapture.ShowDialog(this) == DialogResult.OK && !string.IsNullOrEmpty(visitorPhotoCapture.capturePath))
+            {
+               visitorModel.Photo ??= new VisitorPhoto { VisitorID = visitorModel.VisitorID };
+                visitorModel.Photo.PhotoPath = visitorPhotoCapture.capturePath;
+                visitorModel.Photo.CaptureDate = DateTime.UtcNow;
+                
+            }
             CenterForms();
         }
 
@@ -246,6 +300,11 @@ namespace KossanVMS
         }
 
         private void textboxVisitorFullName_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

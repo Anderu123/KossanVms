@@ -58,6 +58,7 @@ namespace KossanVMS
                     }
                     else
                     {
+                        MessageBox.Show("AD user found, but VMS role not assigned. Contact administrator.", "Login Failed");
                         // User authenticated with AD but not found in VMS DB (needs assignment)
                         statusStripLogin.Text = "AD user found, but VMS role not assigned. Contact administrator.";
                     }
@@ -65,6 +66,7 @@ namespace KossanVMS
             }
             else
             {
+                MessageBox.Show("Invalid Username or Password. Please try again.");
                 // 5. AD Authentication Failed
                 statusStripLogin.Text = "Invalid Username or Password. Please try again.";
                 textBoxLoginPassword.textBox.Clear();

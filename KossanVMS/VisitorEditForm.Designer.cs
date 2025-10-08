@@ -22,6 +22,7 @@ namespace KossanVMS
             if (disposing && (components != null))
             {
                 components.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -56,7 +57,7 @@ namespace KossanVMS
             buttonLabelUpdateContact = new CyberButton();
             buttonEditContact = new CyberButton();
             buttonUpdateID = new CyberButton();
-            maskedTextBox1 = new MaskedTextBox();
+            maskedTextBoxIC = new MaskedTextBox();
             checkedListBoxCat = new CheckedListBox();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -97,7 +98,7 @@ namespace KossanVMS
             tableLayoutPanel1.Controls.Add(panel3, 1, 7);
             tableLayoutPanel1.Controls.Add(panel4, 1, 3);
             tableLayoutPanel1.Controls.Add(buttonUpdateID, 1, 0);
-            tableLayoutPanel1.Controls.Add(maskedTextBox1, 1, 1);
+            tableLayoutPanel1.Controls.Add(maskedTextBoxIC, 1, 1);
             tableLayoutPanel1.Controls.Add(checkedListBoxCat, 1, 6);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
@@ -332,7 +333,6 @@ namespace KossanVMS
             foxLinkLabel1.OverColor = Color.FromArgb(23, 140, 229);
             foxLinkLabel1.Size = new Size(201, 48);
             foxLinkLabel1.TabIndex = 0;
-            foxLinkLabel1.Text = "foxLinkLabel1";
             // 
             // panel3
             // 
@@ -381,10 +381,11 @@ namespace KossanVMS
             buttonSave.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonSave.TabIndex = 4;
             buttonSave.Tag = "Cyber";
-            buttonSave.TextButton = "Edit";
+            buttonSave.TextButton = "Save";
             buttonSave.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             buttonSave.Timer_Effect_1 = 5;
             buttonSave.Timer_RGB = 300;
+            buttonSave.Click += buttonSave_Click;
             // 
             // cyberButton1
             // 
@@ -564,16 +565,17 @@ namespace KossanVMS
             buttonUpdateID.Enter += buttonUpdate_Enter;
             buttonUpdateID.Leave += buttonUpdate_Leave;
             // 
-            // maskedTextBox1
+            // maskedTextBoxIC
             // 
-            maskedTextBox1.Dock = DockStyle.Fill;
-            maskedTextBox1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox1.Location = new Point(145, 66);
-            maskedTextBox1.Margin = new Padding(5);
-            maskedTextBox1.Mask = "000000-00-0000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(298, 50);
-            maskedTextBox1.TabIndex = 19;
+            maskedTextBoxIC.Dock = DockStyle.Fill;
+            maskedTextBoxIC.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBoxIC.Location = new Point(145, 66);
+            maskedTextBoxIC.Margin = new Padding(5);
+            maskedTextBoxIC.Mask = "000000-00-0000";
+            maskedTextBoxIC.Name = "maskedTextBoxIC";
+            maskedTextBoxIC.Size = new Size(298, 50);
+            maskedTextBoxIC.TabIndex = 19;
+            maskedTextBoxIC.MaskInputRejected += maskedTextBox1_MaskInputRejected;
             // 
             // checkedListBoxCat
             // 
@@ -681,7 +683,7 @@ namespace KossanVMS
         private CyberButton buttonSave;
         private CyberButton cyberButton1;
         private CyberTextBox textboxVisitorFullName;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox maskedTextBoxIC;
         private ThunderLabel thunderLabel3;
         private CheckedListBox checkedListBoxCat;
     }
