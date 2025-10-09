@@ -21,8 +21,8 @@ namespace KossanVMS.UserControlPage
         public VisitorUserControl(VmsContext db)
         {
             InitializeComponent();
-            _db = db;
-
+            //_db = db;
+            _db = db ?? throw new ArgumentNullException(nameof(db));
             VisitorGridViewUserControl.DataSource = visitorBindingSource;
             VisitorGridViewUserControl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
@@ -48,6 +48,19 @@ namespace KossanVMS.UserControlPage
 
         private void VisitorGridViewUserControl_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            var grid = VisitorGridViewUserControl;
+            if (e.RowIndex < 0) return;
+
+            if (grid.Columns[e.ColumnIndex].Name == "colPhoto")
+            {
+                if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v)
+                {
+                    e.Value = v.Photo?.PhotoPath;
+                    e.FormattingApplied = true;
+                }
+                return;
+            }
+
             if (VisitorGridViewUserControl.Columns[e.ColumnIndex].Name != "colCategories" || e.RowIndex<0)
                 { return; }
             var rowItem = VisitorGridViewUserControl.Rows[e.RowIndex].DataBoundItem as Visitor;
@@ -59,6 +72,7 @@ namespace KossanVMS.UserControlPage
             e.Value= string.Join(", ", categories);
             e.FormattingApplied = true;
         }
+
         private void toolStripEditButton_Click(object sender, EventArgs e)
         {
             var selectedItem = CurrentItem;
@@ -87,75 +101,100 @@ namespace KossanVMS.UserControlPage
             var updatedVisitorModel = editVisitorModel.visitorModel;
             selectedItem.ICNo = (updatedVisitorModel.ICNo ?? "").Trim();
             selectedItem.FullName = (updatedVisitorModel.FullName ?? "").Trim();
-            if (!string.IsNullOrWhiteSpace(updatedVisitorModel?.Contact.Tel))
+            if (selectedItem.Contact != null)
             {
-                if (selectedItem.Contact == null)
-                {
-                    selectedItem.Contact = new VisitorContact { VisitorID = selectedItem.VisitorID };
-                    selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
+                selectedItem.Contact = new VisitorContact { VisitorID = selectedItem.VisitorID };
+                selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
+                selectedItem.Contact.City = updatedVisitorModel.Contact.City;
+                selectedItem.Contact.Address = updatedVisitorModel.Contact.Address;
+                selectedItem.Contact.PostCode = updatedVisitorModel.Contact.PostCode;
 
-                }
-                else if (selectedItem.Contact != null)
-                {
-                    _db.Remove(selectedItem.Contact);
-                    selectedItem.Contact = null;
-                }
-
-                //if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Company?.Company))
-                //{
-                //    if (selectedItem.Company == null)
-                //    {
-                //        selectedItem.Company = new VisitorCompany { VisitorID = selectedItem.VisitorID };
-                //        selectedItem.Company.Company = updatedVisitorModel.Company.Company;
-                //    }
-
-                //}
-                //else if (selectedItem.Company != null)
-                //{
-                //    _db.Remove(selectedItem.Company);
-                //    selectedItem.Company = null;
-                //}
             }
-                //if (updatedVisitorModel?.BlackList.IsBlackList == true)
-                //{
-                //    if (selectedItem.BlackList == null)
-                //    {
-                //        selectedItem.BlackList = new VisitorBlackList { VisitorID = selectedItem.VisitorID };
-                //        selectedItem.BlackList.IsBlackList = true;
-                //        //selectedItem.BlackList.UpdateTime = DateTime.UtcNow;
-                //        //selectedItem.BlackList.LastEditUser = Environment.UserName;
-                //    }
+            else
+            {
+                selectedItem.Contact = new VisitorContact { VisitorID = selectedItem.VisitorID };
+                selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
+                selectedItem.Contact.City = updatedVisitorModel.Contact.City;
+                selectedItem.Contact.Address = updatedVisitorModel.Contact.Address;
+                selectedItem.Contact.PostCode = updatedVisitorModel.Contact.PostCode;
 
-                //}
-                //else if (selectedItem.BlackList != null)
-                //{
-                //    _db.Remove(selectedItem.BlackList);
-                //    selectedItem.BlackList = null;
-                //}
-                // after: var updatedVisitorModel = editVisitorModel.visitorModel;
+            }
+            //if (!string.IsNullOrWhiteSpace(updatedVisitorModel?.Contact.Tel))
+            //{
+            //    if (selectedItem.Contact == null)
+            //    {
+            //        selectedItem.Contact = new VisitorContact{ VisitorID = selectedItem.VisitorID };
+            //        selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
 
-                // --- COPY PHOTO BACK FROM DIALOG ---
-                if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Photo?.PhotoPath))
+            //    }
+            //    else if (selectedItem.Contact != null)
+            //    {
+            //        _db.Remove(selectedItem.Contact);
+            //        selectedItem.Contact = null;
+            //    }
+
+            //if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Company?.Company))
+            //{
+            //    if (selectedItem.Company == null)
+            //    {
+            //        selectedItem.Company = new VisitorCompany { VisitorID = selectedItem.VisitorID };
+            //        selectedItem.Company.Company = updatedVisitorModel.Company.Company;
+            //    }
+
+            //}
+            //else if (selectedItem.Company != null)
+            //{
+            //    _db.Remove(selectedItem.Company);
+            //    selectedItem.Company = null;
+            //}
+            //}
+            //if (updatedVisitorModel?.BlackList.IsBlackList == true)
+            //{
+            //    if (selectedItem.BlackList == null)
+            //    {
+            //        selectedItem.BlackList = new VisitorBlackList { VisitorID = selectedItem.VisitorID };
+            //        selectedItem.BlackList.IsBlackList = true;
+            //        //selectedItem.BlackList.UpdateTime = DateTime.UtcNow;
+            //        //selectedItem.BlackList.LastEditUser = Environment.UserName;
+            //    }
+
+            //}
+            //else if (selectedItem.BlackList != null)
+            //{
+            //    _db.Remove(selectedItem.BlackList);
+            //    selectedItem.BlackList = null;
+            //}
+            // after: var updatedVisitorModel = editVisitorModel.visitorModel;
+
+            // --- COPY PHOTO BACK FROM DIALOG ---
+            if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Photo?.PhotoPath))
+            {
+                if (selectedItem.Photo == null)
+                    selectedItem.Photo = new VisitorPhoto { VisitorID = selectedItem.VisitorID };
+
+                selectedItem.Photo.PhotoPath = updatedVisitorModel.Photo.PhotoPath;
+                selectedItem.Photo.CaptureDate = updatedVisitorModel.Photo.CaptureDate; // or DateTime.UtcNow
+            }
+            else
+            {
+                // Optional: if user cleared the photo in dialog
+                if (selectedItem.Photo != null)
                 {
-                    if (selectedItem.Photo == null)
-                        selectedItem.Photo = new VisitorPhoto { VisitorID = selectedItem.VisitorID };
-
-                    selectedItem.Photo.PhotoPath = updatedVisitorModel.Photo.PhotoPath;
-                    selectedItem.Photo.CaptureDate = updatedVisitorModel.Photo.CaptureDate; // or DateTime.UtcNow
+                    _db.Remove(selectedItem.Photo);   // only if you want it removed from DB
+                    selectedItem.Photo = null;
                 }
-                else
-                {
-                    // Optional: if user cleared the photo in dialog
-                    if (selectedItem.Photo != null)
-                    {
-                        _db.Remove(selectedItem.Photo);   // only if you want it removed from DB
-                        selectedItem.Photo = null;
-                    }
-                }
+            }
 
             
             _db.SaveChanges();
             visitorBindingSource.ResetCurrentItem();
+            // 1. Mark the entire control area as invalid (needs redrawing)
+            VisitorGridViewUserControl.Invalidate();
+
+            // 2. Force the immediate repaint operation
+            VisitorGridViewUserControl.Update();
+
+            VisitorGridViewUserControl.Refresh();
             UpdatePhotoPreview(selectedItem);
         }
 

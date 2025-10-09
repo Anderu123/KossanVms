@@ -57,13 +57,16 @@ namespace KossanVMS
             buttonLabelUpdateContact = new CyberButton();
             buttonEditContact = new CyberButton();
             buttonUpdateID = new CyberButton();
-            maskedTextBoxIC = new MaskedTextBox();
             checkedListBoxCat = new CheckedListBox();
+            panel5 = new Panel();
+            cyberButtonSearch = new CyberButton();
+            maskedTextBoxIC = new MaskedTextBox();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -98,8 +101,8 @@ namespace KossanVMS
             tableLayoutPanel1.Controls.Add(panel3, 1, 7);
             tableLayoutPanel1.Controls.Add(panel4, 1, 3);
             tableLayoutPanel1.Controls.Add(buttonUpdateID, 1, 0);
-            tableLayoutPanel1.Controls.Add(maskedTextBoxIC, 1, 1);
             tableLayoutPanel1.Controls.Add(checkedListBoxCat, 1, 6);
+            tableLayoutPanel1.Controls.Add(panel5, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -156,6 +159,8 @@ namespace KossanVMS
             textboxVisitorFullName.TextButton = "";
             textboxVisitorFullName.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             textboxVisitorFullName.Timer_RGB = 300;
+            textboxVisitorFullName.Enter += textBoxUpdate_Enter;
+            textboxVisitorFullName.Leave += textBoxUpdate_Leave;
             // 
             // thunderLabel2
             // 
@@ -520,6 +525,7 @@ namespace KossanVMS
             buttonEditContact.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
             buttonEditContact.Timer_Effect_1 = 5;
             buttonEditContact.Timer_RGB = 300;
+            buttonEditContact.Click += buttonEditContact_Click;
             // 
             // buttonUpdateID
             // 
@@ -565,18 +571,6 @@ namespace KossanVMS
             buttonUpdateID.Enter += buttonUpdate_Enter;
             buttonUpdateID.Leave += buttonUpdate_Leave;
             // 
-            // maskedTextBoxIC
-            // 
-            maskedTextBoxIC.Dock = DockStyle.Fill;
-            maskedTextBoxIC.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBoxIC.Location = new Point(145, 66);
-            maskedTextBoxIC.Margin = new Padding(5);
-            maskedTextBoxIC.Mask = "000000-00-0000";
-            maskedTextBoxIC.Name = "maskedTextBoxIC";
-            maskedTextBoxIC.Size = new Size(298, 50);
-            maskedTextBoxIC.TabIndex = 19;
-            maskedTextBoxIC.MaskInputRejected += maskedTextBox1_MaskInputRejected;
-            // 
             // checkedListBoxCat
             // 
             checkedListBoxCat.BackColor = Color.PaleTurquoise;
@@ -586,6 +580,69 @@ namespace KossanVMS
             checkedListBoxCat.Name = "checkedListBoxCat";
             checkedListBoxCat.Size = new Size(302, 109);
             checkedListBoxCat.TabIndex = 22;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(cyberButtonSearch);
+            panel5.Controls.Add(maskedTextBoxIC);
+            panel5.Dock = DockStyle.Fill;
+            panel5.Location = new Point(143, 64);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(302, 48);
+            panel5.TabIndex = 23;
+            // 
+            // cyberButtonSearch
+            // 
+            cyberButtonSearch.Alpha = 20;
+            cyberButtonSearch.BackColor = Color.Transparent;
+            cyberButtonSearch.Background = true;
+            cyberButtonSearch.Background_WidthPen = 4F;
+            cyberButtonSearch.BackgroundPen = true;
+            cyberButtonSearch.ColorBackground = Color.FromArgb(37, 52, 68);
+            cyberButtonSearch.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            cyberButtonSearch.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            cyberButtonSearch.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            cyberButtonSearch.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberButtonSearch.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            cyberButtonSearch.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            cyberButtonSearch.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberButtonSearch.Dock = DockStyle.Right;
+            cyberButtonSearch.Effect_1 = true;
+            cyberButtonSearch.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            cyberButtonSearch.Effect_1_Transparency = 25;
+            cyberButtonSearch.Effect_2 = true;
+            cyberButtonSearch.Effect_2_ColorBackground = Color.White;
+            cyberButtonSearch.Effect_2_Transparency = 20;
+            cyberButtonSearch.Font = new Font("Arial", 11F);
+            cyberButtonSearch.ForeColor = Color.FromArgb(245, 245, 245);
+            cyberButtonSearch.Lighting = false;
+            cyberButtonSearch.LinearGradient_Background = false;
+            cyberButtonSearch.LinearGradientPen = false;
+            cyberButtonSearch.Location = new Point(199, 0);
+            cyberButtonSearch.Name = "cyberButtonSearch";
+            cyberButtonSearch.PenWidth = 15;
+            cyberButtonSearch.Rounding = true;
+            cyberButtonSearch.RoundingInt = 70;
+            cyberButtonSearch.Size = new Size(103, 48);
+            cyberButtonSearch.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberButtonSearch.TabIndex = 21;
+            cyberButtonSearch.Tag = "Cyber";
+            cyberButtonSearch.TextButton = "Search";
+            cyberButtonSearch.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            cyberButtonSearch.Timer_Effect_1 = 5;
+            cyberButtonSearch.Timer_RGB = 300;
+            cyberButtonSearch.Click += cyberButtonSearch_Click;
+            // 
+            // maskedTextBoxIC
+            // 
+            maskedTextBoxIC.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            maskedTextBoxIC.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBoxIC.Location = new Point(-1, 8);
+            maskedTextBoxIC.Margin = new Padding(5);
+            maskedTextBoxIC.Mask = "000000-00-0000";
+            maskedTextBoxIC.Name = "maskedTextBoxIC";
+            maskedTextBoxIC.Size = new Size(199, 35);
+            maskedTextBoxIC.TabIndex = 20;
             // 
             // VisitorEditForm
             // 
@@ -602,10 +659,11 @@ namespace KossanVMS
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -683,8 +741,10 @@ namespace KossanVMS
         private CyberButton buttonSave;
         private CyberButton cyberButton1;
         private CyberTextBox textboxVisitorFullName;
-        private MaskedTextBox maskedTextBoxIC;
         private ThunderLabel thunderLabel3;
         private CheckedListBox checkedListBoxCat;
+        private Panel panel5;
+        private CyberButton cyberButtonSearch;
+        private MaskedTextBox maskedTextBoxIC;
     }
 }

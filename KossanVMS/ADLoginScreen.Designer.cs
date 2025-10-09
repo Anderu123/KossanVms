@@ -1,4 +1,7 @@
-﻿namespace KossanVMS
+﻿using ReaLTaiizor.Controls;
+using System.Diagnostics;
+
+namespace KossanVMS
 {
     partial class ADLoginScreen
     {
@@ -30,16 +33,16 @@
         {
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
-            labelSignIn = new ReaLTaiizor.Controls.LostLabel();
+            labelSignIn = new LostLabel();
             tableLayoutPanel1 = new TableLayoutPanel();
-            textBoxLoginUser = new ReaLTaiizor.Controls.CyberTextBox();
-            thunderLabel2 = new ReaLTaiizor.Controls.ThunderLabel();
-            thunderLabel1 = new ReaLTaiizor.Controls.ThunderLabel();
-            textBoxLoginPassword = new ReaLTaiizor.Controls.CyberTextBox();
+            textBoxLoginUser = new CyberTextBox();
+            thunderLabel2 = new ThunderLabel();
+            thunderLabel1 = new ThunderLabel();
+            textBoxLoginPassword = new CyberTextBox();
             tableLayoutPanel2 = new TableLayoutPanel();
-            panel1 = new Panel();
-            buttonLogin = new ReaLTaiizor.Controls.CyberButton();
-            buttonCancel = new ReaLTaiizor.Controls.CyberButton();
+            panel1 = new System.Windows.Forms.Panel();
+            buttonLogin = new CyberButton();
+            buttonCancel = new CyberButton();
             statusStripLogin = new StatusStrip();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -158,6 +161,9 @@
             textBoxLoginUser.TextButton = "";
             textBoxLoginUser.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textBoxLoginUser.Timer_RGB = 300;
+            textBoxLoginUser.Enter += textBoxUpdate_Enter;
+            textBoxLoginUser.Leave += textBoxUpdate_Leave;
+            textBoxLoginUser.textBox.PreviewKeyDown += textBoxLoginUser_PreviewKeyDown;
             // 
             // thunderLabel2
             // 
@@ -214,11 +220,9 @@
             textBoxLoginPassword.TextButton = "";
             textBoxLoginPassword.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textBoxLoginPassword.Timer_RGB = 300;
-            // Delete the old line:
-            // textBoxLoginPassword.KeyPress += textBoxLoginPassword_KeyDown;
-
-            // Add the new line:
-            this.textBoxLoginPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxLoginPassword_KeyDown);
+            textBoxLoginPassword.Enter += textBoxUpdate_Enter;
+            textBoxLoginPassword.Leave += textBoxUpdate_Leave;
+            textBoxLoginPassword.textBox.KeyDown += textBoxLoginPassword_KeyDown;
             // 
             // tableLayoutPanel2
             // 
@@ -347,6 +351,7 @@
             Controls.Add(splitContainer1);
             Name = "ADLoginScreen";
             Text = "ADLoginScreen";
+            Load += ADLoginScreen_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -362,8 +367,33 @@
             ResumeLayout(false);
         }
 
-        #endregion
 
+        #endregion
+        private void textBoxUpdate_Enter(object sender, EventArgs e)
+        {
+            CyberTextBox clickedButton = sender as CyberTextBox;
+
+            if (clickedButton != null)
+            {
+                Debug.WriteLine("Entered");
+                // Revert to the original border color when the mouse leaves
+                clickedButton.ColorBackground_Pen = Color.Turquoise;
+                clickedButton.ColorBackground = Color.White;
+                clickedButton.Invalidate(); // Force redraw
+            }
+        }
+        private void textBoxUpdate_Leave(object sender, EventArgs e)
+        {
+            CyberTextBox clickedButton = sender as CyberTextBox;
+            if (clickedButton != null)
+            {
+                Debug.WriteLine("Left");
+                // Revert to the original border color when the mouse leaves
+                clickedButton.ColorBackground_Pen = Color.PaleTurquoise;
+                clickedButton.ColorBackground = Color.LightGray;
+                clickedButton.Invalidate(); // Force redraw
+            }
+        }
         private SplitContainer splitContainer1;
         private SplitContainer splitContainer2;
         private TableLayoutPanel tableLayoutPanel1;
@@ -372,7 +402,7 @@
         private ReaLTaiizor.Controls.CyberTextBox textBoxLoginPassword;
         private ReaLTaiizor.Controls.LostLabel labelSignIn;
         private TableLayoutPanel tableLayoutPanel2;
-        private Panel panel1;
+        private System.Windows.Forms.Panel panel1;
         private ReaLTaiizor.Controls.CyberButton buttonLogin;
         private ReaLTaiizor.Controls.CyberButton buttonCancel;
         private ReaLTaiizor.Controls.CyberTextBox textBoxLoginUser;

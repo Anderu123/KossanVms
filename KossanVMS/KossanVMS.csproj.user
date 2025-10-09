@@ -16,6 +16,9 @@
     <Compile Update="UserControlPage\EditFormTemplateUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControlPage\VisitorPBUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControlPage\VisitorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -28,10 +31,10 @@
     <Compile Update="VisitorCompaniesEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VisitorEditForm.cs">
+    <Compile Update="VisitorContactEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VisitorForm.cs">
+    <Compile Update="VisitorPBForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Utility\FocusableLabel.cs">
@@ -41,6 +44,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="VisitorPhotoCapture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VisitorPreEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="VisitPurposeEditForm.cs">

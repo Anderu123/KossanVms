@@ -332,7 +332,7 @@ namespace KossanVMS
             buttonNavMain.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonNavMain.TabIndex = 2;
             buttonNavMain.Tag = "Cyber";
-            buttonNavMain.TextButton = "Register";
+            buttonNavMain.TextButton = "Pre-Reg";
             buttonNavMain.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             buttonNavMain.Timer_Effect_1 = 5;
             buttonNavMain.Timer_RGB = 300;

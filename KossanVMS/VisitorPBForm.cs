@@ -1,5 +1,6 @@
 ﻿using KossanVMS.Data;
 using KossanVMS.Utility;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace KossanVMS
         private readonly VmsContext _db;
         private bool _isNew = false;
         private List<VisitCategory> _category { get; set; }
+        private VisitorContactEditForm visitorContactEditForm;
 
         public VisitorEditForm(Visitor existingVisitor = null)
         {
@@ -41,21 +43,19 @@ namespace KossanVMS
             buttonUpdateID.Text = visitorModel.VisitorID.ToString();
             maskedTextBoxIC.Text = visitorModel.ICNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
-            buttonLabelUpdateContact.Text = visitorModel.Contact?.Tel ?? "";
-
-            //form alignment
-            //visitorPhotoCapture = new VisitorPhotoCapture();
-            //this.LocationChanged += VisitorEditForm_LocationChanged;
-            //visitorPhotoCapture.LocationChanged += VisitorPhotoCaptureForm_LocationChanged;
+            buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";          
 
             LoadCategoryCheckList();
 
 
 
         }
-        // VisitorEditForm.cs
-        // VisitorEditForm.cs
+    
+       
 
+
+
+        #region Initial Load Data
         private void LoadCategoryCheckList()
         {
             checkedListBoxCat.BeginUpdate();
@@ -95,7 +95,9 @@ namespace KossanVMS
                 checkedListBoxCat.EndUpdate();
             }
         }
+        #endregion
 
+        #region Save Methods
         public void SaveVisitorCategories()
         {
             if (_isNew) return; // no categories for new visitor yet
@@ -133,6 +135,182 @@ namespace KossanVMS
                 _db.SaveChanges();
             }
         }
+
+
+        private bool SaveResults()
+        {
+            var ic = (maskedTextBoxIC.Text ?? "").Trim();   // trim!
+            //System.Diagnostics.Debug.WriteLine($"DBG name={maskedTextBoxIC.Name}, text='{textboxVisitorIC.textBox.Text}', len={textboxVisitorIC.Text?.Length ?? -1}");
+
+            if (ic.Length == 0)
+            {
+                MessageBox.Show("Please fill in the Visitor IC.");
+                maskedTextBoxIC.Focus();
+                return false;
+            }
+            // push values back into the model (if you’re not using data-binding)
+            visitorModel.ICNo = maskedTextBoxIC.Text.Trim();
+            visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
+            visitorModel.Contact ??= new VisitorContact();
+            // visitorModel.Contact.Tel = buttonLabelUpdateContact.Text?.Trim();
+
+            return true;
+        }
+        #endregion
+
+        #region Button Clicks
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (!SaveResults()) return;
+            SaveVisitorCategories();
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void buttonVisitorVideoCapture_Click(object sender, EventArgs e)
+        {
+
+            this.StartPosition = FormStartPosition.Manual;
+
+            visitorPhotoCapture?.Dispose();
+            visitorPhotoCapture = new VisitorPhotoCapture(this)
+            {
+                StartPosition = FormStartPosition.Manual,
+                TopMost = true   // optional
+            };
+
+            // wire once
+            this.LocationChanged -= VisitorEditForm_LocationChanged;
+            visitorPhotoCapture.LocationChanged -= VisitorPhotoCaptureForm_LocationChanged;
+            this.LocationChanged += VisitorEditForm_LocationChanged;
+            visitorPhotoCapture.LocationChanged += VisitorPhotoCaptureForm_LocationChanged;
+
+
+            visitorPhotoCapture.Load -= VisitorPhotoCapture_Load;
+            visitorPhotoCapture.Load += VisitorPhotoCapture_Load;
+
+            //visitorPhotoCapture.ShowDialog(this);
+
+            if (visitorPhotoCapture.ShowDialog(this) == DialogResult.OK && !string.IsNullOrEmpty(visitorPhotoCapture.capturePath))
+            {
+                visitorModel.Photo ??= new VisitorPhoto { VisitorID = visitorModel.VisitorID };
+                visitorModel.Photo.PhotoPath = visitorPhotoCapture.capturePath;
+                visitorModel.Photo.CaptureDate = DateTime.UtcNow;
+
+            }
+            CenterForms();
+        }
+
+
+        private void buttonEditContact_Click(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            visitorContactEditForm?.Dispose();
+            visitorContactEditForm = new VisitorContactEditForm(visitorModel.Contact)
+            {
+                StartPosition = FormStartPosition.Manual,
+                TopMost = true   // optional
+            };
+            this.LocationChanged -= VisitorEditForm_ContactLocationChanged;
+            visitorContactEditForm.LocationChanged -= VisitorContactEditForm_LocationChanged;
+            this.LocationChanged += VisitorEditForm_ContactLocationChanged;
+            visitorContactEditForm.LocationChanged += VisitorContactEditForm_LocationChanged;
+            visitorContactEditForm.Load -= VisitorContactEdit_Load;
+            visitorContactEditForm.Load += VisitorContactEdit_Load;
+            visitorContactEditForm.ShowDialog(this);
+            CenterContactForms();
+        }
+
+        private async void cyberButtonSearch_Click(object sender, EventArgs e)
+        {
+            // maskedTextBoxIC.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            var ic = maskedTextBoxIC.Text.Trim();
+
+            var foundVisitor = await _db.Visitors
+                .Include(v => v.Contact)
+                .FirstOrDefaultAsync(v => v.ICNo == ic);
+
+            visitorModel = foundVisitor;      // OK (same type)
+            buttonUpdateID.Text = visitorModel.VisitorID.ToString();
+            maskedTextBoxIC.Text = visitorModel.ICNo ?? "";
+            textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
+            buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
+        }
+        #endregion
+
+        #region Forms Alightment
+        private void CenterForms()
+        {
+            // Get the dimensions of the primary screen's working area
+            Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
+
+            // Calculate the total width of the two forms
+            int totalWidth = this.Width + visitorPhotoCapture.Width;
+
+            // Calculate the new starting X and Y coordinates to center them
+            int startX = (workingArea.Width - totalWidth / 2);
+            int startY = (workingArea.Height - this.Height) / 2;
+
+            // Apply the new location to the forms
+            this.Location = new Point(startX, startY);
+            visitorPhotoCapture.Location = new Point(this.Right, this.Top);
+        }
+        private void CenterContactForms()
+        {
+            // Get the dimensions of the primary screen's working area
+            Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
+
+            // Calculate the total width of the two forms
+            int totalWidth = this.Width + visitorContactEditForm.Width;
+
+            // Calculate the new starting X and Y coordinates to center them
+            int startX = (workingArea.Width - totalWidth / 2);
+            int startY = (workingArea.Height - this.Height) / 2;
+
+            // Apply the new location to the forms
+            this.Location = new Point(startX, startY);
+            visitorContactEditForm.Location = new Point(this.Right, this.Top);
+        }
+        private void CenterForms(Form leftForm, Form rightForm)
+        {
+            // Center on the screen containing the editor form
+            var wa = Screen.FromControl(leftForm).WorkingArea;
+
+            int totalWidth = leftForm.Width + rightForm.Width;
+            int startX = wa.Left + (wa.Width - totalWidth) / 2;           
+            int startY = wa.Top + (wa.Height - leftForm.Height) / 2;
+
+            // place left form
+            leftForm.Location = new Point(startX, startY);
+            // snap right form to the right edge of left
+            rightForm.Location = new Point(leftForm.Right, leftForm.Top);
+
+            // clamp if the pair spills past the right edge
+            if (rightForm.Right > wa.Right)
+            {
+                int shift = rightForm.Right - wa.Right;
+                leftForm.Left -= shift;
+                rightForm.Left -= shift;
+            }
+        }
+        private void VisitorPhotoCapture_Load(object sender, EventArgs e)
+        {
+            CenterForms(this, visitorPhotoCapture);
+        }
+        private void VisitorContactEdit_Load(object sender, EventArgs e)
+        {
+            CenterForms(this, visitorContactEditForm);
+        }
+
+
+
+        
         private void VisitorEditForm_LocationChanged(object sender, EventArgs e)
         {
             if (isMoving) return;
@@ -157,8 +335,32 @@ namespace KossanVMS
 
             isMoving = false;
         }
+        private void VisitorEditForm_ContactLocationChanged(object sender, EventArgs e)
+        {
+            if (isMoving) return;
 
-        // MyOtherForm.cs
+            isMoving = true;
+
+            // Check if the form is moving out of the left boundary
+            if (this.Left < 0)
+            {
+                this.Location = new Point(0, this.Top);
+            }
+
+            visitorContactEditForm.Location = new Point(this.Right, this.Top);
+
+            // Check if the pair is moving out of the right boundary
+            if (visitorContactEditForm.Right > Screen.PrimaryScreen.WorkingArea.Width)
+            {
+                int newX = Screen.PrimaryScreen.WorkingArea.Width - visitorContactEditForm.Width;
+                visitorContactEditForm.Location = new Point(newX, visitorContactEditForm.Top);
+                this.Location = new Point(newX - this.Width, this.Top);
+            }
+
+            isMoving = false;
+        }
+
+
         private void VisitorPhotoCaptureForm_LocationChanged(object sender, EventArgs e)
         {
             if (isMoving) return;
@@ -183,131 +385,31 @@ namespace KossanVMS
 
             isMoving = false;
         }
-
-
-        private bool SaveResults()
+        private void VisitorContactEditForm_LocationChanged(object sender, EventArgs e)
         {
-            var ic = (maskedTextBoxIC.Text ?? "").Trim();   // trim!
-            //System.Diagnostics.Debug.WriteLine($"DBG name={maskedTextBoxIC.Name}, text='{textboxVisitorIC.textBox.Text}', len={textboxVisitorIC.Text?.Length ?? -1}");
+            if (isMoving) return;
 
-            if (ic.Length == 0)
+            isMoving = true;
+
+            // Check if the form is moving out of the right boundary
+            if (visitorContactEditForm.Right > Screen.PrimaryScreen.WorkingArea.Width)
             {
-                MessageBox.Show("Please fill in the Visitor IC.");
-                maskedTextBoxIC.Focus();
-                return false;
+                visitorContactEditForm.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - visitorContactEditForm.Width, visitorContactEditForm.Top);
             }
-            // push values back into the model (if you’re not using data-binding)
-            visitorModel.ICNo = maskedTextBoxIC.Text.Trim();
-            visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
-            visitorModel.Contact ??= new VisitorContact();
-            visitorModel.Contact.Tel = buttonLabelUpdateContact.Text?.Trim();
 
-            return true;
-        }
+            this.Location = new Point(visitorContactEditForm.Left - this.Width, visitorContactEditForm.Top);
 
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-            if (!SaveResults()) return;
-            SaveVisitorCategories();
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            Close();
-        }
-
-        private void buttonVisitorVideoCapture_Click(object sender, EventArgs e)
-        {
-            // Manual positioning (designer might have set CenterScreen)
-            this.StartPosition = FormStartPosition.Manual;
-
-            visitorPhotoCapture?.Dispose();
-            visitorPhotoCapture = new VisitorPhotoCapture(this)
+            // Check if the pair is moving out of the left boundary
+            if (this.Left < 0)
             {
-                StartPosition = FormStartPosition.Manual,
-                TopMost = true   // optional
-            };
-
-            // wire once
-            this.LocationChanged -= VisitorEditForm_LocationChanged;
-            visitorPhotoCapture.LocationChanged -= VisitorPhotoCaptureForm_LocationChanged;
-            this.LocationChanged += VisitorEditForm_LocationChanged;
-            visitorPhotoCapture.LocationChanged += VisitorPhotoCaptureForm_LocationChanged;
-
-            // Center AFTER the photo form has measured itself
-            //  visitorPhotoCapture.Load += (_, __) => CenterForms(this, visitorPhotoCapture);
-            visitorPhotoCapture.Load -= VisitorPhotoCapture_Load;
-            visitorPhotoCapture.Load += VisitorPhotoCapture_Load;
-            // Use owner so z-order is stable. Show() if you want side-by-side live.
-            // If you must block, use ShowDialog(this) but keep the Load centering above.
-            //visitorPhotoCapture.ShowDialog(this);
-            
-            if(visitorPhotoCapture.ShowDialog(this) == DialogResult.OK && !string.IsNullOrEmpty(visitorPhotoCapture.capturePath))
-            {
-               visitorModel.Photo ??= new VisitorPhoto { VisitorID = visitorModel.VisitorID };
-                visitorModel.Photo.PhotoPath = visitorPhotoCapture.capturePath;
-                visitorModel.Photo.CaptureDate = DateTime.UtcNow;
-                
+                int newX = 0;
+                this.Location = new Point(newX, this.Top);
+                visitorContactEditForm.Location = new Point(newX + this.Width, visitorContactEditForm.Top);
             }
-            CenterForms();
+
+            isMoving = false;
         }
-
-        private void VisitorPhotoCapture_Load(object sender, EventArgs e)
-        {
-            CenterForms(this, visitorPhotoCapture);
-        }
-        private void CenterForms(Form leftForm, Form rightForm)
-        {
-            // Center on the screen containing the editor form
-            var wa = Screen.FromControl(leftForm).WorkingArea;
-
-            int totalWidth = leftForm.Width + rightForm.Width;
-            int startX = wa.Left + (wa.Width - totalWidth) / 2;           // ✅ correct parentheses + offset
-            int startY = wa.Top + (wa.Height - leftForm.Height) / 2;
-
-            // place left form
-            leftForm.Location = new Point(startX, startY);
-            // snap right form to the right edge of left
-            rightForm.Location = new Point(leftForm.Right, leftForm.Top);
-
-            // clamp if the pair spills past the right edge
-            if (rightForm.Right > wa.Right)
-            {
-                int shift = rightForm.Right - wa.Right;
-                leftForm.Left -= shift;
-                rightForm.Left -= shift;
-            }
-        }
-
-        private void CenterForms()
-        {
-            // Get the dimensions of the primary screen's working area
-            Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
-
-            // Calculate the total width of the two forms
-            int totalWidth = this.Width + visitorPhotoCapture.Width;
-
-            // Calculate the new starting X and Y coordinates to center them
-            int startX = (workingArea.Width - totalWidth / 2);
-            int startY = (workingArea.Height - this.Height) / 2;
-
-            // Apply the new location to the forms
-            this.Location = new Point(startX, startY);
-            visitorPhotoCapture.Location = new Point(this.Right, this.Top);
-        }
-
-        private void textboxVisitorFullName_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
+        #endregion 
     }
 
 }

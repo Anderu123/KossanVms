@@ -18,10 +18,14 @@ namespace KossanVMS
         public ADLoginScreen()
         {
             InitializeComponent();
+            //this.Shown += ADLoginScreen_Shown;
 
         }
 
-
+        //private void ADLoginScreen_Shown(object sender, EventArgs e)
+        //{
+        //    textBoxLoginUser.textBox.Focus();
+        //}
         private async void buttonLogin_Click(object sender, EventArgs e)
         {
             string username = textBoxLoginUser.textBox.Text.Trim();
@@ -61,6 +65,7 @@ namespace KossanVMS
                         MessageBox.Show("AD user found, but VMS role not assigned. Contact administrator.", "Login Failed");
                         // User authenticated with AD but not found in VMS DB (needs assignment)
                         statusStripLogin.Text = "AD user found, but VMS role not assigned. Contact administrator.";
+                        buttonLogin.Enabled = true;
                     }
                 }
             }
@@ -70,14 +75,24 @@ namespace KossanVMS
                 // 5. AD Authentication Failed
                 statusStripLogin.Text = "Invalid Username or Password. Please try again.";
                 textBoxLoginPassword.textBox.Clear();
+                buttonLogin.Enabled = true;
             }
 
         }
 
 
+        private void textBoxLoginUser_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab || e.KeyCode == Keys.Enter)
+            {
+                // 1. Tell the control not to process the key's default action
+                e.IsInputKey = true;
+                textBoxLoginPassword.textBox.Select();
+                // 2. Perform your action
+                textBoxLoginPassword.textBox.Focus();
+            }
+        }
 
-      
-       
 
         private void textBoxLoginPassword_KeyDown(object sender, KeyEventArgs e) // Use KeyEventArgs
         {
@@ -85,9 +100,26 @@ namespace KossanVMS
             {
                 // You'll need to pass null or create new EventArgs for the buttonClick method
                 buttonLogin_Click(sender, EventArgs.Empty);
-                e.Handled = true;
-                e.SuppressKeyPress = true; // Stop the "ding" sound
+                //e.Handled = true;
+                //e.SuppressKeyPress = true; // Stop the "ding" sound
             }
         }
+
+        private void ADLoginScreen_Load(object sender, EventArgs e)
+        {
+            // Schedule the focus request to run after all other UI initialization is complete.
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                // Use Select() as it implicitly sets the focus and is confirmed to work partially.
+                textBoxLoginUser.textBox.Select();
+
+                // Use Focus() again just to be explicit after the Select.
+                // In many cases, adding this line after a slight delay forces the UI state refresh.
+                textBoxLoginUser.textBox.Focus();
+            });
+            textBoxLoginPassword.textBox.KeyDown += textBoxLoginPassword_KeyDown;
+            textBoxLoginUser.textBox.PreviewKeyDown += textBoxLoginUser_PreviewKeyDown;
+        }
+        // Note: If Load still fails, try replacing 'ADLoginScreen_Load' with 'ADLoginScreen_Shown'.
     }
 }

@@ -17,7 +17,8 @@ namespace KossanVMS
         //protected override void OnResize(EventArgs e)
         //{
         //    base.OnResize(e);
-        //    this.Invalidate(); 
+        //    this.
+        //    (); 
         //}
 
         //protected override void OnPaint(PaintEventArgs e)
