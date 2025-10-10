@@ -32,18 +32,22 @@ namespace KossanVMS.UserControlPage
 
         private async void VisitorUserControl_Load(object sender, EventArgs e)
         {
-            await _db.VisitCategories.LoadAsync();
-            await _db.VisitorCategoryLinks.LoadAsync();
-            // LOAD INTO THE CONTEXT (no AsNoTracking, no ToListAsync)
-            await _db.Visitors
-                .Include(v => v.BlackList)
-                //.Include(v => v.Company)
-                .Include(v => v.Contact)
-                .Include(v => v.Photo)
-                .LoadAsync();
+            if(_db !=null )
+            {
+                await _db.VisitCategories.LoadAsync();
+                await _db.VisitorCategoryLinks.LoadAsync();
+                // LOAD INTO THE CONTEXT (no AsNoTracking, no ToListAsync)
+                await _db.Visitors
+                    .Include(v => v.BlackList)
+                    //.Include(v => v.Company)
+                    .Include(v => v.Contact)
+                    .Include(v => v.Photo)
+                    .LoadAsync();
 
 
-            visitorBindingSource.DataSource = _db.Visitors.Local.ToBindingList();
+                visitorBindingSource.DataSource = _db.Visitors.Local.ToBindingList();
+            }
+           
         }
 
         private void VisitorGridViewUserControl_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -73,8 +77,10 @@ namespace KossanVMS.UserControlPage
             e.FormattingApplied = true;
         }
 
+       
         private void toolStripEditButton_Click(object sender, EventArgs e)
         {
+            
             var selectedItem = CurrentItem;
             if (selectedItem == null)
             {
@@ -84,7 +90,7 @@ namespace KossanVMS.UserControlPage
             var copyVisitorModel = new Visitor
             {
                 VisitorID = selectedItem.VisitorID,
-                ICNo = selectedItem.ICNo,
+                IdNo = selectedItem.IdNo,
                 FullName = selectedItem.FullName,
                 //Company = selectedItem.Company,
                 Contact = selectedItem.Contact,
@@ -97,9 +103,9 @@ namespace KossanVMS.UserControlPage
             {
                 return;
             }
-
+            editVisitorModel.DataChanged += DataGridUpdate;
             var updatedVisitorModel = editVisitorModel.visitorModel;
-            selectedItem.ICNo = (updatedVisitorModel.ICNo ?? "").Trim();
+            selectedItem.IdNo = (updatedVisitorModel.IdNo ?? "").Trim();
             selectedItem.FullName = (updatedVisitorModel.FullName ?? "").Trim();
             if (selectedItem.Contact != null)
             {
@@ -187,6 +193,7 @@ namespace KossanVMS.UserControlPage
 
             
             _db.SaveChanges();
+
             visitorBindingSource.ResetCurrentItem();
             // 1. Mark the entire control area as invalid (needs redrawing)
             VisitorGridViewUserControl.Invalidate();
@@ -196,6 +203,7 @@ namespace KossanVMS.UserControlPage
 
             VisitorGridViewUserControl.Refresh();
             UpdatePhotoPreview(selectedItem);
+            editVisitorModel.DataChanged -= DataGridUpdate;
         }
 
         private void toolStripAddButton_Click(object sender, EventArgs e)
@@ -260,7 +268,21 @@ namespace KossanVMS.UserControlPage
 
         // Clean, strongly-typed current item
         private Visitor? CurrentItem => visitorBindingSource.Current as Visitor;
+        private void DataGridUpdate(object sender, EventArgs e)
+        {
+            // This method is called when the DataGridView is updated
+            // You can handle any additional logic here if needed
+            // For example, you might want to refresh the photo preview
+            visitorBindingSource.ResetCurrentItem();
+            // 1. Mark the entire control area as invalid (needs redrawing)
+            VisitorGridViewUserControl.Invalidate();
 
+            // 2. Force the immediate repaint operation
+            VisitorGridViewUserControl.Update();
+
+            VisitorGridViewUserControl.Refresh();
+
+        }
         // Optional: expose actions
         //public void RefreshPage() => -= VisitorUserControl_Load;
 

@@ -45,6 +45,8 @@ namespace KossanVMS.UserControlPage
             visitorBindingSource = new BindingSource(components);
             visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            IdType = new DataGridViewTextBoxColumn();
+            IdNo = new DataGridViewTextBoxColumn();
             colCategories = new DataGridViewTextBoxColumn();
             colPhoto = new DataGridViewTextBoxColumn();
             blackListDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -159,7 +161,7 @@ namespace KossanVMS.UserControlPage
             VisitorGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             VisitorGridViewUserControl.BackgroundColor = Color.LightGray;
             VisitorGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisitorGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, colCategories, colPhoto, blackListDataGridViewTextBoxColumn });
+            VisitorGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colCategories, colPhoto, blackListDataGridViewTextBoxColumn });
             VisitorGridViewUserControl.DataSource = visitorBindingSource;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
@@ -197,6 +199,18 @@ namespace KossanVMS.UserControlPage
             fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
             fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
             fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            // 
+            // IdType
+            // 
+            IdType.DataPropertyName = "IdType";
+            IdType.HeaderText = "IdType";
+            IdType.Name = "IdType";
+            // 
+            // IdNo
+            // 
+            IdNo.DataPropertyName = "IdNo";
+            IdNo.HeaderText = "IdNo";
+            IdNo.Name = "IdNo";
             // 
             // colCategories
             // 
@@ -247,6 +261,8 @@ namespace KossanVMS.UserControlPage
         private PictureBox visitorUploadVisitorBox;
         private DataGridViewTextBoxColumn visitorIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn IdType;
+        private DataGridViewTextBoxColumn IdNo;
         private DataGridViewTextBoxColumn colCategories;
         private DataGridViewTextBoxColumn colPhoto;
         private DataGridViewTextBoxColumn blackListDataGridViewTextBoxColumn;

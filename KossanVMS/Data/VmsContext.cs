@@ -46,7 +46,7 @@ namespace KossanVMS.Data
             model.Entity<VisitBranch>().HasIndex(x => x.BranchName).IsUnique();
 
             // Visitors
-            model.Entity<Visitor>().HasIndex(x => x.ICNo).IsUnique();
+            model.Entity<Visitor>().HasIndex(x => new { x.IdType, x.IdNo }).IsUnique();
 
             // Junction uniqueness
             model.Entity<VisitorCategoryLink>()

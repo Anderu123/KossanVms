@@ -24,7 +24,8 @@ namespace KossanVMS
         private bool _isNew = false;
         private List<VisitCategory> _category { get; set; }
         private VisitorContactEditForm visitorContactEditForm;
-
+        public delegate void DataChangedEventHandler(object sender, EventArgs e);
+        public event DataChangedEventHandler DataChanged;
         public VisitorEditForm(Visitor existingVisitor = null)
         {
             InitializeComponent();
@@ -41,17 +42,26 @@ namespace KossanVMS
                 visitorModel = existingVisitor;
             }
             buttonUpdateID.Text = visitorModel.VisitorID.ToString();
-            maskedTextBoxIC.Text = visitorModel.ICNo ?? "";
+            maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
-            buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";          
+            buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
 
             LoadCategoryCheckList();
 
+            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
+            comboBoxIdType.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxIdType.DrawMode = DrawMode.OwnerDrawFixed;   // if you need it
+            comboBoxIdType.ItemHeight = 45;
+
+            comboBoxIdType.DataSource = Enum.GetValues(typeof(Data.IdType));
+            comboBoxIdType.SelectedItem = Data.IdType.IC;
+
+            comboBoxIdType.DrawItem += ComboBoxIdType_DrawItem;  // only if OwnerDraw
 
         }
-    
-       
+
+
 
 
 
@@ -149,7 +159,7 @@ namespace KossanVMS
                 return false;
             }
             // push values back into the model (if you’re not using data-binding)
-            visitorModel.ICNo = maskedTextBoxIC.Text.Trim();
+            visitorModel.IdNo = maskedTextBoxIC.Text.Trim();
             visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
             visitorModel.Contact ??= new VisitorContact();
             // visitorModel.Contact.Tel = buttonLabelUpdateContact.Text?.Trim();
@@ -234,11 +244,11 @@ namespace KossanVMS
 
             var foundVisitor = await _db.Visitors
                 .Include(v => v.Contact)
-                .FirstOrDefaultAsync(v => v.ICNo == ic);
+                .FirstOrDefaultAsync(v => v.IdNo == ic);
 
             visitorModel = foundVisitor;      // OK (same type)
             buttonUpdateID.Text = visitorModel.VisitorID.ToString();
-            maskedTextBoxIC.Text = visitorModel.ICNo ?? "";
+            maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
             buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
         }
@@ -283,7 +293,7 @@ namespace KossanVMS
             var wa = Screen.FromControl(leftForm).WorkingArea;
 
             int totalWidth = leftForm.Width + rightForm.Width;
-            int startX = wa.Left + (wa.Width - totalWidth) / 2;           
+            int startX = wa.Left + (wa.Width - totalWidth) / 2;
             int startY = wa.Top + (wa.Height - leftForm.Height) / 2;
 
             // place left form
@@ -310,7 +320,7 @@ namespace KossanVMS
 
 
 
-        
+
         private void VisitorEditForm_LocationChanged(object sender, EventArgs e)
         {
             if (isMoving) return;
@@ -409,7 +419,47 @@ namespace KossanVMS
 
             isMoving = false;
         }
-        #endregion 
+        #endregion
+
+        private void ComboBoxIdType_DrawItem(object? sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            if (e.Index >= 0)
+            {
+                using var bg = new SolidBrush(Color.White);
+                e.Graphics.FillRectangle(bg, e.Bounds);
+
+                var text = comboBoxIdType.GetItemText(comboBoxIdType.Items[e.Index]);
+                TextRenderer.DrawText(e.Graphics, text, comboBoxIdType.Font,
+                                      e.Bounds, Color.Black,
+                                      TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+            }
+            e.DrawFocusRectangle();
+        }
+        private void comboBoxIdType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var type = (IdType)comboBoxIdType.SelectedIndex;
+            if (type == IdType.IC && string.IsNullOrEmpty(visitorModel.IdNo))
+            {
+                maskedTextBoxIC.Mask = "000000-00-0000";
+                maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+            }
+            else if (type == IdType.Passport && string.IsNullOrEmpty(visitorModel.IdNo))
+            {
+                maskedTextBoxIC.Mask = "AAAAAAAAAA";
+                maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+            }
+            else if (type == IdType.Permit && string.IsNullOrEmpty(visitorModel.IdNo))
+            {
+                maskedTextBoxIC.Mask = "00000000";
+                maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+            }
+        }
+
+        private void foxLinkLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

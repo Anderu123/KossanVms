@@ -21,6 +21,12 @@ namespace KossanVMS.Data
         Out = 2,
         Cancelled = 9
     }
+    public enum IdType : byte
+    {
+        IC = 0,
+        Passport = 1,
+        Permit = 2
+    }
 
     [Table("visit_categories")]
 
@@ -212,9 +218,13 @@ namespace KossanVMS.Data
         [Column("visitor_id")]
         [Key]
         public int VisitorID { get; set; }
-        [Column("ic_no")]
+
+        [Column("id_type")]
+        public IdType IdType { get; set; }
+       
+        [Column("id_no")]
         [Required, MaxLength(100)]
-        public string ICNo { get; set; } = null!;
+        public string IdNo { get; set; } = null!;
         [Required, MaxLength(150)]
         [Column("full_name")]
         public string FullName { get; set; } = null!;
