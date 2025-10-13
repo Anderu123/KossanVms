@@ -6,7 +6,7 @@ using Panel = System.Windows.Forms.Panel;
 using System.Diagnostics;
 namespace KossanVMS
 {
-    partial class VisitorEditForm
+    partial class VisitorPBForm
     {
         /// <summary>
         /// Required designer variable.
@@ -22,7 +22,7 @@ namespace KossanVMS
             if (disposing && (components != null))
             {
                 components.Dispose();
-                _db.Dispose();
+                //_db.Dispose();
             }
             base.Dispose(disposing);
         }

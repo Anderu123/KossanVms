@@ -14,8 +14,8 @@ namespace KossanVMS.UserControlPage
 {
     public partial class VisitorUserControl : UserControl
     {
-        private readonly VmsContext _db;
-
+        private VmsContext _db;
+      
         //private readonly BindingSource bindingSource = new();
         // private BindingList<Visitor> _items = new();
         public VisitorUserControl(VmsContext db)
@@ -23,8 +23,8 @@ namespace KossanVMS.UserControlPage
             InitializeComponent();
             //_db = db;
             _db = db ?? throw new ArgumentNullException(nameof(db));
-            VisitorGridViewUserControl.DataSource = visitorBindingSource;
-            VisitorGridViewUserControl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            VisitorGridViewPBControl.DataSource = visitorBindingSource;
+            VisitorGridViewPBControl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             this.Load += VisitorUserControl_Load;
 
@@ -32,53 +32,126 @@ namespace KossanVMS.UserControlPage
 
         private async void VisitorUserControl_Load(object sender, EventArgs e)
         {
-            if(_db !=null )
+            try
             {
-                await _db.VisitCategories.LoadAsync();
-                await _db.VisitorCategoryLinks.LoadAsync();
-                // LOAD INTO THE CONTEXT (no AsNoTracking, no ToListAsync)
-                await _db.Visitors
-                    .Include(v => v.BlackList)
-                    //.Include(v => v.Company)
-                    .Include(v => v.Contact)
-                    .Include(v => v.Photo)
-                    .LoadAsync();
+                if (_db != null)
+                {
+                    await _db.VisitCategories.LoadAsync();
+                    await _db.VisitorCategoryLinks.LoadAsync();
+                    // LOAD INTO THE CONTEXT (no AsNoTracking, no ToListAsync)
+                    await _db.Visitors
+                        .Include(v => v.BlackList)
+                        //.Include(v => v.Company)
+                        .Include(v => v.Contact)
+                        .Include(v => v.Photo)
+                        .LoadAsync();
 
 
-                visitorBindingSource.DataSource = _db.Visitors.Local.ToBindingList();
+                    visitorBindingSource.DataSource = _db.Visitors.Local.ToBindingList();
+                }
             }
-           
-        }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message, "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-        private void VisitorGridViewUserControl_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+            }
+        }
+        private void VisitorGridViewUserControl_CellFormatting(object s, DataGridViewCellFormattingEventArgs e)
         {
-            var grid = VisitorGridViewUserControl;
+            var grid = VisitorGridViewPBControl;
             if (e.RowIndex < 0) return;
 
+            // Photo column
             if (grid.Columns[e.ColumnIndex].Name == "colPhoto")
             {
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v)
-                {
-                    e.Value = v.Photo?.PhotoPath;
-                    e.FormattingApplied = true;
-                }
+                    e.Value = v.Photo?.PhotoPath ?? string.Empty;   // always set
+                else
+                    e.Value = string.Empty;
+
+                e.FormattingApplied = true;
                 return;
             }
 
-            if (VisitorGridViewUserControl.Columns[e.ColumnIndex].Name != "colCategories" || e.RowIndex<0)
-                { return; }
-            var rowItem = VisitorGridViewUserControl.Rows[e.RowIndex].DataBoundItem as Visitor;
-            if (rowItem == null)
-            { return; }
-            var categories = _db.VisitorCategoryLinks.Local.Where(l => l.VisitorID == rowItem.VisitorID)
-                                                    .Join(_db.VisitCategories.Local, l => l.CategoryID, c => c.CategoryID, (l, c) => c.CategoryName)
-                                                    .OrderBy(n => n).ToList();
-            e.Value= string.Join(", ", categories);
-            e.FormattingApplied = true;
+            // Categories column
+            if (grid.Columns[e.ColumnIndex].Name == "colCategories")
+            {
+                if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v2)
+                {
+                    var names = _db.VisitorCategoryLinks.Local
+                                 .Where(l => l.VisitorID == v2.VisitorID)
+                                 .Join(_db.VisitCategories.Local,
+                                       l => l.CategoryID, c => c.CategoryID,
+                                       (l, c) => c.CategoryName)
+                                 .OrderBy(n => n)
+                                 .ToList();
+
+                    e.Value = names.Count > 0 ? string.Join(", ", names) : string.Empty;
+                }
+                else
+                {
+                    e.Value = string.Empty;
+                }
+
+                e.FormattingApplied = true;
+                return;
+            }
         }
 
-       
-        private void toolStripEditButton_Click(object sender, EventArgs e)
+        //private void VisitorGridViewUserControl_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        //{
+        //    var grid = VisitorGridViewUserControl;
+        //    if (e.RowIndex < 0) return;
+
+        //    if (grid.Columns[e.ColumnIndex].Name == "colPhoto")
+        //    {
+        //        if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v)
+        //        {
+        //            e.Value = v.Photo?.PhotoPath;
+        //            e.FormattingApplied = true;
+        //        }
+        //        return;
+        //    }
+
+        //    if (VisitorGridViewUserControl.Columns[e.ColumnIndex].Name != "colCategories" || e.RowIndex<0)
+        //        { return; }
+        //    var rowItem = VisitorGridViewUserControl.Rows[e.RowIndex].DataBoundItem as Visitor;
+        //    if (rowItem == null)
+        //    { return; }
+        //    var categories = _db.VisitorCategoryLinks.Local.Where(l => l.VisitorID == rowItem.VisitorID)
+        //                                            .Join(_db.VisitCategories.Local, l => l.CategoryID, c => c.CategoryID, (l, c) => c.CategoryName)
+        //                                            .OrderBy(n => n).ToList();
+        //    e.Value= string.Join(", ", categories);
+        //    e.FormattingApplied = true;
+        //}
+        private async Task RefreshCurrentRowAndColumns()
+        {
+
+
+            //// repaint the whole row (good for unbound/computed cells like colCategories/colPhoto)
+            // repaint the specific computed cells
+            var grid = VisitorGridViewPBControl;
+            var rowIndex = grid.CurrentCell?.RowIndex ?? -1;
+            if (rowIndex >= 0)
+            {
+                var catCol = grid.Columns["colCategories"]?.Index ?? -1;
+                var phoCol = grid.Columns["colPhoto"]?.Index ?? -1;
+                if (catCol >= 0) grid.InvalidateCell(catCol, rowIndex);
+                if (phoCol >= 0) grid.InvalidateCell(phoCol, rowIndex);
+            }
+
+            // (optional) if many rows might change:
+            /// visitorBindingSource.ResetBindings(false);
+
+
+            //if you want to be extra sure:
+            grid.Refresh();
+            //_dbUpdate?.Dispose();
+            
+        }
+
+
+        private async void toolStripEditButton_Click(object sender, EventArgs e)
         {
             
             var selectedItem = CurrentItem;
@@ -98,12 +171,12 @@ namespace KossanVMS.UserControlPage
                 BlackList = selectedItem.BlackList
             };
 
-            using var editVisitorModel = new VisitorEditForm(copyVisitorModel);
+            using var editVisitorModel = new VisitorPBForm(_db, copyVisitorModel);
             if (editVisitorModel.ShowDialog(this) != DialogResult.OK)
             {
                 return;
             }
-            editVisitorModel.DataChanged += DataGridUpdate;
+           
             var updatedVisitorModel = editVisitorModel.visitorModel;
             selectedItem.IdNo = (updatedVisitorModel.IdNo ?? "").Trim();
             selectedItem.FullName = (updatedVisitorModel.FullName ?? "").Trim();
@@ -194,21 +267,31 @@ namespace KossanVMS.UserControlPage
             
             _db.SaveChanges();
 
+
             visitorBindingSource.ResetCurrentItem();
-            // 1. Mark the entire control area as invalid (needs redrawing)
-            VisitorGridViewUserControl.Invalidate();
 
-            // 2. Force the immediate repaint operation
-            VisitorGridViewUserControl.Update();
+            // repaint the specific computed cells
+            var grid = VisitorGridViewPBControl;
+            var r = grid.CurrentCell?.RowIndex ?? -1;
+            if (r >= 0)
+            {
+                int catCol = grid.Columns["colCategories"]?.Index ?? -1;
+                int phoCol = grid.Columns["colPhoto"]?.Index ?? -1;
+                if (catCol >= 0) grid.InvalidateCell(catCol, r);
+                if (phoCol >= 0) grid.InvalidateCell(phoCol, r);
+            }
+            grid.Refresh();
 
-            VisitorGridViewUserControl.Refresh();
             UpdatePhotoPreview(selectedItem);
-            editVisitorModel.DataChanged -= DataGridUpdate;
+           // RefreshCurrentRowAndColumns();
+
+
+            //editVisitorModel.DataChanged -= DataGridUpdate;
         }
 
         private void toolStripAddButton_Click(object sender, EventArgs e)
         {
-            using var addVisitorModel = new VisitorEditForm();
+            using var addVisitorModel = new VisitorPBForm(_db);
             var newVisitorModel = addVisitorModel.visitorModel;
             if (addVisitorModel.ShowDialog(this) != DialogResult.OK)
             {
@@ -275,12 +358,12 @@ namespace KossanVMS.UserControlPage
             // For example, you might want to refresh the photo preview
             visitorBindingSource.ResetCurrentItem();
             // 1. Mark the entire control area as invalid (needs redrawing)
-            VisitorGridViewUserControl.Invalidate();
+            VisitorGridViewPBControl.Invalidate();
 
             // 2. Force the immediate repaint operation
-            VisitorGridViewUserControl.Update();
+            VisitorGridViewPBControl.Update();
 
-            VisitorGridViewUserControl.Refresh();
+            VisitorGridViewPBControl.Refresh();
 
         }
         // Optional: expose actions

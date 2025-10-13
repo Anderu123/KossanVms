@@ -40,7 +40,7 @@
             labelVisitorContact = new ReaLTaiizor.Controls.ThunderLabel();
             labelVisitorFullName = new ReaLTaiizor.Controls.ThunderLabel();
             panel2 = new Panel();
-            buttonVisitorVideoCapture = new ReaLTaiizor.Controls.CyberButton();
+            buttonVisitorUploadPhoto = new ReaLTaiizor.Controls.CyberButton();
             foxLinkLabel1 = new ReaLTaiizor.Controls.FoxLinkLabel();
             panel3 = new Panel();
             buttonSave = new ReaLTaiizor.Controls.CyberButton();
@@ -252,7 +252,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(buttonVisitorVideoCapture);
+            panel2.Controls.Add(buttonVisitorUploadPhoto);
             panel2.Controls.Add(foxLinkLabel1);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(154, 312);
@@ -260,46 +260,46 @@
             panel2.Size = new Size(327, 52);
             panel2.TabIndex = 11;
             // 
-            // buttonVisitorVideoCapture
+            // buttonVisitorUploadPhoto
             // 
-            buttonVisitorVideoCapture.Alpha = 20;
-            buttonVisitorVideoCapture.BackColor = Color.Transparent;
-            buttonVisitorVideoCapture.Background = true;
-            buttonVisitorVideoCapture.Background_WidthPen = 4F;
-            buttonVisitorVideoCapture.BackgroundPen = true;
-            buttonVisitorVideoCapture.ColorBackground = Color.FromArgb(37, 52, 68);
-            buttonVisitorVideoCapture.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            buttonVisitorVideoCapture.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            buttonVisitorVideoCapture.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            buttonVisitorVideoCapture.ColorLighting = Color.FromArgb(29, 200, 238);
-            buttonVisitorVideoCapture.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            buttonVisitorVideoCapture.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            buttonVisitorVideoCapture.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            buttonVisitorVideoCapture.Dock = DockStyle.Fill;
-            buttonVisitorVideoCapture.Effect_1 = true;
-            buttonVisitorVideoCapture.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            buttonVisitorVideoCapture.Effect_1_Transparency = 25;
-            buttonVisitorVideoCapture.Effect_2 = true;
-            buttonVisitorVideoCapture.Effect_2_ColorBackground = Color.White;
-            buttonVisitorVideoCapture.Effect_2_Transparency = 20;
-            buttonVisitorVideoCapture.Font = new Font("Arial", 11F);
-            buttonVisitorVideoCapture.ForeColor = Color.FromArgb(245, 245, 245);
-            buttonVisitorVideoCapture.Lighting = false;
-            buttonVisitorVideoCapture.LinearGradient_Background = false;
-            buttonVisitorVideoCapture.LinearGradientPen = false;
-            buttonVisitorVideoCapture.Location = new Point(201, 0);
-            buttonVisitorVideoCapture.Name = "buttonVisitorVideoCapture";
-            buttonVisitorVideoCapture.PenWidth = 15;
-            buttonVisitorVideoCapture.Rounding = true;
-            buttonVisitorVideoCapture.RoundingInt = 70;
-            buttonVisitorVideoCapture.Size = new Size(126, 52);
-            buttonVisitorVideoCapture.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonVisitorVideoCapture.TabIndex = 1;
-            buttonVisitorVideoCapture.Tag = "Cyber";
-            buttonVisitorVideoCapture.TextButton = "Upload Photo";
-            buttonVisitorVideoCapture.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            buttonVisitorVideoCapture.Timer_Effect_1 = 5;
-            buttonVisitorVideoCapture.Timer_RGB = 300;
+            buttonVisitorUploadPhoto.Alpha = 20;
+            buttonVisitorUploadPhoto.BackColor = Color.Transparent;
+            buttonVisitorUploadPhoto.Background = true;
+            buttonVisitorUploadPhoto.Background_WidthPen = 4F;
+            buttonVisitorUploadPhoto.BackgroundPen = true;
+            buttonVisitorUploadPhoto.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonVisitorUploadPhoto.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonVisitorUploadPhoto.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonVisitorUploadPhoto.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonVisitorUploadPhoto.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonVisitorUploadPhoto.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonVisitorUploadPhoto.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonVisitorUploadPhoto.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonVisitorUploadPhoto.Dock = DockStyle.Fill;
+            buttonVisitorUploadPhoto.Effect_1 = true;
+            buttonVisitorUploadPhoto.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonVisitorUploadPhoto.Effect_1_Transparency = 25;
+            buttonVisitorUploadPhoto.Effect_2 = true;
+            buttonVisitorUploadPhoto.Effect_2_ColorBackground = Color.White;
+            buttonVisitorUploadPhoto.Effect_2_Transparency = 20;
+            buttonVisitorUploadPhoto.Font = new Font("Arial", 11F);
+            buttonVisitorUploadPhoto.ForeColor = Color.FromArgb(245, 245, 245);
+            buttonVisitorUploadPhoto.Lighting = false;
+            buttonVisitorUploadPhoto.LinearGradient_Background = false;
+            buttonVisitorUploadPhoto.LinearGradientPen = false;
+            buttonVisitorUploadPhoto.Location = new Point(201, 0);
+            buttonVisitorUploadPhoto.Name = "buttonVisitorUploadPhoto";
+            buttonVisitorUploadPhoto.PenWidth = 15;
+            buttonVisitorUploadPhoto.Rounding = true;
+            buttonVisitorUploadPhoto.RoundingInt = 70;
+            buttonVisitorUploadPhoto.Size = new Size(126, 52);
+            buttonVisitorUploadPhoto.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonVisitorUploadPhoto.TabIndex = 1;
+            buttonVisitorUploadPhoto.Tag = "Cyber";
+            buttonVisitorUploadPhoto.TextButton = "Upload Photo";
+            buttonVisitorUploadPhoto.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonVisitorUploadPhoto.Timer_Effect_1 = 5;
+            buttonVisitorUploadPhoto.Timer_RGB = 300;
             // 
             // foxLinkLabel1
             // 
@@ -668,7 +668,7 @@
         private ReaLTaiizor.Controls.ThunderLabel labelVisitorContact;
         private ReaLTaiizor.Controls.ThunderLabel labelVisitorFullName;
         private Panel panel2;
-        private ReaLTaiizor.Controls.CyberButton buttonVisitorVideoCapture;
+        private ReaLTaiizor.Controls.CyberButton buttonVisitorUploadPhoto;
         private ReaLTaiizor.Controls.FoxLinkLabel foxLinkLabel1;
         private Panel panel3;
         private ReaLTaiizor.Controls.CyberButton buttonSave;

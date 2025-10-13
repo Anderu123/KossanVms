@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace KossanVMS
 {
 
-    public partial class VisitorEditForm : Form
+    public partial class VisitorPBForm : Form
     {
         public Visitor visitorModel { get; set; }
         private VisitorPhotoCapture visitorPhotoCapture;
@@ -24,12 +24,12 @@ namespace KossanVMS
         private bool _isNew = false;
         private List<VisitCategory> _category { get; set; }
         private VisitorContactEditForm visitorContactEditForm;
-        public delegate void DataChangedEventHandler(object sender, EventArgs e);
-        public event DataChangedEventHandler DataChanged;
-        public VisitorEditForm(Visitor existingVisitor = null)
+       
+        public VisitorPBForm(VmsContext db,Visitor existingVisitor = null)
         {
             InitializeComponent();
-            _db = new VmsContext();
+            //_db = new VmsContext();
+            _db = db ?? throw new ArgumentNullException(nameof(db));
             if (existingVisitor == null)
             {
                 Text = "Add Visitor";

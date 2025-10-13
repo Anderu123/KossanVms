@@ -34,7 +34,8 @@ namespace KossanVMS
             {
                 try
                 {
-                    // Load the selected image into the PictureBox
+                    // L
+                    // oad the selected image into the PictureBox
                     Image selectedImage = Image.FromFile(openFileDialog.FileName);
                    
                 }

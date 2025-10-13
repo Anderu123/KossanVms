@@ -38,6 +38,16 @@ namespace KossanVMS
             }
             buttonLogin.Enabled = false;
             buttonCancel.Enabled = false;
+            
+            bool adOnline = await Task.Run(() => new AdAuthenticator().IsAdServerReachable());
+            if (!adOnline)
+            {
+                MessageBox.Show("AD Server is unreachable. Please check your network connection or contact the administrator.", "Login Failed");
+                statusStripLogin.Text = "AD Server is unreachable. Please check your network connection or contact the administrator.";
+                buttonLogin.Enabled = true;
+                buttonCancel.Enabled = true;
+                return;
+            }
             bool adSuccess = await Task.Run(() => new AdAuthenticator().AuthenticateUser(username, password));
             if (adSuccess)
             {

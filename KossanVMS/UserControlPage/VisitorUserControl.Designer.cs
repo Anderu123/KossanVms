@@ -15,9 +15,12 @@ namespace KossanVMS.UserControlPage
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+            
+            _db?.Dispose();
+           
             if (disposing && (components != null))
             {
-                _db?.Dispose();
+               
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -33,7 +36,7 @@ namespace KossanVMS.UserControlPage
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisitorUserControl));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             visitorUploadVisitorBox = new PictureBox();
             visitorPictureBox = new PictureBox();
@@ -41,8 +44,7 @@ namespace KossanVMS.UserControlPage
             toolStripDelButton = new ToolStripButton();
             toolStripAddButton = new ToolStripButton();
             toolStripEditButton = new ToolStripButton();
-            VisitorGridViewUserControl = new DataGridView();
-            visitorBindingSource = new BindingSource(components);
+            VisitorGridViewPBControl = new DataGridView();
             visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             IdType = new DataGridViewTextBoxColumn();
@@ -50,11 +52,12 @@ namespace KossanVMS.UserControlPage
             colCategories = new DataGridViewTextBoxColumn();
             colPhoto = new DataGridViewTextBoxColumn();
             blackListDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            visitorBindingSource = new BindingSource(components);
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)visitorUploadVisitorBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorPictureBox).BeginInit();
             toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridViewUserControl).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridViewPBControl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -66,7 +69,7 @@ namespace KossanVMS.UserControlPage
             tableLayoutPanel1.Controls.Add(visitorUploadVisitorBox, 0, 2);
             tableLayoutPanel1.Controls.Add(visitorPictureBox, 0, 1);
             tableLayoutPanel1.Controls.Add(toolStrip1, 0, 0);
-            tableLayoutPanel1.Controls.Add(VisitorGridViewUserControl, 1, 1);
+            tableLayoutPanel1.Controls.Add(VisitorGridViewPBControl, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -155,38 +158,34 @@ namespace KossanVMS.UserControlPage
             toolStripEditButton.ToolTipText = "Edit";
             toolStripEditButton.Click += toolStripEditButton_Click;
             // 
-            // VisitorGridViewUserControl
+            // VisitorGridViewPBControl
             // 
-            VisitorGridViewUserControl.AutoGenerateColumns = false;
-            VisitorGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            VisitorGridViewUserControl.BackgroundColor = Color.LightGray;
-            VisitorGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisitorGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colCategories, colPhoto, blackListDataGridViewTextBoxColumn });
-            VisitorGridViewUserControl.DataSource = visitorBindingSource;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.DarkTurquoise;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            VisitorGridViewUserControl.DefaultCellStyle = dataGridViewCellStyle1;
-            VisitorGridViewUserControl.Dock = DockStyle.Fill;
-            VisitorGridViewUserControl.EditMode = DataGridViewEditMode.EditProgrammatically;
-            VisitorGridViewUserControl.Location = new Point(251, 31);
-            VisitorGridViewUserControl.MultiSelect = false;
-            VisitorGridViewUserControl.Name = "VisitorGridViewUserControl";
-            VisitorGridViewUserControl.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            tableLayoutPanel1.SetRowSpan(VisitorGridViewUserControl, 2);
-            VisitorGridViewUserControl.RowTemplate.Height = 25;
-            VisitorGridViewUserControl.Size = new Size(718, 481);
-            VisitorGridViewUserControl.TabIndex = 0;
-            VisitorGridViewUserControl.CellFormatting += VisitorGridViewUserControl_CellFormatting;
-            VisitorGridViewUserControl.SelectionChanged += VisitorGridViewUserControl_SelectionChanged;
-            // 
-            // visitorBindingSource
-            // 
-            visitorBindingSource.DataSource = typeof(Data.Visitor);
+            VisitorGridViewPBControl.AutoGenerateColumns = false;
+            VisitorGridViewPBControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            VisitorGridViewPBControl.BackgroundColor = Color.LightGray;
+            VisitorGridViewPBControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            VisitorGridViewPBControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colCategories, colPhoto, blackListDataGridViewTextBoxColumn });
+            VisitorGridViewPBControl.DataSource = visitorBindingSource;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.PaleTurquoise;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.DarkTurquoise;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            VisitorGridViewPBControl.DefaultCellStyle = dataGridViewCellStyle2;
+            VisitorGridViewPBControl.Dock = DockStyle.Fill;
+            VisitorGridViewPBControl.EditMode = DataGridViewEditMode.EditProgrammatically;
+            VisitorGridViewPBControl.Location = new Point(251, 31);
+            VisitorGridViewPBControl.MultiSelect = false;
+            VisitorGridViewPBControl.Name = "VisitorGridViewPBControl";
+            VisitorGridViewPBControl.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            tableLayoutPanel1.SetRowSpan(VisitorGridViewPBControl, 2);
+            VisitorGridViewPBControl.RowTemplate.Height = 25;
+            VisitorGridViewPBControl.Size = new Size(718, 481);
+            VisitorGridViewPBControl.TabIndex = 0;
+            VisitorGridViewPBControl.CellFormatting += VisitorGridViewUserControl_CellFormatting;
+            VisitorGridViewPBControl.SelectionChanged += VisitorGridViewUserControl_SelectionChanged;
             // 
             // visitorIDDataGridViewTextBoxColumn
             // 
@@ -228,6 +227,10 @@ namespace KossanVMS.UserControlPage
             blackListDataGridViewTextBoxColumn.HeaderText = "BlackList";
             blackListDataGridViewTextBoxColumn.Name = "blackListDataGridViewTextBoxColumn";
             // 
+            // visitorBindingSource
+            // 
+            visitorBindingSource.DataSource = typeof(Data.Visitor);
+            // 
             // VisitorUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -241,7 +244,7 @@ namespace KossanVMS.UserControlPage
             ((System.ComponentModel.ISupportInitialize)visitorPictureBox).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridViewUserControl).EndInit();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridViewPBControl).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
             ResumeLayout(false);
         }
@@ -249,7 +252,7 @@ namespace KossanVMS.UserControlPage
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private DataGridView VisitorGridViewUserControl;
+        private DataGridView VisitorGridViewPBControl;
         private BindingSource visitorBindingSource;
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripEditButton;

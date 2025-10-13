@@ -41,5 +41,21 @@ namespace KossanVMS.Security
                 return false;
             }
         }
+        public bool IsAdServerReachable()
+        {
+            try
+            {
+                using (var connection = new LdapConnection(AdServer + ":" + AdPort))
+                {
+                    connection.Timeout = new TimeSpan(0, 0, 5);
+                    connection.Bind(); // Attempt to bind without credentials
+                    return true; // If bind succeeds, server is reachable
+                }
+            }
+            catch
+            {
+                return false; // Any exception means the server is not reachable
+            }
+        }
     }
 }
