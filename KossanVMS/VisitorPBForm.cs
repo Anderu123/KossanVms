@@ -45,17 +45,20 @@ namespace KossanVMS
             maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
             buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
-
+            //var visitType= visitorModel.IdType;
             LoadCategoryCheckList();
 
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
+          //  if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
+            
             comboBoxIdType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxIdType.DrawMode = DrawMode.OwnerDrawFixed;   // if you need it
             comboBoxIdType.ItemHeight = 45;
 
             comboBoxIdType.DataSource = Enum.GetValues(typeof(Data.IdType));
-            comboBoxIdType.SelectedItem = Data.IdType.IC;
+            //comboBoxIdType.SelectedItem = Enum.Parse<Data.IdType>(visitorModel.IdType, ignoreCase: true);
+
+            comboBoxIdType.SelectedItem = visitorModel.IdType;
 
             comboBoxIdType.DrawItem += ComboBoxIdType_DrawItem;  // only if OwnerDraw
 
@@ -154,7 +157,7 @@ namespace KossanVMS
 
             if (ic.Length == 0)
             {
-                MessageBox.Show("Please fill in the Visitor IC.");
+                MessageBox.Show("Please fill in the Visitor Identity.");
                 maskedTextBoxIC.Focus();
                 return false;
             }
@@ -162,6 +165,7 @@ namespace KossanVMS
             visitorModel.IdNo = maskedTextBoxIC.Text.Trim();
             visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
             visitorModel.Contact ??= new VisitorContact();
+            visitorModel.IdType = (IdType)comboBoxIdType.SelectedIndex;
             // visitorModel.Contact.Tel = buttonLabelUpdateContact.Text?.Trim();
 
             return true;
@@ -429,33 +433,68 @@ namespace KossanVMS
                 using var bg = new SolidBrush(Color.White);
                 e.Graphics.FillRectangle(bg, e.Bounds);
 
-                var text = comboBoxIdType.GetItemText(comboBoxIdType.Items[e.Index]);
+                // get the text for the row that's actually being drawn
+                string text = comboBoxIdType.GetItemText(comboBoxIdType.Items[e.Index]);
+                bool selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+                var fore = selected ? SystemColors.HighlightText : comboBoxIdType.ForeColor;
                 TextRenderer.DrawText(e.Graphics, text, comboBoxIdType.Font,
                                       e.Bounds, Color.Black,
                                       TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
             }
             e.DrawFocusRectangle();
+
         }
         private void comboBoxIdType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             var type = (IdType)comboBoxIdType.SelectedIndex;
             if (type == IdType.IC && string.IsNullOrEmpty(visitorModel.IdNo))
             {
                 maskedTextBoxIC.Mask = "000000-00-0000";
                 maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
             }
-            else if (type == IdType.Passport && string.IsNullOrEmpty(visitorModel.IdNo))
+            else if (type == IdType.Passport)// && string.IsNullOrEmpty(visitorModel.IdNo))
             {
                 maskedTextBoxIC.Mask = "AAAAAAAAAA";
                 maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
             }
-            else if (type == IdType.Permit && string.IsNullOrEmpty(visitorModel.IdNo))
+            else if (type == IdType.Permit )//&& string.IsNullOrEmpty(visitorModel.IdNo))
             {
                 maskedTextBoxIC.Mask = "00000000";
                 maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
             }
         }
 
+        private void ComboBoxIdType_Click(object sender, EventArgs e)
+        {
+            var messageBoxResult = MessageBox.Show("Changing ID Type will clear the existing ID Number. Do you want to proceed?", "Confirm Change", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (messageBoxResult == DialogResult.Yes)
+            {
+                comboBoxIdType.DroppedDown = true;
+                var type = (IdType)comboBoxIdType.SelectedIndex;
+                if (type == IdType.IC) //&& string.IsNullOrEmpty(visitorModel.IdNo))
+                {
+                    maskedTextBoxIC.Mask = "000000-00-0000";
+                    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                }
+                else if (type == IdType.Passport) //&& string.IsNullOrEmpty(visitorModel.IdNo))
+                {
+                    maskedTextBoxIC.Mask = "AAAAAAAAAA";
+                    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                }
+                else if (type == IdType.Permit)//&& string.IsNullOrEmpty(visitorModel.IdNo))
+                {
+                    maskedTextBoxIC.Mask = "00000000";
+                    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                }
+            }
+            else
+            {
+                // Revert to previous selection if user cancels
+                comboBoxIdType.DroppedDown = false;
+            }
+            //comboBoxIdType.DroppedDown = true;
+        }
         private void foxLinkLabel1_Click(object sender, EventArgs e)
         {
 

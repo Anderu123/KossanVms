@@ -23,8 +23,8 @@ namespace KossanVMS.UserControlPage
             InitializeComponent();
             //_db = db;
             _db = db ?? throw new ArgumentNullException(nameof(db));
-            VisitorGridViewPBControl.DataSource = visitorBindingSource;
-            VisitorGridViewPBControl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            VisitorGridViewUserControl.DataSource = visitorBindingSource;
+            VisitorGridViewUserControl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             this.Load += VisitorUserControl_Load;
 
@@ -58,7 +58,7 @@ namespace KossanVMS.UserControlPage
         }
         private void VisitorGridViewUserControl_CellFormatting(object s, DataGridViewCellFormattingEventArgs e)
         {
-            var grid = VisitorGridViewPBControl;
+            var grid = VisitorGridViewUserControl;
             if (e.RowIndex < 0) return;
 
             // Photo column
@@ -130,7 +130,7 @@ namespace KossanVMS.UserControlPage
 
             //// repaint the whole row (good for unbound/computed cells like colCategories/colPhoto)
             // repaint the specific computed cells
-            var grid = VisitorGridViewPBControl;
+            var grid = VisitorGridViewUserControl;
             var rowIndex = grid.CurrentCell?.RowIndex ?? -1;
             if (rowIndex >= 0)
             {
@@ -165,13 +165,14 @@ namespace KossanVMS.UserControlPage
                 VisitorID = selectedItem.VisitorID,
                 IdNo = selectedItem.IdNo,
                 FullName = selectedItem.FullName,
+                IdType = selectedItem.IdType,
                 //Company = selectedItem.Company,
                 Contact = selectedItem.Contact,
                 Photo = selectedItem.Photo,
                 BlackList = selectedItem.BlackList
             };
 
-            using var editVisitorModel = new VisitorPBForm(_db, copyVisitorModel);
+            using var editVisitorModel = new VisitorPreEditForm(_db, copyVisitorModel);
             if (editVisitorModel.ShowDialog(this) != DialogResult.OK)
             {
                 return;
@@ -180,6 +181,7 @@ namespace KossanVMS.UserControlPage
             var updatedVisitorModel = editVisitorModel.visitorModel;
             selectedItem.IdNo = (updatedVisitorModel.IdNo ?? "").Trim();
             selectedItem.FullName = (updatedVisitorModel.FullName ?? "").Trim();
+            selectedItem.IdType = updatedVisitorModel.IdType;
             if (selectedItem.Contact != null)
             {
                 selectedItem.Contact = new VisitorContact { VisitorID = selectedItem.VisitorID };
@@ -271,7 +273,7 @@ namespace KossanVMS.UserControlPage
             visitorBindingSource.ResetCurrentItem();
 
             // repaint the specific computed cells
-            var grid = VisitorGridViewPBControl;
+            var grid = VisitorGridViewUserControl;
             var r = grid.CurrentCell?.RowIndex ?? -1;
             if (r >= 0)
             {
@@ -358,12 +360,12 @@ namespace KossanVMS.UserControlPage
             // For example, you might want to refresh the photo preview
             visitorBindingSource.ResetCurrentItem();
             // 1. Mark the entire control area as invalid (needs redrawing)
-            VisitorGridViewPBControl.Invalidate();
+            VisitorGridViewUserControl.Invalidate();
 
             // 2. Force the immediate repaint operation
-            VisitorGridViewPBControl.Update();
+            VisitorGridViewUserControl.Update();
 
-            VisitorGridViewPBControl.Refresh();
+            VisitorGridViewUserControl.Refresh();
 
         }
         // Optional: expose actions

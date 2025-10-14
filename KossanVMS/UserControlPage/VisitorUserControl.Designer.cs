@@ -44,7 +44,7 @@ namespace KossanVMS.UserControlPage
             toolStripDelButton = new ToolStripButton();
             toolStripAddButton = new ToolStripButton();
             toolStripEditButton = new ToolStripButton();
-            VisitorGridViewPBControl = new DataGridView();
+            VisitorGridViewUserControl = new DataGridView();
             visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             IdType = new DataGridViewTextBoxColumn();
@@ -57,7 +57,7 @@ namespace KossanVMS.UserControlPage
             ((System.ComponentModel.ISupportInitialize)visitorUploadVisitorBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorPictureBox).BeginInit();
             toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridViewPBControl).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridViewUserControl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -69,7 +69,7 @@ namespace KossanVMS.UserControlPage
             tableLayoutPanel1.Controls.Add(visitorUploadVisitorBox, 0, 2);
             tableLayoutPanel1.Controls.Add(visitorPictureBox, 0, 1);
             tableLayoutPanel1.Controls.Add(toolStrip1, 0, 0);
-            tableLayoutPanel1.Controls.Add(VisitorGridViewPBControl, 1, 1);
+            tableLayoutPanel1.Controls.Add(VisitorGridViewUserControl, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -160,12 +160,12 @@ namespace KossanVMS.UserControlPage
             // 
             // VisitorGridViewPBControl
             // 
-            VisitorGridViewPBControl.AutoGenerateColumns = false;
-            VisitorGridViewPBControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            VisitorGridViewPBControl.BackgroundColor = Color.LightGray;
-            VisitorGridViewPBControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisitorGridViewPBControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colCategories, colPhoto, blackListDataGridViewTextBoxColumn });
-            VisitorGridViewPBControl.DataSource = visitorBindingSource;
+            VisitorGridViewUserControl.AutoGenerateColumns = false;
+            VisitorGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            VisitorGridViewUserControl.BackgroundColor = Color.LightGray;
+            VisitorGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            VisitorGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colCategories, colPhoto, blackListDataGridViewTextBoxColumn });
+            VisitorGridViewUserControl.DataSource = visitorBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.PaleTurquoise;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -173,19 +173,19 @@ namespace KossanVMS.UserControlPage
             dataGridViewCellStyle2.SelectionBackColor = Color.DarkTurquoise;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            VisitorGridViewPBControl.DefaultCellStyle = dataGridViewCellStyle2;
-            VisitorGridViewPBControl.Dock = DockStyle.Fill;
-            VisitorGridViewPBControl.EditMode = DataGridViewEditMode.EditProgrammatically;
-            VisitorGridViewPBControl.Location = new Point(251, 31);
-            VisitorGridViewPBControl.MultiSelect = false;
-            VisitorGridViewPBControl.Name = "VisitorGridViewPBControl";
-            VisitorGridViewPBControl.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            tableLayoutPanel1.SetRowSpan(VisitorGridViewPBControl, 2);
-            VisitorGridViewPBControl.RowTemplate.Height = 25;
-            VisitorGridViewPBControl.Size = new Size(718, 481);
-            VisitorGridViewPBControl.TabIndex = 0;
-            VisitorGridViewPBControl.CellFormatting += VisitorGridViewUserControl_CellFormatting;
-            VisitorGridViewPBControl.SelectionChanged += VisitorGridViewUserControl_SelectionChanged;
+            VisitorGridViewUserControl.DefaultCellStyle = dataGridViewCellStyle2;
+            VisitorGridViewUserControl.Dock = DockStyle.Fill;
+            VisitorGridViewUserControl.EditMode = DataGridViewEditMode.EditProgrammatically;
+            VisitorGridViewUserControl.Location = new Point(251, 31);
+            VisitorGridViewUserControl.MultiSelect = false;
+            VisitorGridViewUserControl.Name = "VisitorGridViewPBControl";
+            VisitorGridViewUserControl.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            tableLayoutPanel1.SetRowSpan(VisitorGridViewUserControl, 2);
+            VisitorGridViewUserControl.RowTemplate.Height = 25;
+            VisitorGridViewUserControl.Size = new Size(718, 481);
+            VisitorGridViewUserControl.TabIndex = 0;
+            VisitorGridViewUserControl.CellFormatting += VisitorGridViewUserControl_CellFormatting;
+            VisitorGridViewUserControl.SelectionChanged += VisitorGridViewUserControl_SelectionChanged;
             // 
             // visitorIDDataGridViewTextBoxColumn
             // 
@@ -244,7 +244,7 @@ namespace KossanVMS.UserControlPage
             ((System.ComponentModel.ISupportInitialize)visitorPictureBox).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridViewPBControl).EndInit();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridViewUserControl).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
             ResumeLayout(false);
         }
@@ -252,7 +252,7 @@ namespace KossanVMS.UserControlPage
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private DataGridView VisitorGridViewPBControl;
+        private DataGridView VisitorGridViewUserControl;
         private BindingSource visitorBindingSource;
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripEditButton;

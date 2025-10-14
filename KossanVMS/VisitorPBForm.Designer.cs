@@ -621,6 +621,7 @@ namespace KossanVMS
             comboBoxIdType.TabIndex = 25;
             comboBoxIdType.DrawItem += ComboBoxIdType_DrawItem;
             comboBoxIdType.SelectedIndexChanged += comboBoxIdType_SelectedIndexChanged;
+            comboBoxIdType.Click += ComboBoxIdType_Click;
             // 
             // panel6
             // 
@@ -719,7 +720,7 @@ namespace KossanVMS
             // 
             visitorBindingSource.DataSource = typeof(Data.Visitor);
             // 
-            // VisitorEditForm
+            // VisitorPBForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -729,7 +730,7 @@ namespace KossanVMS
             ForeColor = Color.FromArgb(37, 52, 68);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MinimizeBox = false;
-            Name = "VisitorEditForm";
+            Name = "VisitorPBForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "VisitorEditForm";
             panel1.ResumeLayout(false);
@@ -744,6 +745,7 @@ namespace KossanVMS
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
             ResumeLayout(false);
         }
+
 
         #endregion
 

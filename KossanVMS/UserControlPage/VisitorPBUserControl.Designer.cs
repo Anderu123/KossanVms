@@ -32,7 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisitorPBUserControl));
             toolStrip1 = new ToolStrip();
-            VisitorGridViewUserControl = new DataGridView();
+            VisitorGridViewPBControl = new DataGridView();
             visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             IdType = new DataGridViewTextBoxColumn();
@@ -48,7 +48,7 @@
             toolStripDelButton = new ToolStripButton();
             toolStripAddButton = new ToolStripButton();
             toolStripEditButton = new ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)VisitorGridViewUserControl).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridViewPBControl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)visitorUploadVisitorBox).BeginInit();
@@ -66,12 +66,12 @@
             // 
             // VisitorGridViewUserControl
             // 
-            VisitorGridViewUserControl.AutoGenerateColumns = false;
-            VisitorGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            VisitorGridViewUserControl.BackgroundColor = Color.LightGray;
-            VisitorGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisitorGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colCategories, colPhoto, blackListDataGridViewTextBoxColumn });
-            VisitorGridViewUserControl.DataSource = visitorBindingSource;
+            VisitorGridViewPBControl.AutoGenerateColumns = false;
+            VisitorGridViewPBControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            VisitorGridViewPBControl.BackgroundColor = Color.LightGray;
+            VisitorGridViewPBControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            VisitorGridViewPBControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colCategories, colPhoto, blackListDataGridViewTextBoxColumn });
+            VisitorGridViewPBControl.DataSource = visitorBindingSource;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -79,17 +79,17 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.DarkTurquoise;
             dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            VisitorGridViewUserControl.DefaultCellStyle = dataGridViewCellStyle1;
-            VisitorGridViewUserControl.Dock = DockStyle.Fill;
-            VisitorGridViewUserControl.EditMode = DataGridViewEditMode.EditProgrammatically;
-            VisitorGridViewUserControl.Location = new Point(178, 27);
-            VisitorGridViewUserControl.MultiSelect = false;
-            VisitorGridViewUserControl.Name = "VisitorGridViewUserControl";
-            VisitorGridViewUserControl.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            tableLayoutPanel1.SetRowSpan(VisitorGridViewUserControl, 2);
-            VisitorGridViewUserControl.RowTemplate.Height = 25;
-            VisitorGridViewUserControl.Size = new Size(505, 408);
-            VisitorGridViewUserControl.TabIndex = 0;
+            VisitorGridViewPBControl.DefaultCellStyle = dataGridViewCellStyle1;
+            VisitorGridViewPBControl.Dock = DockStyle.Fill;
+            VisitorGridViewPBControl.EditMode = DataGridViewEditMode.EditProgrammatically;
+            VisitorGridViewPBControl.Location = new Point(178, 27);
+            VisitorGridViewPBControl.MultiSelect = false;
+            VisitorGridViewPBControl.Name = "VisitorGridViewUserControl";
+            VisitorGridViewPBControl.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            tableLayoutPanel1.SetRowSpan(VisitorGridViewPBControl, 2);
+            VisitorGridViewPBControl.RowTemplate.Height = 25;
+            VisitorGridViewPBControl.Size = new Size(505, 408);
+            VisitorGridViewPBControl.TabIndex = 0;
             // 
             // visitorIDDataGridViewTextBoxColumn
             // 
@@ -143,7 +143,7 @@
             tableLayoutPanel1.Controls.Add(visitorUploadVisitorBox, 0, 2);
             tableLayoutPanel1.Controls.Add(visitorPictureBox, 0, 1);
             tableLayoutPanel1.Controls.Add(toolStrip2, 0, 0);
-            tableLayoutPanel1.Controls.Add(VisitorGridViewUserControl, 1, 1);
+            tableLayoutPanel1.Controls.Add(VisitorGridViewPBControl, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 25);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -237,7 +237,7 @@
             Controls.Add(toolStrip1);
             Name = "VisitorPBUserControl";
             Size = new Size(686, 463);
-            ((System.ComponentModel.ISupportInitialize)VisitorGridViewUserControl).EndInit();
+            ((System.ComponentModel.ISupportInitialize)VisitorGridViewPBControl).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -252,7 +252,7 @@
         #endregion
 
         private ToolStrip toolStrip1;
-        private DataGridView VisitorGridViewUserControl;
+        private DataGridView VisitorGridViewPBControl;
         private DataGridViewTextBoxColumn visitorIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn IdType;

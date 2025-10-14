@@ -51,7 +51,7 @@
             buttonUpdateID = new ReaLTaiizor.Controls.CyberButton();
             checkedListBoxCat = new CheckedListBox();
             panel5 = new Panel();
-            cyberButtonSearch = new ReaLTaiizor.Controls.CyberButton();
+            buttonSearch = new ReaLTaiizor.Controls.CyberButton();
             maskedTextBoxIC = new MaskedTextBox();
             comboBoxIdType = new ComboBox();
             panel1.SuspendLayout();
@@ -300,6 +300,7 @@
             buttonVisitorUploadPhoto.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             buttonVisitorUploadPhoto.Timer_Effect_1 = 5;
             buttonVisitorUploadPhoto.Timer_RGB = 300;
+            buttonVisitorUploadPhoto.Click += buttonUploadPhoto_Click;
             // 
             // foxLinkLabel1
             // 
@@ -366,6 +367,7 @@
             buttonSave.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             buttonSave.Timer_Effect_1 = 5;
             buttonSave.Timer_RGB = 300;
+            buttonSave.Click += buttonSave_Click;
             // 
             // cyberButton1
             // 
@@ -555,7 +557,7 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(cyberButtonSearch);
+            panel5.Controls.Add(buttonSearch);
             panel5.Controls.Add(maskedTextBoxIC);
             panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(154, 68);
@@ -563,46 +565,47 @@
             panel5.Size = new Size(327, 52);
             panel5.TabIndex = 23;
             // 
-            // cyberButtonSearch
+            // buttonSearch
             // 
-            cyberButtonSearch.Alpha = 20;
-            cyberButtonSearch.BackColor = Color.Transparent;
-            cyberButtonSearch.Background = true;
-            cyberButtonSearch.Background_WidthPen = 4F;
-            cyberButtonSearch.BackgroundPen = true;
-            cyberButtonSearch.ColorBackground = Color.FromArgb(37, 52, 68);
-            cyberButtonSearch.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            cyberButtonSearch.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            cyberButtonSearch.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberButtonSearch.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberButtonSearch.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            cyberButtonSearch.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            cyberButtonSearch.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberButtonSearch.Dock = DockStyle.Right;
-            cyberButtonSearch.Effect_1 = true;
-            cyberButtonSearch.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            cyberButtonSearch.Effect_1_Transparency = 25;
-            cyberButtonSearch.Effect_2 = true;
-            cyberButtonSearch.Effect_2_ColorBackground = Color.White;
-            cyberButtonSearch.Effect_2_Transparency = 20;
-            cyberButtonSearch.Font = new Font("Arial", 11F);
-            cyberButtonSearch.ForeColor = Color.FromArgb(245, 245, 245);
-            cyberButtonSearch.Lighting = false;
-            cyberButtonSearch.LinearGradient_Background = false;
-            cyberButtonSearch.LinearGradientPen = false;
-            cyberButtonSearch.Location = new Point(224, 0);
-            cyberButtonSearch.Name = "cyberButtonSearch";
-            cyberButtonSearch.PenWidth = 15;
-            cyberButtonSearch.Rounding = true;
-            cyberButtonSearch.RoundingInt = 70;
-            cyberButtonSearch.Size = new Size(103, 52);
-            cyberButtonSearch.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberButtonSearch.TabIndex = 21;
-            cyberButtonSearch.Tag = "Cyber";
-            cyberButtonSearch.TextButton = "Search";
-            cyberButtonSearch.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberButtonSearch.Timer_Effect_1 = 5;
-            cyberButtonSearch.Timer_RGB = 300;
+            buttonSearch.Alpha = 20;
+            buttonSearch.BackColor = Color.Transparent;
+            buttonSearch.Background = true;
+            buttonSearch.Background_WidthPen = 4F;
+            buttonSearch.BackgroundPen = true;
+            buttonSearch.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonSearch.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonSearch.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonSearch.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonSearch.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonSearch.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonSearch.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonSearch.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonSearch.Dock = DockStyle.Right;
+            buttonSearch.Effect_1 = true;
+            buttonSearch.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonSearch.Effect_1_Transparency = 25;
+            buttonSearch.Effect_2 = true;
+            buttonSearch.Effect_2_ColorBackground = Color.White;
+            buttonSearch.Effect_2_Transparency = 20;
+            buttonSearch.Font = new Font("Arial", 11F);
+            buttonSearch.ForeColor = Color.FromArgb(245, 245, 245);
+            buttonSearch.Lighting = false;
+            buttonSearch.LinearGradient_Background = false;
+            buttonSearch.LinearGradientPen = false;
+            buttonSearch.Location = new Point(224, 0);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.PenWidth = 15;
+            buttonSearch.Rounding = true;
+            buttonSearch.RoundingInt = 70;
+            buttonSearch.Size = new Size(103, 52);
+            buttonSearch.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonSearch.TabIndex = 21;
+            buttonSearch.Tag = "Cyber";
+            buttonSearch.TextButton = "Search";
+            buttonSearch.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonSearch.Timer_Effect_1 = 5;
+            buttonSearch.Timer_RGB = 300;
+            buttonSearch.Click += buttonSearch_click;
             // 
             // maskedTextBoxIC
             // 
@@ -618,19 +621,12 @@
             // comboBoxIdType
             // 
             comboBoxIdType.BackColor = Color.PaleTurquoise;
-            comboBoxIdType.DataSource = new Data.IdType[]
-    {
-    Data.IdType.IC,
-    Data.IdType.Passport,
-    Data.IdType.Permit
-    };
             comboBoxIdType.Dock = DockStyle.Fill;
             comboBoxIdType.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxIdType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxIdType.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxIdType.FormattingEnabled = true;
             comboBoxIdType.ItemHeight = 45;
-            comboBoxIdType.Items.AddRange(new object[] { Data.IdType.IC, Data.IdType.Passport, Data.IdType.Permit });
             comboBoxIdType.Location = new Point(6, 68);
             comboBoxIdType.Name = "comboBoxIdType";
             comboBoxIdType.Size = new Size(139, 51);
@@ -654,6 +650,11 @@
             panel5.PerformLayout();
             ResumeLayout(false);
         }
+
+        //private void ButtonSave_Click(object sender, EventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         #endregion
         private Panel panel1;
@@ -679,7 +680,7 @@
         private ReaLTaiizor.Controls.CyberButton buttonUpdateID;
         private CheckedListBox checkedListBoxCat;
         private Panel panel5;
-        private ReaLTaiizor.Controls.CyberButton cyberButtonSearch;
+        private ReaLTaiizor.Controls.CyberButton buttonSearch;
         private MaskedTextBox maskedTextBoxIC;
         private ComboBox comboBoxIdType;
     }
