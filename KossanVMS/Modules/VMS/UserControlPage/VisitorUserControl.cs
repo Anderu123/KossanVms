@@ -15,7 +15,7 @@ namespace KossanVMS.UserControlPage
     public partial class VisitorUserControl : UserControl
     {
         private VmsContext _db;
-      
+        private Visitor? CurrentItem => visitorBindingSource.Current as Visitor;
         //private readonly BindingSource bindingSource = new();
         // private BindingList<Visitor> _items = new();
         public VisitorUserControl(VmsContext db)
@@ -40,7 +40,7 @@ namespace KossanVMS.UserControlPage
                     await _db.VisitorCategoryLinks.LoadAsync();
                     // LOAD INTO THE CONTEXT (no AsNoTracking, no ToListAsync)
                     await _db.Visitors
-                        .Include(v => v.BlackList)
+                       // .Include(v => v.BlackList)
                         //.Include(v => v.Company)
                         .Include(v => v.Contact)
                         .Include(v => v.Photo)
@@ -65,21 +65,33 @@ namespace KossanVMS.UserControlPage
             if (grid.Columns[e.ColumnIndex].Name == "colPhoto")
             {
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v)
-                    e.Value = v.Photo?.PhotoPath ?? string.Empty;   // always set
+                    e.Value = v.Photo?.UploadPhotoPath ?? string.Empty;   // always set
                 else
                     e.Value = string.Empty;
 
                 e.FormattingApplied = true;
                 return;
             }
-
+            if (grid.Columns[e.ColumnIndex].Name == "colContact")
+            {
+                if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v1)
+                {
+                    e.Value = v1.Contact?.Tel ?? string.Empty;
+                }
+                else
+                {
+                    e.Value = string.Empty;
+                }
+                e.FormattingApplied = true;
+                return;
+            }
             // Categories column
             if (grid.Columns[e.ColumnIndex].Name == "colCategories")
             {
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v2)
                 {
                     var names = _db.VisitorCategoryLinks.Local
-                                 .Where(l => l.VisitorID == v2.VisitorID)
+                                 .Where(l => l.VisitorNo == v2.VisitorNo)
                                  .Join(_db.VisitCategories.Local,
                                        l => l.CategoryID, c => c.CategoryID,
                                        (l, c) => c.CategoryName)
@@ -162,7 +174,7 @@ namespace KossanVMS.UserControlPage
             }
             var copyVisitorModel = new Visitor
             {
-                VisitorID = selectedItem.VisitorID,
+                VisitorNo = selectedItem.VisitorNo,
                 IdNo = selectedItem.IdNo,
                 FullName = selectedItem.FullName,
                 IdType = selectedItem.IdType,
@@ -184,7 +196,7 @@ namespace KossanVMS.UserControlPage
             selectedItem.IdType = updatedVisitorModel.IdType;
             if (selectedItem.Contact != null)
             {
-                selectedItem.Contact = new VisitorContact { VisitorID = selectedItem.VisitorID };
+                selectedItem.Contact = new VisitorContact { VisitorNo = selectedItem.VisitorNo };
                 selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
                 selectedItem.Contact.City = updatedVisitorModel.Contact.City;
                 selectedItem.Contact.Address = updatedVisitorModel.Contact.Address;
@@ -193,7 +205,7 @@ namespace KossanVMS.UserControlPage
             }
             else
             {
-                selectedItem.Contact = new VisitorContact { VisitorID = selectedItem.VisitorID };
+                selectedItem.Contact = new VisitorContact { VisitorNo = selectedItem.VisitorNo };
                 selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
                 selectedItem.Contact.City = updatedVisitorModel.Contact.City;
                 selectedItem.Contact.Address = updatedVisitorModel.Contact.Address;
@@ -248,12 +260,12 @@ namespace KossanVMS.UserControlPage
             // after: var updatedVisitorModel = editVisitorModel.visitorModel;
 
             // --- COPY PHOTO BACK FROM DIALOG ---
-            if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Photo?.PhotoPath))
+            if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Photo?.UploadPhotoPath))
             {
                 if (selectedItem.Photo == null)
-                    selectedItem.Photo = new VisitorPhoto { VisitorID = selectedItem.VisitorID };
+                    selectedItem.Photo = new VisitorPhoto { VisitorNo = selectedItem.VisitorNo };
 
-                selectedItem.Photo.PhotoPath = updatedVisitorModel.Photo.PhotoPath;
+                selectedItem.Photo.UploadPhotoPath = updatedVisitorModel.Photo.UploadPhotoPath;
                 selectedItem.Photo.CaptureDate = updatedVisitorModel.Photo.CaptureDate; // or DateTime.UtcNow
             }
             else
@@ -293,7 +305,7 @@ namespace KossanVMS.UserControlPage
 
         private void toolStripAddButton_Click(object sender, EventArgs e)
         {
-            using var addVisitorModel = new VisitorPBForm(_db);
+            using var addVisitorModel = new VisitorPreEditForm(_db);
             var newVisitorModel = addVisitorModel.visitorModel;
             if (addVisitorModel.ShowDialog(this) != DialogResult.OK)
             {
@@ -303,6 +315,7 @@ namespace KossanVMS.UserControlPage
             _db.Visitors.Add(newVisitorModel);
             _db.SaveChanges();
             visitorBindingSource.ResetBindings(false);
+            
             UpdatePhotoPreview(newVisitorModel);
         }
 
@@ -330,7 +343,7 @@ namespace KossanVMS.UserControlPage
                 pb.Image.Dispose();
                 pb.Image = null;
             }
-            var path = v?.Photo?.PhotoPath;
+            var path = v?.Photo?.UploadPhotoPath;
             if(string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
             {
                 return;
@@ -349,10 +362,11 @@ namespace KossanVMS.UserControlPage
         {
             var v = CurrentItem;
             UpdatePhotoPreview(v);
+            UploadPhotoPreview(v);
         }
 
         // Clean, strongly-typed current item
-        private Visitor? CurrentItem => visitorBindingSource.Current as Visitor;
+       
         private void DataGridUpdate(object sender, EventArgs e)
         {
             // This method is called when the DataGridView is updated
@@ -367,6 +381,28 @@ namespace KossanVMS.UserControlPage
 
             VisitorGridViewUserControl.Refresh();
 
+        }
+        private void UploadPhotoPreview(Visitor v)
+        {
+            var pb = visitorUploadPictureBox;
+            if (pb.Image != null)
+            {
+                pb.Image.Dispose();
+                pb.Image = null;
+            }
+            var path = v?.Photo?.UploadPhotoPath;
+            if(string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
+            {
+                return;
+            }
+            using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open,
+                                            System.IO.FileAccess.Read,
+                                            System.IO.FileShare.ReadWrite))
+                using (var ms = new System.IO.MemoryStream())
+            {                     fs.CopyTo(ms);
+                    ms.Position = 0;
+                    pb.Image = Image.FromStream(ms); // pictureBox owns this copy
+            }
         }
         // Optional: expose actions
         //public void RefreshPage() => -= VisitorUserControl_Load;

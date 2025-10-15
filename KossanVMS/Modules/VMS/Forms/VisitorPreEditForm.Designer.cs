@@ -502,6 +502,7 @@
             buttonEditContact.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             buttonEditContact.Timer_Effect_1 = 5;
             buttonEditContact.Timer_RGB = 300;
+            buttonEditContact.Click += buttonEditContact_Click;
             // 
             // buttonUpdateID
             // 
@@ -631,6 +632,7 @@
             comboBoxIdType.Name = "comboBoxIdType";
             comboBoxIdType.Size = new Size(139, 51);
             comboBoxIdType.TabIndex = 25;
+            comboBoxIdType.Click += ComboBoxIdType_Click;
             // 
             // VisitorPreEditForm
             // 
@@ -638,7 +640,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(487, 562);
             Controls.Add(panel1);
+            MaximizeBox = false;
             Name = "VisitorPreEditForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "VisitorPreEditiForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

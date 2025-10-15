@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace KossanVMS.Data
 {
@@ -16,10 +11,13 @@ namespace KossanVMS.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer(
+                    "Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
         }
 
+        // DbSets
         public DbSet<VmsUser> VmsUsers => Set<VmsUser>();
+
         public DbSet<VisitCategory> VisitCategories => Set<VisitCategory>();
         public DbSet<VisitPurpose> VisitPurposes => Set<VisitPurpose>();
         public DbSet<VisitBranch> VisitBranches => Set<VisitBranch>();
@@ -28,110 +26,120 @@ namespace KossanVMS.Data
         public DbSet<Visitor> Visitors => Set<Visitor>();
         public DbSet<VisitorContact> VisitorContacts => Set<VisitorContact>();
         public DbSet<VisitorPhoto> VisitorPhotos => Set<VisitorPhoto>();
-        public DbSet<VisitorBlackList> VisitorBlackList => Set<VisitorBlackList>();
         public DbSet<VisitorAffiliation> VisitorAffiliations => Set<VisitorAffiliation>();
 
         public DbSet<VisitorCategoryLink> VisitorCategoryLinks => Set<VisitorCategoryLink>();
         public DbSet<VisitorPurposeLink> VisitorPurposeLinks => Set<VisitorPurposeLink>();
+        public DbSet<VisitorBranchLink> VisitorBranchLinks => Set<VisitorBranchLink>();
 
         public DbSet<VisitRecord> VisitRecords => Set<VisitRecord>();
 
-        protected override void OnModelCreating(ModelBuilder model)
+        protected override void OnModelCreating(ModelBuilder b)
         {
-            base.OnModelCreating(model);
+            base.OnModelCreating(b);
 
-            // Masters unique
-            model.Entity<VisitCategory>().HasIndex(x => x.CategoryName).IsUnique();
-            model.Entity<VisitPurpose>().HasIndex(x => x.PurposeName).IsUnique();
-            model.Entity<VisitBranch>().HasIndex(x => x.BranchName).IsUnique();
+            // ENUMS -> byte (saves space and keeps values stable)
+            b.Entity<Visitor>().Property(v => v.IdType).HasConversion<byte>();
+            b.Entity<VisitRecord>().Property(v => v.InContainer).HasConversion<byte>();
+            b.Entity<VisitRecord>().Property(v => v.OutContainer).HasConversion<byte>();
 
-            // Visitors
-            model.Entity<Visitor>().HasIndex(x => new { x.IdType, x.IdNo }).IsUnique();
+            // Masters uniqueness
+            b.Entity<VisitCategory>().HasIndex(x => x.CategoryName).IsUnique();
+            b.Entity<VisitPurpose>().HasIndex(x => x.PurposeName).IsUnique();
+            b.Entity<VisitBranch>().HasIndex(x => x.BranchName).IsUnique();
 
-            // Junction uniqueness
-            model.Entity<VisitorCategoryLink>()
-                 .HasIndex(x => new { x.VisitorID, x.CategoryID }).IsUnique();
+            // Visitors uniqueness (same person by ID type+number)
+            b.Entity<Visitor>().HasIndex(x => new { x.IdType, x.IdNo }).IsUnique();
 
-            model.Entity<VisitorPurposeLink>()
-                 .HasIndex(x => new { x.VisitorID, x.PurposeID }).IsUnique();
-
-            // Junction FKs
-            model.Entity<VisitorCategoryLink>()
-                 .HasOne(x => x.Visitor).WithMany(v => v.VisitorCategories)
-                 .HasForeignKey(x => x.VisitorID).OnDelete(DeleteBehavior.Cascade);
-
-            model.Entity<VisitorCategoryLink>()
-                 .HasOne(x => x.Category).WithMany()
-                 .HasForeignKey(x => x.CategoryID).OnDelete(DeleteBehavior.Restrict);
-
-            model.Entity<VisitorPurposeLink>()
-                 .HasOne(x => x.Visitor).WithMany(v => v.VisitorPurposes)
-                 .HasForeignKey(x => x.VisitorID).OnDelete(DeleteBehavior.Cascade);
-
-            model.Entity<VisitorPurposeLink>()
-                 .HasOne(x => x.Purpose).WithMany()
-                 .HasForeignKey(x => x.PurposeID).OnDelete(DeleteBehavior.Restrict);
-
-            // 1:1s explicit dependents
-            model.Entity<Visitor>()
+            // ----- 1:1s -----
+            // Visitor <-> Contact
+            b.Entity<Visitor>()
                 .HasOne(v => v.Contact)
                 .WithOne(c => c.Visitor)
-                .HasForeignKey<VisitorContact>(c => c.VisitorID)
+                .HasForeignKey<VisitorContact>(c => c.VisitorNo)
                 .OnDelete(DeleteBehavior.Cascade);
+            b.Entity<VisitorContact>().HasIndex(c => c.VisitorNo).IsUnique();
 
-            model.Entity<Visitor>()
+            // Visitor <-> Photo
+            b.Entity<Visitor>()
                 .HasOne(v => v.Photo)
                 .WithOne(p => p.Visitor)
-                .HasForeignKey<VisitorPhoto>(p => p.VisitorID)
+                .HasForeignKey<VisitorPhoto>(p => p.VisitorNo)
                 .OnDelete(DeleteBehavior.Cascade);
+            b.Entity<VisitorPhoto>().HasIndex(p => p.VisitorNo).IsUnique();
 
-            model.Entity<Visitor>()
-                .HasOne(v => v.BlackList)
-                .WithOne(b => b.Visitor)
-                .HasForeignKey<VisitorBlackList>(b => b.VisitorID)
-                .OnDelete(DeleteBehavior.Cascade);
+            // (Remove any mapping related to VisitorBlackList entity — you’re using a bool now.)
 
-            // Affiliation (M:N with payload)
-            model.Entity<VisitorAffiliation>()
+            // ----- M:N with payload (explicit link entities) -----
+            // VisitorCategoryLink
+            b.Entity<VisitorCategoryLink>()
+                .HasOne(x => x.Visitor).WithMany(v => v.VisitorCategories)
+                .HasForeignKey(x => x.VisitorNo).OnDelete(DeleteBehavior.Cascade);
+            b.Entity<VisitorCategoryLink>()
+                .HasOne(x => x.Category).WithMany()
+                .HasForeignKey(x => x.CategoryID).OnDelete(DeleteBehavior.Restrict);
+            b.Entity<VisitorCategoryLink>()
+                .HasIndex(x => new { x.VisitorNo, x.CategoryID }).IsUnique();
+
+            // VisitorPurposeLink
+            b.Entity<VisitorPurposeLink>()
+                .HasOne(x => x.Visitor).WithMany(v => v.VisitorPurposes)
+                .HasForeignKey(x => x.VisitorNo).OnDelete(DeleteBehavior.Cascade);
+            b.Entity<VisitorPurposeLink>()
+                .HasOne(x => x.Purpose).WithMany()
+                .HasForeignKey(x => x.PurposeID).OnDelete(DeleteBehavior.Restrict);
+            b.Entity<VisitorPurposeLink>()
+                .HasIndex(x => new { x.VisitorNo, x.PurposeID }).IsUnique();
+
+            // VisitorBranchLink
+            b.Entity<VisitorBranchLink>()
+                .HasOne(x => x.Visitor).WithMany(v => v.VisitorBranches)
+                .HasForeignKey(x => x.VisitorNo).OnDelete(DeleteBehavior.Cascade);
+            b.Entity<VisitorBranchLink>()
+                .HasOne(x => x.Branch).WithMany()
+                .HasForeignKey(x => x.BranchID).OnDelete(DeleteBehavior.Restrict);
+            b.Entity<VisitorBranchLink>()
+                .HasIndex(x => new { x.VisitorNo, x.BranchID }).IsUnique();
+
+            // ----- Affiliation (M:N with payload) -----
+            b.Entity<VisitorAffiliation>()
                 .HasOne(a => a.Visitor).WithMany(v => v.VisitorAffiliations)
-                .HasForeignKey(a => a.VisitorID).OnDelete(DeleteBehavior.Cascade);
-
-            model.Entity<VisitorAffiliation>()
+                .HasForeignKey(a => a.VisitorNo).OnDelete(DeleteBehavior.Cascade);
+            b.Entity<VisitorAffiliation>()
                 .HasOne(a => a.VisitorCompany).WithMany()
                 .HasForeignKey(a => a.CompanyID).OnDelete(DeleteBehavior.Restrict);
+            b.Entity<VisitorAffiliation>()
+                .HasIndex(a => new { a.VisitorNo, a.CompanyID, a.ValidFrom });
 
-            model.Entity<VisitorAffiliation>()
-                .HasIndex(a => new { a.VisitorID, a.CompanyID, a.ValidFrom });
-
-            // VisitRecord (1:N) + snapshot lookups
-            model.Entity<VisitRecord>()
+            // ----- VisitRecord (1:N) -----
+            // Assuming you added VisitRecord.VisitRecordID as [Key]
+            b.Entity<VisitRecord>()
                 .HasOne(vr => vr.Visitor).WithMany(v => v.VisitRecords)
-                .HasForeignKey(vr => vr.VisitorID)
+                .HasForeignKey(vr => vr.VisitorNo)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            model.Entity<VisitRecord>()
+            b.Entity<VisitRecord>()
                 .HasOne(vr => vr.Branch).WithMany()
                 .HasForeignKey(vr => vr.BranchID)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            model.Entity<VisitRecord>()
+            b.Entity<VisitRecord>()
                 .HasOne(vr => vr.Purpose).WithMany()
                 .HasForeignKey(vr => vr.PurposeID)
                 .OnDelete(DeleteBehavior.SetNull);
-
-            model.Entity<VisitRecord>()
+            b.Entity<VisitRecord>()
                 .HasOne(vr => vr.Category).WithMany()
                 .HasForeignKey(vr => vr.CategoryID)
                 .OnDelete(DeleteBehavior.SetNull);
+            b.Entity<VisitRecord>()
+                .HasIndex(vr => new { vr.VisitorNo, vr.InTime });
 
-            // Audit defaults
-            foreach (var et in model.Model.GetEntityTypes())
+            // ----- Audit defaults (CreatedDate / UpdatedDate on VmsAuditEntity) -----
+            foreach (var et in b.Model.GetEntityTypes())
             {
                 if (typeof(VmsAuditEntity).IsAssignableFrom(et.ClrType))
                 {
-                    model.Entity(et.ClrType).Property("CreatedDate")
+                    b.Entity(et.ClrType).Property("CreatedDate")
                         .HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAdd();
-                    model.Entity(et.ClrType).Property("UpdatedDate")
+                    b.Entity(et.ClrType).Property("UpdatedDate")
                         .HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAddOrUpdate();
                 }
             }
@@ -159,4 +167,3 @@ namespace KossanVMS.Data
         }
     }
 }
-

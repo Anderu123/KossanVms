@@ -7,34 +7,34 @@
     <Compile Update="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserControlPage\BranchUserControl.cs">
+    <Compile Update="Modules\VMS\UserControlPage\BranchUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControlPage\CategoryUserControl.cs">
+    <Compile Update="Modules\VMS\UserControlPage\CategoryUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControlPage\EditFormTemplateUserControl.cs">
+    <Compile Update="Modules\VMS\UserControlPage\EditFormTemplateUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControlPage\VisitorPBUserControl.cs">
+    <Compile Update="Modules\VMS\UserControlPage\VisitorPBUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControlPage\VisitorUserControl.cs">
+    <Compile Update="Modules\VMS\UserControlPage\VisitorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="VisitBranchEditForm.cs">
+    <Compile Update="Modules\VMS\Forms\VisitBranchEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VisitorCategoryEditForm.cs">
+    <Compile Update="Modules\VMS\Forms\VisitorCategoryEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VisitorCompaniesEditForm.cs">
+    <Compile Update="Modules\VMS\Forms\VisitorCompaniesEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VisitorContactEditForm.cs">
+    <Compile Update="Modules\VMS\Forms\VisitorContactEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VisitorPBForm.cs">
+    <Compile Update="Modules\VMS\Forms\VisitorPBEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Utility\FocusableLabel.cs">
@@ -43,13 +43,13 @@
     <Compile Update="Utility\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="VisitorPhotoCapture.cs">
+    <Compile Update="Modules\VMS\Forms\VisitorPhotoCapture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VisitorPreEditForm.cs">
+    <Compile Update="Modules\VMS\Forms\VisitorPreEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VisitPurposeEditForm.cs">
+    <Compile Update="Modules\VMS\Forms\VisitPurposeEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

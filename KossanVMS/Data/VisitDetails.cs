@@ -28,6 +28,11 @@ namespace KossanVMS.Data
         Permit = 2
     }
 
+    public enum RegisterType : byte
+    {
+        HR = 1,
+        GH = 2
+    } 
     [Table("visit_categories")]
 
     public class VisitCategory : VmsAuditEntity
@@ -54,9 +59,10 @@ namespace KossanVMS.Data
     {
     [Key]
     public int ID { get; set; }
-        [Column("visitor_id")]
-        public int VisitorID { get;set; }
+        [Column("visitor_no")]
+        public int VisitorNo { get;set; }
         [Column("category_id")]
+
         public int CategoryID { get; set; }
         public Visitor Visitor { get; set; } = null;
         public VisitCategory Category { get; set; } = null;
@@ -86,13 +92,25 @@ namespace KossanVMS.Data
     {
         [Key]
         public int ID { get; set; }
-        [Column("visitor_id")]
-        public int VisitorID { get; set; }
+        [Column("visitor_no")]
+        public int VisitorNo { get; set; }
         [Column("purpose_id")]
         public int PurposeID { get; set; }
         public Visitor Visitor { get; set; } = null;
 
         public VisitPurpose Purpose { get; set; } = null;
+    }
+    [Table("visitor_branch_links")]
+    public class VisitorBranchLink:VmsAuditEntity
+    {
+        [Key]
+        public int ID { get; set; }
+        [Column("visitor_no")]
+        public int VisitorNo { get; set; }
+        [Column("branch_id")]
+        public int BranchID { get; set; }
+        public Visitor Visitor { get; set; } = null;
+        public VisitBranch Branch { get; set; } = null;
     }
 
 
@@ -122,9 +140,10 @@ namespace KossanVMS.Data
         [Column("contact_id")]
         [Key]
         public int ContactID { get; set; }
-        [Column("visitor_id")]
-        public int VisitorID { get; set; }
-        [ForeignKey(nameof(VisitorID))]
+        [Column("visitor_no")]
+        [ForeignKey(nameof(VisitorNo))]
+        public int VisitorNo { get; set; }
+    
         public virtual Visitor Visitor { get; set; }
         [Column("address")]
         public string? Address { get; set; }
@@ -164,8 +183,8 @@ namespace KossanVMS.Data
         [Key]
         [Column("affiliation_id")]
         public int AffiliationID { get; set; }
-        [Column("visitor_id")]
-        public int VisitorID { get; set; }
+        [Column("visitor_no")]
+        public int VisitorNo { get; set; }
         [Column("company_id")]
         public int CompanyID { get; set; }
         [MaxLength(50)]
@@ -185,39 +204,47 @@ namespace KossanVMS.Data
         [Column("photo_id")]
         [Key]
         public int PhotoID { get; set; }
-        [Column("visitor_id")]
-        public int VisitorID { get; set; }
+        [Column("visitor_no")]
+        public int VisitorNo{ get; set; }
         
         public Visitor Visitor { get; set; }
-        [Column("photo_path")]
+        [Column("capture_photo_path")]
         [Required, MaxLength(255)]
-        public string PhotoPath { get; set; }
+        public string CapturePhotoPath { get; set; }
+        [Column("upload_photo_path")]
+        [Required, MaxLength(255)]
+        public string UploadPhotoPath { get; set; }
+        [Column("photo_url")]
+        [Required, MaxLength(255)]
+        public string PhotoURL { get; set; }
         [Column("capture_date")]
         public DateTime CaptureDate { get; set; } = DateTime.UtcNow;
+        [Column("upload_date")]
+        public DateTime UploadDate { get; set; } = DateTime.UtcNow;
 
     }
-    [Table("visitor_blacklists")]
-    public class VisitorBlackList:VmsAuditEntity
-    {
+    //[Table("visitor_blacklists")]
+    //public class VisitorBlackList:VmsAuditEntity
+    //{
        
 
-        [Column("visitor_id")]
-        [Key]
-        public int VisitorID { get; set; }
-        [Column("is_blacklist")]
-        public bool IsBlackList { get;set; }
+    //    [Column("visitor_id")]
+    //    [Key]
+    //    public int VisitorID { get; set; }
+    //    [Column("is_blacklist")]
+    //    public bool IsBlackList { get;set; }
       
-        public  Visitor Visitor { get; set; }
+    //    public  Visitor Visitor { get; set; }
         
       
 
-    }
+    //}
     [Table("visitors")]
     public class Visitor:VmsAuditEntity
     {
-        [Column("visitor_id")]
+        [Column("visitor_no")]
         [Key]
-        public int VisitorID { get; set; }
+        public int VisitorNo { get; set; }
 
         [Column("id_type")]
         public IdType IdType { get; set; }
@@ -235,20 +262,24 @@ namespace KossanVMS.Data
         public ICollection<VisitorCategoryLink> VisitorCategories { get; set;} = new List<VisitorCategoryLink>();
 
         public ICollection<VisitorPurposeLink> VisitorPurposes { get; set; }    = new List<VisitorPurposeLink>();
+        public ICollection<VisitorBranchLink> VisitorBranches { get; set; } = new List<VisitorBranchLink>();
         //public ICollection<VisitorBiometric> Biometrics { get; set; } = new List<VisitorBiometric>();
         public VisitorPhoto Photo { get; set; }
-        public VisitorBlackList? BlackList { get; set; }
+
+        [Column("black_list")]
+        public bool BlackList { get; set; } = false;
+        //public VisitorBlackList? BlackList { get; set; }
         public ICollection<VisitRecord> VisitRecords { get; set; } = new List<VisitRecord>();
     }
     [Table("visit_records")]
     public class VisitRecord : VmsAuditEntity
     {
-        [Column("visit_id")]
+       
         [Key]
-        public int VisitID { get; set; } 
-        [Column("visitor_id")]
+       
+        [Column("visitor_no")]
         [Required]
-        public int VisitorID { get; set; }
+        public int VisitorNo { get; set; }
         [Column("branch_id")]
         [Required]
         public int BranchID { get; set; }

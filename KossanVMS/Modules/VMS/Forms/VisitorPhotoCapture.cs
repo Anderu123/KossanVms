@@ -19,11 +19,11 @@ namespace KossanVMS
     {
         private  VideoCapture capture;
         private  CascadeClassifier cascadeClassifier;
-        private readonly VisitorPBForm mainForm;
+        private readonly VisitorPBEditForm mainForm;
         private bool isMoving = false;
         private string savePhotoFilePath = @"C:\Vms\VisitorPhotos";
         public string? capturePath { get; set; }
-        public VisitorPhotoCapture(VisitorPBForm mainForm)
+        public VisitorPhotoCapture(VisitorPBEditForm mainForm)
         {
             this.mainForm = mainForm;
             InitializeComponent();

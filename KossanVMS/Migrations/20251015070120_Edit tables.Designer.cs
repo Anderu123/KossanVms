@@ -4,6 +4,7 @@ using KossanVMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    partial class VmsContextModelSnapshot : ModelSnapshot
+    [Migration("20251015070120_Edit tables")]
+    partial class Edittables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -498,12 +500,6 @@ namespace KossanVMS.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("capture_date");
 
-                    b.Property<string>("CapturePhotoPath")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("capture_photo_path");
-
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int")
                         .HasColumnName("created_by");
@@ -513,6 +509,12 @@ namespace KossanVMS.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date")
                         .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<string>("PhotoPath")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("photo_path");
 
                     b.Property<string>("PhotoURL")
                         .IsRequired()
@@ -533,16 +535,6 @@ namespace KossanVMS.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date")
                         .HasDefaultValueSql("GETUTCDATE()");
-
-                    b.Property<DateTime>("UploadDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("upload_date");
-
-                    b.Property<string>("UploadPhotoPath")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("upload_photo_path");
 
                     b.Property<int>("VisitorNo")
                         .HasColumnType("int")

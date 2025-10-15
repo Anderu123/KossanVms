@@ -121,7 +121,7 @@
     <value>180, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="visitorUploadVisitorBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="visitorUploadPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAK4AAAEiCAMAAABX1xnLAAAABGdBTUEAALGPC/xhBQAAAEhQTFRF////
         rq6uq6ursbGxqKio8fHxt7e3+fn52tra/Pz8sLCwtLS0v7+/9fX1y8vL0dHR6enp6+vrxcXF39/fzs7O
@@ -186,7 +186,7 @@
         7NH9u7jocuKiy4mLLicuupy46HLiosuJiy4n/je60X+Ff1Q9yGhtxIV9AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="visitorUploadVisitorBox.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="visitorUploadPictureBox.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAK4AAAEiCAMAAABX1xnLAAAABGdBTUEAALGPC/xhBQAAAEhQTFRF////
         rq6uq6ursbGxqKio8fHxt7e3+fn52tra/Pz8sLCwtLS0v7+/9fX1y8vL0dHR6enp6+vrxcXF39/fzs7O
@@ -2912,6 +2912,9 @@
     <value>True</value>
   </metadata>
   <metadata name="IdNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colContact.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="colCategories.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

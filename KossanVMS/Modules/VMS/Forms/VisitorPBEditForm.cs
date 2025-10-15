@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace KossanVMS
 {
 
-    public partial class VisitorPBForm : Form
+    public partial class VisitorPBEditForm : Form
     {
         public Visitor visitorModel { get; set; }
         private VisitorPhotoCapture visitorPhotoCapture;
@@ -25,7 +25,7 @@ namespace KossanVMS
         private List<VisitCategory> _category { get; set; }
         private VisitorContactEditForm visitorContactEditForm;
        
-        public VisitorPBForm(VmsContext db,Visitor existingVisitor = null)
+        public VisitorPBEditForm(VmsContext db,Visitor existingVisitor = null)
         {
             InitializeComponent();
             //_db = new VmsContext();
@@ -41,14 +41,12 @@ namespace KossanVMS
                 Text = "Edit Visitor";
                 visitorModel = existingVisitor;
             }
-            buttonUpdateID.Text = visitorModel.VisitorID.ToString();
+            buttonUpdateID.Text = visitorModel.VisitorNo.ToString();
             maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
             buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
             //var visitType= visitorModel.IdType;
             LoadCategoryCheckList();
-
-          //  if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
             
             comboBoxIdType.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -56,7 +54,7 @@ namespace KossanVMS
             comboBoxIdType.ItemHeight = 45;
 
             comboBoxIdType.DataSource = Enum.GetValues(typeof(Data.IdType));
-            //comboBoxIdType.SelectedItem = Enum.Parse<Data.IdType>(visitorModel.IdType, ignoreCase: true);
+          
 
             comboBoxIdType.SelectedItem = visitorModel.IdType;
 
@@ -88,10 +86,10 @@ namespace KossanVMS
                 checkedListBoxCat.DataSource = items;
 
                 // 3) Load linked ids ONLY if we have a valid visitor id
-                var linkedIds = (visitorModel?.VisitorID > 0)
+                var linkedIds = (visitorModel?.VisitorNo > 0)
                     ? new HashSet<int>(
                         _db.VisitorCategoryLinks
-                           .Where(x => x.VisitorID == visitorModel.VisitorID)
+                           .Where(x => x.VisitorNo == visitorModel.VisitorNo)
                            .Select(x => x.CategoryID)
                            .ToList())
                     : new HashSet<int>();
@@ -119,7 +117,7 @@ namespace KossanVMS
                                 .Select(li => li.Id)
                                 .ToList();
             var existingLinks = _db.VisitorCategoryLinks
-                                   .Where(x => x.VisitorID == visitorModel.VisitorID)
+                                   .Where(x => x.VisitorNo == visitorModel.VisitorNo)
                                    .ToList();
             // Delete unselected links
             var toDelete = existingLinks
@@ -134,8 +132,8 @@ namespace KossanVMS
             var toAdd = selectedIds
                         .Where(id => !existingIds.Contains(id))
                         .Select(id => new VisitorCategoryLink
-                        {
-                            VisitorID = visitorModel.VisitorID,
+                        {   
+                            VisitorNo = visitorModel.VisitorNo,
                             CategoryID = id
                         })
                         .ToList();
@@ -213,8 +211,8 @@ namespace KossanVMS
 
             if (visitorPhotoCapture.ShowDialog(this) == DialogResult.OK && !string.IsNullOrEmpty(visitorPhotoCapture.capturePath))
             {
-                visitorModel.Photo ??= new VisitorPhoto { VisitorID = visitorModel.VisitorID };
-                visitorModel.Photo.PhotoPath = visitorPhotoCapture.capturePath;
+                visitorModel.Photo ??= new VisitorPhoto { VisitorNo = visitorModel.VisitorNo };
+                visitorModel.Photo.CapturePhotoPath = visitorPhotoCapture.capturePath;
                 visitorModel.Photo.CaptureDate = DateTime.UtcNow;
 
             }
@@ -251,7 +249,7 @@ namespace KossanVMS
                 .FirstOrDefaultAsync(v => v.IdNo == ic);
 
             visitorModel = foundVisitor;      // OK (same type)
-            buttonUpdateID.Text = visitorModel.VisitorID.ToString();
+            buttonUpdateID.Text = visitorModel.VisitorNo.ToString();
             maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
             buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
@@ -467,6 +465,7 @@ namespace KossanVMS
 
         private void ComboBoxIdType_Click(object sender, EventArgs e)
         {
+            comboBoxIdType.DroppedDown = false;
             var messageBoxResult = MessageBox.Show("Changing ID Type will clear the existing ID Number. Do you want to proceed?", "Confirm Change", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (messageBoxResult == DialogResult.Yes)
             {

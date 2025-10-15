@@ -6,7 +6,7 @@ using Panel = System.Windows.Forms.Panel;
 using System.Diagnostics;
 namespace KossanVMS
 {
-    partial class VisitorPBForm
+    partial class VisitorPBEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -720,7 +720,7 @@ namespace KossanVMS
             // 
             visitorBindingSource.DataSource = typeof(Data.Visitor);
             // 
-            // VisitorPBForm
+            // VisitorPBEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -730,7 +730,7 @@ namespace KossanVMS
             ForeColor = Color.FromArgb(37, 52, 68);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MinimizeBox = false;
-            Name = "VisitorPBForm";
+            Name = "VisitorPBEditForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "VisitorEditForm";
             panel1.ResumeLayout(false);

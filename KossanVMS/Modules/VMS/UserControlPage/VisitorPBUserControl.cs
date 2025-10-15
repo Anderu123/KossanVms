@@ -36,7 +36,8 @@ namespace KossanVMS.UserControlPage
                 {
                     await _db.VisitCategories.LoadAsync();
                     await _db.VisitorCategoryLinks.LoadAsync();
-                    await _db.Visitors.Include(v => v.BlackList).Include(v => v.Photo).Include(v => v.Contact).LoadAsync();
+                    await _db.Visitors//.Include(v => v.BlackList)
+                                      .Include(v => v.Photo).Include(v => v.Contact).LoadAsync();
                 }
             }
             catch
@@ -61,9 +62,9 @@ namespace KossanVMS.UserControlPage
                     {
                         if (v.Photo != null)
                         {
-                            if (string.IsNullOrEmpty(v.Photo.PhotoPath))
+                            if (string.IsNullOrEmpty(v.Photo.CapturePhotoPath))
                             {
-                                e.Value = v.Photo.PhotoPath;
+                                e.Value = v.Photo.CapturePhotoPath;
                             }
                             else
                             {
@@ -81,7 +82,7 @@ namespace KossanVMS.UserControlPage
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v2)
                 {
                     var names = _db.VisitorCategoryLinks.Local
-                        .Where(l => l.VisitorID == v2.VisitorID)
+                        .Where(l => l.VisitorNo == v2.VisitorNo)
                         .Join((_db.VisitCategories.Local),
                               link => link.CategoryID,
                               category => category.CategoryID,
@@ -114,7 +115,7 @@ namespace KossanVMS.UserControlPage
             }
             var copyVisitorModel = new Visitor
             {
-                VisitorID = selecteditem.VisitorID,
+                VisitorNo = selecteditem.VisitorNo,
                 IdType = selecteditem.IdType,
                 IdNo = selecteditem.IdNo,
                 FullName = selecteditem.FullName,
@@ -123,7 +124,7 @@ namespace KossanVMS.UserControlPage
                 BlackList = selecteditem.BlackList
             };
 
-            using var editVisitorModel = new VisitorPBForm(_db, copyVisitorModel);
+            using var editVisitorModel = new VisitorPBEditForm(_db, copyVisitorModel);
             if (editVisitorModel.ShowDialog() != DialogResult.OK)
             {
                 return;
@@ -133,19 +134,19 @@ namespace KossanVMS.UserControlPage
             selecteditem.IdType = updatedVisitorModel.IdType;
             selecteditem.FullName = updatedVisitorModel.FullName.Trim() ?? "";
 
-            selecteditem.Contact = new VisitorContact { VisitorID = selecteditem.VisitorID };
+            selecteditem.Contact = new VisitorContact { VisitorNo = selecteditem.VisitorNo };
             selecteditem.Contact.Tel = updatedVisitorModel.Contact.Tel;
             selecteditem.Contact.City = updatedVisitorModel.Contact.City;
             selecteditem.Contact.Address = updatedVisitorModel.Contact.Address;
             selecteditem.Contact.PostCode = updatedVisitorModel.Contact.PostCode;
 
-            if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Photo?.PhotoPath))
+            if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Photo?.CapturePhotoPath))
             {
                 if (selecteditem.Photo == null)
                 {
-                    selecteditem.Photo = new VisitorPhoto { VisitorID = selecteditem.VisitorID };
+                    selecteditem.Photo = new VisitorPhoto { VisitorNo = selecteditem.VisitorNo };
                 }
-                selecteditem.Photo.PhotoPath = updatedVisitorModel.Photo.PhotoPath;
+                selecteditem.Photo.CapturePhotoPath = updatedVisitorModel.Photo.CapturePhotoPath;
                 selecteditem.Photo.CaptureDate = updatedVisitorModel.Photo.CaptureDate;
 
             }
@@ -181,7 +182,7 @@ namespace KossanVMS.UserControlPage
                 pb.Image.Dispose();
                 pb.Image = null;
             }
-            var path = v?.Photo?.PhotoPath;
+            var path = v?.Photo?.CapturePhotoPath;
             if(string.IsNullOrWhiteSpace(path))
             {
                 return;
