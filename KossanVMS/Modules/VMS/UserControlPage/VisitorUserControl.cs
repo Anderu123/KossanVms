@@ -40,7 +40,7 @@ namespace KossanVMS.UserControlPage
                     await _db.VisitorCategoryLinks.LoadAsync();
                     // LOAD INTO THE CONTEXT (no AsNoTracking, no ToListAsync)
                     await _db.Visitors
-                       // .Include(v => v.BlackList)
+                        // .Include(v => v.BlackList)
                         //.Include(v => v.Company)
                         .Include(v => v.Contact)
                         .Include(v => v.Photo)
@@ -159,13 +159,13 @@ namespace KossanVMS.UserControlPage
             //if you want to be extra sure:
             grid.Refresh();
             //_dbUpdate?.Dispose();
-            
+
         }
 
 
         private async void toolStripEditButton_Click(object sender, EventArgs e)
         {
-            
+
             var selectedItem = CurrentItem;
             if (selectedItem == null)
             {
@@ -189,7 +189,7 @@ namespace KossanVMS.UserControlPage
             {
                 return;
             }
-           
+
             var updatedVisitorModel = editVisitorModel.visitorModel;
             selectedItem.IdNo = (updatedVisitorModel.IdNo ?? "").Trim();
             selectedItem.FullName = (updatedVisitorModel.FullName ?? "").Trim();
@@ -278,7 +278,7 @@ namespace KossanVMS.UserControlPage
                 }
             }
 
-            
+
             _db.SaveChanges();
 
 
@@ -297,7 +297,7 @@ namespace KossanVMS.UserControlPage
             grid.Refresh();
 
             UpdatePhotoPreview(selectedItem);
-           // RefreshCurrentRowAndColumns();
+            // RefreshCurrentRowAndColumns();
 
 
             //editVisitorModel.DataChanged -= DataGridUpdate;
@@ -315,7 +315,7 @@ namespace KossanVMS.UserControlPage
             _db.Visitors.Add(newVisitorModel);
             _db.SaveChanges();
             visitorBindingSource.ResetBindings(false);
-            
+
             UpdatePhotoPreview(newVisitorModel);
         }
 
@@ -327,24 +327,24 @@ namespace KossanVMS.UserControlPage
                 MessageBox.Show("Please select a row to delete.");
                 return;
             }
-            var msgResult = MessageBox.Show("Delete this item?", "Confirm", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            var msgResult = MessageBox.Show("Delete this item?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (msgResult != DialogResult.Yes)
             { return; }
             _db.Visitors.Remove(selectedItem);
             _db.SaveChanges();
-            
+
 
         }
         private void UpdatePhotoPreview(Visitor v)
         {
             var pb = visitorPictureBox;
-            if (pb.Image!= null)
+            if (pb.Image != null)
             {
                 pb.Image.Dispose();
                 pb.Image = null;
             }
             var path = v?.Photo?.UploadPhotoPath;
-            if(string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
+            if (string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
             {
                 return;
             }
@@ -366,7 +366,7 @@ namespace KossanVMS.UserControlPage
         }
 
         // Clean, strongly-typed current item
-       
+
         private void DataGridUpdate(object sender, EventArgs e)
         {
             // This method is called when the DataGridView is updated
@@ -391,18 +391,24 @@ namespace KossanVMS.UserControlPage
                 pb.Image = null;
             }
             var path = v?.Photo?.UploadPhotoPath;
-            if(string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
+            if (string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
             {
                 return;
             }
             using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open,
                                             System.IO.FileAccess.Read,
                                             System.IO.FileShare.ReadWrite))
-                using (var ms = new System.IO.MemoryStream())
-            {                     fs.CopyTo(ms);
-                    ms.Position = 0;
-                    pb.Image = Image.FromStream(ms); // pictureBox owns this copy
+            using (var ms = new System.IO.MemoryStream())
+            {
+                fs.CopyTo(ms);
+                ms.Position = 0;
+                pb.Image = Image.FromStream(ms); // pictureBox owns this copy
             }
+        }
+
+        private void VisitorGridViewUserControl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
         // Optional: expose actions
         //public void RefreshPage() => -= VisitorUserControl_Load;

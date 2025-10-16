@@ -36,7 +36,7 @@ namespace KossanVMS.UserControlPage
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisitorUserControl));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             visitorUploadPictureBox = new PictureBox();
             visitorPictureBox = new PictureBox();
@@ -166,14 +166,14 @@ namespace KossanVMS.UserControlPage
             VisitorGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             VisitorGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colContact, colCategories, colPhoto });
             VisitorGridViewUserControl.DataSource = visitorBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.PaleTurquoise;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.DarkTurquoise;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            VisitorGridViewUserControl.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            VisitorGridViewUserControl.DefaultCellStyle = dataGridViewCellStyle1;
             VisitorGridViewUserControl.Dock = DockStyle.Fill;
             VisitorGridViewUserControl.EditMode = DataGridViewEditMode.EditProgrammatically;
             VisitorGridViewUserControl.Location = new Point(251, 31);
@@ -184,6 +184,7 @@ namespace KossanVMS.UserControlPage
             VisitorGridViewUserControl.RowTemplate.Height = 25;
             VisitorGridViewUserControl.Size = new Size(718, 481);
             VisitorGridViewUserControl.TabIndex = 0;
+            VisitorGridViewUserControl.CellContentClick += VisitorGridViewUserControl_CellContentClick;
             VisitorGridViewUserControl.CellFormatting += VisitorGridViewUserControl_CellFormatting;
             VisitorGridViewUserControl.SelectionChanged += VisitorGridViewUserControl_SelectionChanged;
             // 

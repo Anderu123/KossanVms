@@ -112,6 +112,13 @@ namespace KossanVMS.UserControlPage
             BranchGridViewUserControl.RowTemplate.Height = 25;
             BranchGridViewUserControl.Size = new Size(768, 432);
             BranchGridViewUserControl.TabIndex = 1;
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            BranchGridViewUserControl.DefaultCellStyle = dataGridViewCellStyle1;
             // 
             // BranchName
             // 

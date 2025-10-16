@@ -92,9 +92,10 @@ namespace KossanVMS
             ShowPage(visitForm, buttonNavMain);
         }
 
-        private void cyberButton1_Click(object sender, EventArgs e)
+        private void buttonNavCategory_Click(object sender, EventArgs e)
         {
-
+            var visitCategory = new CategoryUserControl(_db) { Dock = DockStyle.Fill };
+            ShowPage(visitCategory, buttonNavCategory);
         }
     }
 }

@@ -7,6 +7,9 @@
     <Compile Update="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitUserRoleEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Modules\VMS\UserControlPage\BranchUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
