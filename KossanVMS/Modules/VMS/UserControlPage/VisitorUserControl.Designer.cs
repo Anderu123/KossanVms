@@ -236,6 +236,7 @@ namespace KossanVMS.UserControlPage
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(0);
             Name = "VisitorUserControl";
             Size = new Size(972, 515);
             tableLayoutPanel1.ResumeLayout(false);

@@ -40,8 +40,8 @@ namespace KossanVMS.Data
 
             // ENUMS -> byte (saves space and keeps values stable)
             b.Entity<Visitor>().Property(v => v.IdType).HasConversion<byte>();
-            b.Entity<VisitRecord>().Property(v => v.InContainer).HasConversion<byte>();
-            b.Entity<VisitRecord>().Property(v => v.OutContainer).HasConversion<byte>();
+            //b.Entity<VisitRecord>().Property(v => v.InContainer).HasConversion<byte>();
+            //b.Entity<VisitRecord>().Property(v => v.OutContainer).HasConversion<byte>();
 
             // Masters uniqueness
             b.Entity<VisitCategory>().HasIndex(x => x.CategoryName).IsUnique();
@@ -131,7 +131,13 @@ namespace KossanVMS.Data
                 .OnDelete(DeleteBehavior.SetNull);
             b.Entity<VisitRecord>()
                 .HasIndex(vr => new { vr.VisitorNo, vr.InTime });
-
+            b.Entity<VisitRecord>()
+                .HasOne(vr =>vr.Company).WithMany()
+                .HasForeignKey(vr => vr.CompanyID).OnDelete(DeleteBehavior.SetNull);
+            b.Entity<VisitRecord>()
+                .HasOne(vr => vr.RegisterType).WithMany()
+                .HasForeignKey(vr => vr.RegisterTypeID).OnDelete(DeleteBehavior.SetNull);
+            b.Entity<VisitRecord>().HasKey(vr =>vr.VisitRecordID);
             // ----- Audit defaults (CreatedDate / UpdatedDate on VmsAuditEntity) -----
             foreach (var et in b.Model.GetEntityTypes())
             {

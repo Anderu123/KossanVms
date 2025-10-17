@@ -28,11 +28,7 @@ namespace KossanVMS.Data
         Permit = 2
     }
 
-    public enum RegisterType : byte
-    {
-        HR = 1,
-        GH = 2
-    } 
+    
     [Table("visit_categories")]
 
     public class VisitCategory : VmsAuditEntity
@@ -276,7 +272,9 @@ namespace KossanVMS.Data
     {
        
         [Key]
-       
+        [Column("visit_record_id")]
+        public int VisitRecordID { get; set; }
+
         [Column("visitor_no")]
         [Required]
         public int VisitorNo { get; set; }
@@ -287,49 +285,70 @@ namespace KossanVMS.Data
         public int? PurposeID { get; set; }
         [Column("category_id")]
         public int? CategoryID { get; set; }
+        [Column("company_id")]
+        public int? CompanyID { get; set; }
+        [Column("register_type_id")]   
+        public int? RegisterTypeID { get; set; }
         [Column("in_time")]
         public DateTime InTime { get; set; }
         [Column("out_time")]
         public DateTime? OutTime { get; set; }
-        [Column("in_pbid")]
-        public string? InPBID {  get; set; }
-        [Column("out_pbid")]
-        public string? OutPBID { get; set; }
+        //[Column("in_pbid")]
+        //public string? InPBID {  get; set; }
+        //[Column("out_pbid")]
+        //public string? OutPBID { get; set; }
         [Column("vehicle_no")]
         public string? VehicleNo { get; set; }
-        [Column("in_container")]
-        public ContainerState InContainer { get; set; } = ContainerState.None;
-        [Column("in_container_no")]
-        public string? InContainerNO { get; set; }
-        [Column("out_container")]
-        public ContainerState OutContainer { get; set;} = ContainerState.None;
-        [Column("out_container_no")]
-        public string? OutContainerNO { get;set; }
+       
 
         [Column("in_remarks")]
 
         public string? InRemarks { get; set; }
-        [Column("out_remarks")]
-        public string? OutRemarks { get; set; }
+        
         [Column("in_photo_path")]
         public string? InPhotoPath { get; set; }
-        [Column("out_photo_path")]
-        public string? OutPhotoPath { get;set; }
+        
         [Column("gate_pass")]
         public string? GatePass { get; set; }
+
+        [Column("visit_person")]
+        public string? VisitPerson { get; set; }
+
+        [Column("do_no")]
+        public string? DONo { get; set; }
+        [Column("body_temperature")]
+        public decimal? BodyTemperature { get; set; }
+
+        [Column("expiry_date")]
+        public DateTime ExpiryDate { get; set; } = DateTime.UtcNow;
+
+        
+        public RegisterType? RegisterType { get; set; }
         public VisitPurpose? Purpose { get; set; }
         public VisitCategory? Category { get; set; }
 
-
+        public VisitorCompany? Company { get; set; }
         // Navigation properties
         //[ForeignKey(nameof(VisitorID))]
         public Visitor Visitor { get; set; } = null!;
       //  [ForeignKey(nameof(BranchID))]
-        public  VisitBranch Branch { get; set; } = null!;
-       // [ForeignKey(nameof(PurposeID))]
-     //   public VisitPurpose? Purpose { get; set; }
-     ////   [ForeignKey(nameof(CategoryID))]
-     //   public  VisitCategory? Category { get; set; }
+        public  VisitBranch? Branch { get; set; } = null!;
+       
+
+    }
+    [Table("register_types")]
+    public class RegisterType :VmsAuditEntity
+    {
+        [Key]
+        [Column("register_type_id")]
+        public int RegisterTypeID { get; set; }
+
+        [Column("register_type_name")]
+        public string RegisterTypeName { get; set; }
+
+        [Column("register_user_role")]
+        public string RegisterUserRole { get; set; }
+
 
     }
 }

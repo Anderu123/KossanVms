@@ -105,7 +105,9 @@ namespace KossanVMS.UserControlPage
             {
                 _db.VisitCategories.Remove(selecteditem);
                 _db.SaveChanges();
-                visitCategoryBindingSource.RemoveCurrent();
+
+                visitCategoryBindingSource.ResetBindings(false);
+                // visitCategoryBindingSource.RemoveCurrent();
             }
             catch (DbUpdateException ex)
             {

@@ -16,6 +16,9 @@
     <Compile Update="Modules\VMS\UserControlPage\CategoryUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\DashboardUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Modules\VMS\UserControlPage\EditFormTemplateUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

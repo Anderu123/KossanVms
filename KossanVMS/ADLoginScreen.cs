@@ -19,6 +19,7 @@ namespace KossanVMS
         {
             InitializeComponent();
             //this.Shown += ADLoginScreen_Shown;
+            cyberProgressBar1.Visible = false;
 
         }
 
@@ -38,16 +39,23 @@ namespace KossanVMS
             }
             buttonLogin.Enabled = false;
             buttonCancel.Enabled = false;
-            
+            cyberProgressBar1.Visible = true;
+            toolStripLabelLogin.Text = "Authenticating...";
+            cyberProgressBar1.Value = 30; // 30%
             bool adOnline = await Task.Run(() => new AdAuthenticator().IsAdServerReachable());
             if (!adOnline)
             {
                 MessageBox.Show("AD Server is unreachable. Please check your network connection or contact the administrator.", "Login Failed");
-                statusStripLogin.Text = "AD Server is unreachable. Please check your network connection or contact the administrator.";
+                toolStrip1.Text = "AD Server is unreachable. Please check your network connection or contact the administrator.";
                 buttonLogin.Enabled = true;
                 buttonCancel.Enabled = true;
+                toolStripLabelLogin.Text = "AD Server Unreachable.";
+                cyberProgressBar1.Value = 0;
+                cyberProgressBar1.Visible = false;
                 return;
             }
+            toolStripLabelLogin.Text = "Verifying Credentials...";
+            cyberProgressBar1.Value = 50; // 60%
             bool adSuccess = await Task.Run(() => new AdAuthenticator().AuthenticateUser(username, password));
             if (adSuccess)
             {
@@ -59,9 +67,11 @@ namespace KossanVMS
 
                     if (user != null)
                     {
+                        toolStripLabelLogin.Text = "Login Successful";
+                        cyberProgressBar1.Value = 100; // 100%
                         // 3. Set the Global Session Context
                         SessionContext.SetUser(user.Id, (SessionContext.UserRole)user.Role);
-                        statusStripLogin.Text = "Login Successful";
+                       // toolStrip1.Text = "Login Successful";
                         Thread.Sleep(3);
                         // 4. Open the Main Application Form
                         this.Hide();
@@ -72,18 +82,22 @@ namespace KossanVMS
                     }
                     else
                     {
+                        toolStripLabelLogin.Text = "AD user found, but VMS role not assigned. Contact administrator.";
+                        cyberProgressBar1.Value = 30;
                         MessageBox.Show("AD user found, but VMS role not assigned. Contact administrator.", "Login Failed");
                         // User authenticated with AD but not found in VMS DB (needs assignment)
-                        statusStripLogin.Text = "AD user found, but VMS role not assigned. Contact administrator.";
+                        toolStrip1.Text = "AD user found, but VMS role not assigned. Contact administrator.";
                         buttonLogin.Enabled = true;
                     }
                 }
             }
             else
             {
+                toolStripLabelLogin.Text = "Invalid Username or Password. Please try again.";
+                cyberProgressBar1.Value = 50;
                 MessageBox.Show("Invalid Username or Password. Please try again.");
                 // 5. AD Authentication Failed
-                statusStripLogin.Text = "Invalid Username or Password. Please try again.";
+                toolStrip1.Text = "Invalid Username or Password. Please try again.";
                 textBoxLoginPassword.textBox.Clear();
                 buttonLogin.Enabled = true;
             }
@@ -129,6 +143,11 @@ namespace KossanVMS
             });
             textBoxLoginPassword.textBox.KeyDown += textBoxLoginPassword_KeyDown;
             textBoxLoginUser.textBox.PreviewKeyDown += textBoxLoginUser_PreviewKeyDown;
+        }
+
+        private void statusStripLogin_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
         // Note: If Load still fails, try replacing 'ADLoginScreen_Load' with 'ADLoginScreen_Shown'.
     }

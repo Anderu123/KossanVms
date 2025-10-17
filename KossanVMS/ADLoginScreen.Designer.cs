@@ -43,7 +43,9 @@ namespace KossanVMS
             panel1 = new System.Windows.Forms.Panel();
             buttonLogin = new CyberButton();
             buttonCancel = new CyberButton();
-            statusStripLogin = new StatusStrip();
+            cyberProgressBar1 = new CyberProgressBar();
+            toolStrip1 = new ToolStrip();
+            toolStripLabelLogin = new ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -55,6 +57,7 @@ namespace KossanVMS
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -163,7 +166,6 @@ namespace KossanVMS
             textBoxLoginUser.Timer_RGB = 300;
             textBoxLoginUser.Enter += textBoxUpdate_Enter;
             textBoxLoginUser.Leave += textBoxUpdate_Leave;
-            textBoxLoginUser.textBox.PreviewKeyDown += textBoxLoginUser_PreviewKeyDown;
             // 
             // thunderLabel2
             // 
@@ -222,7 +224,6 @@ namespace KossanVMS
             textBoxLoginPassword.Timer_RGB = 300;
             textBoxLoginPassword.Enter += textBoxUpdate_Enter;
             textBoxLoginPassword.Leave += textBoxUpdate_Leave;
-            textBoxLoginPassword.textBox.KeyDown += textBoxLoginPassword_KeyDown;
             // 
             // tableLayoutPanel2
             // 
@@ -230,13 +231,15 @@ namespace KossanVMS
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.Controls.Add(panel1, 1, 0);
-            tableLayoutPanel2.Controls.Add(statusStripLogin, 1, 1);
+            tableLayoutPanel2.Controls.Add(cyberProgressBar1, 0, 1);
+            tableLayoutPanel2.Controls.Add(toolStrip1, 0, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowCount = 3;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.Size = new Size(599, 152);
             tableLayoutPanel2.TabIndex = 0;
@@ -334,14 +337,65 @@ namespace KossanVMS
             buttonCancel.Timer_Effect_1 = 5;
             buttonCancel.Timer_RGB = 300;
             // 
-            // statusStripLogin
+            // cyberProgressBar1
             // 
-            tableLayoutPanel2.SetColumnSpan(statusStripLogin, 2);
-            statusStripLogin.Location = new Point(0, 132);
-            statusStripLogin.Name = "statusStripLogin";
-            statusStripLogin.Size = new Size(599, 20);
-            statusStripLogin.TabIndex = 1;
-            statusStripLogin.Text = "statusStrip1";
+            cyberProgressBar1.Alpha = 50;
+            cyberProgressBar1.BackColor = Color.Transparent;
+            cyberProgressBar1.Background = true;
+            cyberProgressBar1.Background_WidthPen = 3F;
+            cyberProgressBar1.BackgroundPen = true;
+            cyberProgressBar1.ColorBackground = Color.FromArgb(37, 52, 68);
+            cyberProgressBar1.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            cyberProgressBar1.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            cyberProgressBar1.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            cyberProgressBar1.ColorBackground_Value_1 = Color.FromArgb(28, 200, 238);
+            cyberProgressBar1.ColorBackground_Value_2 = Color.FromArgb(100, 208, 232);
+            cyberProgressBar1.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberProgressBar1.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            cyberProgressBar1.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            cyberProgressBar1.ColorProgressBar = Color.FromArgb(29, 200, 238);
+            cyberProgressBar1.ColorValue_Transparency = 200;
+            tableLayoutPanel2.SetColumnSpan(cyberProgressBar1, 2);
+            cyberProgressBar1.CyberProgressBarStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberProgressBar1.Dock = DockStyle.Bottom;
+            cyberProgressBar1.Font = new Font("Arial", 11F);
+            cyberProgressBar1.ForeColor = Color.FromArgb(245, 245, 245);
+            cyberProgressBar1.Lighting = false;
+            cyberProgressBar1.LinearGradient_Background = false;
+            cyberProgressBar1.LinearGradient_Value = false;
+            cyberProgressBar1.LinearGradientPen = false;
+            cyberProgressBar1.Location = new Point(3, 95);
+            cyberProgressBar1.Maximum = 100;
+            cyberProgressBar1.Minimum = 0;
+            cyberProgressBar1.Name = "cyberProgressBar1";
+            cyberProgressBar1.PenWidth = 10;
+            cyberProgressBar1.ProgressText = true;
+            cyberProgressBar1.RGB = false;
+            cyberProgressBar1.Rounding = true;
+            cyberProgressBar1.RoundingInt = 70;
+            cyberProgressBar1.Size = new Size(593, 34);
+            cyberProgressBar1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberProgressBar1.StartDrawingValue = 0;
+            cyberProgressBar1.TabIndex = 2;
+            cyberProgressBar1.Tag = "Cyber";
+            cyberProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            cyberProgressBar1.Timer_RGB = 300;
+            cyberProgressBar1.Value = 0;
+            // 
+            // toolStrip1
+            // 
+            tableLayoutPanel2.SetColumnSpan(toolStrip1, 2);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabelLogin });
+            toolStrip1.Location = new Point(0, 132);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(599, 20);
+            toolStrip1.TabIndex = 3;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabelLogin
+            // 
+            toolStripLabelLogin.Name = "toolStripLabelLogin";
+            toolStripLabelLogin.Size = new Size(0, 17);
             // 
             // ADLoginScreen
             // 
@@ -364,6 +418,8 @@ namespace KossanVMS
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             panel1.ResumeLayout(false);
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -406,6 +462,8 @@ namespace KossanVMS
         private ReaLTaiizor.Controls.CyberButton buttonLogin;
         private ReaLTaiizor.Controls.CyberButton buttonCancel;
         private ReaLTaiizor.Controls.CyberTextBox textBoxLoginUser;
-        private StatusStrip statusStripLogin;
+        private CyberProgressBar cyberProgressBar1;
+        private ToolStrip toolStrip1;
+        private ToolStripLabel toolStripLabelLogin;
     }
 }

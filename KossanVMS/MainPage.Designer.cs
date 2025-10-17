@@ -40,7 +40,9 @@ namespace KossanVMS
             buttonNavMain = new ReaLTaiizor.Controls.CyberButton();
             dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             mainPanel = new ReaLTaiizor.Controls.Panel();
+            hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
             parrotPanel.SuspendLayout();
+            mainPanel.SuspendLayout();
             SuspendLayout();
             // 
             // statusStrip1
@@ -69,6 +71,7 @@ namespace KossanVMS
             parrotPanel.HideControls = false;
             parrotPanel.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             parrotPanel.Location = new Point(0, 0);
+            parrotPanel.Margin = new Padding(0);
             parrotPanel.Name = "parrotPanel";
             parrotPanel.PanelWidthCollapsed = 50;
             parrotPanel.PanelWidthExpanded = 200;
@@ -358,15 +361,41 @@ namespace KossanVMS
             // mainPanel
             // 
             mainPanel.BackColor = Color.FromArgb(39, 51, 63);
+            mainPanel.Controls.Add(hopeTabPage1);
             mainPanel.Dock = DockStyle.Fill;
             mainPanel.EdgeColor = Color.FromArgb(32, 41, 50);
             mainPanel.Location = new Point(100, 0);
+            mainPanel.Margin = new Padding(0);
             mainPanel.Name = "mainPanel";
             mainPanel.Padding = new Padding(5);
             mainPanel.Size = new Size(482, 428);
             mainPanel.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             mainPanel.TabIndex = 2;
             mainPanel.Text = "MainPanel";
+            // 
+            // hopeTabPage1
+            // 
+            hopeTabPage1.BaseColor = Color.FromArgb(44, 55, 66);
+            hopeTabPage1.Dock = DockStyle.Fill;
+            hopeTabPage1.Font = new Font("Segoe UI", 12F);
+            hopeTabPage1.ForeColorA = Color.Silver;
+            hopeTabPage1.ForeColorB = Color.Gray;
+            hopeTabPage1.ForeColorC = Color.FromArgb(150, 255, 255, 255);
+            hopeTabPage1.ItemSize = new Size(120, 40);
+            hopeTabPage1.Location = new Point(5, 5);
+            hopeTabPage1.Margin = new Padding(0);
+            hopeTabPage1.Name = "hopeTabPage1";
+            hopeTabPage1.Padding = new Point(0, 0);
+            hopeTabPage1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            hopeTabPage1.SelectedIndex = 0;
+            hopeTabPage1.Size = new Size(472, 418);
+            hopeTabPage1.SizeMode = TabSizeMode.Fixed;
+            hopeTabPage1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            hopeTabPage1.TabIndex = 1;
+            hopeTabPage1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            hopeTabPage1.ThemeColorA = Color.FromArgb(64, 158, 255);
+            hopeTabPage1.ThemeColorB = Color.FromArgb(150, 64, 158, 255);
+            hopeTabPage1.TitleTextState = ReaLTaiizor.Controls.HopeTabPage.TextState.Normal;
             // 
             // MainPage
             // 
@@ -379,13 +408,14 @@ namespace KossanVMS
             Controls.Add(parrotPanel);
             Controls.Add(statusStrip1);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            MaximumSize = new Size(1920, 1032);
+            MaximumSize = new Size(2540, 1440);
             Name = "MainPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
             Load += MainPage_Load;
             parrotPanel.ResumeLayout(false);
+            mainPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -402,5 +432,6 @@ namespace KossanVMS
         private ReaLTaiizor.Controls.CyberButton buttonNavCategory;
         private ReaLTaiizor.Controls.CyberButton cyberButton4;
         private ReaLTaiizor.Controls.CyberButton cyberButton3;
+        private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
     }
 }

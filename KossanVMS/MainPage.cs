@@ -5,6 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using KossanVMS.UserControlPage;
 using ReaLTaiizor.Controls;
+using KossanVMS.Modules.VMS.UserControlPage;
 
 namespace KossanVMS
 {
@@ -52,8 +53,27 @@ namespace KossanVMS
             //this.Hide();
             _db = db;
             var visitorForm = new VisitorUserControl(_db) { Dock = DockStyle.Fill };
-            mainPanel.Controls.Clear();
-            mainPanel.Controls.Add(visitorForm);
+            var dashboardForm = new DashboardUserControl(_db) { Dock = DockStyle.Fill };
+            //mainPanel.Controls.Clear();
+            //mainPanel.Controls.Add(visitorForm);
+            hopeTabPage1.SuspendLayout();
+
+            var tab1 = new System.Windows.Forms.TabPage("Dashboard") { Name = "DashboardTab" };
+            tab1.SuspendLayout();
+            tab1.Controls.Add(new DashboardUserControl(_db) { Dock = DockStyle.Fill });
+            tab1.ResumeLayout();
+            hopeTabPage1.TabPages.Add(tab1);
+
+            var tab2 = new System.Windows.Forms.TabPage("Pre-Register") { Name = "VisitorsTab" };
+            tab2.SuspendLayout();
+            tab2.Controls.Add(new VisitorUserControl(_db) { Dock = DockStyle.Fill });
+            hopeTabPage1.TabPages.Add(tab2);
+            tab2.ResumeLayout();
+
+            hopeTabPage1.ResumeLayout();
+            hopeTabPage1.SelectedTab = tab1;
+
+
             //UserLoginForm userLoginForm = new UserLoginForm();
 
             ////userLoginForm.Show();
