@@ -117,5 +117,11 @@ namespace KossanVMS
             var visitCategory = new CategoryUserControl(_db) { Dock = DockStyle.Fill };
             ShowPage(visitCategory, buttonNavCategory);
         }
+
+        private void buttonRegister_Click(object sender, EventArgs e)
+        {
+            var visitRegisterForm = new VisitorPBUserControl(_db) { Dock = DockStyle.Fill };
+            ShowPage(visitRegisterForm, buttonRegister);
+        }
     }
 }

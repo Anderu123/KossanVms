@@ -92,7 +92,7 @@ namespace KossanVMS.UserControlPage
                 {
                     var names = _db.VisitorCategoryLinks.Local
                                  .Where(l => l.VisitorNo == v2.VisitorNo)
-                                 .Join(_db.VisitCategories.Local,
+           .Join(_db.VisitCategories.Local,
                                        l => l.CategoryID, c => c.CategoryID,
                                        (l, c) => c.CategoryName)
                                  .OrderBy(n => n)

@@ -63,39 +63,39 @@ namespace KossanVMS.Data
         public Visitor Visitor { get; set; } = null;
         public VisitCategory Category { get; set; } = null;
 }
-    [Table("visit_purposes")]
-    public class VisitPurpose:VmsAuditEntity
-    {
-        [Column("purpose_id")]
-        [Key]
-        public int PurposeID { get; set; }
-        //[Column("visitor_id")]
-        //public int VisitorID { get; set; }
-        [Column("purpose_name")]
-        [Required, MaxLength(100)]
-        public string PurposeName { get; set; }
-        [Column("purpose_description")]
-        [MaxLength(300)]
-        public string? PurposeDescription { get; set; }
-        [Column("purpose_status")]
-        public bool PurposeStatus { get; set; }
-        [Column("purpose_contract")]
-        public bool PurposeContract { get; set; }
-    }
+    //[Table("visit_purposes")]
+    //public class VisitPurpose:VmsAuditEntity
+    //{
+    //    [Column("purpose_id")]
+    //    [Key]
+    //    public int PurposeID { get; set; }
+    //    //[Column("visitor_id")]
+    //    //public int VisitorID { get; set; }
+    //    [Column("purpose_name")]
+    //    [Required, MaxLength(100)]
+    //    public string PurposeName { get; set; }
+    //    [Column("purpose_description")]
+    //    [MaxLength(300)]
+    //    public string? PurposeDescription { get; set; }
+    //    [Column("purpose_status")]
+    //    public bool PurposeStatus { get; set; }
+    //    [Column("purpose_contract")]
+    //    public bool PurposeContract { get; set; }
+    //}
 
-    [Table("visitor_purpose_links")]
-    public class VisitorPurposeLink:VmsAuditEntity
-    {
-        [Key]
-        public int ID { get; set; }
-        [Column("visitor_no")]
-        public int VisitorNo { get; set; }
-        [Column("purpose_id")]
-        public int PurposeID { get; set; }
-        public Visitor Visitor { get; set; } = null;
+    //[Table("visitor_purpose_links")]
+    //public class VisitorPurposeLink:VmsAuditEntity
+    //{
+    //    [Key]
+    //    public int ID { get; set; }
+    //    [Column("visitor_no")]
+    //    public int VisitorNo { get; set; }
+    //    [Column("purpose_id")]
+    //    public int PurposeID { get; set; }
+    //    public Visitor Visitor { get; set; } = null;
 
-        public VisitPurpose Purpose { get; set; } = null;
-    }
+    //    public VisitPurpose Purpose { get; set; } = null;
+    //}
     [Table("visitor_branch_links")]
     public class VisitorBranchLink:VmsAuditEntity
     {
@@ -257,7 +257,7 @@ namespace KossanVMS.Data
         public ICollection<VisitorAffiliation> VisitorAffiliations { get; set; } = new List<VisitorAffiliation>();
         public ICollection<VisitorCategoryLink> VisitorCategories { get; set;} = new List<VisitorCategoryLink>();
 
-        public ICollection<VisitorPurposeLink> VisitorPurposes { get; set; }    = new List<VisitorPurposeLink>();
+        //public ICollection<VisitorPurposeLink> VisitorPurposes { get; set; }    = new List<VisitorPurposeLink>();
         public ICollection<VisitorBranchLink> VisitorBranches { get; set; } = new List<VisitorBranchLink>();
         //public ICollection<VisitorBiometric> Biometrics { get; set; } = new List<VisitorBiometric>();
         public VisitorPhoto Photo { get; set; }
@@ -281,8 +281,8 @@ namespace KossanVMS.Data
         [Column("branch_id")]
         [Required]
         public int BranchID { get; set; }
-        [Column("purpose_id")]
-        public int? PurposeID { get; set; }
+        //[Column("purpose_id")]
+        //public int? PurposeID { get; set; }
         [Column("category_id")]
         public int? CategoryID { get; set; }
         [Column("company_id")]
@@ -307,13 +307,16 @@ namespace KossanVMS.Data
         
         [Column("in_photo_path")]
         public string? InPhotoPath { get; set; }
-        
+        [Column("tag_no")]
+        public string? TagNo { get; set; }
+
         [Column("gate_pass")]
         public string? GatePass { get; set; }
 
         [Column("visit_person")]
         public string? VisitPerson { get; set; }
 
+      
         [Column("do_no")]
         public string? DONo { get; set; }
         [Column("body_temperature")]
@@ -324,7 +327,7 @@ namespace KossanVMS.Data
 
         
         public RegisterType? RegisterType { get; set; }
-        public VisitPurpose? Purpose { get; set; }
+        //public VisitPurpose? Purpose { get; set; }
         public VisitCategory? Category { get; set; }
 
         public VisitorCompany? Company { get; set; }

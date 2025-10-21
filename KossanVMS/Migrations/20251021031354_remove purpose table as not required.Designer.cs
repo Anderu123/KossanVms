@@ -4,6 +4,7 @@ using KossanVMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    partial class VmsContextModelSnapshot : ModelSnapshot
+    [Migration("20251021031354_remove purpose table as not required")]
+    partial class removepurposetableasnotrequired
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -604,6 +606,115 @@ namespace KossanVMS.Migrations
                     b.ToTable("visitor_photos");
                 });
 
+            modelBuilder.Entity("KossanVMS.Data.VisitorPurposeLink", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<int>("PurposeID")
+                        .HasColumnType("int")
+                        .HasColumnName("purpose_id");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<int>("VisitorNo")
+                        .HasColumnType("int")
+                        .HasColumnName("visitor_no");
+
+                    b.Property<int>("VisitorNo1")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("PurposeID");
+
+                    b.HasIndex("VisitorNo1");
+
+                    b.ToTable("visitor_purpose_links");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.VisitPurpose", b =>
+                {
+                    b.Property<int>("PurposeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("purpose_id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PurposeID"), 1L, 1);
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<bool>("PurposeContract")
+                        .HasColumnType("bit")
+                        .HasColumnName("purpose_contract");
+
+                    b.Property<string>("PurposeDescription")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)")
+                        .HasColumnName("purpose_description");
+
+                    b.Property<string>("PurposeName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("purpose_name");
+
+                    b.Property<bool>("PurposeStatus")
+                        .HasColumnType("bit")
+                        .HasColumnName("purpose_status");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.HasKey("PurposeID");
+
+                    b.ToTable("visit_purposes");
+                });
+
             modelBuilder.Entity("KossanVMS.Data.VisitRecord", b =>
                 {
                     b.Property<int>("VisitRecordID")
@@ -667,6 +778,10 @@ namespace KossanVMS.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("out_time");
 
+                    b.Property<int?>("PurposeID")
+                        .HasColumnType("int")
+                        .HasColumnName("purpose_id");
+
                     b.Property<int?>("RegisterTypeID")
                         .HasColumnType("int")
                         .HasColumnName("register_type_id");
@@ -674,10 +789,6 @@ namespace KossanVMS.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int")
                         .HasColumnName("status");
-
-                    b.Property<string>("TagNo")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("tag_no");
 
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int")
@@ -708,6 +819,8 @@ namespace KossanVMS.Migrations
                     b.HasIndex("CategoryID");
 
                     b.HasIndex("CompanyID");
+
+                    b.HasIndex("PurposeID");
 
                     b.HasIndex("RegisterTypeID");
 
@@ -847,6 +960,25 @@ namespace KossanVMS.Migrations
                     b.Navigation("Visitor");
                 });
 
+            modelBuilder.Entity("KossanVMS.Data.VisitorPurposeLink", b =>
+                {
+                    b.HasOne("KossanVMS.Data.VisitPurpose", "Purpose")
+                        .WithMany()
+                        .HasForeignKey("PurposeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KossanVMS.Data.Visitor", "Visitor")
+                        .WithMany("VisitorPurposes")
+                        .HasForeignKey("VisitorNo1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Purpose");
+
+                    b.Navigation("Visitor");
+                });
+
             modelBuilder.Entity("KossanVMS.Data.VisitRecord", b =>
                 {
                     b.HasOne("KossanVMS.Data.VisitBranch", "Branch")
@@ -865,6 +997,10 @@ namespace KossanVMS.Migrations
                         .HasForeignKey("CompanyID")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.HasOne("KossanVMS.Data.VisitPurpose", "Purpose")
+                        .WithMany()
+                        .HasForeignKey("PurposeID");
+
                     b.HasOne("KossanVMS.Data.RegisterType", "RegisterType")
                         .WithMany()
                         .HasForeignKey("RegisterTypeID")
@@ -881,6 +1017,8 @@ namespace KossanVMS.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Company");
+
+                    b.Navigation("Purpose");
 
                     b.Navigation("RegisterType");
 
@@ -902,6 +1040,8 @@ namespace KossanVMS.Migrations
                     b.Navigation("VisitorBranches");
 
                     b.Navigation("VisitorCategories");
+
+                    b.Navigation("VisitorPurposes");
                 });
 #pragma warning restore 612, 618
         }

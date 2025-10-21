@@ -16,7 +16,7 @@ namespace KossanVMS.UserControlPage
         protected override void Dispose(bool disposing)
         {
             
-            _db?.Dispose();
+            //_db?.Dispose();
            
             if (disposing && (components != null))
             {

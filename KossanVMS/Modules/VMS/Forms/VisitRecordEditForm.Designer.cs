@@ -45,16 +45,16 @@
             panel1 = new Panel();
             cyberButton3 = new ReaLTaiizor.Controls.CyberButton();
             tableLayoutPanel1 = new TableLayoutPanel();
-            labelVisitOutTime = new ReaLTaiizor.Controls.ThunderLabel();
-            cyberTextBox6 = new ReaLTaiizor.Controls.CyberTextBox();
-            labelVisitVehicleNo = new ReaLTaiizor.Controls.ThunderLabel();
-            cyberTextBox7 = new ReaLTaiizor.Controls.CyberTextBox();
-            labelVisitGatePass = new ReaLTaiizor.Controls.ThunderLabel();
-            cyberTextBox8 = new ReaLTaiizor.Controls.CyberTextBox();
-            labelVisitPerson = new ReaLTaiizor.Controls.ThunderLabel();
-            cyberTextBox9 = new ReaLTaiizor.Controls.CyberTextBox();
-            labelRegisterType = new ReaLTaiizor.Controls.ThunderLabel();
             cyberTextBox10 = new ReaLTaiizor.Controls.CyberTextBox();
+            labelRegisterType = new ReaLTaiizor.Controls.ThunderLabel();
+            cyberTextBox9 = new ReaLTaiizor.Controls.CyberTextBox();
+            labelVisitPerson = new ReaLTaiizor.Controls.ThunderLabel();
+            cyberTextBox8 = new ReaLTaiizor.Controls.CyberTextBox();
+            labelVisitGatePass = new ReaLTaiizor.Controls.ThunderLabel();
+            cyberTextBox7 = new ReaLTaiizor.Controls.CyberTextBox();
+            labelVisitVehicleNo = new ReaLTaiizor.Controls.ThunderLabel();
+            cyberTextBox6 = new ReaLTaiizor.Controls.CyberTextBox();
+            labelVisitOutTime = new ReaLTaiizor.Controls.ThunderLabel();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -127,13 +127,13 @@
             cyberTextBox5.ForeColor = Color.Black;
             cyberTextBox5.Lighting = false;
             cyberTextBox5.LinearGradientPen = false;
-            cyberTextBox5.Location = new Point(207, 465);
+            cyberTextBox5.Location = new Point(207, 466);
             cyberTextBox5.Name = "cyberTextBox5";
             cyberTextBox5.PenWidth = 15;
             cyberTextBox5.RGB = false;
             cyberTextBox5.Rounding = true;
             cyberTextBox5.RoundingInt = 60;
-            cyberTextBox5.Size = new Size(587, 38);
+            cyberTextBox5.Size = new Size(587, 37);
             cyberTextBox5.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberTextBox5.TabIndex = 11;
             cyberTextBox5.Tag = "Cyber";
@@ -146,9 +146,9 @@
             thunderLabel6.BackColor = Color.PaleTurquoise;
             thunderLabel6.Dock = DockStyle.Fill;
             thunderLabel6.ForeColor = Color.Transparent;
-            thunderLabel6.Location = new Point(6, 465);
+            thunderLabel6.Location = new Point(6, 466);
             thunderLabel6.Name = "thunderLabel6";
-            thunderLabel6.Size = new Size(192, 38);
+            thunderLabel6.Size = new Size(192, 37);
             thunderLabel6.TabIndex = 10;
             // 
             // cyberTextBox4
@@ -168,13 +168,13 @@
             cyberTextBox4.ForeColor = Color.Black;
             cyberTextBox4.Lighting = false;
             cyberTextBox4.LinearGradientPen = false;
-            cyberTextBox4.Location = new Point(207, 194);
+            cyberTextBox4.Location = new Point(207, 190);
             cyberTextBox4.Name = "cyberTextBox4";
             cyberTextBox4.PenWidth = 15;
             cyberTextBox4.RGB = false;
             cyberTextBox4.Rounding = true;
             cyberTextBox4.RoundingInt = 60;
-            cyberTextBox4.Size = new Size(587, 38);
+            cyberTextBox4.Size = new Size(587, 37);
             cyberTextBox4.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberTextBox4.TabIndex = 9;
             cyberTextBox4.Tag = "Cyber";
@@ -187,9 +187,9 @@
             labelInTime.BackColor = Color.PaleTurquoise;
             labelInTime.Dock = DockStyle.Fill;
             labelInTime.ForeColor = Color.Transparent;
-            labelInTime.Location = new Point(6, 194);
+            labelInTime.Location = new Point(6, 190);
             labelInTime.Name = "labelInTime";
-            labelInTime.Size = new Size(192, 38);
+            labelInTime.Size = new Size(192, 37);
             labelInTime.TabIndex = 8;
             labelInTime.Text = "Visit InTime";
             // 
@@ -210,13 +210,13 @@
             cyberTextBox3.ForeColor = Color.Black;
             cyberTextBox3.Lighting = false;
             cyberTextBox3.LinearGradientPen = false;
-            cyberTextBox3.Location = new Point(207, 147);
+            cyberTextBox3.Location = new Point(207, 144);
             cyberTextBox3.Name = "cyberTextBox3";
             cyberTextBox3.PenWidth = 15;
             cyberTextBox3.RGB = false;
             cyberTextBox3.Rounding = true;
             cyberTextBox3.RoundingInt = 60;
-            cyberTextBox3.Size = new Size(587, 38);
+            cyberTextBox3.Size = new Size(587, 37);
             cyberTextBox3.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberTextBox3.TabIndex = 7;
             cyberTextBox3.Tag = "Cyber";
@@ -229,9 +229,9 @@
             labelVisitPurpose.BackColor = Color.PaleTurquoise;
             labelVisitPurpose.Dock = DockStyle.Fill;
             labelVisitPurpose.ForeColor = Color.Transparent;
-            labelVisitPurpose.Location = new Point(6, 147);
+            labelVisitPurpose.Location = new Point(6, 144);
             labelVisitPurpose.Name = "labelVisitPurpose";
-            labelVisitPurpose.Size = new Size(192, 38);
+            labelVisitPurpose.Size = new Size(192, 37);
             labelVisitPurpose.TabIndex = 6;
             labelVisitPurpose.Text = "Visit Purpose";
             // 
@@ -252,13 +252,13 @@
             cyberTextBox2.ForeColor = Color.Black;
             cyberTextBox2.Lighting = false;
             cyberTextBox2.LinearGradientPen = false;
-            cyberTextBox2.Location = new Point(207, 100);
+            cyberTextBox2.Location = new Point(207, 98);
             cyberTextBox2.Name = "cyberTextBox2";
             cyberTextBox2.PenWidth = 15;
             cyberTextBox2.RGB = false;
             cyberTextBox2.Rounding = true;
             cyberTextBox2.RoundingInt = 60;
-            cyberTextBox2.Size = new Size(587, 38);
+            cyberTextBox2.Size = new Size(587, 37);
             cyberTextBox2.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberTextBox2.TabIndex = 5;
             cyberTextBox2.Tag = "Cyber";
@@ -271,9 +271,9 @@
             labelVisitCat.BackColor = Color.PaleTurquoise;
             labelVisitCat.Dock = DockStyle.Fill;
             labelVisitCat.ForeColor = Color.Transparent;
-            labelVisitCat.Location = new Point(6, 100);
+            labelVisitCat.Location = new Point(6, 98);
             labelVisitCat.Name = "labelVisitCat";
-            labelVisitCat.Size = new Size(192, 38);
+            labelVisitCat.Size = new Size(192, 37);
             labelVisitCat.TabIndex = 4;
             labelVisitCat.Text = "Visit Category ";
             // 
@@ -282,9 +282,9 @@
             labelVisitorName.BackColor = Color.PaleTurquoise;
             labelVisitorName.Dock = DockStyle.Fill;
             labelVisitorName.ForeColor = Color.Transparent;
-            labelVisitorName.Location = new Point(6, 53);
+            labelVisitorName.Location = new Point(6, 52);
             labelVisitorName.Name = "labelVisitorName";
-            labelVisitorName.Size = new Size(192, 38);
+            labelVisitorName.Size = new Size(192, 37);
             labelVisitorName.TabIndex = 3;
             labelVisitorName.Text = "Visitor Name";
             // 
@@ -295,7 +295,7 @@
             labelVisitNo.ForeColor = Color.Transparent;
             labelVisitNo.Location = new Point(6, 6);
             labelVisitNo.Name = "labelVisitNo";
-            labelVisitNo.Size = new Size(192, 38);
+            labelVisitNo.Size = new Size(192, 37);
             labelVisitNo.TabIndex = 0;
             labelVisitNo.Text = "Visit No";
             // 
@@ -331,7 +331,7 @@
             cyberButton1.PenWidth = 15;
             cyberButton1.Rounding = true;
             cyberButton1.RoundingInt = 70;
-            cyberButton1.Size = new Size(587, 38);
+            cyberButton1.Size = new Size(587, 37);
             cyberButton1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberButton1.TabIndex = 1;
             cyberButton1.Tag = "Cyber";
@@ -357,13 +357,13 @@
             cyberTextBox1.ForeColor = Color.Black;
             cyberTextBox1.Lighting = false;
             cyberTextBox1.LinearGradientPen = false;
-            cyberTextBox1.Location = new Point(207, 53);
+            cyberTextBox1.Location = new Point(207, 52);
             cyberTextBox1.Name = "cyberTextBox1";
             cyberTextBox1.PenWidth = 15;
             cyberTextBox1.RGB = false;
             cyberTextBox1.Rounding = true;
             cyberTextBox1.RoundingInt = 60;
-            cyberTextBox1.Size = new Size(587, 38);
+            cyberTextBox1.Size = new Size(587, 37);
             cyberTextBox1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberTextBox1.TabIndex = 2;
             cyberTextBox1.Tag = "Cyber";
@@ -456,199 +456,20 @@
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 12;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.518303F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.518311F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.518311F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.518311F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.518311F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 5.96281672F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 6.55909729F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.215008F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.93650866F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.6984138F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.518311F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.518308F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.333335F));
             tableLayoutPanel1.Size = new Size(800, 560);
             tableLayoutPanel1.TabIndex = 1;
-            // 
-            // labelVisitOutTime
-            // 
-            labelVisitOutTime.BackColor = Color.PaleTurquoise;
-            labelVisitOutTime.Dock = DockStyle.Fill;
-            labelVisitOutTime.ForeColor = Color.Transparent;
-            labelVisitOutTime.Location = new Point(6, 241);
-            labelVisitOutTime.Name = "labelVisitOutTime";
-            labelVisitOutTime.Size = new Size(192, 25);
-            labelVisitOutTime.TabIndex = 14;
-            labelVisitOutTime.Text = "Visit Out Time";
-            // 
-            // cyberTextBox6
-            // 
-            cyberTextBox6.Alpha = 20;
-            cyberTextBox6.BackColor = Color.Transparent;
-            cyberTextBox6.Background_WidthPen = 6F;
-            cyberTextBox6.BackgroundPen = true;
-            cyberTextBox6.ColorBackground = Color.LightGray;
-            cyberTextBox6.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberTextBox6.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberTextBox6.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            cyberTextBox6.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            cyberTextBox6.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox6.Dock = DockStyle.Fill;
-            cyberTextBox6.Font = new Font("Arial", 6F);
-            cyberTextBox6.ForeColor = Color.Black;
-            cyberTextBox6.Lighting = false;
-            cyberTextBox6.LinearGradientPen = false;
-            cyberTextBox6.Location = new Point(207, 241);
-            cyberTextBox6.Name = "cyberTextBox6";
-            cyberTextBox6.PenWidth = 15;
-            cyberTextBox6.RGB = false;
-            cyberTextBox6.Rounding = true;
-            cyberTextBox6.RoundingInt = 60;
-            cyberTextBox6.Size = new Size(587, 25);
-            cyberTextBox6.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox6.TabIndex = 15;
-            cyberTextBox6.Tag = "Cyber";
-            cyberTextBox6.TextButton = "";
-            cyberTextBox6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox6.Timer_RGB = 300;
-            // 
-            // labelVisitVehicleNo
-            // 
-            labelVisitVehicleNo.BackColor = Color.PaleTurquoise;
-            labelVisitVehicleNo.Dock = DockStyle.Fill;
-            labelVisitVehicleNo.ForeColor = Color.Transparent;
-            labelVisitVehicleNo.Location = new Point(6, 275);
-            labelVisitVehicleNo.Name = "labelVisitVehicleNo";
-            labelVisitVehicleNo.Size = new Size(192, 28);
-            labelVisitVehicleNo.TabIndex = 16;
-            labelVisitVehicleNo.Text = "Vistor Vehicle No";
-            // 
-            // cyberTextBox7
-            // 
-            cyberTextBox7.Alpha = 20;
-            cyberTextBox7.BackColor = Color.Transparent;
-            cyberTextBox7.Background_WidthPen = 6F;
-            cyberTextBox7.BackgroundPen = true;
-            cyberTextBox7.ColorBackground = Color.LightGray;
-            cyberTextBox7.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberTextBox7.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberTextBox7.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            cyberTextBox7.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            cyberTextBox7.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox7.Dock = DockStyle.Fill;
-            cyberTextBox7.Font = new Font("Arial", 7F);
-            cyberTextBox7.ForeColor = Color.Black;
-            cyberTextBox7.Lighting = false;
-            cyberTextBox7.LinearGradientPen = false;
-            cyberTextBox7.Location = new Point(207, 275);
-            cyberTextBox7.Name = "cyberTextBox7";
-            cyberTextBox7.PenWidth = 15;
-            cyberTextBox7.RGB = false;
-            cyberTextBox7.Rounding = true;
-            cyberTextBox7.RoundingInt = 60;
-            cyberTextBox7.Size = new Size(587, 28);
-            cyberTextBox7.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox7.TabIndex = 17;
-            cyberTextBox7.Tag = "Cyber";
-            cyberTextBox7.TextButton = "";
-            cyberTextBox7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox7.Timer_RGB = 300;
-            // 
-            // labelVisitGatePass
-            // 
-            labelVisitGatePass.BackColor = Color.PaleTurquoise;
-            labelVisitGatePass.Dock = DockStyle.Fill;
-            labelVisitGatePass.ForeColor = Color.Transparent;
-            labelVisitGatePass.Location = new Point(6, 312);
-            labelVisitGatePass.Name = "labelVisitGatePass";
-            labelVisitGatePass.Size = new Size(192, 31);
-            labelVisitGatePass.TabIndex = 18;
-            labelVisitGatePass.Text = "Visit Gate Pass";
-            // 
-            // cyberTextBox8
-            // 
-            cyberTextBox8.Alpha = 20;
-            cyberTextBox8.BackColor = Color.Transparent;
-            cyberTextBox8.Background_WidthPen = 6F;
-            cyberTextBox8.BackgroundPen = true;
-            cyberTextBox8.ColorBackground = Color.LightGray;
-            cyberTextBox8.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberTextBox8.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberTextBox8.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            cyberTextBox8.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            cyberTextBox8.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox8.Dock = DockStyle.Fill;
-            cyberTextBox8.Font = new Font("Arial", 7F);
-            cyberTextBox8.ForeColor = Color.Black;
-            cyberTextBox8.Lighting = false;
-            cyberTextBox8.LinearGradientPen = false;
-            cyberTextBox8.Location = new Point(207, 312);
-            cyberTextBox8.Name = "cyberTextBox8";
-            cyberTextBox8.PenWidth = 15;
-            cyberTextBox8.RGB = false;
-            cyberTextBox8.Rounding = true;
-            cyberTextBox8.RoundingInt = 60;
-            cyberTextBox8.Size = new Size(587, 31);
-            cyberTextBox8.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox8.TabIndex = 19;
-            cyberTextBox8.Tag = "Cyber";
-            cyberTextBox8.TextButton = "";
-            cyberTextBox8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox8.Timer_RGB = 300;
-            // 
-            // labelVisitPerson
-            // 
-            labelVisitPerson.BackColor = Color.PaleTurquoise;
-            labelVisitPerson.Dock = DockStyle.Fill;
-            labelVisitPerson.ForeColor = Color.Transparent;
-            labelVisitPerson.Location = new Point(6, 352);
-            labelVisitPerson.Name = "labelVisitPerson";
-            labelVisitPerson.Size = new Size(192, 35);
-            labelVisitPerson.TabIndex = 20;
-            labelVisitPerson.Text = "Visit Person";
-            // 
-            // cyberTextBox9
-            // 
-            cyberTextBox9.Alpha = 20;
-            cyberTextBox9.BackColor = Color.Transparent;
-            cyberTextBox9.Background_WidthPen = 6F;
-            cyberTextBox9.BackgroundPen = true;
-            cyberTextBox9.ColorBackground = Color.LightGray;
-            cyberTextBox9.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberTextBox9.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberTextBox9.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            cyberTextBox9.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            cyberTextBox9.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox9.Dock = DockStyle.Fill;
-            cyberTextBox9.Font = new Font("Arial", 8F);
-            cyberTextBox9.ForeColor = Color.Black;
-            cyberTextBox9.Lighting = false;
-            cyberTextBox9.LinearGradientPen = false;
-            cyberTextBox9.Location = new Point(207, 352);
-            cyberTextBox9.Name = "cyberTextBox9";
-            cyberTextBox9.PenWidth = 15;
-            cyberTextBox9.RGB = false;
-            cyberTextBox9.Rounding = true;
-            cyberTextBox9.RoundingInt = 60;
-            cyberTextBox9.Size = new Size(587, 35);
-            cyberTextBox9.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox9.TabIndex = 21;
-            cyberTextBox9.Tag = "Cyber";
-            cyberTextBox9.TextButton = "";
-            cyberTextBox9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox9.Timer_RGB = 300;
-            // 
-            // labelRegisterType
-            // 
-            labelRegisterType.BackColor = Color.PaleTurquoise;
-            labelRegisterType.Dock = DockStyle.Fill;
-            labelRegisterType.ForeColor = Color.Transparent;
-            labelRegisterType.Location = new Point(6, 396);
-            labelRegisterType.Name = "labelRegisterType";
-            labelRegisterType.Size = new Size(192, 60);
-            labelRegisterType.TabIndex = 22;
-            labelRegisterType.Text = "Visit RegisterType ";
             // 
             // cyberTextBox10
             // 
@@ -663,23 +484,202 @@
             cyberTextBox10.ColorPen_2 = Color.FromArgb(37, 52, 68);
             cyberTextBox10.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             cyberTextBox10.Dock = DockStyle.Fill;
-            cyberTextBox10.Font = new Font("Arial", 15F);
+            cyberTextBox10.Font = new Font("Arial", 9F);
             cyberTextBox10.ForeColor = Color.Black;
             cyberTextBox10.Lighting = false;
             cyberTextBox10.LinearGradientPen = false;
-            cyberTextBox10.Location = new Point(207, 396);
+            cyberTextBox10.Location = new Point(207, 420);
             cyberTextBox10.Name = "cyberTextBox10";
             cyberTextBox10.PenWidth = 15;
             cyberTextBox10.RGB = false;
             cyberTextBox10.Rounding = true;
             cyberTextBox10.RoundingInt = 60;
-            cyberTextBox10.Size = new Size(587, 60);
+            cyberTextBox10.Size = new Size(587, 37);
             cyberTextBox10.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberTextBox10.TabIndex = 23;
             cyberTextBox10.Tag = "Cyber";
             cyberTextBox10.TextButton = "";
             cyberTextBox10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             cyberTextBox10.Timer_RGB = 300;
+            // 
+            // labelRegisterType
+            // 
+            labelRegisterType.BackColor = Color.PaleTurquoise;
+            labelRegisterType.Dock = DockStyle.Fill;
+            labelRegisterType.ForeColor = Color.Transparent;
+            labelRegisterType.Location = new Point(6, 420);
+            labelRegisterType.Name = "labelRegisterType";
+            labelRegisterType.Size = new Size(192, 37);
+            labelRegisterType.TabIndex = 22;
+            labelRegisterType.Text = "Visit RegisterType ";
+            // 
+            // cyberTextBox9
+            // 
+            cyberTextBox9.Alpha = 20;
+            cyberTextBox9.BackColor = Color.Transparent;
+            cyberTextBox9.Background_WidthPen = 6F;
+            cyberTextBox9.BackgroundPen = true;
+            cyberTextBox9.ColorBackground = Color.LightGray;
+            cyberTextBox9.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            cyberTextBox9.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberTextBox9.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            cyberTextBox9.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            cyberTextBox9.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberTextBox9.Dock = DockStyle.Fill;
+            cyberTextBox9.Font = new Font("Arial", 9F);
+            cyberTextBox9.ForeColor = Color.Black;
+            cyberTextBox9.Lighting = false;
+            cyberTextBox9.LinearGradientPen = false;
+            cyberTextBox9.Location = new Point(207, 374);
+            cyberTextBox9.Name = "cyberTextBox9";
+            cyberTextBox9.PenWidth = 15;
+            cyberTextBox9.RGB = false;
+            cyberTextBox9.Rounding = true;
+            cyberTextBox9.RoundingInt = 60;
+            cyberTextBox9.Size = new Size(587, 37);
+            cyberTextBox9.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberTextBox9.TabIndex = 21;
+            cyberTextBox9.Tag = "Cyber";
+            cyberTextBox9.TextButton = "";
+            cyberTextBox9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            cyberTextBox9.Timer_RGB = 300;
+            // 
+            // labelVisitPerson
+            // 
+            labelVisitPerson.BackColor = Color.PaleTurquoise;
+            labelVisitPerson.Dock = DockStyle.Fill;
+            labelVisitPerson.ForeColor = Color.Transparent;
+            labelVisitPerson.Location = new Point(6, 374);
+            labelVisitPerson.Name = "labelVisitPerson";
+            labelVisitPerson.Size = new Size(192, 37);
+            labelVisitPerson.TabIndex = 20;
+            labelVisitPerson.Text = "Visit Person";
+            // 
+            // cyberTextBox8
+            // 
+            cyberTextBox8.Alpha = 20;
+            cyberTextBox8.BackColor = Color.Transparent;
+            cyberTextBox8.Background_WidthPen = 6F;
+            cyberTextBox8.BackgroundPen = true;
+            cyberTextBox8.ColorBackground = Color.LightGray;
+            cyberTextBox8.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            cyberTextBox8.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberTextBox8.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            cyberTextBox8.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            cyberTextBox8.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberTextBox8.Dock = DockStyle.Fill;
+            cyberTextBox8.Font = new Font("Arial", 9F);
+            cyberTextBox8.ForeColor = Color.Black;
+            cyberTextBox8.Lighting = false;
+            cyberTextBox8.LinearGradientPen = false;
+            cyberTextBox8.Location = new Point(207, 328);
+            cyberTextBox8.Name = "cyberTextBox8";
+            cyberTextBox8.PenWidth = 15;
+            cyberTextBox8.RGB = false;
+            cyberTextBox8.Rounding = true;
+            cyberTextBox8.RoundingInt = 60;
+            cyberTextBox8.Size = new Size(587, 37);
+            cyberTextBox8.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberTextBox8.TabIndex = 19;
+            cyberTextBox8.Tag = "Cyber";
+            cyberTextBox8.TextButton = "";
+            cyberTextBox8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            cyberTextBox8.Timer_RGB = 300;
+            // 
+            // labelVisitGatePass
+            // 
+            labelVisitGatePass.BackColor = Color.PaleTurquoise;
+            labelVisitGatePass.Dock = DockStyle.Fill;
+            labelVisitGatePass.ForeColor = Color.Transparent;
+            labelVisitGatePass.Location = new Point(6, 328);
+            labelVisitGatePass.Name = "labelVisitGatePass";
+            labelVisitGatePass.Size = new Size(192, 37);
+            labelVisitGatePass.TabIndex = 18;
+            labelVisitGatePass.Text = "Visit Gate Pass";
+            // 
+            // cyberTextBox7
+            // 
+            cyberTextBox7.Alpha = 20;
+            cyberTextBox7.BackColor = Color.Transparent;
+            cyberTextBox7.Background_WidthPen = 6F;
+            cyberTextBox7.BackgroundPen = true;
+            cyberTextBox7.ColorBackground = Color.LightGray;
+            cyberTextBox7.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            cyberTextBox7.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberTextBox7.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            cyberTextBox7.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            cyberTextBox7.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberTextBox7.Dock = DockStyle.Fill;
+            cyberTextBox7.Font = new Font("Arial", 9F);
+            cyberTextBox7.ForeColor = Color.Black;
+            cyberTextBox7.Lighting = false;
+            cyberTextBox7.LinearGradientPen = false;
+            cyberTextBox7.Location = new Point(207, 282);
+            cyberTextBox7.Name = "cyberTextBox7";
+            cyberTextBox7.PenWidth = 15;
+            cyberTextBox7.RGB = false;
+            cyberTextBox7.Rounding = true;
+            cyberTextBox7.RoundingInt = 60;
+            cyberTextBox7.Size = new Size(587, 37);
+            cyberTextBox7.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberTextBox7.TabIndex = 17;
+            cyberTextBox7.Tag = "Cyber";
+            cyberTextBox7.TextButton = "";
+            cyberTextBox7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            cyberTextBox7.Timer_RGB = 300;
+            // 
+            // labelVisitVehicleNo
+            // 
+            labelVisitVehicleNo.BackColor = Color.PaleTurquoise;
+            labelVisitVehicleNo.Dock = DockStyle.Fill;
+            labelVisitVehicleNo.ForeColor = Color.Transparent;
+            labelVisitVehicleNo.Location = new Point(6, 282);
+            labelVisitVehicleNo.Name = "labelVisitVehicleNo";
+            labelVisitVehicleNo.Size = new Size(192, 37);
+            labelVisitVehicleNo.TabIndex = 16;
+            labelVisitVehicleNo.Text = "Vistor Vehicle No";
+            // 
+            // cyberTextBox6
+            // 
+            cyberTextBox6.Alpha = 20;
+            cyberTextBox6.BackColor = Color.Transparent;
+            cyberTextBox6.Background_WidthPen = 6F;
+            cyberTextBox6.BackgroundPen = true;
+            cyberTextBox6.ColorBackground = Color.LightGray;
+            cyberTextBox6.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            cyberTextBox6.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberTextBox6.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            cyberTextBox6.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            cyberTextBox6.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberTextBox6.Dock = DockStyle.Fill;
+            cyberTextBox6.Font = new Font("Arial", 9F);
+            cyberTextBox6.ForeColor = Color.Black;
+            cyberTextBox6.Lighting = false;
+            cyberTextBox6.LinearGradientPen = false;
+            cyberTextBox6.Location = new Point(207, 236);
+            cyberTextBox6.Name = "cyberTextBox6";
+            cyberTextBox6.PenWidth = 15;
+            cyberTextBox6.RGB = false;
+            cyberTextBox6.Rounding = true;
+            cyberTextBox6.RoundingInt = 60;
+            cyberTextBox6.Size = new Size(587, 37);
+            cyberTextBox6.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberTextBox6.TabIndex = 15;
+            cyberTextBox6.Tag = "Cyber";
+            cyberTextBox6.TextButton = "";
+            cyberTextBox6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            cyberTextBox6.Timer_RGB = 300;
+            // 
+            // labelVisitOutTime
+            // 
+            labelVisitOutTime.BackColor = Color.PaleTurquoise;
+            labelVisitOutTime.Dock = DockStyle.Fill;
+            labelVisitOutTime.ForeColor = Color.Transparent;
+            labelVisitOutTime.Location = new Point(6, 236);
+            labelVisitOutTime.Name = "labelVisitOutTime";
+            labelVisitOutTime.Size = new Size(192, 37);
+            labelVisitOutTime.TabIndex = 14;
+            labelVisitOutTime.Text = "Visit Out Time";
             // 
             // VisitRecordEditForm
             // 

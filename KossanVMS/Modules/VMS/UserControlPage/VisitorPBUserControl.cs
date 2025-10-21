@@ -38,6 +38,7 @@ namespace KossanVMS.UserControlPage
                     await _db.VisitorCategoryLinks.LoadAsync();
                     await _db.Visitors//.Include(v => v.BlackList)
                                       .Include(v => v.Photo).Include(v => v.Contact).LoadAsync();
+                    visitorBindingSource.DataSource = _db.Visitors.Local.ToBindingList();
                 }
             }
             catch
@@ -56,25 +57,42 @@ namespace KossanVMS.UserControlPage
             }
             if (grid.Columns[e.ColumnIndex].Name == "colPhoto")
             {
-                if (grid.Rows[e.RowIndex].DataBoundItem is Visitor visitor)
+                if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v)
                 {
-                    if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v)
+                    // Check if the Visitor has an associated Photo object
+                    if (v.Photo != null)
                     {
-                        if (v.Photo != null)
-                        {
-                            if (string.IsNullOrEmpty(v.Photo.CapturePhotoPath))
-                            {
-                                e.Value = v.Photo.CapturePhotoPath;
-                            }
-                            else
-                            {
-                                e.Value = string.Empty;
-                            }
-                            e.FormattingApplied = true;
-                        }
-                        return;
+                        // Set the cell value directly to the string path as requested.
+                        // We use the ?? "" to ensure we always return a string value, 
+                        // even if CapturePhotoPath is null.
+                        e.Value = v.Photo.CapturePhotoPath ?? string.Empty;
+                    }
+                    else
+                    {
+                        // No Photo object exists for this Visitor.
+                        e.Value = string.Empty;
                     }
                 }
+                else
+                {
+                    e.Value = string.Empty;
+                }
+                e.FormattingApplied = true;
+                return;
+            }
+            if (grid.Columns[e.ColumnIndex].Name == "colContact")
+            {
+                if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v1)
+                {
+                    e.Value = v1.Contact?.Tel ?? string.Empty;
+
+                }
+                else
+                {
+                    e.Value = string.Empty;
+                }
+                e.FormattingApplied = true;
+                return;
             }
 
             if (grid.Columns[e.ColumnIndex].Name == "colCategories")

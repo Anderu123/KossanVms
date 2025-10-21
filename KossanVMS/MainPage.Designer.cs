@@ -32,11 +32,9 @@ namespace KossanVMS
         {
             statusStrip1 = new StatusStrip();
             parrotPanel = new ReaLTaiizor.Controls.ParrotSlidingPanel();
-            cyberButton4 = new ReaLTaiizor.Controls.CyberButton();
-            cyberButton3 = new ReaLTaiizor.Controls.CyberButton();
-            cyberButton2 = new ReaLTaiizor.Controls.CyberButton();
             buttonNavCategory = new ReaLTaiizor.Controls.CyberButton();
             buttonNavBranch = new ReaLTaiizor.Controls.CyberButton();
+            buttonRegister = new ReaLTaiizor.Controls.CyberButton();
             buttonNavMain = new ReaLTaiizor.Controls.CyberButton();
             dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             mainPanel = new ReaLTaiizor.Controls.Panel();
@@ -60,11 +58,9 @@ namespace KossanVMS
             parrotPanel.CollapseControl = null;
             parrotPanel.Collapsed = true;
             parrotPanel.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotPanel.Controls.Add(cyberButton4);
-            parrotPanel.Controls.Add(cyberButton3);
-            parrotPanel.Controls.Add(cyberButton2);
             parrotPanel.Controls.Add(buttonNavCategory);
             parrotPanel.Controls.Add(buttonNavBranch);
+            parrotPanel.Controls.Add(buttonRegister);
             parrotPanel.Controls.Add(buttonNavMain);
             parrotPanel.Controls.Add(dreamButton1);
             parrotPanel.Dock = DockStyle.Left;
@@ -84,132 +80,6 @@ namespace KossanVMS
             parrotPanel.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             parrotPanel.TopLeft = Color.Black;
             parrotPanel.TopRight = Color.Black;
-            // 
-            // cyberButton4
-            // 
-            cyberButton4.Alpha = 20;
-            cyberButton4.BackColor = Color.Transparent;
-            cyberButton4.Background = true;
-            cyberButton4.Background_WidthPen = 4F;
-            cyberButton4.BackgroundPen = true;
-            cyberButton4.ColorBackground = Color.FromArgb(37, 52, 68);
-            cyberButton4.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            cyberButton4.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            cyberButton4.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberButton4.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberButton4.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            cyberButton4.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            cyberButton4.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberButton4.Dock = DockStyle.Top;
-            cyberButton4.Effect_1 = true;
-            cyberButton4.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            cyberButton4.Effect_1_Transparency = 25;
-            cyberButton4.Effect_2 = true;
-            cyberButton4.Effect_2_ColorBackground = Color.White;
-            cyberButton4.Effect_2_Transparency = 20;
-            cyberButton4.Font = new Font("Arial", 11F);
-            cyberButton4.ForeColor = Color.FromArgb(245, 245, 245);
-            cyberButton4.Lighting = false;
-            cyberButton4.LinearGradient_Background = false;
-            cyberButton4.LinearGradientPen = false;
-            cyberButton4.Location = new Point(0, 290);
-            cyberButton4.Margin = new Padding(10, 10, 5, 5);
-            cyberButton4.Name = "cyberButton4";
-            cyberButton4.PenWidth = 15;
-            cyberButton4.Rounding = true;
-            cyberButton4.RoundingInt = 70;
-            cyberButton4.Size = new Size(100, 50);
-            cyberButton4.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberButton4.TabIndex = 7;
-            cyberButton4.Tag = "Cyber";
-            cyberButton4.TextButton = "Users";
-            cyberButton4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberButton4.Timer_Effect_1 = 5;
-            cyberButton4.Timer_RGB = 300;
-            // 
-            // cyberButton3
-            // 
-            cyberButton3.Alpha = 20;
-            cyberButton3.BackColor = Color.Transparent;
-            cyberButton3.Background = true;
-            cyberButton3.Background_WidthPen = 4F;
-            cyberButton3.BackgroundPen = true;
-            cyberButton3.ColorBackground = Color.FromArgb(37, 52, 68);
-            cyberButton3.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            cyberButton3.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            cyberButton3.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberButton3.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberButton3.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            cyberButton3.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            cyberButton3.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberButton3.Dock = DockStyle.Top;
-            cyberButton3.Effect_1 = true;
-            cyberButton3.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            cyberButton3.Effect_1_Transparency = 25;
-            cyberButton3.Effect_2 = true;
-            cyberButton3.Effect_2_ColorBackground = Color.White;
-            cyberButton3.Effect_2_Transparency = 20;
-            cyberButton3.Font = new Font("Arial", 11F);
-            cyberButton3.ForeColor = Color.FromArgb(245, 245, 245);
-            cyberButton3.Lighting = false;
-            cyberButton3.LinearGradient_Background = false;
-            cyberButton3.LinearGradientPen = false;
-            cyberButton3.Location = new Point(0, 240);
-            cyberButton3.Margin = new Padding(10, 10, 5, 5);
-            cyberButton3.Name = "cyberButton3";
-            cyberButton3.PenWidth = 15;
-            cyberButton3.Rounding = true;
-            cyberButton3.RoundingInt = 70;
-            cyberButton3.Size = new Size(100, 50);
-            cyberButton3.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberButton3.TabIndex = 6;
-            cyberButton3.Tag = "Cyber";
-            cyberButton3.TextButton = "Visits";
-            cyberButton3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberButton3.Timer_Effect_1 = 5;
-            cyberButton3.Timer_RGB = 300;
-            // 
-            // cyberButton2
-            // 
-            cyberButton2.Alpha = 20;
-            cyberButton2.BackColor = Color.Transparent;
-            cyberButton2.Background = true;
-            cyberButton2.Background_WidthPen = 4F;
-            cyberButton2.BackgroundPen = true;
-            cyberButton2.ColorBackground = Color.FromArgb(37, 52, 68);
-            cyberButton2.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            cyberButton2.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            cyberButton2.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberButton2.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberButton2.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            cyberButton2.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            cyberButton2.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberButton2.Dock = DockStyle.Top;
-            cyberButton2.Effect_1 = true;
-            cyberButton2.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            cyberButton2.Effect_1_Transparency = 25;
-            cyberButton2.Effect_2 = true;
-            cyberButton2.Effect_2_ColorBackground = Color.White;
-            cyberButton2.Effect_2_Transparency = 20;
-            cyberButton2.Font = new Font("Arial", 11F);
-            cyberButton2.ForeColor = Color.FromArgb(245, 245, 245);
-            cyberButton2.Lighting = false;
-            cyberButton2.LinearGradient_Background = false;
-            cyberButton2.LinearGradientPen = false;
-            cyberButton2.Location = new Point(0, 190);
-            cyberButton2.Margin = new Padding(10, 10, 5, 5);
-            cyberButton2.Name = "cyberButton2";
-            cyberButton2.PenWidth = 15;
-            cyberButton2.Rounding = true;
-            cyberButton2.RoundingInt = 70;
-            cyberButton2.Size = new Size(100, 50);
-            cyberButton2.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberButton2.TabIndex = 5;
-            cyberButton2.Tag = "Cyber";
-            cyberButton2.TextButton = "Purpose";
-            cyberButton2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberButton2.Timer_Effect_1 = 5;
-            cyberButton2.Timer_RGB = 300;
             // 
             // buttonNavCategory
             // 
@@ -238,7 +108,7 @@ namespace KossanVMS
             buttonNavCategory.Lighting = false;
             buttonNavCategory.LinearGradient_Background = false;
             buttonNavCategory.LinearGradientPen = false;
-            buttonNavCategory.Location = new Point(0, 140);
+            buttonNavCategory.Location = new Point(0, 190);
             buttonNavCategory.Margin = new Padding(10, 10, 5, 5);
             buttonNavCategory.Name = "buttonNavCategory";
             buttonNavCategory.PenWidth = 15;
@@ -246,13 +116,12 @@ namespace KossanVMS
             buttonNavCategory.RoundingInt = 70;
             buttonNavCategory.Size = new Size(100, 50);
             buttonNavCategory.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonNavCategory.TabIndex = 4;
+            buttonNavCategory.TabIndex = 12;
             buttonNavCategory.Tag = "Cyber";
             buttonNavCategory.TextButton = "Category";
             buttonNavCategory.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             buttonNavCategory.Timer_Effect_1 = 5;
             buttonNavCategory.Timer_RGB = 300;
-            buttonNavCategory.Click += buttonNavCategory_Click;
             // 
             // buttonNavBranch
             // 
@@ -281,7 +150,7 @@ namespace KossanVMS
             buttonNavBranch.Lighting = false;
             buttonNavBranch.LinearGradient_Background = false;
             buttonNavBranch.LinearGradientPen = false;
-            buttonNavBranch.Location = new Point(0, 90);
+            buttonNavBranch.Location = new Point(0, 140);
             buttonNavBranch.Margin = new Padding(10, 10, 5, 5);
             buttonNavBranch.Name = "buttonNavBranch";
             buttonNavBranch.PenWidth = 15;
@@ -289,13 +158,55 @@ namespace KossanVMS
             buttonNavBranch.RoundingInt = 70;
             buttonNavBranch.Size = new Size(100, 50);
             buttonNavBranch.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonNavBranch.TabIndex = 3;
+            buttonNavBranch.TabIndex = 11;
             buttonNavBranch.Tag = "Cyber";
             buttonNavBranch.TextButton = "Branch";
             buttonNavBranch.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             buttonNavBranch.Timer_Effect_1 = 5;
             buttonNavBranch.Timer_RGB = 300;
-            buttonNavBranch.Click += buttonNavBranch_Click;
+            // 
+            // buttonRegister
+            // 
+            buttonRegister.Alpha = 20;
+            buttonRegister.BackColor = Color.Transparent;
+            buttonRegister.Background = true;
+            buttonRegister.Background_WidthPen = 4F;
+            buttonRegister.BackgroundPen = true;
+            buttonRegister.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonRegister.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonRegister.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonRegister.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonRegister.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonRegister.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonRegister.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonRegister.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonRegister.Dock = DockStyle.Top;
+            buttonRegister.Effect_1 = true;
+            buttonRegister.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonRegister.Effect_1_Transparency = 25;
+            buttonRegister.Effect_2 = true;
+            buttonRegister.Effect_2_ColorBackground = Color.White;
+            buttonRegister.Effect_2_Transparency = 20;
+            buttonRegister.Font = new Font("Arial", 11F);
+            buttonRegister.ForeColor = Color.FromArgb(245, 245, 245);
+            buttonRegister.Lighting = false;
+            buttonRegister.LinearGradient_Background = false;
+            buttonRegister.LinearGradientPen = false;
+            buttonRegister.Location = new Point(0, 90);
+            buttonRegister.Margin = new Padding(10, 10, 5, 5);
+            buttonRegister.Name = "buttonRegister";
+            buttonRegister.PenWidth = 15;
+            buttonRegister.Rounding = true;
+            buttonRegister.RoundingInt = 70;
+            buttonRegister.Size = new Size(100, 50);
+            buttonRegister.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonRegister.TabIndex = 10;
+            buttonRegister.Tag = "Cyber";
+            buttonRegister.TextButton = "Register";
+            buttonRegister.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonRegister.Timer_Effect_1 = 5;
+            buttonRegister.Timer_RGB = 300;
+            buttonRegister.Click += buttonRegister_Click;
             // 
             // buttonNavMain
             // 
@@ -427,11 +338,9 @@ namespace KossanVMS
         private ReaLTaiizor.Controls.CyberButton buttonNavMain;
         private ReaLTaiizor.Controls.DreamButton dreamButton1;
         private ReaLTaiizor.Controls.Panel mainPanel;
-        private ReaLTaiizor.Controls.CyberButton buttonNavBranch;
-        private ReaLTaiizor.Controls.CyberButton cyberButton2;
-        private ReaLTaiizor.Controls.CyberButton buttonNavCategory;
-        private ReaLTaiizor.Controls.CyberButton cyberButton4;
-        private ReaLTaiizor.Controls.CyberButton cyberButton3;
         private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
+        private ReaLTaiizor.Controls.CyberButton buttonRegister;
+        private ReaLTaiizor.Controls.CyberButton buttonNavCategory;
+        private ReaLTaiizor.Controls.CyberButton buttonNavBranch;
     }
 }

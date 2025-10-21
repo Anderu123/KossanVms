@@ -24,7 +24,7 @@ namespace KossanVMS.Modules.VMS.UserControlPage
             //parrotCircleProgressBar1.Maximum = 100;
             //parrotCircleProgressBar1.Value = 0;  // or use .percentage if you prefer
             parrotCircleProgressBar1.MinimumSize = new Size(100, 100);
-            _db = db;
+            this._db = db ?? throw new ArgumentNullException(nameof(db));
             //this.Load += dashboardLoad;
         }
 
@@ -39,7 +39,7 @@ namespace KossanVMS.Modules.VMS.UserControlPage
                 .Select(x => new VmsDashboard.TotalCheckIn
                 {
                     checkInName = x.Visitor.FullName,
-                    checkInPurpose = x.Purpose.PurposeName,
+                 //   checkInPurpose = x.Purpose.PurposeName,
                     checkInTime = x.InTime,
                     ExpiryDateTime = x.ExpiryDate
                 })

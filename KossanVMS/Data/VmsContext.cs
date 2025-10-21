@@ -19,7 +19,7 @@ namespace KossanVMS.Data
         public DbSet<VmsUser> VmsUsers => Set<VmsUser>();
 
         public DbSet<VisitCategory> VisitCategories => Set<VisitCategory>();
-        public DbSet<VisitPurpose> VisitPurposes => Set<VisitPurpose>();
+       // public DbSet<VisitPurpose> VisitPurposes => Set<VisitPurpose>();
         public DbSet<VisitBranch> VisitBranches => Set<VisitBranch>();
         public DbSet<VisitorCompany> VisitorCompanies => Set<VisitorCompany>();
 
@@ -29,7 +29,7 @@ namespace KossanVMS.Data
         public DbSet<VisitorAffiliation> VisitorAffiliations => Set<VisitorAffiliation>();
 
         public DbSet<VisitorCategoryLink> VisitorCategoryLinks => Set<VisitorCategoryLink>();
-        public DbSet<VisitorPurposeLink> VisitorPurposeLinks => Set<VisitorPurposeLink>();
+       // public DbSet<VisitorPurposeLink> VisitorPurposeLinks => Set<VisitorPurposeLink>();
         public DbSet<VisitorBranchLink> VisitorBranchLinks => Set<VisitorBranchLink>();
 
         public DbSet<VisitRecord> VisitRecords => Set<VisitRecord>();
@@ -45,7 +45,7 @@ namespace KossanVMS.Data
 
             // Masters uniqueness
             b.Entity<VisitCategory>().HasIndex(x => x.CategoryName).IsUnique();
-            b.Entity<VisitPurpose>().HasIndex(x => x.PurposeName).IsUnique();
+           // b.Entity<VisitPurpose>().HasIndex(x => x.PurposeName).IsUnique();
             b.Entity<VisitBranch>().HasIndex(x => x.BranchName).IsUnique();
 
             // Visitors uniqueness (same person by ID type+number)
@@ -82,14 +82,14 @@ namespace KossanVMS.Data
                 .HasIndex(x => new { x.VisitorNo, x.CategoryID }).IsUnique();
 
             // VisitorPurposeLink
-            b.Entity<VisitorPurposeLink>()
-                .HasOne(x => x.Visitor).WithMany(v => v.VisitorPurposes)
-                .HasForeignKey(x => x.VisitorNo).OnDelete(DeleteBehavior.Cascade);
-            b.Entity<VisitorPurposeLink>()
-                .HasOne(x => x.Purpose).WithMany()
-                .HasForeignKey(x => x.PurposeID).OnDelete(DeleteBehavior.Restrict);
-            b.Entity<VisitorPurposeLink>()
-                .HasIndex(x => new { x.VisitorNo, x.PurposeID }).IsUnique();
+            //b.Entity<VisitorPurposeLink>()
+            //    .HasOne(x => x.Visitor).WithMany(v => v.VisitorPurposes)
+            //    .HasForeignKey(x => x.VisitorNo).OnDelete(DeleteBehavior.Cascade);
+            //b.Entity<VisitorPurposeLink>()
+            //    .HasOne(x => x.Purpose).WithMany()
+            //    .HasForeignKey(x => x.PurposeID).OnDelete(DeleteBehavior.Restrict);
+            //b.Entity<VisitorPurposeLink>()
+            //    .HasIndex(x => new { x.VisitorNo, x.PurposeID }).IsUnique();
 
             // VisitorBranchLink
             b.Entity<VisitorBranchLink>()
@@ -121,10 +121,10 @@ namespace KossanVMS.Data
                 .HasOne(vr => vr.Branch).WithMany()
                 .HasForeignKey(vr => vr.BranchID)
                 .OnDelete(DeleteBehavior.Restrict);
-            b.Entity<VisitRecord>()
-                .HasOne(vr => vr.Purpose).WithMany()
-                .HasForeignKey(vr => vr.PurposeID)
-                .OnDelete(DeleteBehavior.SetNull);
+            //b.Entity<VisitRecord>()
+            //    .HasOne(vr => vr.Purpose).WithMany()
+            //    .HasForeignKey(vr => vr.PurposeID)
+            //    .OnDelete(DeleteBehavior.SetNull);
             b.Entity<VisitRecord>()
                 .HasOne(vr => vr.Category).WithMany()
                 .HasForeignKey(vr => vr.CategoryID)

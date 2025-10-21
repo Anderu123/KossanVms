@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace KossanVMS
 {
@@ -47,8 +48,8 @@ namespace KossanVMS
             buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
             //var visitType= visitorModel.IdType;
             LoadCategoryCheckList();
+            LoadBranchCheckList();
 
-            
             comboBoxIdType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxIdType.DrawMode = DrawMode.OwnerDrawFixed;   // if you need it
             comboBoxIdType.ItemHeight = 45;
@@ -67,6 +68,40 @@ namespace KossanVMS
 
 
         #region Initial Load Data
+
+        private void LoadBranchCheckList()
+        {
+            checkedListBoxBranch.BeginUpdate();
+            try
+            {
+                var items = _db.VisitBranches
+                               .OrderBy(b => b.BranchName)
+                               .Select(b => new ListItem { Id = b.BranchID, Text = b.BranchName })
+                               .ToList();
+                checkedListBoxBranch.DataSource = null;          // clear any previous binding
+                checkedListBoxBranch.Items.Clear();
+                checkedListBoxBranch.DisplayMember = nameof(ListItem.Text);
+                checkedListBoxBranch.ValueMember = nameof(ListItem.Id);
+                checkedListBoxBranch.DataSource = items;
+                var linkedIds = (visitorModel?.VisitorNo > 0)
+                    ? new HashSet<int>(
+                        _db.VisitorBranchLinks
+                           .Where(x => x.VisitorNo == visitorModel.VisitorNo)
+                           .Select(x => x.BranchID)
+                           .ToList())
+                    : new HashSet<int>();
+                for(int i = 0; i < items.Count; i++)
+                {
+                    if (linkedIds.Contains(items[i].Id))
+                        checkedListBoxBranch.SetItemChecked(i, true);
+                }
+            }
+            catch
+            {
+
+            }
+            // Similar to LoadCategoryCheckList but for branches
+        }
         private void LoadCategoryCheckList()
         {
             checkedListBoxCat.BeginUpdate();
@@ -146,7 +181,20 @@ namespace KossanVMS
                 _db.SaveChanges();
             }
         }
+        public void SaveVisitorRecord()
+        {
+            var visitorRecordDb = _db.VisitRecords.LoadAsync();
+            var record = new VisitRecord
+            {
+                VisitorNo = visitorModel.VisitorNo,
+                //BranchID =  visitorModel.VisitorBranches.Where(x=> x.).Select(vb => vb.BranchID).FirstOrDefault(),
+            };
 
+
+
+
+
+        }
 
         private bool SaveResults()
         {
