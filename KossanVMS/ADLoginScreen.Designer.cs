@@ -404,6 +404,7 @@ namespace KossanVMS
             ClientSize = new Size(599, 330);
             Controls.Add(splitContainer1);
             Name = "ADLoginScreen";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ADLoginScreen";
             Load += ADLoginScreen_Load;
             splitContainer1.Panel1.ResumeLayout(false);

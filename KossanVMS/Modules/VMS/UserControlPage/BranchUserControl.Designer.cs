@@ -33,6 +33,7 @@ namespace KossanVMS.UserControlPage
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BranchUserControl));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             toolStrip1 = new ToolStrip();
             toolStripButton1 = new ToolStripButton();
             toolStripEditButton = new ToolStripButton();
@@ -100,25 +101,29 @@ namespace KossanVMS.UserControlPage
             // 
             // BranchGridViewUserControl
             // 
+            BranchGridViewUserControl.AllowUserToAddRows = false;
+            BranchGridViewUserControl.AllowUserToDeleteRows = false;
             BranchGridViewUserControl.AutoGenerateColumns = false;
             BranchGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             BranchGridViewUserControl.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            BranchGridViewUserControl.BorderStyle = BorderStyle.None;
             BranchGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             BranchGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { BranchName, BranchDescription, BranchStatus, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
             BranchGridViewUserControl.DataSource = visitBranchBindingSource;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            BranchGridViewUserControl.DefaultCellStyle = dataGridViewCellStyle1;
             BranchGridViewUserControl.Dock = DockStyle.Fill;
             BranchGridViewUserControl.Location = new Point(0, 25);
             BranchGridViewUserControl.Name = "BranchGridViewUserControl";
             BranchGridViewUserControl.RowTemplate.Height = 25;
             BranchGridViewUserControl.Size = new Size(768, 432);
             BranchGridViewUserControl.TabIndex = 1;
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            BranchGridViewUserControl.DefaultCellStyle = dataGridViewCellStyle1;
             // 
             // BranchName
             // 

@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryUserControl));
             toolStrip1 = new ToolStrip();
             toolStripButton2 = new ToolStripButton();
@@ -55,7 +56,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton2, toolStripButton1, toolStripButton3 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(695, 25);
+            toolStrip1.Size = new Size(1072, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -101,11 +102,19 @@
             visitorCatUserControlGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             visitorCatUserControlGridView.Columns.AddRange(new DataGridViewColumn[] { CategoryName, CategoryDescription, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn });
             visitorCatUserControlGridView.DataSource = visitCategoryBindingSource;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkTurquoise;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            visitorCatUserControlGridView.DefaultCellStyle = dataGridViewCellStyle1;
             visitorCatUserControlGridView.Dock = DockStyle.Fill;
             visitorCatUserControlGridView.Location = new Point(0, 25);
             visitorCatUserControlGridView.Name = "visitorCatUserControlGridView";
             visitorCatUserControlGridView.RowTemplate.Height = 25;
-            visitorCatUserControlGridView.Size = new Size(695, 402);
+            visitorCatUserControlGridView.Size = new Size(1072, 463);
             visitorCatUserControlGridView.TabIndex = 1;
             // 
             // CategoryName
@@ -156,10 +165,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             Controls.Add(visitorCatUserControlGridView);
             Controls.Add(toolStrip1);
             Name = "CategoryUserControl";
-            Size = new Size(695, 427);
+            Size = new Size(1072, 488);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)visitorCatUserControlGridView).EndInit();

@@ -19,13 +19,12 @@ namespace KossanVMS.Modules.VMS.UserControlPage
         public DashboardUserControl(VmsContext db)
         {
             InitializeComponent();
-            // Make sure the circle has sane bounds
+           
             parrotCircleProgressBar1.Percentage = 50;
-            //parrotCircleProgressBar1.Maximum = 100;
-            //parrotCircleProgressBar1.Value = 0;  // or use .percentage if you prefer
+          
             parrotCircleProgressBar1.MinimumSize = new Size(100, 100);
             this._db = db ?? throw new ArgumentNullException(nameof(db));
-            //this.Load += dashboardLoad;
+            
         }
 
 
@@ -44,7 +43,7 @@ namespace KossanVMS.Modules.VMS.UserControlPage
                     ExpiryDateTime = x.ExpiryDate
                 })
                 .ToListAsync();
-
+            dataGridView1.DataSource = _db.VisitRecords.Local.ToBindingList();
 
         }
 

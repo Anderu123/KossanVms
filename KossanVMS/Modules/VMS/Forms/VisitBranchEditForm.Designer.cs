@@ -1,4 +1,7 @@
-﻿namespace KossanVMS
+﻿using ReaLTaiizor.Controls;
+using System.Diagnostics;
+
+namespace KossanVMS
 {
     partial class VisitBranchEditForm
     {
@@ -29,20 +32,20 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            textBoxBranchName = new ReaLTaiizor.Controls.CyberTextBox();
-            thunderLabel7 = new ReaLTaiizor.Controls.ThunderLabel();
-            textBoxBranchConnStr = new ReaLTaiizor.Controls.CyberTextBox();
-            labelBranchConnString = new ReaLTaiizor.Controls.ThunderLabel();
-            labelBranchStatus = new ReaLTaiizor.Controls.ThunderLabel();
-            labelBranchDescription = new ReaLTaiizor.Controls.ThunderLabel();
-            labelBranchName = new ReaLTaiizor.Controls.ThunderLabel();
-            textBoxBranchDescription = new ReaLTaiizor.Controls.CyberTextBox();
-            panel1 = new Panel();
-            buttonSave = new ReaLTaiizor.Controls.CyberButton();
-            buttonCancel = new ReaLTaiizor.Controls.CyberButton();
-            radioPanelBranch = new Panel();
-            buttonBranchInactive = new ReaLTaiizor.Controls.CyberRadioButton();
-            buttonBranchActive = new ReaLTaiizor.Controls.CyberRadioButton();
+            textBoxBranchName = new CyberTextBox();
+            thunderLabel7 = new ThunderLabel();
+            textBoxBranchConnStr = new CyberTextBox();
+            labelBranchConnString = new ThunderLabel();
+            labelBranchStatus = new ThunderLabel();
+            labelBranchDescription = new ThunderLabel();
+            labelBranchName = new ThunderLabel();
+            textBoxBranchDescription = new CyberTextBox();
+            panel1 = new System.Windows.Forms.Panel();
+            buttonSave = new CyberButton();
+            buttonCancel = new CyberButton();
+            radioPanelBranch = new System.Windows.Forms.Panel();
+            buttonBranchInactive = new CyberRadioButton();
+            buttonBranchActive = new CyberRadioButton();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             radioPanelBranch.SuspendLayout();
@@ -109,6 +112,8 @@
             textBoxBranchName.TextButton = "";
             textBoxBranchName.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textBoxBranchName.Timer_RGB = 300;
+            textBoxBranchName.Enter += textBoxUpdate_Enter;
+            textBoxBranchName.Leave += textBoxUpdate_Leave;
             // 
             // thunderLabel7
             // 
@@ -150,6 +155,8 @@
             textBoxBranchConnStr.TextButton = "";
             textBoxBranchConnStr.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textBoxBranchConnStr.Timer_RGB = 300;
+            textBoxBranchConnStr.Enter += textBoxUpdate_Enter;
+            textBoxBranchConnStr.Leave += textBoxUpdate_Leave;
             // 
             // labelBranchConnString
             // 
@@ -225,6 +232,8 @@
             textBoxBranchDescription.TextButton = "";
             textBoxBranchDescription.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textBoxBranchDescription.Timer_RGB = 300;
+            textBoxBranchDescription.Enter += textBoxUpdate_Enter;
+            textBoxBranchDescription.Leave += textBoxUpdate_Leave;
             // 
             // panel1
             // 
@@ -423,6 +432,7 @@
             ClientSize = new Size(702, 361);
             Controls.Add(tableLayoutPanel1);
             Name = "VisitBranchEditForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "VisitBranchEditForm";
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -440,12 +450,64 @@
         private ReaLTaiizor.Controls.ThunderLabel labelBranchDescription;
         private ReaLTaiizor.Controls.ThunderLabel labelBranchName;
         private ReaLTaiizor.Controls.CyberTextBox textBoxBranchDescription;
-        private Panel panel1;
+        private System.Windows.Forms.Panel panel1;
         private ReaLTaiizor.Controls.CyberButton buttonSave;
         private ReaLTaiizor.Controls.CyberButton buttonCancel;
-        private Panel radioPanelBranch;
+        private System.Windows.Forms.Panel radioPanelBranch;
         private ReaLTaiizor.Controls.CyberRadioButton buttonBranchActive;
         private ReaLTaiizor.Controls.CyberRadioButton buttonBranchInactive;
         private ReaLTaiizor.Controls.CyberTextBox textBoxBranchName;
+
+
+
+        private void buttonUpdate_Enter(object sender, EventArgs e)
+        {
+            CyberButton clickedButton = sender as CyberButton;
+            if (clickedButton != null)
+            {
+                Debug.WriteLine("Entered");
+                // Revert to the original border color when the mouse leaves
+                clickedButton.ColorBackground_Pen = Color.Turquoise;
+                clickedButton.ColorBackground = Color.White;
+                clickedButton.Invalidate(); // Force redraw
+            }
+        }
+        private void buttonUpdate_Leave(object sender, EventArgs e)
+        {
+            CyberButton clickedButton = sender as CyberButton;
+            if (clickedButton != null)
+            {
+                Debug.WriteLine("Left");
+                // Revert to the original border color when the mouse leaves
+                clickedButton.ColorBackground_Pen = Color.PaleTurquoise;
+                clickedButton.ColorBackground = Color.LightGray;
+                clickedButton.Invalidate(); // Force redraw
+            }
+        }
+        private void textBoxUpdate_Enter(object sender, EventArgs e)
+        {
+            CyberTextBox clickedButton = sender as CyberTextBox;
+
+            if (clickedButton != null)
+            {
+                Debug.WriteLine("Entered");
+                // Revert to the original border color when the mouse leaves
+                clickedButton.ColorBackground_Pen = Color.Turquoise;
+                clickedButton.ColorBackground = Color.White;
+                clickedButton.Invalidate(); // Force redraw
+            }
+        }
+        private void textBoxUpdate_Leave(object sender, EventArgs e)
+        {
+            CyberTextBox clickedButton = sender as CyberTextBox;
+            if (clickedButton != null)
+            {
+                Debug.WriteLine("Left");
+                // Revert to the original border color when the mouse leaves
+                clickedButton.ColorBackground_Pen = Color.PaleTurquoise;
+                clickedButton.ColorBackground = Color.LightGray;
+                clickedButton.Invalidate(); // Force redraw
+            }
+        }
     }
 }

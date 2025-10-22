@@ -69,6 +69,24 @@ namespace KossanVMS
             tab2.Controls.Add(new VisitorUserControl(_db) { Dock = DockStyle.Fill });
             hopeTabPage1.TabPages.Add(tab2);
             tab2.ResumeLayout();
+            
+            var tab3 = new System.Windows.Forms.TabPage("Register") { Name = "PBTab" };
+            tab3.SuspendLayout();
+            tab3.Controls.Add(new VisitorPBUserControl(_db) { Dock = DockStyle.Fill });
+            tab3.ResumeLayout();
+            hopeTabPage1.TabPages.Add(tab3);
+
+            var tab4 = new System.Windows.Forms.TabPage("Branch") { Name = "BranchesTab" };
+            tab4.SuspendLayout();
+            tab4.Controls.Add(new BranchUserControl(_db) { Dock = DockStyle.Fill });
+            tab4.ResumeLayout();
+            hopeTabPage1.TabPages.Add(tab4);    
+            
+            var tab5 = new System.Windows.Forms.TabPage("Category") { Name = "CategoriesTab" };
+            tab5.SuspendLayout();
+            tab5.Controls.Add(new CategoryUserControl(_db) { Dock = DockStyle.Fill });
+            tab5.ResumeLayout();
+            hopeTabPage1.TabPages.Add(tab5);
 
             hopeTabPage1.ResumeLayout();
             hopeTabPage1.SelectedTab = tab1;
@@ -100,28 +118,28 @@ namespace KossanVMS
             //toolStripLoginLabel.Text = $"Welcome, {AppSession.UserName} ({AppSession.Role})";
         }
 
-        private void buttonNavBranch_Click(object sender, EventArgs e)
-        {
-            var visitBranch = new BranchUserControl(_db) { Dock = DockStyle.Fill };
-            ShowPage(visitBranch, buttonNavBranch);
-        }
+        //private void buttonNavBranch_Click(object sender, EventArgs e)
+        //{
+        //    var visitBranch = new BranchUserControl(_db) { Dock = DockStyle.Fill };
+        //    ShowPage(visitBranch, buttonNavBranch);
+        //}
 
         private void buttonNavMain_Click(object sender, EventArgs e)
         {
             var visitForm = new VisitorUserControl(_db) { Dock = DockStyle.Fill };
-            ShowPage(visitForm, buttonNavMain);
+            ShowPage(visitForm, buttonNavVms);
         }
 
-        private void buttonNavCategory_Click(object sender, EventArgs e)
-        {
-            var visitCategory = new CategoryUserControl(_db) { Dock = DockStyle.Fill };
-            ShowPage(visitCategory, buttonNavCategory);
-        }
+        //private void buttonNavCategory_Click(object sender, EventArgs e)
+        //{
+        //    var visitCategory = new CategoryUserControl(_db) { Dock = DockStyle.Fill };
+        //    ShowPage(visitCategory, buttonNavCategory);
+        //}
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             var visitRegisterForm = new VisitorPBUserControl(_db) { Dock = DockStyle.Fill };
-            ShowPage(visitRegisterForm, buttonRegister);
+            ShowPage(visitRegisterForm, buttonNavDms);
         }
     }
 }

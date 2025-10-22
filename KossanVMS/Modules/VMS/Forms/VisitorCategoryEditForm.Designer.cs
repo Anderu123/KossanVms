@@ -1,4 +1,7 @@
-﻿namespace KossanVMS
+﻿using ReaLTaiizor.Controls;
+using System.Diagnostics;
+
+namespace KossanVMS
 {
     partial class VisitorCategoryEditForm
     {
@@ -20,6 +23,7 @@
             base.Dispose(disposing);
         }
 
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,6 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            
             cancelButton = new ReaLTaiizor.Controls.CyberButton();
             thunderLabel7 = new ReaLTaiizor.Controls.ThunderLabel();
             labelCategoryStatus = new ReaLTaiizor.Controls.ThunderLabel();
@@ -38,11 +43,11 @@
             labelCategoryId = new ReaLTaiizor.Controls.ThunderLabel();
             buttonCategoryID = new ReaLTaiizor.Controls.CyberButton();
             textBoxCategoryName = new ReaLTaiizor.Controls.CyberTextBox();
-            panel1 = new Panel();
+            panel1 = new  System.Windows.Forms.Panel();
             saveButton = new ReaLTaiizor.Controls.CyberButton();
-            panel2 = new Panel();
-            rbInactive = new RadioButton();
-            rbActive = new RadioButton();
+            panel2 = new  System.Windows.Forms.Panel();
+            rbInactive = new System.Windows.Forms.RadioButton();
+            rbActive = new System.Windows.Forms.RadioButton();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -170,6 +175,8 @@
             textBoxCategoryDescription.TextButton = "";
             textBoxCategoryDescription.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textBoxCategoryDescription.Timer_RGB = 300;
+            textBoxCategoryDescription.Leave += textBoxUpdate_Leave;
+            textBoxCategoryDescription.Enter += textBoxUpdate_Enter;
             // 
             // labelCategoryDescription
             // 
@@ -275,6 +282,8 @@
             textBoxCategoryName.TextButton = "";
             textBoxCategoryName.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textBoxCategoryName.Timer_RGB = 300;
+            textBoxCategoryName.Enter += textBoxUpdate_Enter;
+            textBoxCategoryName.Leave += textBoxUpdate_Leave;
             // 
             // panel1
             // 
@@ -390,10 +399,36 @@
         private ReaLTaiizor.Controls.ThunderLabel labelCategoryId;
         private ReaLTaiizor.Controls.CyberButton buttonCategoryID;
         private ReaLTaiizor.Controls.CyberTextBox textBoxCategoryName;
-        private Panel panel1;
+        private System.Windows.Forms.Panel panel1;
         private ReaLTaiizor.Controls.CyberButton saveButton;
-        private Panel panel2;
-        private RadioButton rbInactive;
-        private RadioButton rbActive;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rbInactive;
+        private System.Windows.Forms.RadioButton rbActive;
+
+        private void textBoxUpdate_Enter(object sender, EventArgs e)
+        {
+            CyberTextBox clickedButton = sender as CyberTextBox;
+
+            if (clickedButton != null)
+            {
+                Debug.WriteLine("Entered");
+                // Revert to the original border color when the mouse leaves
+                clickedButton.ColorBackground_Pen = Color.Turquoise;
+                clickedButton.ColorBackground = Color.White;
+                clickedButton.Invalidate(); // Force redraw
+            }
+        }
+        private void textBoxUpdate_Leave(object sender, EventArgs e)
+        {
+            CyberTextBox clickedButton = sender as CyberTextBox;
+            if (clickedButton != null)
+            {
+                Debug.WriteLine("Left");
+                // Revert to the original border color when the mouse leaves
+                clickedButton.ColorBackground_Pen = Color.PaleTurquoise;
+                clickedButton.ColorBackground = Color.LightGray;
+                clickedButton.Invalidate(); // Force redraw
+            }
+        }
     }
 }

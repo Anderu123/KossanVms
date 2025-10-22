@@ -31,8 +31,8 @@ namespace KossanVMS.UserControlPage
             {
                 if (_db != null)
                 {
-                   await _db.VisitCategories.LoadAsync();
-                   visitCategoryBindingSource.DataSource = _db.VisitCategories.Local.ToBindingList();
+                    await _db.VisitCategories.LoadAsync();
+                    visitCategoryBindingSource.DataSource = _db.VisitCategories.Local.ToBindingList();
                 }
             }
             catch
@@ -60,10 +60,10 @@ namespace KossanVMS.UserControlPage
                 //UpdatedDate = selecteditem.UpdatedDate
             };
             using var editVisitCategoryModel = new VisitorCategoryEditForm(_db, copyVisitCategoryModel);
-            if(editVisitCategoryModel.ShowDialog() != DialogResult.OK)
+            if (editVisitCategoryModel.ShowDialog() != DialogResult.OK)
             {
                 return;
-            }   
+            }
             var udpatedVisitCategoryModel = editVisitCategoryModel.visitCategoryModel;
             selecteditem.CategoryName = udpatedVisitCategoryModel.CategoryName;
             selecteditem.CategoryDescription = udpatedVisitCategoryModel.CategoryDescription;
@@ -75,7 +75,7 @@ namespace KossanVMS.UserControlPage
         }
         private async void toolStripAddButton_Click(object sender, EventArgs e)
         {
-            
+
             using var addVisitCategoryModel = new VisitorCategoryEditForm(_db);
             var newVisitCategory = addVisitCategoryModel.visitCategoryModel;
             if (addVisitCategoryModel.ShowDialog() != DialogResult.OK)
@@ -114,6 +114,11 @@ namespace KossanVMS.UserControlPage
                 MessageBox.Show("Unable to delete the category. It may be referenced by other records.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // Log the exception (ex) as needed
             }
+        }
+
+        private void visitorCatUserControlGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

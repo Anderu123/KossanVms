@@ -187,6 +187,7 @@ namespace KossanVMS.UserControlPage
             VisitorGridViewUserControl.CellContentClick += VisitorGridViewUserControl_CellContentClick;
             VisitorGridViewUserControl.CellFormatting += VisitorGridViewUserControl_CellFormatting;
             VisitorGridViewUserControl.SelectionChanged += VisitorGridViewUserControl_SelectionChanged;
+           
             // 
             // visitorIDDataGridViewTextBoxColumn
             // 
@@ -226,6 +227,9 @@ namespace KossanVMS.UserControlPage
             // 
             colPhoto.HeaderText = "Photo";
             colPhoto.Name = "colPhoto";
+            colPhoto.ValueType = typeof(string);
+            colPhoto.DefaultCellStyle.Format = null;
+            colPhoto.DefaultCellStyle.NullValue = "";
             // 
             // visitorBindingSource
             // 

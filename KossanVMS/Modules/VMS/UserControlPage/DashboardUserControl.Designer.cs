@@ -150,8 +150,8 @@
             // 
             tableLayoutPanel4.ColumnCount = 2;
             tableLayoutPanel1.SetColumnSpan(tableLayoutPanel4, 2);
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.93245F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34.0675468F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.92658F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.07342F));
             tableLayoutPanel4.Controls.Add(tableLayoutPanel5, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(3, 218);
@@ -176,7 +176,7 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 12.8078814F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 87.1921158F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel5.Size = new Size(442, 203);
+            tableLayoutPanel5.Size = new Size(334, 203);
             tableLayoutPanel5.TabIndex = 0;
             // 
             // labelTotalIn
@@ -195,9 +195,9 @@
             // 
             panel1.BackColor = Color.FromArgb(37, 52, 68);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(226, 29);
+            panel1.Location = new Point(171, 29);
             panel1.Name = "panel1";
-            panel1.Size = new Size(213, 171);
+            panel1.Size = new Size(160, 171);
             panel1.TabIndex = 3;
             // 
             // parrotCircleProgressBar1
@@ -215,7 +215,7 @@
             parrotCircleProgressBar1.Percentage = 50;
             parrotCircleProgressBar1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             parrotCircleProgressBar1.ShowText = true;
-            parrotCircleProgressBar1.Size = new Size(217, 171);
+            parrotCircleProgressBar1.Size = new Size(162, 171);
             parrotCircleProgressBar1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             parrotCircleProgressBar1.TabIndex = 4;
             parrotCircleProgressBar1.TextColor = Color.Gray;

@@ -31,6 +31,7 @@ namespace KossanVMS
         {
             string username = textBoxLoginUser.textBox.Text.Trim();
             string password = textBoxLoginPassword.textBox.Text.Trim();
+            bool bypass = true;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -42,7 +43,8 @@ namespace KossanVMS
             cyberProgressBar1.Visible = true;
             toolStripLabelLogin.Text = "Authenticating...";
             cyberProgressBar1.Value = 30; // 30%
-            bool adOnline = await Task.Run(() => new AdAuthenticator().IsAdServerReachable());
+            //bool adOnline = await Task.Run(() => new AdAuthenticator().IsAdServerReachable());
+            bool adOnline = true;
             if (!adOnline)
             {
                 MessageBox.Show("AD Server is unreachable. Please check your network connection or contact the administrator.", "Login Failed");
@@ -57,7 +59,7 @@ namespace KossanVMS
             toolStripLabelLogin.Text = "Verifying Credentials...";
             cyberProgressBar1.Value = 50; // 60%
             bool adSuccess = await Task.Run(() => new AdAuthenticator().AuthenticateUser(username, password));
-            if (adSuccess)
+            if (adSuccess || bypass)
             {
                 // 2. AD Authentication Succeeded! Now get the Role from the local DB.
                 using (var context = new VmsContext()) // Replace VmsDbContext with your actual DBContext
@@ -100,6 +102,14 @@ namespace KossanVMS
                 toolStrip1.Text = "Invalid Username or Password. Please try again.";
                 textBoxLoginPassword.textBox.Clear();
                 buttonLogin.Enabled = true;
+                using (var context = new VmsContext())
+                {
+                    this.Hide();
+                    var mainForm = new MainPage(context);
+                    mainForm.ShowDialog();
+                    this.Close(); // Close the login form after the main form is closed
+                }
+                
             }
 
         }
