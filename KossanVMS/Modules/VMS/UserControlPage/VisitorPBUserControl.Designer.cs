@@ -35,7 +35,7 @@
             VisitorGridViewPBControl = new DataGridView();
             visitorBindingSource = new BindingSource(components);
             tableLayoutPanel1 = new TableLayoutPanel();
-            visitorUploadVisitorBox = new PictureBox();
+            visitorUploadPictureBox = new PictureBox();
             visitorPictureBox = new PictureBox();
             toolStrip2 = new ToolStrip();
             toolStripDelButton = new ToolStripButton();
@@ -46,12 +46,12 @@
             IdType = new DataGridViewTextBoxColumn();
             IdNo = new DataGridViewTextBoxColumn();
             colContact = new DataGridViewTextBoxColumn();
-            colCategories = new DataGridViewTextBoxColumn();
             colPhoto = new DataGridViewTextBoxColumn();
+            colCategories = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)VisitorGridViewPBControl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)visitorUploadVisitorBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)visitorUploadPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorPictureBox).BeginInit();
             toolStrip2.SuspendLayout();
             SuspendLayout();
@@ -70,7 +70,7 @@
             VisitorGridViewPBControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             VisitorGridViewPBControl.BackgroundColor = Color.LightGray;
             VisitorGridViewPBControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisitorGridViewPBControl.Columns.AddRange(new DataGridViewColumn[] { VisitorNo, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colContact, colCategories, colPhoto });
+            VisitorGridViewPBControl.Columns.AddRange(new DataGridViewColumn[] { VisitorNo, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colContact, colPhoto, colCategories });
             VisitorGridViewPBControl.DataSource = visitorBindingSource;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
@@ -90,7 +90,8 @@
             VisitorGridViewPBControl.RowTemplate.Height = 25;
             VisitorGridViewPBControl.Size = new Size(792, 408);
             VisitorGridViewPBControl.TabIndex = 0;
-            VisitorGridViewPBControl.CellFormatting += VisitorGridViewUserControl_CellFormatting;
+            VisitorGridViewPBControl.CellFormatting += VisitorGridViewPBControl_CellFormatting;
+            VisitorGridViewPBControl.SelectionChanged += VisitorGridViewPBControl_SelectionChanged;
             // 
             // visitorBindingSource
             // 
@@ -101,7 +102,7 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.61728F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.38272F));
-            tableLayoutPanel1.Controls.Add(visitorUploadVisitorBox, 0, 2);
+            tableLayoutPanel1.Controls.Add(visitorUploadPictureBox, 0, 2);
             tableLayoutPanel1.Controls.Add(visitorPictureBox, 0, 1);
             tableLayoutPanel1.Controls.Add(toolStrip2, 0, 0);
             tableLayoutPanel1.Controls.Add(VisitorGridViewPBControl, 1, 1);
@@ -115,20 +116,20 @@
             tableLayoutPanel1.Size = new Size(1072, 438);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // visitorUploadVisitorBox
+            // visitorUploadPictureBox
             // 
-            visitorUploadVisitorBox.BackColor = Color.Black;
-            visitorUploadVisitorBox.Cursor = Cursors.IBeam;
-            visitorUploadVisitorBox.Dock = DockStyle.Fill;
-            visitorUploadVisitorBox.Image = (Image)resources.GetObject("visitorUploadVisitorBox.Image");
-            visitorUploadVisitorBox.InitialImage = (Image)resources.GetObject("visitorUploadVisitorBox.InitialImage");
-            visitorUploadVisitorBox.Location = new Point(10, 240);
-            visitorUploadVisitorBox.Margin = new Padding(10);
-            visitorUploadVisitorBox.Name = "visitorUploadVisitorBox";
-            visitorUploadVisitorBox.Size = new Size(254, 188);
-            visitorUploadVisitorBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            visitorUploadVisitorBox.TabIndex = 5;
-            visitorUploadVisitorBox.TabStop = false;
+            visitorUploadPictureBox.BackColor = Color.Black;
+            visitorUploadPictureBox.Cursor = Cursors.IBeam;
+            visitorUploadPictureBox.Dock = DockStyle.Fill;
+            visitorUploadPictureBox.Image = (Image)resources.GetObject("visitorUploadPictureBox.Image");
+            visitorUploadPictureBox.InitialImage = (Image)resources.GetObject("visitorUploadPictureBox.InitialImage");
+            visitorUploadPictureBox.Location = new Point(10, 240);
+            visitorUploadPictureBox.Margin = new Padding(10);
+            visitorUploadPictureBox.Name = "visitorUploadPictureBox";
+            visitorUploadPictureBox.Size = new Size(254, 188);
+            visitorUploadPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            visitorUploadPictureBox.TabIndex = 5;
+            visitorUploadPictureBox.TabStop = false;
             // 
             // visitorPictureBox
             // 
@@ -178,6 +179,7 @@
             toolStripAddButton.Size = new Size(23, 21);
             toolStripAddButton.Text = "toolStripAddButton";
             toolStripAddButton.ToolTipText = "Add";
+            toolStripAddButton.Click += toolStripAddButton_Click;
             // 
             // toolStripEditButton
             // 
@@ -189,29 +191,30 @@
             toolStripEditButton.Size = new Size(23, 21);
             toolStripEditButton.Text = "toolStripEditButton";
             toolStripEditButton.ToolTipText = "Edit";
+            toolStripEditButton.Click += toolStripEditButton_Click;
             // 
             // VisitorNo
             // 
             VisitorNo.DataPropertyName = "VisitorNo";
-            VisitorNo.HeaderText = "VisitorNo";
+            VisitorNo.HeaderText = "Visitor No";
             VisitorNo.Name = "VisitorNo";
             // 
             // fullNameDataGridViewTextBoxColumn
             // 
             fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
             fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
             // 
             // IdType
             // 
             IdType.DataPropertyName = "IdType";
-            IdType.HeaderText = "IdType";
+            IdType.HeaderText = "Id Type";
             IdType.Name = "IdType";
             // 
             // IdNo
             // 
             IdNo.DataPropertyName = "IdNo";
-            IdNo.HeaderText = "IdNo";
+            IdNo.HeaderText = "Id No";
             IdNo.Name = "IdNo";
             // 
             // colContact
@@ -219,15 +222,16 @@
             colContact.HeaderText = "Contact";
             colContact.Name = "colContact";
             // 
-            // colCategories
-            // 
-            colCategories.HeaderText = "Categories";
-            colCategories.Name = "colCategories";
-            // 
             // colPhoto
             // 
-            colPhoto.HeaderText = "Photo";
+            colPhoto.HeaderText = "Capture Photo Path";
             colPhoto.Name = "colPhoto";
+            // 
+            // colCategories
+            // 
+            colCategories.DataPropertyName = "VisitorCategories";
+            colCategories.HeaderText = "Categories";
+            colCategories.Name = "colCategories";
             // 
             // VisitorPBUserControl
             // 
@@ -241,7 +245,7 @@
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)visitorUploadVisitorBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)visitorUploadPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitorPictureBox).EndInit();
             toolStrip2.ResumeLayout(false);
             toolStrip2.PerformLayout();
@@ -249,10 +253,7 @@
             PerformLayout();
         }
 
-        private void VisitorGridViewPBControl_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+
 
         #endregion
 
@@ -261,7 +262,7 @@
         private DataGridViewTextBoxColumn visitorIDDataGridViewTextBoxColumn;
         private BindingSource visitorBindingSource;
         private TableLayoutPanel tableLayoutPanel1;
-        private PictureBox visitorUploadVisitorBox;
+        private PictureBox visitorUploadPictureBox;
         private PictureBox visitorPictureBox;
         private ToolStrip toolStrip2;
         private ToolStripButton toolStripDelButton;
@@ -272,7 +273,7 @@
         private DataGridViewTextBoxColumn IdType;
         private DataGridViewTextBoxColumn IdNo;
         private DataGridViewTextBoxColumn colContact;
-        private DataGridViewTextBoxColumn colCategories;
         private DataGridViewTextBoxColumn colPhoto;
+        private DataGridViewTextBoxColumn colCategories;
     }
 }

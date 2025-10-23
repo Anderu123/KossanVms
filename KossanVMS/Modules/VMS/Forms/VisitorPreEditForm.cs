@@ -201,7 +201,7 @@ namespace KossanVMS
             {
                 _db.VisitorCategoryLinks.RemoveRange(toDelete);
             }
-            // Add new links
+         
             var existingIds = existingLinks.Select(x => x.CategoryID).ToHashSet();
             var toAdd = selectedId
                         .Where(id => !existingIds.Contains(id))

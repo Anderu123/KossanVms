@@ -30,7 +30,7 @@ namespace KossanVMS.UserControlPage
 
         }
 
-        private async void VisitorUserControl_Load(object sender, EventArgs e)
+        private async void VisitorUserControl_Load(object? sender, EventArgs e)
         {
             try
             {
@@ -296,7 +296,8 @@ namespace KossanVMS.UserControlPage
             }
             grid.Refresh();
 
-            UpdatePhotoPreview(selectedItem);
+            UpdateSitePhotoPreview(selectedItem);
+            UpdateHQPhotoPreview(selectedItem);
             // RefreshCurrentRowAndColumns();
 
 
@@ -316,7 +317,8 @@ namespace KossanVMS.UserControlPage
             _db.SaveChanges();
             visitorBindingSource.ResetBindings(false);
 
-            UpdatePhotoPreview(newVisitorModel);
+            UpdateSitePhotoPreview(newVisitorModel);
+            UpdateHQPhotoPreview(newVisitorModel);
         }
 
         private void toolStripDelButton_Click(object sender, EventArgs e)
@@ -335,34 +337,85 @@ namespace KossanVMS.UserControlPage
 
 
         }
-        private void UpdatePhotoPreview(Visitor v)
+        private void UpdateSitePhotoPreview(Visitor v)
         {
             var pb = visitorPictureBox;
-            if (pb.Image != null)
+
+          
+            if (pb.Image != null) { pb.Image.Dispose(); SetFallbackImage(pb); }
+
+            var path = v?.Photo?.CapturePhotoPath;
+            if (string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
             {
-                pb.Image.Dispose();
+                SetFallbackImage(pb);
+                return;
+            }
+
+            try
+            {
+                using var fs = new System.IO.FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using var img = Image.FromStream(fs, useEmbeddedColorManagement: false, validateImageData: true);
+
+
+                pb.Image = new Bitmap(img);
+                pb.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch
+            {
+
+                MessageBox.Show("Photo file can’t be read (missing/corrupt/in use).");
                 pb.Image = null;
             }
+        }
+        private void SetFallbackImage(PictureBox box)
+        {
+            
+            var resourceManager = new System.ComponentModel.ComponentResourceManager(typeof(VisitorPBUserControl));
+
+            object resourceObject = resourceManager.GetObject($"{box.Name}.InitialImage");
+
+          
+            if (resourceObject is Image fallbackImage)
+            {
+                box.Image = fallbackImage;
+            }
+        }
+        private void UpdateHQPhotoPreview(Visitor v)
+        {
+            var pb = visitorUploadPictureBox;
+
+           
+            if (pb.Image != null) { pb.Image.Dispose(); SetFallbackImage(pb); }
+
             var path = v?.Photo?.UploadPhotoPath;
             if (string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
             {
+                SetFallbackImage(pb);
                 return;
             }
-            using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open,
-                                            System.IO.FileAccess.Read,
-                                            System.IO.FileShare.ReadWrite))
-            using (var ms = new System.IO.MemoryStream())
+            try
             {
-                fs.CopyTo(ms);
-                ms.Position = 0;
-                pb.Image = Image.FromStream(ms); // pictureBox owns this copy
+                using var fs = new System.IO.FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using var img = Image.FromStream(fs, useEmbeddedColorManagement: false, validateImageData: true);
+
+
+                pb.Image = new Bitmap(img);
+                //pb.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch
+            {
+
+                MessageBox.Show("Photo file can’t be read (missing/corrupt/in use).");
+                //pb.Image = (Image)this.GetObject("visitorUploadPictureBox.InitialImage");
+                SetFallbackImage(pb);
             }
         }
+
         private void VisitorGridViewUserControl_SelectionChanged(object sender, EventArgs e)
         {
             var v = CurrentItem;
-            UpdatePhotoPreview(v);
-            UploadPhotoPreview(v);
+            UpdateSitePhotoPreview(v);
+            UpdateHQPhotoPreview(v);
         }
 
         // Clean, strongly-typed current item

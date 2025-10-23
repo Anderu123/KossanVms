@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data;
 using KossanVMS.Data;
 using Microsoft.EntityFrameworkCore;
+using OpenCvSharp.Internal.Vectors;
 
 namespace KossanVMS.UserControlPage
 {
@@ -37,8 +38,12 @@ namespace KossanVMS.UserControlPage
                     await _db.VisitCategories.LoadAsync();
                     await _db.VisitorCategoryLinks.LoadAsync();
                     await _db.Visitors//.Include(v => v.BlackList)
-                                      .Include(v => v.Photo).Include(v => v.Contact).LoadAsync();
+                        .Include(v => v.Contact)
+                                      .Include(v => v.Photo).LoadAsync();
                     visitorBindingSource.DataSource = _db.Visitors.Local.ToBindingList();
+                    UpdateHQPhotoPreview(CurrentItem);
+                    UpdateSitePhotoPreview(CurrentItem);
+
                 }
             }
             catch
@@ -47,29 +52,28 @@ namespace KossanVMS.UserControlPage
             }
         }
 
-        private void VisitorGridViewUserControl_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void VisitorGridViewPBControl_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             var grid = VisitorGridViewPBControl;
 
-            if (e.RowIndex < 0 || e.RowIndex >= grid.Rows.Count)
+            if (e.RowIndex < 0)
             {
                 return;
             }
             if (grid.Columns[e.ColumnIndex].Name == "colPhoto")
             {
+                e.Value = string.Empty;
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v)
                 {
-                    // Check if the Visitor has an associated Photo object
+
                     if (v.Photo != null)
                     {
-                        // Set the cell value directly to the string path as requested.
-                        // We use the ?? "" to ensure we always return a string value, 
-                        // even if CapturePhotoPath is null.
+
                         e.Value = v.Photo.CapturePhotoPath ?? string.Empty;
                     }
                     else
                     {
-                        // No Photo object exists for this Visitor.
+
                         e.Value = string.Empty;
                     }
                 }
@@ -117,7 +121,7 @@ namespace KossanVMS.UserControlPage
                 }
                 else
                 {
-
+                    e.Value = string.Empty;
                 }
                 e.FormattingApplied = true;
                 return;
@@ -170,7 +174,7 @@ namespace KossanVMS.UserControlPage
             }
             else
             {
-                if(selecteditem != null)
+                if (selecteditem != null)
                 {
                     _db.Remove(selecteditem.Photo);
                     selecteditem.Photo = null;
@@ -189,36 +193,95 @@ namespace KossanVMS.UserControlPage
             }
             grid.Refresh();
 
-            UpdatePhotoPreview(updatedVisitorModel);
+            UpdateHQPhotoPreview(updatedVisitorModel);
+            UpdateSitePhotoPreview(updatedVisitorModel);
         }
-        
-        private void UpdatePhotoPreview(Visitor v)
+        private void SetFallbackImage(PictureBox box)
+        {
+
+            var resourceManager = new System.ComponentModel.ComponentResourceManager(typeof(VisitorPBUserControl));
+
+            object resourceObject = resourceManager.GetObject($"{box.Name}.InitialImage");
+
+
+            if (resourceObject is Image fallbackImage)
+            {
+                box.Image = fallbackImage;
+            }
+        }
+        private void UpdateHQPhotoPreview(Visitor v)
         {
             var pb = visitorPictureBox;
             if (pb.Image != null)
             {
                 pb.Image.Dispose();
-                pb.Image = null;
+                SetFallbackImage(pb);
             }
             var path = v?.Photo?.CapturePhotoPath;
-            if(string.IsNullOrWhiteSpace(path))
+            if (string.IsNullOrWhiteSpace(path))
             {
+                SetFallbackImage(pb);
                 return;
             }
-            using(var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite))
-                using (var ms = new System.IO.MemoryStream())
+            try
             {
-                fs.CopyTo(ms);
-                ms.Position = 0;
-                pb.Image = Image.FromStream(ms);
+                using var fs = new System.IO.FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using var img = Image.FromStream(fs, useEmbeddedColorManagement: false, validateImageData: true);
+
+
+                pb.Image = new Bitmap(img);
+                //pb.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch
+            {
+
+                MessageBox.Show("Photo file can’t be read (missing/corrupt/in use).");
+                //pb.Image = (Image)this.GetObject("visitorUploadPictureBox.InitialImage");
+                SetFallbackImage(pb);
             }
 
         }
-        private void VisitorGridViewUserControl_SelectionChanged(object sender, EventArgs e)
+        private void UpdateSitePhotoPreview(Visitor v)
+        {
+            var pb = visitorUploadPictureBox;
+            if (pb.Image != null)
+            {
+                pb.Image.Dispose();
+                SetFallbackImage(pb);
+            }
+            var path = v?.Photo?.UploadPhotoPath;
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                SetFallbackImage(pb);
+                return;
+            }
+            try
+            {
+                using var fs = new System.IO.FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using var img = Image.FromStream(fs, useEmbeddedColorManagement: false, validateImageData: true);
+
+
+                pb.Image = new Bitmap(img);
+                //pb.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch
+            {
+
+                MessageBox.Show("Photo file can’t be read (missing/corrupt/in use).");
+                //pb.Image = (Image)this.GetObject("visitorUploadPictureBox.InitialImage");
+                SetFallbackImage(pb);
+            }
+        }
+        private void VisitorGridViewPBControl_SelectionChanged(object sender, EventArgs e)
         {
             var v = CurrentItem;
-            UpdatePhotoPreview(v);
+            UpdateHQPhotoPreview(v);
+            UpdateSitePhotoPreview(v);
         }
 
+        private void toolStripAddButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

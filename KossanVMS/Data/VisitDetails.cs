@@ -205,10 +205,10 @@ namespace KossanVMS.Data
         
         public Visitor Visitor { get; set; }
         [Column("capture_photo_path")]
-        [Required, MaxLength(255)]
+    
         public string CapturePhotoPath { get; set; }
         [Column("upload_photo_path")]
-        [Required, MaxLength(255)]
+       
         public string UploadPhotoPath { get; set; }
         [Column("photo_url")]
         [Required, MaxLength(255)]

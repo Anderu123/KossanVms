@@ -45,14 +45,12 @@ namespace KossanVMS.UserControlPage
             toolStripAddButton = new ToolStripButton();
             toolStripEditButton = new ToolStripButton();
             VisitorGridViewUserControl = new DataGridView();
+            visitorBindingSource = new BindingSource(components);
             visitorIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            IdType = new DataGridViewTextBoxColumn();
-            IdNo = new DataGridViewTextBoxColumn();
             colContact = new DataGridViewTextBoxColumn();
             colCategories = new DataGridViewTextBoxColumn();
             colPhoto = new DataGridViewTextBoxColumn();
-            visitorBindingSource = new BindingSource(components);
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)visitorUploadPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorPictureBox).BeginInit();
@@ -164,7 +162,7 @@ namespace KossanVMS.UserControlPage
             VisitorGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             VisitorGridViewUserControl.BackgroundColor = Color.LightGray;
             VisitorGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisitorGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, IdType, IdNo, colContact, colCategories, colPhoto });
+            VisitorGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { visitorIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, colContact, colCategories, colPhoto });
             VisitorGridViewUserControl.DataSource = visitorBindingSource;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
@@ -187,31 +185,22 @@ namespace KossanVMS.UserControlPage
             VisitorGridViewUserControl.CellContentClick += VisitorGridViewUserControl_CellContentClick;
             VisitorGridViewUserControl.CellFormatting += VisitorGridViewUserControl_CellFormatting;
             VisitorGridViewUserControl.SelectionChanged += VisitorGridViewUserControl_SelectionChanged;
-           
+            // 
+            // visitorBindingSource
+            // 
+            visitorBindingSource.DataSource = typeof(Data.Visitor);
             // 
             // visitorIDDataGridViewTextBoxColumn
             // 
             visitorIDDataGridViewTextBoxColumn.DataPropertyName = "VisitorNo";
-            visitorIDDataGridViewTextBoxColumn.HeaderText = "VisitorNo";
+            visitorIDDataGridViewTextBoxColumn.HeaderText = "Visitor No";
             visitorIDDataGridViewTextBoxColumn.Name = "visitorIDDataGridViewTextBoxColumn";
             // 
             // fullNameDataGridViewTextBoxColumn
             // 
             fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
             fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            // 
-            // IdType
-            // 
-            IdType.DataPropertyName = "IdType";
-            IdType.HeaderText = "IdType";
-            IdType.Name = "IdType";
-            // 
-            // IdNo
-            // 
-            IdNo.DataPropertyName = "IdNo";
-            IdNo.HeaderText = "IdNo";
-            IdNo.Name = "IdNo";
             // 
             // colContact
             // 
@@ -225,15 +214,8 @@ namespace KossanVMS.UserControlPage
             // 
             // colPhoto
             // 
-            colPhoto.HeaderText = "Photo";
+            colPhoto.HeaderText = "Upload Photo Path";
             colPhoto.Name = "colPhoto";
-            colPhoto.ValueType = typeof(string);
-            colPhoto.DefaultCellStyle.Format = null;
-            colPhoto.DefaultCellStyle.NullValue = "";
-            // 
-            // visitorBindingSource
-            // 
-            visitorBindingSource.DataSource = typeof(Data.Visitor);
             // 
             // VisitorUserControl
             // 
@@ -269,8 +251,6 @@ namespace KossanVMS.UserControlPage
         private PictureBox visitorUploadPictureBox;
         private DataGridViewTextBoxColumn visitorIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn IdType;
-        private DataGridViewTextBoxColumn IdNo;
         private DataGridViewTextBoxColumn colContact;
         private DataGridViewTextBoxColumn colCategories;
         private DataGridViewTextBoxColumn colPhoto;
