@@ -25,8 +25,8 @@ namespace KossanVMS
         private bool _isNew = false;
         private List<VisitCategory> _category { get; set; }
         private VisitorContactEditForm visitorContactEditForm;
-       
-        public VisitorPBEditForm(VmsContext db,Visitor existingVisitor = null)
+       private VisitRecord _visitRecord { get; set; }
+        public VisitorPBEditForm(VmsContext db,Visitor existingVisitor = null, VisitRecord visitRecord = null)
         {
             InitializeComponent();
             //_db = new VmsContext();
@@ -68,7 +68,7 @@ namespace KossanVMS
 
 
         #region Initial Load Data
-
+        
         private void LoadBranchCheckList()
         {
             checkedListBoxBranch.BeginUpdate();
@@ -189,13 +189,12 @@ namespace KossanVMS
                 VisitorNo = visitorModel.VisitorNo,
                 //BranchID =  visitorModel.VisitorBranches.Where(x=> x.).Select(vb => vb.BranchID).FirstOrDefault(),
             };
-
-
-
-
-
         }
-
+        public void SaveVisitRecord()
+        {
+            _visitRecord.Visitor = visitorModel;
+            //_visitRecord.
+        }
         private bool SaveResults()
         {
             var ic = (maskedTextBoxIC.Text ?? "").Trim();   // trim!

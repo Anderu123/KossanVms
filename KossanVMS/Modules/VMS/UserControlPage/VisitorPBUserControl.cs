@@ -18,6 +18,9 @@ namespace KossanVMS.UserControlPage
     {
         private VmsContext _db;
         private Visitor? CurrentItem => visitorBindingSource.Current as Visitor;
+        private List<VisitRecord>? visitRecords = new List<VisitRecord>();
+        private VisitRecord visitRecord = new VisitRecord();
+
         public VisitorPBUserControl(VmsContext db)
         {
             InitializeComponent();
@@ -29,6 +32,21 @@ namespace KossanVMS.UserControlPage
 
         }
 
+        private async void VisitRecord_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_db != null)
+                {
+                    //await _db.VisitRecords.Where(x=>x.ExpiryDate >= DateTime.Today).LoadAsync();
+                    await _db.VisitRecords.LoadAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Loading Visit Records. Please contact the administrator");
+            }
+        }
         private async void VisitorPBUserControl_Load(object? sender, EventArgs e)
         {
             try
@@ -146,7 +164,7 @@ namespace KossanVMS.UserControlPage
                 BlackList = selecteditem.BlackList
             };
 
-            using var editVisitorModel = new VisitorPBEditForm(_db, copyVisitorModel);
+            using var editVisitorModel = new VisitorPBEditForm(_db, copyVisitorModel, visitRecord);
             if (editVisitorModel.ShowDialog() != DialogResult.OK)
             {
                 return;

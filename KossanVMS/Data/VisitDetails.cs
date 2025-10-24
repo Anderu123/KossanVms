@@ -251,7 +251,9 @@ namespace KossanVMS.Data
         [Required, MaxLength(150)]
         [Column("full_name")]
         public string FullName { get; set; } = null!;
-      
+
+        [Column("expiry_date")]
+        public DateTime? ExpiryDate { get; set; }
         public VisitorContact Contact {get;set;}
 
         public ICollection<VisitorAffiliation> VisitorAffiliations { get; set; } = new List<VisitorAffiliation>();
@@ -261,6 +263,7 @@ namespace KossanVMS.Data
         public ICollection<VisitorBranchLink> VisitorBranches { get; set; } = new List<VisitorBranchLink>();
         //public ICollection<VisitorBiometric> Biometrics { get; set; } = new List<VisitorBiometric>();
         public VisitorPhoto Photo { get; set; }
+     
 
         [Column("black_list")]
         public bool BlackList { get; set; } = false;
