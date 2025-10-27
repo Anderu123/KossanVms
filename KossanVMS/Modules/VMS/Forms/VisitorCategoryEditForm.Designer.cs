@@ -23,7 +23,7 @@ namespace KossanVMS
             base.Dispose(disposing);
         }
 
-        
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -32,20 +32,17 @@ namespace KossanVMS
         /// </summary>
         private void InitializeComponent()
         {
-            
-            cancelButton = new ReaLTaiizor.Controls.CyberButton();
-            thunderLabel7 = new ReaLTaiizor.Controls.ThunderLabel();
-            labelCategoryStatus = new ReaLTaiizor.Controls.ThunderLabel();
+            cancelButton = new CyberButton();
+            thunderLabel7 = new ThunderLabel();
+            labelCategoryStatus = new ThunderLabel();
             tableLayoutPanel1 = new TableLayoutPanel();
-            textBoxCategoryDescription = new ReaLTaiizor.Controls.CyberTextBox();
-            labelCategoryDescription = new ReaLTaiizor.Controls.ThunderLabel();
-            labelCategoryName = new ReaLTaiizor.Controls.ThunderLabel();
-            labelCategoryId = new ReaLTaiizor.Controls.ThunderLabel();
-            buttonCategoryID = new ReaLTaiizor.Controls.CyberButton();
-            textBoxCategoryName = new ReaLTaiizor.Controls.CyberTextBox();
-            panel1 = new  System.Windows.Forms.Panel();
-            saveButton = new ReaLTaiizor.Controls.CyberButton();
-            panel2 = new  System.Windows.Forms.Panel();
+            textBoxCategoryDescription = new CyberTextBox();
+            labelCategoryDescription = new ThunderLabel();
+            labelCategoryName = new ThunderLabel();
+            textBoxCategoryName = new CyberTextBox();
+            panel1 = new System.Windows.Forms.Panel();
+            saveButton = new CyberButton();
+            panel2 = new System.Windows.Forms.Panel();
             rbInactive = new System.Windows.Forms.RadioButton();
             rbActive = new System.Windows.Forms.RadioButton();
             tableLayoutPanel1.SuspendLayout();
@@ -85,7 +82,7 @@ namespace KossanVMS
             cancelButton.PenWidth = 15;
             cancelButton.Rounding = true;
             cancelButton.RoundingInt = 70;
-            cancelButton.Size = new Size(130, 57);
+            cancelButton.Size = new Size(130, 61);
             cancelButton.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cancelButton.TabIndex = 0;
             cancelButton.Tag = "Cyber";
@@ -99,9 +96,9 @@ namespace KossanVMS
             thunderLabel7.BackColor = Color.PaleTurquoise;
             thunderLabel7.Dock = DockStyle.Fill;
             thunderLabel7.ForeColor = Color.Transparent;
-            thunderLabel7.Location = new Point(6, 254);
+            thunderLabel7.Location = new Point(6, 210);
             thunderLabel7.Name = "thunderLabel7";
-            thunderLabel7.Size = new Size(121, 57);
+            thunderLabel7.Size = new Size(121, 61);
             thunderLabel7.TabIndex = 12;
             // 
             // labelCategoryStatus
@@ -109,9 +106,9 @@ namespace KossanVMS
             labelCategoryStatus.BackColor = Color.PaleTurquoise;
             labelCategoryStatus.Dock = DockStyle.Fill;
             labelCategoryStatus.ForeColor = Color.Transparent;
-            labelCategoryStatus.Location = new Point(6, 192);
+            labelCategoryStatus.Location = new Point(6, 142);
             labelCategoryStatus.Name = "labelCategoryStatus";
-            labelCategoryStatus.Size = new Size(121, 53);
+            labelCategoryStatus.Size = new Size(121, 59);
             labelCategoryStatus.TabIndex = 6;
             labelCategoryStatus.Text = "Category Status";
             // 
@@ -121,28 +118,24 @@ namespace KossanVMS
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.10917F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.89083F));
-            tableLayoutPanel1.Controls.Add(thunderLabel7, 0, 4);
-            tableLayoutPanel1.Controls.Add(labelCategoryStatus, 0, 3);
-            tableLayoutPanel1.Controls.Add(textBoxCategoryDescription, 1, 2);
-            tableLayoutPanel1.Controls.Add(labelCategoryDescription, 0, 2);
-            tableLayoutPanel1.Controls.Add(labelCategoryName, 0, 1);
-            tableLayoutPanel1.Controls.Add(labelCategoryId, 0, 0);
-            tableLayoutPanel1.Controls.Add(buttonCategoryID, 1, 0);
-            tableLayoutPanel1.Controls.Add(textBoxCategoryName, 1, 1);
-            tableLayoutPanel1.Controls.Add(panel1, 1, 4);
-            tableLayoutPanel1.Controls.Add(panel2, 1, 3);
+            tableLayoutPanel1.Controls.Add(thunderLabel7, 0, 3);
+            tableLayoutPanel1.Controls.Add(labelCategoryStatus, 0, 2);
+            tableLayoutPanel1.Controls.Add(textBoxCategoryDescription, 1, 1);
+            tableLayoutPanel1.Controls.Add(labelCategoryDescription, 0, 1);
+            tableLayoutPanel1.Controls.Add(labelCategoryName, 0, 0);
+            tableLayoutPanel1.Controls.Add(textBoxCategoryName, 1, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 1, 3);
+            tableLayoutPanel1.Controls.Add(panel2, 1, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 5;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.9999962F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.0000019F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.0000019F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.0000019F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.9999962F));
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25.0000038F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25.0000038F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 24.9999962F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(518, 317);
+            tableLayoutPanel1.Size = new Size(518, 277);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // textBoxCategoryDescription
@@ -158,34 +151,34 @@ namespace KossanVMS
             textBoxCategoryDescription.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textBoxCategoryDescription.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textBoxCategoryDescription.Dock = DockStyle.Fill;
-            textBoxCategoryDescription.Font = new Font("Arial", 13F);
+            textBoxCategoryDescription.Font = new Font("Arial", 14F);
             textBoxCategoryDescription.ForeColor = Color.Black;
             textBoxCategoryDescription.Lighting = false;
             textBoxCategoryDescription.LinearGradientPen = false;
-            textBoxCategoryDescription.Location = new Point(136, 130);
+            textBoxCategoryDescription.Location = new Point(136, 74);
             textBoxCategoryDescription.Name = "textBoxCategoryDescription";
             textBoxCategoryDescription.PenWidth = 15;
             textBoxCategoryDescription.RGB = false;
             textBoxCategoryDescription.Rounding = true;
             textBoxCategoryDescription.RoundingInt = 60;
-            textBoxCategoryDescription.Size = new Size(376, 53);
+            textBoxCategoryDescription.Size = new Size(376, 59);
             textBoxCategoryDescription.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textBoxCategoryDescription.TabIndex = 5;
             textBoxCategoryDescription.Tag = "Cyber";
             textBoxCategoryDescription.TextButton = "";
             textBoxCategoryDescription.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textBoxCategoryDescription.Timer_RGB = 300;
-            textBoxCategoryDescription.Leave += textBoxUpdate_Leave;
             textBoxCategoryDescription.Enter += textBoxUpdate_Enter;
+            textBoxCategoryDescription.Leave += textBoxUpdate_Leave;
             // 
             // labelCategoryDescription
             // 
             labelCategoryDescription.BackColor = Color.PaleTurquoise;
             labelCategoryDescription.Dock = DockStyle.Fill;
             labelCategoryDescription.ForeColor = Color.Transparent;
-            labelCategoryDescription.Location = new Point(6, 130);
+            labelCategoryDescription.Location = new Point(6, 74);
             labelCategoryDescription.Name = "labelCategoryDescription";
-            labelCategoryDescription.Size = new Size(121, 53);
+            labelCategoryDescription.Size = new Size(121, 59);
             labelCategoryDescription.TabIndex = 4;
             labelCategoryDescription.Text = "Category Description";
             // 
@@ -194,63 +187,11 @@ namespace KossanVMS
             labelCategoryName.BackColor = Color.PaleTurquoise;
             labelCategoryName.Dock = DockStyle.Fill;
             labelCategoryName.ForeColor = Color.Transparent;
-            labelCategoryName.Location = new Point(6, 68);
+            labelCategoryName.Location = new Point(6, 6);
             labelCategoryName.Name = "labelCategoryName";
-            labelCategoryName.Size = new Size(121, 53);
+            labelCategoryName.Size = new Size(121, 59);
             labelCategoryName.TabIndex = 3;
             labelCategoryName.Text = "Category Name";
-            // 
-            // labelCategoryId
-            // 
-            labelCategoryId.BackColor = Color.PaleTurquoise;
-            labelCategoryId.Dock = DockStyle.Fill;
-            labelCategoryId.ForeColor = Color.Transparent;
-            labelCategoryId.Location = new Point(6, 6);
-            labelCategoryId.Name = "labelCategoryId";
-            labelCategoryId.Size = new Size(121, 53);
-            labelCategoryId.TabIndex = 0;
-            labelCategoryId.Text = "Category ID";
-            // 
-            // buttonCategoryID
-            // 
-            buttonCategoryID.Alpha = 20;
-            buttonCategoryID.BackColor = Color.Transparent;
-            buttonCategoryID.Background = true;
-            buttonCategoryID.Background_WidthPen = 6F;
-            buttonCategoryID.BackgroundPen = true;
-            buttonCategoryID.ColorBackground = Color.LightGray;
-            buttonCategoryID.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            buttonCategoryID.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            buttonCategoryID.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            buttonCategoryID.ColorLighting = Color.FromArgb(29, 200, 238);
-            buttonCategoryID.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            buttonCategoryID.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            buttonCategoryID.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            buttonCategoryID.Dock = DockStyle.Fill;
-            buttonCategoryID.Effect_1 = true;
-            buttonCategoryID.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            buttonCategoryID.Effect_1_Transparency = 25;
-            buttonCategoryID.Effect_2 = true;
-            buttonCategoryID.Effect_2_ColorBackground = Color.White;
-            buttonCategoryID.Effect_2_Transparency = 20;
-            buttonCategoryID.Font = new Font("Arial", 11F);
-            buttonCategoryID.ForeColor = Color.Black;
-            buttonCategoryID.Lighting = false;
-            buttonCategoryID.LinearGradient_Background = false;
-            buttonCategoryID.LinearGradientPen = false;
-            buttonCategoryID.Location = new Point(136, 6);
-            buttonCategoryID.Name = "buttonCategoryID";
-            buttonCategoryID.PenWidth = 15;
-            buttonCategoryID.Rounding = true;
-            buttonCategoryID.RoundingInt = 70;
-            buttonCategoryID.Size = new Size(376, 53);
-            buttonCategoryID.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonCategoryID.TabIndex = 1;
-            buttonCategoryID.Tag = "Cyber";
-            buttonCategoryID.TextButton = "";
-            buttonCategoryID.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            buttonCategoryID.Timer_Effect_1 = 5;
-            buttonCategoryID.Timer_RGB = 300;
             // 
             // textBoxCategoryName
             // 
@@ -265,17 +206,17 @@ namespace KossanVMS
             textBoxCategoryName.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textBoxCategoryName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textBoxCategoryName.Dock = DockStyle.Fill;
-            textBoxCategoryName.Font = new Font("Arial", 13F);
+            textBoxCategoryName.Font = new Font("Arial", 14F);
             textBoxCategoryName.ForeColor = Color.Black;
             textBoxCategoryName.Lighting = false;
             textBoxCategoryName.LinearGradientPen = false;
-            textBoxCategoryName.Location = new Point(136, 68);
+            textBoxCategoryName.Location = new Point(136, 6);
             textBoxCategoryName.Name = "textBoxCategoryName";
             textBoxCategoryName.PenWidth = 15;
             textBoxCategoryName.RGB = false;
             textBoxCategoryName.Rounding = true;
             textBoxCategoryName.RoundingInt = 60;
-            textBoxCategoryName.Size = new Size(376, 53);
+            textBoxCategoryName.Size = new Size(376, 59);
             textBoxCategoryName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textBoxCategoryName.TabIndex = 2;
             textBoxCategoryName.Tag = "Cyber";
@@ -290,9 +231,9 @@ namespace KossanVMS
             panel1.Controls.Add(saveButton);
             panel1.Controls.Add(cancelButton);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(136, 254);
+            panel1.Location = new Point(136, 210);
             panel1.Name = "panel1";
-            panel1.Size = new Size(376, 57);
+            panel1.Size = new Size(376, 61);
             panel1.TabIndex = 13;
             // 
             // saveButton
@@ -327,7 +268,7 @@ namespace KossanVMS
             saveButton.PenWidth = 15;
             saveButton.Rounding = true;
             saveButton.RoundingInt = 70;
-            saveButton.Size = new Size(130, 57);
+            saveButton.Size = new Size(130, 61);
             saveButton.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             saveButton.TabIndex = 1;
             saveButton.Tag = "Cyber";
@@ -342,9 +283,9 @@ namespace KossanVMS
             panel2.Controls.Add(rbInactive);
             panel2.Controls.Add(rbActive);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(136, 192);
+            panel2.Location = new Point(136, 142);
             panel2.Name = "panel2";
-            panel2.Size = new Size(376, 53);
+            panel2.Size = new Size(376, 59);
             panel2.TabIndex = 14;
             // 
             // rbInactive
@@ -376,7 +317,7 @@ namespace KossanVMS
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 52, 68);
-            ClientSize = new Size(518, 317);
+            ClientSize = new Size(518, 277);
             Controls.Add(tableLayoutPanel1);
             Name = "VisitorCategoryEditForm";
             Text = "VisitorCategoryEditForm";
@@ -396,8 +337,6 @@ namespace KossanVMS
         private ReaLTaiizor.Controls.CyberTextBox textBoxCategoryDescription;
         private ReaLTaiizor.Controls.ThunderLabel labelCategoryDescription;
         private ReaLTaiizor.Controls.ThunderLabel labelCategoryName;
-        private ReaLTaiizor.Controls.ThunderLabel labelCategoryId;
-        private ReaLTaiizor.Controls.CyberButton buttonCategoryID;
         private ReaLTaiizor.Controls.CyberTextBox textBoxCategoryName;
         private System.Windows.Forms.Panel panel1;
         private ReaLTaiizor.Controls.CyberButton saveButton;

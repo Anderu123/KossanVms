@@ -87,3 +87,8 @@ C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\refint\
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.pdb
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.genruntimeconfig.cache
 C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\ref\KossanVMS.dll
+C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.Modules.VMS.UserControlPage.CheckOutPBUserControl.resources
+C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.Modules.VMS.UserControlPage.GatePassUserControl.resources
+C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.Modules.VMS.UserControlPage.PreRegisteredPBUserControl.resources
+C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.Modules.VMS.Forms.CheckOutPBEditForm.resources
+C:\Users\andrew.tan\Desktop\KossanVMS\KossanVMS\obj\Debug\net6.0-windows\KossanVMS.Modules.VMS.UserControlPage.GatePassEditUserControl.resources

@@ -67,7 +67,7 @@ namespace KossanVMS
                 checkedListBoxCat.ValueMember = nameof(ListItem.Id);
                 checkedListBoxCat.DataSource = items;
                 var linkedCategories = (visitorModel?.VisitorNo >0) ?  new HashSet<int>(_db
-                    .VisitorCategoryLinks.Where(x=>x.VisitorNo == visitorModel.VisitorNo)
+                    .VisitorCategoryLinks.Where(x=>x.IdNo == visitorModel.IdNo)
                     .Select(x => x.CategoryID).ToList())
                     : new HashSet<int>();   
                 for (int i = 0; i < checkedListBoxCat.Items.Count; i++)
@@ -192,7 +192,7 @@ namespace KossanVMS
             var selectedId = checkedListBoxCat.CheckedItems.Cast<ListItem>()
                 .Select(l => l.Id).ToList();
             var existingLinks = _db.VisitorCategoryLinks
-                .Where(x => x.VisitorNo == visitorModel.VisitorNo).ToList();
+                .Where(x => x.IdNo == visitorModel.IdNo).ToList();
 
             var toDelete = existingLinks
                           .Where(link => !selectedId.Contains(link.CategoryID))
@@ -207,7 +207,7 @@ namespace KossanVMS
                         .Where(id => !existingIds.Contains(id))
                         .Select(id => new VisitorCategoryLink
                         {
-                            VisitorNo = visitorModel.VisitorNo,
+                            IdNo = visitorModel.IdNo,
                             CategoryID = id
                         })
                         .ToList();

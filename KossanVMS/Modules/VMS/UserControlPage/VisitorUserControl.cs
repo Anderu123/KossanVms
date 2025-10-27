@@ -91,7 +91,7 @@ namespace KossanVMS.UserControlPage
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v2)
                 {
                     var names = _db.VisitorCategoryLinks.Local
-                                 .Where(l => l.VisitorNo == v2.VisitorNo)
+                                 .Where(l => l.IdNo == v2.IdNo)
            .Join(_db.VisitCategories.Local,
                                        l => l.CategoryID, c => c.CategoryID,
                                        (l, c) => c.CategoryName)
@@ -196,7 +196,7 @@ namespace KossanVMS.UserControlPage
             selectedItem.IdType = updatedVisitorModel.IdType;
             if (selectedItem.Contact != null)
             {
-                selectedItem.Contact = new VisitorContact { VisitorNo = selectedItem.VisitorNo };
+                selectedItem.Contact = new VisitorContact { IdNo = selectedItem.IdNo };
                 selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
                 selectedItem.Contact.City = updatedVisitorModel.Contact.City;
                 selectedItem.Contact.Address = updatedVisitorModel.Contact.Address;
@@ -205,7 +205,7 @@ namespace KossanVMS.UserControlPage
             }
             else
             {
-                selectedItem.Contact = new VisitorContact { VisitorNo = selectedItem.VisitorNo };
+                selectedItem.Contact = new VisitorContact { IdNo = selectedItem.IdNo };
                 selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
                 selectedItem.Contact.City = updatedVisitorModel.Contact.City;
                 selectedItem.Contact.Address = updatedVisitorModel.Contact.Address;
@@ -263,7 +263,7 @@ namespace KossanVMS.UserControlPage
             if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Photo?.UploadPhotoPath))
             {
                 if (selectedItem.Photo == null)
-                    selectedItem.Photo = new VisitorPhoto { VisitorNo = selectedItem.VisitorNo };
+                    selectedItem.Photo = new VisitorPhoto { IdNo = selectedItem.IdNo };
 
                 selectedItem.Photo.UploadPhotoPath = updatedVisitorModel.Photo.UploadPhotoPath;
                 selectedItem.Photo.CaptureDate = updatedVisitorModel.Photo.CaptureDate; // or DateTime.UtcNow

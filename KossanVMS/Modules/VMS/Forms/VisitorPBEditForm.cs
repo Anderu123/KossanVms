@@ -86,7 +86,7 @@ namespace KossanVMS
                 var linkedIds = (visitorModel?.VisitorNo > 0)
                     ? new HashSet<int>(
                         _db.VisitorBranchLinks
-                           .Where(x => x.VisitorNo == visitorModel.VisitorNo)
+                           .Where(x => x.IdNo == visitorModel.IdNo)
                            .Select(x => x.BranchID)
                            .ToList())
                     : new HashSet<int>();
@@ -124,7 +124,7 @@ namespace KossanVMS
                 var linkedIds = (visitorModel?.VisitorNo > 0)
                     ? new HashSet<int>(
                         _db.VisitorCategoryLinks
-                           .Where(x => x.VisitorNo == visitorModel.VisitorNo)
+                           .Where(x => x.IdNo == visitorModel.IdNo)
                            .Select(x => x.CategoryID)
                            .ToList())
                     : new HashSet<int>();
@@ -152,7 +152,7 @@ namespace KossanVMS
                                 .Select(li => li.Id)
                                 .ToList();
             var existingLinks = _db.VisitorCategoryLinks
-                                   .Where(x => x.VisitorNo == visitorModel.VisitorNo)
+                                   .Where(x => x.IdNo == visitorModel.IdNo)
                                    .ToList();
             // Delete unselected links
             var toDelete = existingLinks
@@ -168,7 +168,7 @@ namespace KossanVMS
                         .Where(id => !existingIds.Contains(id))
                         .Select(id => new VisitorCategoryLink
                         {   
-                            VisitorNo = visitorModel.VisitorNo,
+                            IdNo = visitorModel.IdNo,
                             CategoryID = id
                         })
                         .ToList();
@@ -186,7 +186,7 @@ namespace KossanVMS
             var visitorRecordDb = _db.VisitRecords.LoadAsync();
             var record = new VisitRecord
             {
-                VisitorNo = visitorModel.VisitorNo,
+                IdNo = visitorModel.IdNo,
                 //BranchID =  visitorModel.VisitorBranches.Where(x=> x.).Select(vb => vb.BranchID).FirstOrDefault(),
             };
         }
@@ -258,7 +258,7 @@ namespace KossanVMS
 
             if (visitorPhotoCapture.ShowDialog(this) == DialogResult.OK && !string.IsNullOrEmpty(visitorPhotoCapture.capturePath))
             {
-                visitorModel.Photo ??= new VisitorPhoto { VisitorNo = visitorModel.VisitorNo };
+                visitorModel.Photo ??= new VisitorPhoto { IdNo = visitorModel.IdNo };
                 visitorModel.Photo.CapturePhotoPath = visitorPhotoCapture.capturePath;
                 visitorModel.Photo.CaptureDate = DateTime.UtcNow;
 
@@ -296,7 +296,7 @@ namespace KossanVMS
                 .FirstOrDefaultAsync(v => v.IdNo == ic);
 
             visitorModel = foundVisitor;      // OK (same type)
-            buttonUpdateID.Text = visitorModel.VisitorNo.ToString();
+            buttonUpdateID.Text = visitorModel.IdNo.ToString();
             maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
             buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";

@@ -67,23 +67,29 @@ namespace KossanVMS.Data
     {
         public static void EnsureAdmin(VmsContext db)
         {
-            if (!db.VmsUsers.Any())
+            var adminName = "Admin";
+
+            var exists = db.VmsUsers
+                .Any(u => u.UserName.ToLower() == adminName.ToLower());
+
+            if (!exists)
             {
                 PasswordHelper.CreatePassworHash("Kossan@123456", out var hash, out var salt);
-                db.VmsUsers.Add(
-                 new VmsUser
-                 {
-                     UserName = "Admin",
-                     PasswordHash = hash,
-                     PasswordSalt = salt,
-                     Role = UserRole.User,
-                     //IsActive = true
 
-                 });
+                db.VmsUsers.Add(new VmsUser
+                {
+                    UserName = adminName,
+                    PasswordHash = hash,
+                    PasswordSalt = salt,
+                    Role = UserRole.Admin,   // <-- make it an Admin
+                    //IsActive = true          // if you have this column
+                });
+
                 db.SaveChanges();
             }
         }
     }
+
 
     public static class AppSession
     {

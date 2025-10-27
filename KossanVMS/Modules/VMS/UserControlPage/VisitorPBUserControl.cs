@@ -122,7 +122,7 @@ namespace KossanVMS.UserControlPage
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v2)
                 {
                     var names = _db.VisitorCategoryLinks.Local
-                        .Where(l => l.VisitorNo == v2.VisitorNo)
+                        .Where(l => l.IdNo == v2.IdNo)
                         .Join((_db.VisitCategories.Local),
                               link => link.CategoryID,
                               category => category.CategoryID,
@@ -174,7 +174,7 @@ namespace KossanVMS.UserControlPage
             selecteditem.IdType = updatedVisitorModel.IdType;
             selecteditem.FullName = updatedVisitorModel.FullName.Trim() ?? "";
 
-            selecteditem.Contact = new VisitorContact { VisitorNo = selecteditem.VisitorNo };
+            selecteditem.Contact = new VisitorContact { IdNo = selecteditem.IdNo };
             selecteditem.Contact.Tel = updatedVisitorModel.Contact.Tel;
             selecteditem.Contact.City = updatedVisitorModel.Contact.City;
             selecteditem.Contact.Address = updatedVisitorModel.Contact.Address;
@@ -184,7 +184,7 @@ namespace KossanVMS.UserControlPage
             {
                 if (selecteditem.Photo == null)
                 {
-                    selecteditem.Photo = new VisitorPhoto { VisitorNo = selecteditem.VisitorNo };
+                    selecteditem.Photo = new VisitorPhoto { IdNo = selecteditem.IdNo };
                 }
                 selecteditem.Photo.CapturePhotoPath = updatedVisitorModel.Photo.CapturePhotoPath;
                 selecteditem.Photo.CaptureDate = updatedVisitorModel.Photo.CaptureDate;

@@ -30,7 +30,7 @@ namespace KossanVMS
                 Text = "Edit Category";
                 visitCategoryModel = existingVisitCategory;
             }
-            buttonCategoryID.Text = existingVisitCategory?.CategoryID.ToString() ?? "";
+           // buttonCategoryID.Text = existingVisitCategory?.CategoryID.ToString() ?? "";
             textBoxCategoryName.textBox.Text = visitCategoryModel.CategoryName;
             textBoxCategoryDescription.textBox.Text = visitCategoryModel.CategoryDescription;
             if (visitCategoryModel.CategoryStatus)

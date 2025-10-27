@@ -87,6 +87,11 @@ namespace KossanVMS
             tab5.Controls.Add(new CategoryUserControl(_db) { Dock = DockStyle.Fill });
             tab5.ResumeLayout();
             hopeTabPage1.TabPages.Add(tab5);
+            var tab6 = new System.Windows.Forms.TabPage("GatePass") { Name = "GatePassTab" };
+            tab6.SuspendLayout();
+            tab6.Controls.Add(new GatePassUserControl() { Dock = DockStyle.Fill });
+            tab6.ResumeLayout();
+            hopeTabPage1.TabPages.Add(tab6);
 
             hopeTabPage1.ResumeLayout();
             hopeTabPage1.SelectedTab = tab1;
@@ -138,8 +143,8 @@ namespace KossanVMS
 
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            var visitRegisterForm = new VisitorPBUserControl(_db) { Dock = DockStyle.Fill };
-            ShowPage(visitRegisterForm, buttonNavDms);
+            //var visitRegisterForm = new VisitorPBUserControl(_db) { Dock = DockStyle.Fill };
+            //ShowPage(visitRegisterForm, buttonNavDms);
         }
     }
 }

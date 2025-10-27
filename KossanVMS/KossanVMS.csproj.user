@@ -7,6 +7,9 @@
     <Compile Update="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Modules\VMS\Forms\CheckOutPBEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Modules\VMS\Forms\VisitRecordEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -19,10 +22,22 @@
     <Compile Update="Modules\VMS\UserControlPage\CategoryUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\CheckOutPBUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Modules\VMS\UserControlPage\DashboardUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Modules\VMS\UserControlPage\EditFormTemplateUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\GatePassEditUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\GatePassUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\PreRegisteredPBUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Modules\VMS\UserControlPage\VisitorPBUserControl.cs">

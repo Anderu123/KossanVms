@@ -14,13 +14,16 @@ namespace KossanVMS
 {
     public partial class ADLoginScreen : Form
     {
-
+        //private readonly VmsContext _db;
         public ADLoginScreen()
         {
             InitializeComponent();
             //this.Shown += ADLoginScreen_Shown;
             cyberProgressBar1.Visible = false;
-
+            using (var VmsContext = new VmsContext())
+            {
+                DbSeeder.EnsureAdmin(VmsContext);
+            };
         }
 
         //private void ADLoginScreen_Shown(object sender, EventArgs e)

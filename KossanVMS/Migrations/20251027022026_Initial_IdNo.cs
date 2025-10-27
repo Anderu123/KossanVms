@@ -5,10 +5,29 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KossanVMS.Migrations
 {
-    public partial class InitAll : Migration
+    public partial class Initial_IdNo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "register_types",
+                columns: table => new
+                {
+                    register_type_id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    register_type_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    register_user_role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    status = table.Column<int>(type: "int", nullable: false),
+                    created_by = table.Column<int>(type: "int", nullable: false),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<int>(type: "int", nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_register_types", x => x.register_type_id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "visit_branches",
                 columns: table => new
@@ -21,9 +40,9 @@ namespace KossanVMS.Migrations
                     branch_connection_string = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -37,39 +56,18 @@ namespace KossanVMS.Migrations
                     category_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     category_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    category_description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
+                    category_description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
                     category_status = table.Column<bool>(type: "bit", nullable: false),
                     category_contract = table.Column<bool>(type: "bit", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_visit_categories", x => x.category_id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "visit_purposes",
-                columns: table => new
-                {
-                    purpose_id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    purpose_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    purpose_description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
-                    purpose_status = table.Column<bool>(type: "bit", nullable: false),
-                    purpose_contract = table.Column<bool>(type: "bit", nullable: false),
-                    status = table.Column<int>(type: "int", nullable: false),
-                    created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
-                    updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_visit_purposes", x => x.purpose_id);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,9 +81,9 @@ namespace KossanVMS.Migrations
                     company_address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -96,19 +94,24 @@ namespace KossanVMS.Migrations
                 name: "visitors",
                 columns: table => new
                 {
-                    visitor_id = table.Column<int>(type: "int", nullable: false)
+                    visitor_no = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ic_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    id_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    id_type = table.Column<byte>(type: "tinyint", nullable: false),
                     full_name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    company_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    expiry_date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    black_list = table.Column<bool>(type: "bit", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_visitors", x => x.visitor_id);
+                    table.PrimaryKey("PK_visitors", x => x.visitor_no);
+                    table.UniqueConstraint("AK_visitors_id_no", x => x.id_no);
                 });
 
             migrationBuilder.CreateTable(
@@ -136,35 +139,39 @@ namespace KossanVMS.Migrations
                 name: "visit_records",
                 columns: table => new
                 {
-                    visit_id = table.Column<int>(type: "int", nullable: false)
+                    visit_record_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    visitor_id = table.Column<int>(type: "int", nullable: false),
+                    id_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     branch_id = table.Column<int>(type: "int", nullable: false),
-                    purpose_id = table.Column<int>(type: "int", nullable: true),
                     category_id = table.Column<int>(type: "int", nullable: true),
+                    company_id = table.Column<int>(type: "int", nullable: true),
+                    register_type_id = table.Column<int>(type: "int", nullable: true),
                     in_time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     out_time = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    in_pbid = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    out_pbid = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     vehicle_no = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    in_container = table.Column<byte>(type: "tinyint", nullable: false),
-                    in_container_no = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    out_container = table.Column<byte>(type: "tinyint", nullable: false),
-                    out_container_no = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     in_remarks = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    out_remarks = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     in_photo_path = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    out_photo_path = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    tag_no = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     gate_pass = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    visit_person = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    do_no = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    body_temperature = table.Column<decimal>(type: "decimal(4,1)", precision: 4, scale: 1, nullable: true),
+                    expiry_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_visit_records", x => x.visit_id);
+                    table.PrimaryKey("PK_visit_records", x => x.visit_record_id);
+                    table.ForeignKey(
+                        name: "FK_visit_records_register_types_register_type_id",
+                        column: x => x.register_type_id,
+                        principalTable: "register_types",
+                        principalColumn: "register_type_id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_visit_records_visit_branches_branch_id",
                         column: x => x.branch_id,
@@ -176,18 +183,18 @@ namespace KossanVMS.Migrations
                         column: x => x.category_id,
                         principalTable: "visit_categories",
                         principalColumn: "category_id",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_visit_records_visit_purposes_purpose_id",
-                        column: x => x.purpose_id,
-                        principalTable: "visit_purposes",
-                        principalColumn: "purpose_id",
-                        onDelete: ReferentialAction.SetNull);
+                        name: "FK_visit_records_visitor_companies_company_id",
+                        column: x => x.company_id,
+                        principalTable: "visitor_companies",
+                        principalColumn: "company_id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_visit_records_visitors_visitor_id",
-                        column: x => x.visitor_id,
+                        name: "FK_visit_records_visitors_id_no",
+                        column: x => x.id_no,
                         principalTable: "visitors",
-                        principalColumn: "visitor_id",
+                        principalColumn: "id_no",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -197,16 +204,16 @@ namespace KossanVMS.Migrations
                 {
                     affiliation_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    visitor_id = table.Column<int>(type: "int", nullable: false),
+                    id_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     company_id = table.Column<int>(type: "int", nullable: false),
                     relationship = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     valid_from = table.Column<DateTime>(type: "datetime2", nullable: true),
                     valid_to = table.Column<DateTime>(type: "datetime2", nullable: true),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -218,34 +225,42 @@ namespace KossanVMS.Migrations
                         principalColumn: "company_id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_visitor_affiliations_visitors_visitor_id",
-                        column: x => x.visitor_id,
+                        name: "FK_visitor_affiliations_visitors_id_no",
+                        column: x => x.id_no,
                         principalTable: "visitors",
-                        principalColumn: "visitor_id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id_no",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "visitor_blacklists",
+                name: "visitor_branch_links",
                 columns: table => new
                 {
-                    visitor_id = table.Column<int>(type: "int", nullable: false),
-                    is_blacklist = table.Column<bool>(type: "bit", nullable: false),
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    id_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    branch_id = table.Column<int>(type: "int", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_visitor_blacklists", x => x.visitor_id);
+                    table.PrimaryKey("PK_visitor_branch_links", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_visitor_blacklists_visitors_visitor_id",
-                        column: x => x.visitor_id,
+                        name: "FK_visitor_branch_links_visit_branches_branch_id",
+                        column: x => x.branch_id,
+                        principalTable: "visit_branches",
+                        principalColumn: "branch_id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_visitor_branch_links_visitors_id_no",
+                        column: x => x.id_no,
                         principalTable: "visitors",
-                        principalColumn: "visitor_id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id_no",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -254,13 +269,13 @@ namespace KossanVMS.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    visitor_id = table.Column<int>(type: "int", nullable: false),
+                    id_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     category_id = table.Column<int>(type: "int", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -272,11 +287,11 @@ namespace KossanVMS.Migrations
                         principalColumn: "category_id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_visitor_category_links_visitors_visitor_id",
-                        column: x => x.visitor_id,
+                        name: "FK_visitor_category_links_visitors_id_no",
+                        column: x => x.id_no,
                         principalTable: "visitors",
-                        principalColumn: "visitor_id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id_no",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -285,7 +300,7 @@ namespace KossanVMS.Migrations
                 {
                     contact_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    visitor_id = table.Column<int>(type: "int", nullable: false),
+                    id_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     city = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     state = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -293,19 +308,19 @@ namespace KossanVMS.Migrations
                     tel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_visitor_contacts", x => x.contact_id);
                     table.ForeignKey(
-                        name: "FK_visitor_contacts_visitors_visitor_id",
-                        column: x => x.visitor_id,
+                        name: "FK_visitor_contacts_visitors_id_no",
+                        column: x => x.id_no,
                         principalTable: "visitors",
-                        principalColumn: "visitor_id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id_no",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -314,74 +329,28 @@ namespace KossanVMS.Migrations
                 {
                     photo_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    visitor_id = table.Column<int>(type: "int", nullable: false),
-                    photo_path = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    id_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    capture_photo_path = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    upload_photo_path = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    photo_url = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     capture_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    upload_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_visitor_photos", x => x.photo_id);
                     table.ForeignKey(
-                        name: "FK_visitor_photos_visitors_visitor_id",
-                        column: x => x.visitor_id,
+                        name: "FK_visitor_photos_visitors_id_no",
+                        column: x => x.id_no,
                         principalTable: "visitors",
-                        principalColumn: "visitor_id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "visitor_purpose_links",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    visitor_id = table.Column<int>(type: "int", nullable: false),
-                    purpose_id = table.Column<int>(type: "int", nullable: false),
-                    status = table.Column<int>(type: "int", nullable: false),
-                    created_by = table.Column<int>(type: "int", nullable: false),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
-                    updated_by = table.Column<int>(type: "int", nullable: true),
-                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETUTCDATE()")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_visitor_purpose_links", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_visitor_purpose_links_visit_purposes_purpose_id",
-                        column: x => x.purpose_id,
-                        principalTable: "visit_purposes",
-                        principalColumn: "purpose_id",
+                        principalColumn: "id_no",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_visitor_purpose_links_visitors_visitor_id",
-                        column: x => x.visitor_id,
-                        principalTable: "visitors",
-                        principalColumn: "visitor_id",
-                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_visit_branches_branch_name",
-                table: "visit_branches",
-                column: "branch_name",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_visit_categories_category_name",
-                table: "visit_categories",
-                column: "category_name",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_visit_purposes_purpose_name",
-                table: "visit_purposes",
-                column: "purpose_name",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_visit_records_branch_id",
@@ -394,14 +363,19 @@ namespace KossanVMS.Migrations
                 column: "category_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_visit_records_purpose_id",
+                name: "IX_visit_records_company_id",
                 table: "visit_records",
-                column: "purpose_id");
+                column: "company_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_visit_records_visitor_id",
+                name: "IX_visit_records_id_no",
                 table: "visit_records",
-                column: "visitor_id");
+                column: "id_no");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_visit_records_register_type_id",
+                table: "visit_records",
+                column: "register_type_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_visitor_affiliations_company_id",
@@ -409,9 +383,19 @@ namespace KossanVMS.Migrations
                 column: "company_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_visitor_affiliations_visitor_id_company_id_valid_from",
+                name: "IX_visitor_affiliations_id_no",
                 table: "visitor_affiliations",
-                columns: new[] { "visitor_id", "company_id", "valid_from" });
+                column: "id_no");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_visitor_branch_links_branch_id",
+                table: "visitor_branch_links",
+                column: "branch_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_visitor_branch_links_id_no",
+                table: "visitor_branch_links",
+                column: "id_no");
 
             migrationBuilder.CreateIndex(
                 name: "IX_visitor_category_links_category_id",
@@ -419,38 +403,20 @@ namespace KossanVMS.Migrations
                 column: "category_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_visitor_category_links_visitor_id_category_id",
+                name: "IX_visitor_category_links_id_no",
                 table: "visitor_category_links",
-                columns: new[] { "visitor_id", "category_id" },
-                unique: true);
+                column: "id_no");
 
             migrationBuilder.CreateIndex(
-                name: "IX_visitor_contacts_visitor_id",
+                name: "IX_visitor_contacts_id_no",
                 table: "visitor_contacts",
-                column: "visitor_id",
+                column: "id_no",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_visitor_photos_visitor_id",
+                name: "IX_visitor_photos_id_no",
                 table: "visitor_photos",
-                column: "visitor_id",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_visitor_purpose_links_purpose_id",
-                table: "visitor_purpose_links",
-                column: "purpose_id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_visitor_purpose_links_visitor_id_purpose_id",
-                table: "visitor_purpose_links",
-                columns: new[] { "visitor_id", "purpose_id" },
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_visitors_ic_no",
-                table: "visitors",
-                column: "ic_no",
+                column: "id_no",
                 unique: true);
         }
 
@@ -463,7 +429,7 @@ namespace KossanVMS.Migrations
                 name: "visitor_affiliations");
 
             migrationBuilder.DropTable(
-                name: "visitor_blacklists");
+                name: "visitor_branch_links");
 
             migrationBuilder.DropTable(
                 name: "visitor_category_links");
@@ -475,22 +441,19 @@ namespace KossanVMS.Migrations
                 name: "visitor_photos");
 
             migrationBuilder.DropTable(
-                name: "visitor_purpose_links");
-
-            migrationBuilder.DropTable(
                 name: "vms_users");
 
             migrationBuilder.DropTable(
-                name: "visit_branches");
+                name: "register_types");
 
             migrationBuilder.DropTable(
                 name: "visitor_companies");
 
             migrationBuilder.DropTable(
-                name: "visit_categories");
+                name: "visit_branches");
 
             migrationBuilder.DropTable(
-                name: "visit_purposes");
+                name: "visit_categories");
 
             migrationBuilder.DropTable(
                 name: "visitors");
