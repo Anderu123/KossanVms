@@ -46,6 +46,13 @@ namespace KossanVMS
         public MainPage(VmsContext db)
         {
             InitializeComponent();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.WindowState = FormWindowState.Maximized;
+
+            // If you ever set size manually, use WorkingArea (not Bounds):
+            var wa = Screen.FromControl(this).WorkingArea;
+            this.Location = wa.Location;
+            this.Size = wa.Size;
             //var materialSkinManager = MaterialSkinManager.Instance;
             //materialSkinManager.AddFormToManage(this);
             //materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
@@ -89,7 +96,7 @@ namespace KossanVMS
             hopeTabPage1.TabPages.Add(tab5);
             var tab6 = new System.Windows.Forms.TabPage("GatePass") { Name = "GatePassTab" };
             tab6.SuspendLayout();
-            tab6.Controls.Add(new GatePassUserControl() { Dock = DockStyle.Fill });
+            tab6.Controls.Add(new GatePassUserControl(_db) { Dock = DockStyle.Fill });
             tab6.ResumeLayout();
             hopeTabPage1.TabPages.Add(tab6);
 
@@ -103,6 +110,18 @@ namespace KossanVMS
             //UserEditForm userEditForm = new UserEditForm();
             //userEditForm.Show();
 
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            // Update if the form moves to a different monitor
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
+
+        protected override void OnMove(EventArgs e)
+        {
+            base.OnMove(e);
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
         private void ShowPage(UserControl page, CyberButton activeBtn)
         {
