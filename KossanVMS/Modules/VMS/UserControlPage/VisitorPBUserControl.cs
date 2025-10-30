@@ -11,6 +11,7 @@ using System.Data;
 using KossanVMS.Data;
 using Microsoft.EntityFrameworkCore;
 using OpenCvSharp.Internal.Vectors;
+using KossanVMS.Modules.VMS.Forms;
 
 namespace KossanVMS.UserControlPage
 {
@@ -299,6 +300,32 @@ namespace KossanVMS.UserControlPage
 
         private void toolStripAddButton_Click(object sender, EventArgs e)
         {
+            using var addVisitorPBModel = new VisitorPBEditForm(_db);
+            var newVisitorPBModel = addVisitorPBModel.visitorModel;
+            if(addVisitorPBModel.ShowDialog(this) != DialogResult.OK)
+            {
+                return;
+            }
+            _db.Visitors.Add(newVisitorPBModel);
+            _db.SaveChanges();
+            visitorBindingSource.ResetBindings(false);
+            UpdateSitePhotoPreview(newVisitorPBModel);
+            UpdateHQPhotoPreview(newVisitorPBModel);
+        }
+        private void toolStripDelButton_Click(object sender, EventArgs e)
+        {
+            var selectedItem = CurrentItem;
+            if (selectedItem == null)
+            {
+                MessageBox.Show("Please select a row to delete.");
+                return;
+            }
+            var msgResult = MessageBox.Show("Delete this item?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (msgResult != DialogResult.Yes)
+            { return; }
+            _db.Visitors.Remove(selectedItem);
+            _db.SaveChanges();
+
 
         }
     }

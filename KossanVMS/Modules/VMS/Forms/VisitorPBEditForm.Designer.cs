@@ -38,6 +38,10 @@ namespace KossanVMS
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            cyberTextBox1 = new CyberTextBox();
+            labelVisitorPermitNo = new ThunderLabel();
+            textboxVisitorFullName = new CyberTextBox();
+            labelVisitorFullName = new ThunderLabel();
             textboxVisitorRemarks = new CyberTextBox();
             labelVisitorPurpose = new ThunderLabel();
             checkedListBoxBranch = new CheckedListBox();
@@ -47,13 +51,10 @@ namespace KossanVMS
             textboxVisitorTagNo = new CyberTextBox();
             labelVisitorTagNo = new ThunderLabel();
             thunderLabel3 = new ThunderLabel();
-            textboxVisitorFullName = new CyberTextBox();
             thunderLabel2 = new ThunderLabel();
-            labelVisitorID = new ThunderLabel();
             thunderLabel1 = new ThunderLabel();
             labelVisitorCompany = new ThunderLabel();
             labelVisitorContact = new ThunderLabel();
-            labelVisitorFullName = new ThunderLabel();
             panel2 = new Panel();
             buttonVisitorVideoCapture = new CyberButton();
             foxLinkLabel1 = new FoxLinkLabel();
@@ -63,7 +64,6 @@ namespace KossanVMS
             panel4 = new Panel();
             buttonLabelUpdateContact = new CyberButton();
             buttonEditContact = new CyberButton();
-            buttonUpdateID = new CyberButton();
             checkedListBoxCat = new CheckedListBox();
             panel5 = new Panel();
             cyberButtonSearch = new CyberButton();
@@ -101,6 +101,10 @@ namespace KossanVMS
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.44555F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.55445F));
+            tableLayoutPanel1.Controls.Add(cyberTextBox1, 1, 2);
+            tableLayoutPanel1.Controls.Add(labelVisitorPermitNo, 0, 2);
+            tableLayoutPanel1.Controls.Add(textboxVisitorFullName, 1, 0);
+            tableLayoutPanel1.Controls.Add(labelVisitorFullName, 0, 0);
             tableLayoutPanel1.Controls.Add(textboxVisitorRemarks, 1, 8);
             tableLayoutPanel1.Controls.Add(labelVisitorPurpose, 0, 8);
             tableLayoutPanel1.Controls.Add(checkedListBoxBranch, 1, 5);
@@ -110,17 +114,13 @@ namespace KossanVMS
             tableLayoutPanel1.Controls.Add(textboxVisitorTagNo, 1, 9);
             tableLayoutPanel1.Controls.Add(labelVisitorTagNo, 0, 9);
             tableLayoutPanel1.Controls.Add(thunderLabel3, 0, 7);
-            tableLayoutPanel1.Controls.Add(textboxVisitorFullName, 1, 2);
             tableLayoutPanel1.Controls.Add(thunderLabel2, 0, 11);
-            tableLayoutPanel1.Controls.Add(labelVisitorID, 0, 0);
             tableLayoutPanel1.Controls.Add(thunderLabel1, 0, 6);
             tableLayoutPanel1.Controls.Add(labelVisitorCompany, 0, 4);
             tableLayoutPanel1.Controls.Add(labelVisitorContact, 0, 3);
-            tableLayoutPanel1.Controls.Add(labelVisitorFullName, 0, 2);
             tableLayoutPanel1.Controls.Add(panel2, 1, 6);
             tableLayoutPanel1.Controls.Add(panel3, 1, 11);
             tableLayoutPanel1.Controls.Add(panel4, 1, 3);
-            tableLayoutPanel1.Controls.Add(buttonUpdateID, 1, 0);
             tableLayoutPanel1.Controls.Add(checkedListBoxCat, 1, 7);
             tableLayoutPanel1.Controls.Add(panel5, 1, 1);
             tableLayoutPanel1.Controls.Add(comboBoxIdType, 0, 1);
@@ -143,6 +143,90 @@ namespace KossanVMS
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.11591768F));
             tableLayoutPanel1.Size = new Size(558, 865);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // cyberTextBox1
+            // 
+            cyberTextBox1.Alpha = 20;
+            cyberTextBox1.BackColor = Color.Transparent;
+            cyberTextBox1.Background_WidthPen = 6F;
+            cyberTextBox1.BackgroundPen = true;
+            cyberTextBox1.ColorBackground = Color.LightGray;
+            cyberTextBox1.ColorBackground_Pen = Color.PaleTurquoise;
+            cyberTextBox1.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberTextBox1.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            cyberTextBox1.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            cyberTextBox1.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberTextBox1.Dock = DockStyle.Fill;
+            cyberTextBox1.Font = new Font("Arial", 13F);
+            cyberTextBox1.ForeColor = Color.Black;
+            cyberTextBox1.Lighting = false;
+            cyberTextBox1.LinearGradientPen = false;
+            cyberTextBox1.Location = new Point(176, 129);
+            cyberTextBox1.Name = "cyberTextBox1";
+            cyberTextBox1.PenWidth = 15;
+            cyberTextBox1.RGB = false;
+            cyberTextBox1.Rounding = true;
+            cyberTextBox1.RoundingInt = 60;
+            cyberTextBox1.Size = new Size(376, 52);
+            cyberTextBox1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberTextBox1.TabIndex = 38;
+            cyberTextBox1.Tag = "Cyber";
+            cyberTextBox1.TextButton = "";
+            cyberTextBox1.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            cyberTextBox1.Timer_RGB = 300;
+            // 
+            // labelVisitorPermitNo
+            // 
+            labelVisitorPermitNo.BackColor = Color.PaleTurquoise;
+            labelVisitorPermitNo.Dock = DockStyle.Fill;
+            labelVisitorPermitNo.ForeColor = Color.Transparent;
+            labelVisitorPermitNo.Location = new Point(6, 129);
+            labelVisitorPermitNo.Name = "labelVisitorPermitNo";
+            labelVisitorPermitNo.Size = new Size(161, 52);
+            labelVisitorPermitNo.TabIndex = 37;
+            labelVisitorPermitNo.Text = "Permit No";
+            // 
+            // textboxVisitorFullName
+            // 
+            textboxVisitorFullName.Alpha = 20;
+            textboxVisitorFullName.BackColor = Color.Transparent;
+            textboxVisitorFullName.Background_WidthPen = 6F;
+            textboxVisitorFullName.BackgroundPen = true;
+            textboxVisitorFullName.ColorBackground = Color.LightGray;
+            textboxVisitorFullName.ColorBackground_Pen = Color.PaleTurquoise;
+            textboxVisitorFullName.ColorLighting = Color.FromArgb(29, 200, 238);
+            textboxVisitorFullName.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            textboxVisitorFullName.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            textboxVisitorFullName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            textboxVisitorFullName.Dock = DockStyle.Fill;
+            textboxVisitorFullName.Font = new Font("Arial", 13F);
+            textboxVisitorFullName.ForeColor = Color.Black;
+            textboxVisitorFullName.Lighting = false;
+            textboxVisitorFullName.LinearGradientPen = false;
+            textboxVisitorFullName.Location = new Point(176, 6);
+            textboxVisitorFullName.Name = "textboxVisitorFullName";
+            textboxVisitorFullName.PenWidth = 15;
+            textboxVisitorFullName.RGB = false;
+            textboxVisitorFullName.Rounding = true;
+            textboxVisitorFullName.RoundingInt = 60;
+            textboxVisitorFullName.Size = new Size(376, 53);
+            textboxVisitorFullName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            textboxVisitorFullName.TabIndex = 36;
+            textboxVisitorFullName.Tag = "Cyber";
+            textboxVisitorFullName.TextButton = "";
+            textboxVisitorFullName.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            textboxVisitorFullName.Timer_RGB = 300;
+            // 
+            // labelVisitorFullName
+            // 
+            labelVisitorFullName.BackColor = Color.PaleTurquoise;
+            labelVisitorFullName.Dock = DockStyle.Fill;
+            labelVisitorFullName.ForeColor = Color.Transparent;
+            labelVisitorFullName.Location = new Point(6, 6);
+            labelVisitorFullName.Name = "labelVisitorFullName";
+            labelVisitorFullName.Size = new Size(161, 53);
+            labelVisitorFullName.TabIndex = 35;
+            labelVisitorFullName.Text = "Full Name";
             // 
             // textboxVisitorRemarks
             // 
@@ -306,39 +390,6 @@ namespace KossanVMS
             thunderLabel3.TabIndex = 21;
             thunderLabel3.Text = "Category";
             // 
-            // textboxVisitorFullName
-            // 
-            textboxVisitorFullName.Alpha = 20;
-            textboxVisitorFullName.BackColor = Color.Transparent;
-            textboxVisitorFullName.Background_WidthPen = 6F;
-            textboxVisitorFullName.BackgroundPen = true;
-            textboxVisitorFullName.ColorBackground = Color.LightGray;
-            textboxVisitorFullName.ColorBackground_Pen = Color.PaleTurquoise;
-            textboxVisitorFullName.ColorLighting = Color.FromArgb(29, 200, 238);
-            textboxVisitorFullName.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            textboxVisitorFullName.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            textboxVisitorFullName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            textboxVisitorFullName.Dock = DockStyle.Fill;
-            textboxVisitorFullName.Font = new Font("Arial", 13F);
-            textboxVisitorFullName.ForeColor = Color.Black;
-            textboxVisitorFullName.Lighting = false;
-            textboxVisitorFullName.LinearGradientPen = false;
-            textboxVisitorFullName.Location = new Point(176, 129);
-            textboxVisitorFullName.Name = "textboxVisitorFullName";
-            textboxVisitorFullName.PenWidth = 15;
-            textboxVisitorFullName.RGB = false;
-            textboxVisitorFullName.Rounding = true;
-            textboxVisitorFullName.RoundingInt = 60;
-            textboxVisitorFullName.Size = new Size(376, 52);
-            textboxVisitorFullName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            textboxVisitorFullName.TabIndex = 18;
-            textboxVisitorFullName.Tag = "Cyber";
-            textboxVisitorFullName.TextButton = "";
-            textboxVisitorFullName.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            textboxVisitorFullName.Timer_RGB = 300;
-            textboxVisitorFullName.Enter += textBoxUpdate_Enter;
-            textboxVisitorFullName.Leave += textBoxUpdate_Leave;
-            // 
             // thunderLabel2
             // 
             thunderLabel2.BackColor = Color.PaleTurquoise;
@@ -348,17 +399,6 @@ namespace KossanVMS
             thunderLabel2.Name = "thunderLabel2";
             thunderLabel2.Size = new Size(161, 60);
             thunderLabel2.TabIndex = 17;
-            // 
-            // labelVisitorID
-            // 
-            labelVisitorID.BackColor = Color.PaleTurquoise;
-            labelVisitorID.Dock = DockStyle.Fill;
-            labelVisitorID.ForeColor = Color.Transparent;
-            labelVisitorID.Location = new Point(6, 6);
-            labelVisitorID.Name = "labelVisitorID";
-            labelVisitorID.Size = new Size(161, 53);
-            labelVisitorID.TabIndex = 13;
-            labelVisitorID.Text = "ID";
             // 
             // thunderLabel1
             // 
@@ -392,17 +432,6 @@ namespace KossanVMS
             labelVisitorContact.Size = new Size(161, 52);
             labelVisitorContact.TabIndex = 4;
             labelVisitorContact.Text = "Contact";
-            // 
-            // labelVisitorFullName
-            // 
-            labelVisitorFullName.BackColor = Color.PaleTurquoise;
-            labelVisitorFullName.Dock = DockStyle.Fill;
-            labelVisitorFullName.ForeColor = Color.Transparent;
-            labelVisitorFullName.Location = new Point(6, 129);
-            labelVisitorFullName.Name = "labelVisitorFullName";
-            labelVisitorFullName.Size = new Size(161, 52);
-            labelVisitorFullName.TabIndex = 2;
-            labelVisitorFullName.Text = "Full Name";
             // 
             // panel2
             // 
@@ -659,50 +688,6 @@ namespace KossanVMS
             buttonEditContact.Timer_RGB = 300;
             buttonEditContact.Click += buttonEditContact_Click;
             // 
-            // buttonUpdateID
-            // 
-            buttonUpdateID.Alpha = 20;
-            buttonUpdateID.BackColor = Color.Transparent;
-            buttonUpdateID.Background = true;
-            buttonUpdateID.Background_WidthPen = 6F;
-            buttonUpdateID.BackgroundPen = true;
-            buttonUpdateID.ColorBackground = Color.LightGray;
-            buttonUpdateID.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            buttonUpdateID.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            buttonUpdateID.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            buttonUpdateID.ColorLighting = Color.FromArgb(29, 200, 238);
-            buttonUpdateID.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            buttonUpdateID.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            buttonUpdateID.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            buttonUpdateID.Dock = DockStyle.Fill;
-            buttonUpdateID.Effect_1 = true;
-            buttonUpdateID.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            buttonUpdateID.Effect_1_Transparency = 25;
-            buttonUpdateID.Effect_2 = true;
-            buttonUpdateID.Effect_2_ColorBackground = Color.White;
-            buttonUpdateID.Effect_2_Transparency = 20;
-            buttonUpdateID.Font = new Font("Arial", 11F);
-            buttonUpdateID.ForeColor = SystemColors.ActiveCaptionText;
-            buttonUpdateID.Lighting = false;
-            buttonUpdateID.LinearGradient_Background = false;
-            buttonUpdateID.LinearGradientPen = false;
-            buttonUpdateID.Location = new Point(176, 6);
-            buttonUpdateID.Name = "buttonUpdateID";
-            buttonUpdateID.PenWidth = 15;
-            buttonUpdateID.RightToLeft = RightToLeft.No;
-            buttonUpdateID.Rounding = true;
-            buttonUpdateID.RoundingInt = 70;
-            buttonUpdateID.Size = new Size(376, 53);
-            buttonUpdateID.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonUpdateID.TabIndex = 16;
-            buttonUpdateID.Tag = "Cyber";
-            buttonUpdateID.TextButton = "ID";
-            buttonUpdateID.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
-            buttonUpdateID.Timer_Effect_1 = 5;
-            buttonUpdateID.Timer_RGB = 300;
-            buttonUpdateID.Enter += buttonUpdate_Enter;
-            buttonUpdateID.Leave += buttonUpdate_Leave;
-            // 
             // checkedListBoxCat
             // 
             checkedListBoxCat.BackColor = Color.PaleTurquoise;
@@ -903,6 +888,7 @@ namespace KossanVMS
             Name = "VisitorPBEditForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "VisitorEditForm";
+            Load += this.VisitorPBEditForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
@@ -931,7 +917,6 @@ namespace KossanVMS
 
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
-        private ReaLTaiizor.Controls.ThunderLabel labelVisitorFullName;
         private ReaLTaiizor.Controls.ThunderLabel labelVisitorContact;
         private ReaLTaiizor.Controls.ThunderLabel labelVisitorCompany;
         private ReaLTaiizor.Controls.ThunderLabel thunderLabel1;
@@ -939,10 +924,8 @@ namespace KossanVMS
         private ReaLTaiizor.Controls.CyberButton buttonVisitorVideoCapture;
         private ReaLTaiizor.Controls.FoxLinkLabel foxLinkLabel1;
         private Panel panel3;
-        private ReaLTaiizor.Controls.ThunderLabel labelVisitorID;
         private Panel panel4;
         private ReaLTaiizor.Controls.CyberButton buttonEditContact;
-        private ReaLTaiizor.Controls.CyberButton buttonUpdateID;
 
 
         private void buttonUpdate_Enter(object sender, EventArgs e)
@@ -998,13 +981,8 @@ namespace KossanVMS
         private CyberButton buttonLabelUpdateContact;
         private CyberButton buttonSave;
         private CyberButton cyberButton1;
-        private CyberTextBox textboxVisitorFullName;
         private ThunderLabel thunderLabel3;
         private CheckedListBox checkedListBoxCat;
-        private Panel panel5;
-        private CyberButton cyberButtonSearch;
-        private MaskedTextBox maskedTextBoxIC;
-        private ComboBox comboBoxIdType;
         private BindingSource visitorBindingSource;
         private Panel panel6;
         private CyberButton cyberButtonCompany;
@@ -1017,5 +995,13 @@ namespace KossanVMS
         private ThunderLabel labelVisitorPurpose;
         private CheckedListBox checkedListBoxBranch;
         private CyberTextBox textboxVisitorRemarks;
+        private CyberTextBox textboxVisitorFullName;
+        private ThunderLabel labelVisitorFullName;
+        private Panel panel5;
+        private CyberButton cyberButtonSearch;
+        private MaskedTextBox maskedTextBoxIC;
+        private ComboBox comboBoxIdType;
+        private ThunderLabel labelVisitorPermitNo;
+        private CyberTextBox cyberTextBox1;
     }
 }

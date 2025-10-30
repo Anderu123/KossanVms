@@ -269,11 +269,11 @@ namespace KossanVMS
                     maskedTextBoxIC.Mask = "AAAAAAAAAA";
                     maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
                 }
-                else if (type == IdType.Permit)//&& string.IsNullOrEmpty(visitorModel.IdNo))
-                {
-                    maskedTextBoxIC.Mask = "00000000";
-                    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
-                }
+                //else if (type == IdType.Permit)//&& string.IsNullOrEmpty(visitorModel.IdNo))
+                //{
+                //    maskedTextBoxIC.Mask = "00000000";
+                //    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                //}
             }
             else
             {

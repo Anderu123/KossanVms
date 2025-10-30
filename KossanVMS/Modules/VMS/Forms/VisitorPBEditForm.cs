@@ -42,13 +42,12 @@ namespace KossanVMS
                 Text = "Edit Visitor";
                 visitorModel = existingVisitor;
             }
-            buttonUpdateID.Text = visitorModel.VisitorNo.ToString();
+            //buttonUpdateID.Text = visitorModel.VisitorNo.ToString();
             maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
             buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
             //var visitType= visitorModel.IdType;
-            LoadCategoryCheckList();
-            LoadBranchCheckList();
+           
 
             comboBoxIdType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxIdType.DrawMode = DrawMode.OwnerDrawFixed;   // if you need it
@@ -60,16 +59,55 @@ namespace KossanVMS
             comboBoxIdType.SelectedItem = visitorModel.IdType;
 
             comboBoxIdType.DrawItem += ComboBoxIdType_DrawItem;  // only if OwnerDraw
+            HideRow(tableLayoutPanel1, 2, false);
 
         }
 
+        public async void VisitorPBEditForm_Load(object sender, EventArgs e)
+        {
+            await Task.WhenAll(LoadBranchCheckList(), LoadCategoryCheckList());
+        }
+        public void HideRow(TableLayoutPanel panel, int rowIndex, bool showRow)
+        {
+            // 1. Set visibility for all controls in the specified row
+            foreach (Control control in panel.Controls)
+            {
+                // Check if the control is in the row we want to hide
+                if (panel.GetRow(control) == rowIndex)
+                {
+                    control.Visible = showRow;
+                }
+            }
 
+            // 2. Collapse or restore the row height
+            if (rowIndex < panel.RowStyles.Count)
+            {
+                // Suspend layout to prevent flickering during changes
+                panel.SuspendLayout();
 
+                if (showRow)
+                {
+                    // To SHOW the row, restore the SizeType to AutoSize (or its original value)
+                    panel.RowStyles[rowIndex].SizeType = SizeType.AutoSize;
+                }
+                else // The row should be hidden
+                {
+                    // To HIDE the row: Set the style to Absolute and the height to a very small, non-zero value (1F) 
+                    // to ensure it collapses completely without being ignored by layout logic.
+                    panel.RowStyles[rowIndex].SizeType = SizeType.Absolute;
+                    panel.RowStyles[rowIndex].Height = 1F; // Changed from 0 to 1 for robustness
+                }
+
+                // Resume layout to apply changes
+                panel.ResumeLayout(true);
+                panel.PerformLayout();
+            }
+        }
 
 
         #region Initial Load Data
-        
-        private void LoadBranchCheckList()
+
+        private async Task LoadBranchCheckList()
         {
             checkedListBoxBranch.BeginUpdate();
             try
@@ -102,7 +140,7 @@ namespace KossanVMS
             }
             // Similar to LoadCategoryCheckList but for branches
         }
-        private void LoadCategoryCheckList()
+        private async Task LoadCategoryCheckList()
         {
             checkedListBoxCat.BeginUpdate();
             try
@@ -290,13 +328,17 @@ namespace KossanVMS
         {
             // maskedTextBoxIC.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             var ic = maskedTextBoxIC.Text.Trim();
+            if (string.IsNullOrEmpty(ic) || !ic.Any(char.IsDigit))
+                    { MessageBox.Show("Please input id no");
+                return;
+            }
 
             var foundVisitor = await _db.Visitors
                 .Include(v => v.Contact)
                 .FirstOrDefaultAsync(v => v.IdNo == ic);
 
             visitorModel = foundVisitor;      // OK (same type)
-            buttonUpdateID.Text = visitorModel.IdNo.ToString();
+            //buttonUpdateID.Text = visitorModel.IdNo.ToString();
             maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
             buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
@@ -502,12 +544,13 @@ namespace KossanVMS
             {
                 maskedTextBoxIC.Mask = "AAAAAAAAAA";
                 maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                HideRow(tableLayoutPanel1, 2, true);
             }
-            else if (type == IdType.Permit )//&& string.IsNullOrEmpty(visitorModel.IdNo))
-            {
-                maskedTextBoxIC.Mask = "00000000";
-                maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
-            }
+            //else if (type == IdType.Permit )//&& string.IsNullOrEmpty(visitorModel.IdNo))
+            //{
+            //    maskedTextBoxIC.Mask = "00000000";
+            //    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+            //}
         }
 
         private void ComboBoxIdType_Click(object sender, EventArgs e)
@@ -527,12 +570,13 @@ namespace KossanVMS
                 {
                     maskedTextBoxIC.Mask = "AAAAAAAAAA";
                     maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                    HideRow(tableLayoutPanel1, 2, true);
                 }
-                else if (type == IdType.Permit)//&& string.IsNullOrEmpty(visitorModel.IdNo))
-                {
-                    maskedTextBoxIC.Mask = "00000000";
-                    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
-                }
+                //else if (type == IdType.Permit)//&& string.IsNullOrEmpty(visitorModel.IdNo))
+                //{
+                //    maskedTextBoxIC.Mask = "00000000";
+                //    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                //}
             }
             else
             {

@@ -22,6 +22,7 @@ namespace KossanVMS
         private readonly VisitorPBEditForm mainForm;
         private bool isMoving = false;
         private string savePhotoFilePath = @"C:\Vms\VisitorPhotos";
+        private bool isFrame = false;
         public string? capturePath { get; set; }
         public VisitorPhotoCapture(VisitorPBEditForm mainForm)
         {
@@ -45,22 +46,31 @@ namespace KossanVMS
                 MessageBox.Show("Camera is in user, please close the other application first");
                 return;
             }
+            isFrame = true;
             backgroundWorkerWebcam.RunWorkerAsync();
         }
         private void backgroundWorkerWebCam_DoWork(object sender, DoWorkEventArgs e)
         {
             var bgWorker = (BackgroundWorker)sender;
-            while (!bgWorker.CancellationPending)
+            using (var frameMat = new Mat())
             {
-                using (var frameMat = capture.RetrieveMat())
-                {
-                    //var rects = cascadeClassifier.DetectMultiScale(frameMat, 1.1, 5, HaarDetectionTypes.ScaleImage, new OpenCvSharp.Size(30, 30));
-                    //if (rects.Length > 0)
-                    //{
-                    //    Cv2.Rectangle(frameMat, rects[0], Scalar.Red);
-                    //}
-                    var frameBitmap = BitmapConverter.ToBitmap(frameMat);
-                    bgWorker.ReportProgress(0, frameBitmap);
+                while (!bgWorker.CancellationPending && isFrame)
+            {
+                    if (frameMat != null && capture !=null)
+                    {
+                        if (capture.Read(frameMat) && !frameMat.Empty())
+                        {
+
+                            //var rects = cascadeClassifier.DetectMultiScale(frameMat, 1.1, 5, HaarDetectionTypes.ScaleImage, new OpenCvSharp.Size(30, 30));
+                            //if (rects.Length > 0)
+                            //{
+                            //    Cv2.Rectangle(frameMat, rects[0], Scalar.Red);
+                            //}
+                            var frameBitmap = BitmapConverter.ToBitmap(frameMat);
+                            bgWorker.ReportProgress(0, frameBitmap);
+                        }
+                    }
+                    
                 }
             }
         }
@@ -111,15 +121,19 @@ namespace KossanVMS
         {
             if (!backgroundWorkerWebcam.IsBusy)
             {
+                isFrame = true;
                 backgroundWorkerWebcam.RunWorkerAsync();
+               
                 //progressbarWebCam.Percentage = 50;
             }
         }
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             //e.Cancel = true;
+            isFrame = false;
             backgroundWorkerWebcam?.CancelAsync();
-            capture.Dispose();
+            if(!backgroundWorkerWebcam.IsBusy)
+                capture.Dispose();
             base.OnFormClosed(e);
         }
         private void VisitorPhotoCaptureForm_LocationChanged(object sender, EventArgs e)

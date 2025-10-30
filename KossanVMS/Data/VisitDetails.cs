@@ -7,7 +7,7 @@ namespace KossanVMS.Data
 {
     public enum ContainerState : byte { None = 0, Empty = 1, Laden = 2 }
     public enum VisitStatus : byte { In = 1, Out = 2, Cancelled = 9 }
-    public enum IdType : byte { IC = 0, Passport = 1, Permit = 2 }
+    public enum IdType : byte { IC = 0, Passport = 1 }
 
     // ===== Masters =====
 
