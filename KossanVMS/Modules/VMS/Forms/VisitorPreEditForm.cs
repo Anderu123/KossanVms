@@ -25,10 +25,26 @@ namespace KossanVMS
         private string? savePhotoFilePath = @"C:\Vms\UploadPhotos";
         public string? uploadPath { get; set; }
 
-
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;          
+                return cp;
+            }
+        }
+        static void EnableDoubleBuffering(Control c)
+        {
+            var pi = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            pi?.SetValue(c, true, null);
+        }
         public VisitorPreEditForm(VmsContext _db, Visitor exisitingVisitor = null)
         {
             InitializeComponent();
+            EnableDoubleBuffering(tableLayoutPanel1);
+            EnableDoubleBuffering(checkedListBoxCat);
             this._db = _db ?? throw new ArgumentNullException(nameof(_db));
             if (exisitingVisitor == null)
             {
@@ -183,7 +199,7 @@ namespace KossanVMS
             visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
             visitorModel.Contact ??= new VisitorContact();
             visitorModel.IdType = (IdType)comboBoxIdType.SelectedIndex;
-            visitorModel.Photo.UploadPhotoPath = uploadPath;
+            visitorModel.Photo.UploadPhotoPath = uploadPath ?? "";
             return true;
         }
         private void SaveVisitorCategories()

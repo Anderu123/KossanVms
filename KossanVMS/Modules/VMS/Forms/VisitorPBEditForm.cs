@@ -26,9 +26,30 @@ namespace KossanVMS
         private List<VisitCategory> _category { get; set; }
         private VisitorContactEditForm visitorContactEditForm;
        private VisitRecord _visitRecord { get; set; }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;           // WS_EX_COMPOSITED – eliminates flicker across nested controls
+                return cp;
+            }
+        }
+        static void EnableDoubleBuffering(Control c)
+        {
+            var pi = typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            pi?.SetValue(c, true, null);
+        }
         public VisitorPBEditForm(VmsContext db,Visitor existingVisitor = null, VisitRecord visitRecord = null)
         {
             InitializeComponent();
+            EnableDoubleBuffering(this);
+            EnableDoubleBuffering(tableLayoutPanel1);
+            //EnableDoubleBuffering(tableLayoutPanel5);
+            EnableDoubleBuffering(panel3);
+           // EnableDoubleBuffering();
             //_db = new VmsContext();
             _db = db ?? throw new ArgumentNullException(nameof(db));
             if (existingVisitor == null)

@@ -888,7 +888,7 @@ namespace KossanVMS
             Name = "VisitorPBEditForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "VisitorEditForm";
-            Load += this.VisitorPBEditForm_Load;
+            Load += VisitorPBEditForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

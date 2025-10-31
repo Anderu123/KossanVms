@@ -118,7 +118,7 @@ namespace KossanVMS
             buttonNavDms.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             buttonNavDms.Timer_Effect_1 = 5;
             buttonNavDms.Timer_RGB = 300;
-            buttonNavDms.Click += buttonRegister_Click;
+            buttonNavDms.Click += buttonNavBranch_Click;
             // 
             // buttonNavVms
             // 
