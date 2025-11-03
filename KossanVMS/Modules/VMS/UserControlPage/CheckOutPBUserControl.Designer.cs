@@ -156,16 +156,16 @@
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.42529F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.57471F));
             tableLayoutPanel4.Controls.Add(dataGridViewCheckOut, 0, 0);
             tableLayoutPanel4.Controls.Add(panel3, 0, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 46.6954041F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 53.3045959F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50.1436768F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 49.8563232F));
             tableLayoutPanel4.Size = new Size(870, 696);
             tableLayoutPanel4.TabIndex = 1;
             // 
@@ -180,7 +180,7 @@
             dataGridViewCheckOut.Location = new Point(3, 3);
             dataGridViewCheckOut.Name = "dataGridViewCheckOut";
             dataGridViewCheckOut.RowTemplate.Height = 25;
-            dataGridViewCheckOut.Size = new Size(864, 319);
+            dataGridViewCheckOut.Size = new Size(864, 343);
             dataGridViewCheckOut.TabIndex = 0;
             // 
             // visitRecordIDDataGridViewTextBoxColumn
@@ -348,9 +348,9 @@
             tableLayoutPanel4.SetColumnSpan(panel3, 2);
             panel3.Controls.Add(tableLayoutPanel2);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(3, 328);
+            panel3.Location = new Point(3, 352);
             panel3.Name = "panel3";
-            panel3.Size = new Size(864, 365);
+            panel3.Size = new Size(864, 341);
             panel3.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -365,7 +365,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(864, 365);
+            tableLayoutPanel2.Size = new Size(864, 341);
             tableLayoutPanel2.TabIndex = 0;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
@@ -402,7 +402,7 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel5.Size = new Size(426, 359);
+            tableLayoutPanel5.Size = new Size(426, 335);
             tableLayoutPanel5.TabIndex = 4;
             // 
             // textboxRemark
@@ -418,17 +418,17 @@
             textboxRemark.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxRemark.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxRemark.Dock = DockStyle.Fill;
-            textboxRemark.Font = new Font("Arial", 10F);
+            textboxRemark.Font = new Font("Arial", 9F);
             textboxRemark.ForeColor = Color.Black;
             textboxRemark.Lighting = false;
             textboxRemark.LinearGradientPen = false;
-            textboxRemark.Location = new Point(113, 256);
+            textboxRemark.Location = new Point(113, 241);
             textboxRemark.Name = "textboxRemark";
             textboxRemark.PenWidth = 15;
             textboxRemark.RGB = false;
             textboxRemark.Rounding = true;
             textboxRemark.RoundingInt = 60;
-            textboxRemark.Size = new Size(307, 41);
+            textboxRemark.Size = new Size(307, 38);
             textboxRemark.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxRemark.TabIndex = 24;
             textboxRemark.Tag = "Cyber";
@@ -449,17 +449,17 @@
             textboxDoNo.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxDoNo.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxDoNo.Dock = DockStyle.Fill;
-            textboxDoNo.Font = new Font("Arial", 10F);
+            textboxDoNo.Font = new Font("Arial", 9F);
             textboxDoNo.ForeColor = Color.Black;
             textboxDoNo.Lighting = false;
             textboxDoNo.LinearGradientPen = false;
-            textboxDoNo.Location = new Point(113, 206);
+            textboxDoNo.Location = new Point(113, 194);
             textboxDoNo.Name = "textboxDoNo";
             textboxDoNo.PenWidth = 15;
             textboxDoNo.RGB = false;
             textboxDoNo.Rounding = true;
             textboxDoNo.RoundingInt = 60;
-            textboxDoNo.Size = new Size(307, 41);
+            textboxDoNo.Size = new Size(307, 38);
             textboxDoNo.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxDoNo.TabIndex = 23;
             textboxDoNo.Tag = "Cyber";
@@ -480,17 +480,17 @@
             textboxPerson.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxPerson.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxPerson.Dock = DockStyle.Fill;
-            textboxPerson.Font = new Font("Arial", 10F);
+            textboxPerson.Font = new Font("Arial", 9F);
             textboxPerson.ForeColor = Color.Black;
             textboxPerson.Lighting = false;
             textboxPerson.LinearGradientPen = false;
-            textboxPerson.Location = new Point(113, 156);
+            textboxPerson.Location = new Point(113, 147);
             textboxPerson.Name = "textboxPerson";
             textboxPerson.PenWidth = 15;
             textboxPerson.RGB = false;
             textboxPerson.Rounding = true;
             textboxPerson.RoundingInt = 60;
-            textboxPerson.Size = new Size(307, 41);
+            textboxPerson.Size = new Size(307, 38);
             textboxPerson.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxPerson.TabIndex = 22;
             textboxPerson.Tag = "Cyber";
@@ -511,17 +511,17 @@
             textboxGatePass.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxGatePass.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxGatePass.Dock = DockStyle.Fill;
-            textboxGatePass.Font = new Font("Arial", 10F);
+            textboxGatePass.Font = new Font("Arial", 9F);
             textboxGatePass.ForeColor = Color.Black;
             textboxGatePass.Lighting = false;
             textboxGatePass.LinearGradientPen = false;
-            textboxGatePass.Location = new Point(113, 106);
+            textboxGatePass.Location = new Point(113, 100);
             textboxGatePass.Name = "textboxGatePass";
             textboxGatePass.PenWidth = 15;
             textboxGatePass.RGB = false;
             textboxGatePass.Rounding = true;
             textboxGatePass.RoundingInt = 60;
-            textboxGatePass.Size = new Size(307, 41);
+            textboxGatePass.Size = new Size(307, 38);
             textboxGatePass.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxGatePass.TabIndex = 21;
             textboxGatePass.Tag = "Cyber";
@@ -542,17 +542,17 @@
             textboxCategory.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxCategory.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxCategory.Dock = DockStyle.Fill;
-            textboxCategory.Font = new Font("Arial", 10F);
+            textboxCategory.Font = new Font("Arial", 9F);
             textboxCategory.ForeColor = Color.Black;
             textboxCategory.Lighting = false;
             textboxCategory.LinearGradientPen = false;
-            textboxCategory.Location = new Point(113, 56);
+            textboxCategory.Location = new Point(113, 53);
             textboxCategory.Name = "textboxCategory";
             textboxCategory.PenWidth = 15;
             textboxCategory.RGB = false;
             textboxCategory.Rounding = true;
             textboxCategory.RoundingInt = 60;
-            textboxCategory.Size = new Size(307, 41);
+            textboxCategory.Size = new Size(307, 38);
             textboxCategory.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxCategory.TabIndex = 20;
             textboxCategory.Tag = "Cyber";
@@ -573,7 +573,7 @@
             textboxVehicleNo.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxVehicleNo.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxVehicleNo.Dock = DockStyle.Fill;
-            textboxVehicleNo.Font = new Font("Arial", 10F);
+            textboxVehicleNo.Font = new Font("Arial", 9F);
             textboxVehicleNo.ForeColor = Color.Black;
             textboxVehicleNo.Lighting = false;
             textboxVehicleNo.LinearGradientPen = false;
@@ -583,7 +583,7 @@
             textboxVehicleNo.RGB = false;
             textboxVehicleNo.Rounding = true;
             textboxVehicleNo.RoundingInt = 60;
-            textboxVehicleNo.Size = new Size(307, 41);
+            textboxVehicleNo.Size = new Size(307, 38);
             textboxVehicleNo.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxVehicleNo.TabIndex = 19;
             textboxVehicleNo.Tag = "Cyber";
@@ -596,9 +596,9 @@
             thunderLabel8.BackColor = Color.PaleTurquoise;
             thunderLabel8.Dock = DockStyle.Fill;
             thunderLabel8.ForeColor = Color.Transparent;
-            thunderLabel8.Location = new Point(6, 306);
+            thunderLabel8.Location = new Point(6, 288);
             thunderLabel8.Name = "thunderLabel8";
-            thunderLabel8.Size = new Size(98, 47);
+            thunderLabel8.Size = new Size(98, 41);
             thunderLabel8.TabIndex = 12;
             // 
             // labelRemark
@@ -606,9 +606,9 @@
             labelRemark.BackColor = Color.PaleTurquoise;
             labelRemark.Dock = DockStyle.Fill;
             labelRemark.ForeColor = Color.Transparent;
-            labelRemark.Location = new Point(6, 256);
+            labelRemark.Location = new Point(6, 241);
             labelRemark.Name = "labelRemark";
-            labelRemark.Size = new Size(98, 41);
+            labelRemark.Size = new Size(98, 38);
             labelRemark.TabIndex = 10;
             labelRemark.Text = "Remark :";
             // 
@@ -617,9 +617,9 @@
             labelDoNo.BackColor = Color.PaleTurquoise;
             labelDoNo.Dock = DockStyle.Fill;
             labelDoNo.ForeColor = Color.Transparent;
-            labelDoNo.Location = new Point(6, 206);
+            labelDoNo.Location = new Point(6, 194);
             labelDoNo.Name = "labelDoNo";
-            labelDoNo.Size = new Size(98, 41);
+            labelDoNo.Size = new Size(98, 38);
             labelDoNo.TabIndex = 8;
             labelDoNo.Text = "DO No:";
             // 
@@ -628,9 +628,9 @@
             labelVisitPerson.BackColor = Color.PaleTurquoise;
             labelVisitPerson.Dock = DockStyle.Fill;
             labelVisitPerson.ForeColor = Color.Transparent;
-            labelVisitPerson.Location = new Point(6, 156);
+            labelVisitPerson.Location = new Point(6, 147);
             labelVisitPerson.Name = "labelVisitPerson";
-            labelVisitPerson.Size = new Size(98, 41);
+            labelVisitPerson.Size = new Size(98, 38);
             labelVisitPerson.TabIndex = 6;
             labelVisitPerson.Text = "Visit Person :";
             // 
@@ -639,9 +639,9 @@
             labelGatePass.BackColor = Color.PaleTurquoise;
             labelGatePass.Dock = DockStyle.Fill;
             labelGatePass.ForeColor = Color.Transparent;
-            labelGatePass.Location = new Point(6, 106);
+            labelGatePass.Location = new Point(6, 100);
             labelGatePass.Name = "labelGatePass";
-            labelGatePass.Size = new Size(98, 41);
+            labelGatePass.Size = new Size(98, 38);
             labelGatePass.TabIndex = 4;
             labelGatePass.Text = "Gate Pass :";
             // 
@@ -650,9 +650,9 @@
             labelCategory.BackColor = Color.PaleTurquoise;
             labelCategory.Dock = DockStyle.Fill;
             labelCategory.ForeColor = Color.Transparent;
-            labelCategory.Location = new Point(6, 56);
+            labelCategory.Location = new Point(6, 53);
             labelCategory.Name = "labelCategory";
-            labelCategory.Size = new Size(98, 41);
+            labelCategory.Size = new Size(98, 38);
             labelCategory.TabIndex = 3;
             labelCategory.Text = "Category :";
             // 
@@ -663,7 +663,7 @@
             labelVehicleNo.ForeColor = Color.Transparent;
             labelVehicleNo.Location = new Point(6, 6);
             labelVehicleNo.Name = "labelVehicleNo";
-            labelVehicleNo.Size = new Size(98, 41);
+            labelVehicleNo.Size = new Size(98, 38);
             labelVehicleNo.TabIndex = 0;
             labelVehicleNo.Text = "Vehicle No :";
             // 
@@ -672,9 +672,9 @@
             panel2.Controls.Add(cyberButton4);
             panel2.Controls.Add(cyberButton5);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(113, 306);
+            panel2.Location = new Point(113, 288);
             panel2.Name = "panel2";
-            panel2.Size = new Size(307, 47);
+            panel2.Size = new Size(307, 41);
             panel2.TabIndex = 13;
             // 
             // cyberButton4
@@ -709,7 +709,7 @@
             cyberButton4.PenWidth = 15;
             cyberButton4.Rounding = true;
             cyberButton4.RoundingInt = 70;
-            cyberButton4.Size = new Size(130, 47);
+            cyberButton4.Size = new Size(130, 41);
             cyberButton4.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberButton4.TabIndex = 1;
             cyberButton4.Tag = "Cyber";
@@ -750,7 +750,7 @@
             cyberButton5.PenWidth = 15;
             cyberButton5.Rounding = true;
             cyberButton5.RoundingInt = 70;
-            cyberButton5.Size = new Size(130, 47);
+            cyberButton5.Size = new Size(130, 41);
             cyberButton5.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberButton5.TabIndex = 0;
             cyberButton5.Tag = "Cyber";
@@ -791,7 +791,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2851028F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2851028F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2893887F));
-            tableLayoutPanel3.Size = new Size(426, 359);
+            tableLayoutPanel3.Size = new Size(426, 335);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // textboxRegisterType
@@ -807,17 +807,17 @@
             textboxRegisterType.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxRegisterType.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxRegisterType.Dock = DockStyle.Fill;
-            textboxRegisterType.Font = new Font("Arial", 10F);
+            textboxRegisterType.Font = new Font("Arial", 9F);
             textboxRegisterType.ForeColor = Color.Black;
             textboxRegisterType.Lighting = false;
             textboxRegisterType.LinearGradientPen = false;
-            textboxRegisterType.Location = new Point(113, 56);
+            textboxRegisterType.Location = new Point(113, 53);
             textboxRegisterType.Name = "textboxRegisterType";
             textboxRegisterType.PenWidth = 15;
             textboxRegisterType.RGB = false;
             textboxRegisterType.Rounding = true;
             textboxRegisterType.RoundingInt = 60;
-            textboxRegisterType.Size = new Size(307, 41);
+            textboxRegisterType.Size = new Size(307, 38);
             textboxRegisterType.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxRegisterType.TabIndex = 27;
             textboxRegisterType.Tag = "Cyber";
@@ -838,17 +838,17 @@
             textboxContact.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxContact.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxContact.Dock = DockStyle.Fill;
-            textboxContact.Font = new Font("Arial", 10F);
+            textboxContact.Font = new Font("Arial", 9F);
             textboxContact.ForeColor = Color.Black;
             textboxContact.Lighting = false;
             textboxContact.LinearGradientPen = false;
-            textboxContact.Location = new Point(113, 256);
+            textboxContact.Location = new Point(113, 241);
             textboxContact.Name = "textboxContact";
             textboxContact.PenWidth = 15;
             textboxContact.RGB = false;
             textboxContact.Rounding = true;
             textboxContact.RoundingInt = 60;
-            textboxContact.Size = new Size(307, 41);
+            textboxContact.Size = new Size(307, 38);
             textboxContact.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxContact.TabIndex = 26;
             textboxContact.Tag = "Cyber";
@@ -869,17 +869,17 @@
             textboxCompany.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxCompany.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxCompany.Dock = DockStyle.Fill;
-            textboxCompany.Font = new Font("Arial", 10F);
+            textboxCompany.Font = new Font("Arial", 9F);
             textboxCompany.ForeColor = Color.Black;
             textboxCompany.Lighting = false;
             textboxCompany.LinearGradientPen = false;
-            textboxCompany.Location = new Point(113, 206);
+            textboxCompany.Location = new Point(113, 194);
             textboxCompany.Name = "textboxCompany";
             textboxCompany.PenWidth = 15;
             textboxCompany.RGB = false;
             textboxCompany.Rounding = true;
             textboxCompany.RoundingInt = 60;
-            textboxCompany.Size = new Size(307, 41);
+            textboxCompany.Size = new Size(307, 38);
             textboxCompany.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxCompany.TabIndex = 25;
             textboxCompany.Tag = "Cyber";
@@ -900,17 +900,17 @@
             textboxIdNo.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxIdNo.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxIdNo.Dock = DockStyle.Fill;
-            textboxIdNo.Font = new Font("Arial", 10F);
+            textboxIdNo.Font = new Font("Arial", 9F);
             textboxIdNo.ForeColor = Color.Black;
             textboxIdNo.Lighting = false;
             textboxIdNo.LinearGradientPen = false;
-            textboxIdNo.Location = new Point(113, 156);
+            textboxIdNo.Location = new Point(113, 147);
             textboxIdNo.Name = "textboxIdNo";
             textboxIdNo.PenWidth = 15;
             textboxIdNo.RGB = false;
             textboxIdNo.Rounding = true;
             textboxIdNo.RoundingInt = 60;
-            textboxIdNo.Size = new Size(307, 41);
+            textboxIdNo.Size = new Size(307, 38);
             textboxIdNo.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxIdNo.TabIndex = 24;
             textboxIdNo.Tag = "Cyber";
@@ -931,17 +931,17 @@
             textboxName.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxName.Dock = DockStyle.Fill;
-            textboxName.Font = new Font("Arial", 10F);
+            textboxName.Font = new Font("Arial", 9F);
             textboxName.ForeColor = Color.Black;
             textboxName.Lighting = false;
             textboxName.LinearGradientPen = false;
-            textboxName.Location = new Point(113, 106);
+            textboxName.Location = new Point(113, 100);
             textboxName.Name = "textboxName";
             textboxName.PenWidth = 15;
             textboxName.RGB = false;
             textboxName.Rounding = true;
             textboxName.RoundingInt = 60;
-            textboxName.Size = new Size(307, 41);
+            textboxName.Size = new Size(307, 38);
             textboxName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxName.TabIndex = 23;
             textboxName.Tag = "Cyber";
@@ -962,7 +962,7 @@
             textboxTagNo.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxTagNo.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxTagNo.Dock = DockStyle.Fill;
-            textboxTagNo.Font = new Font("Arial", 10F);
+            textboxTagNo.Font = new Font("Arial", 9F);
             textboxTagNo.ForeColor = Color.Black;
             textboxTagNo.Lighting = false;
             textboxTagNo.LinearGradientPen = false;
@@ -972,7 +972,7 @@
             textboxTagNo.RGB = false;
             textboxTagNo.Rounding = true;
             textboxTagNo.RoundingInt = 60;
-            textboxTagNo.Size = new Size(307, 41);
+            textboxTagNo.Size = new Size(307, 38);
             textboxTagNo.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textboxTagNo.TabIndex = 21;
             textboxTagNo.Tag = "Cyber";
@@ -985,9 +985,9 @@
             thunderLabel2.BackColor = Color.PaleTurquoise;
             thunderLabel2.Dock = DockStyle.Fill;
             thunderLabel2.ForeColor = Color.Transparent;
-            thunderLabel2.Location = new Point(113, 306);
+            thunderLabel2.Location = new Point(113, 288);
             thunderLabel2.Name = "thunderLabel2";
-            thunderLabel2.Size = new Size(307, 47);
+            thunderLabel2.Size = new Size(307, 41);
             thunderLabel2.TabIndex = 14;
             // 
             // thunderLabel1
@@ -995,9 +995,9 @@
             thunderLabel1.BackColor = Color.PaleTurquoise;
             thunderLabel1.Dock = DockStyle.Fill;
             thunderLabel1.ForeColor = Color.Transparent;
-            thunderLabel1.Location = new Point(6, 306);
+            thunderLabel1.Location = new Point(6, 288);
             thunderLabel1.Name = "thunderLabel1";
-            thunderLabel1.Size = new Size(98, 47);
+            thunderLabel1.Size = new Size(98, 41);
             thunderLabel1.TabIndex = 13;
             // 
             // labelContact
@@ -1005,9 +1005,9 @@
             labelContact.BackColor = Color.PaleTurquoise;
             labelContact.Dock = DockStyle.Fill;
             labelContact.ForeColor = Color.Transparent;
-            labelContact.Location = new Point(6, 256);
+            labelContact.Location = new Point(6, 241);
             labelContact.Name = "labelContact";
-            labelContact.Size = new Size(98, 41);
+            labelContact.Size = new Size(98, 38);
             labelContact.TabIndex = 10;
             labelContact.Text = "Contact :";
             // 
@@ -1016,9 +1016,9 @@
             labelCompany.BackColor = Color.PaleTurquoise;
             labelCompany.Dock = DockStyle.Fill;
             labelCompany.ForeColor = Color.Transparent;
-            labelCompany.Location = new Point(6, 206);
+            labelCompany.Location = new Point(6, 194);
             labelCompany.Name = "labelCompany";
-            labelCompany.Size = new Size(98, 41);
+            labelCompany.Size = new Size(98, 38);
             labelCompany.TabIndex = 8;
             labelCompany.Text = "Company :";
             // 
@@ -1027,9 +1027,9 @@
             labelIdNo.BackColor = Color.PaleTurquoise;
             labelIdNo.Dock = DockStyle.Fill;
             labelIdNo.ForeColor = Color.Transparent;
-            labelIdNo.Location = new Point(6, 156);
+            labelIdNo.Location = new Point(6, 147);
             labelIdNo.Name = "labelIdNo";
-            labelIdNo.Size = new Size(98, 41);
+            labelIdNo.Size = new Size(98, 38);
             labelIdNo.TabIndex = 6;
             labelIdNo.Text = "ID No :";
             // 
@@ -1038,9 +1038,9 @@
             labelName.BackColor = Color.PaleTurquoise;
             labelName.Dock = DockStyle.Fill;
             labelName.ForeColor = Color.Transparent;
-            labelName.Location = new Point(6, 106);
+            labelName.Location = new Point(6, 100);
             labelName.Name = "labelName";
-            labelName.Size = new Size(98, 41);
+            labelName.Size = new Size(98, 38);
             labelName.TabIndex = 4;
             labelName.Text = "Name :";
             // 
@@ -1049,9 +1049,9 @@
             labelRegisterType.BackColor = Color.PaleTurquoise;
             labelRegisterType.Dock = DockStyle.Fill;
             labelRegisterType.ForeColor = Color.Transparent;
-            labelRegisterType.Location = new Point(6, 56);
+            labelRegisterType.Location = new Point(6, 53);
             labelRegisterType.Name = "labelRegisterType";
-            labelRegisterType.Size = new Size(98, 41);
+            labelRegisterType.Size = new Size(98, 38);
             labelRegisterType.TabIndex = 3;
             labelRegisterType.Tag = "";
             labelRegisterType.Text = "Register Type :";
@@ -1063,7 +1063,7 @@
             labelTag.ForeColor = Color.Transparent;
             labelTag.Location = new Point(6, 6);
             labelTag.Name = "labelTag";
-            labelTag.Size = new Size(98, 41);
+            labelTag.Size = new Size(98, 38);
             labelTag.TabIndex = 0;
             labelTag.Text = "Tag No :";
             // 

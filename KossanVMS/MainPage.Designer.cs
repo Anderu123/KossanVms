@@ -37,12 +37,15 @@ namespace KossanVMS
             dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             mainPanel = new ReaLTaiizor.Controls.Panel();
             hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            statusStrip1.SuspendLayout();
             parrotPanel.SuspendLayout();
             mainPanel.SuspendLayout();
             SuspendLayout();
             // 
             // statusStrip1
             // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
             statusStrip1.Location = new Point(0, 428);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(582, 22);
@@ -220,6 +223,12 @@ namespace KossanVMS
             hopeTabPage1.ThemeColorB = Color.FromArgb(150, 64, 158, 255);
             hopeTabPage1.TitleTextState = ReaLTaiizor.Controls.HopeTabPage.TextState.Normal;
             // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(118, 17);
+            toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
             // MainPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -237,6 +246,8 @@ namespace KossanVMS
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
             Load += MainPage_Load;
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             parrotPanel.ResumeLayout(false);
             mainPanel.ResumeLayout(false);
             ResumeLayout(false);
@@ -252,5 +263,6 @@ namespace KossanVMS
         private ReaLTaiizor.Controls.Panel mainPanel;
         private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
         private ReaLTaiizor.Controls.CyberButton buttonNavDms;
+        private ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

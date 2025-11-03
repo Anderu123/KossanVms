@@ -37,6 +37,9 @@
     <Compile Update="Modules\VMS\UserControlPage\GatePassUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\MainPageUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Modules\VMS\UserControlPage\PreRegisteredPBUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
