@@ -94,7 +94,7 @@ namespace KossanVMS.Modules.VMS.UserControlPage
             }
 
             panel2.Padding = new Padding(0, 0, 0, 2);
-        }
+        }HR
 
 
 
