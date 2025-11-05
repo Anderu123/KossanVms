@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="ADLoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\CheckOutPBEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitRecordEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitUserRoleEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\BranchUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\CategoryUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\CheckOutPBUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\DashboardUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\EditFormTemplateUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\GatePassEditUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\GatePassUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\MainPageUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\PreRegisteredPBUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\TempUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\VisitorPBUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\VisitorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitBranchEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitorCategoryEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitorCompaniesEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitorContactEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitorPBEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Utility\FocusableLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Utility\RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitorPhotoCapture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitorPreEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modules\VMS\Forms\VisitPurposeEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
