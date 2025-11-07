@@ -15,7 +15,7 @@ namespace KossanVMS.UserControlPage
     public partial class BranchUserControl : UserControl
     {
         private readonly VmsContext _db;
-        private VisitBranch? CurrentItem => (VisitBranch)visitBranchBindingSource.Current;
+        private Branch? CurrentItem => (Branch)visitBranchBindingSource.Current;
         public BranchUserControl(VmsContext db)
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace KossanVMS.UserControlPage
                 MessageBox.Show("Select a row to edit!");
                 return;
             }
-            var copyVisitBranchModel = new VisitBranch
+            var copyVisitBranchModel = new Branch
             {
                 BranchName = selectedItem.BranchName,
                 BranchDescription = selectedItem.BranchDescription,

@@ -183,7 +183,7 @@ namespace KossanVMS.UserControlPage
             // 
             // visitBranchBindingSource
             // 
-            visitBranchBindingSource.DataSource = typeof(Data.VisitBranch);
+            visitBranchBindingSource.DataSource = typeof(Data.Branch);
             // 
             // visitorBindingSource
             // 
@@ -223,7 +223,8 @@ namespace KossanVMS.UserControlPage
         private ToolStripButton toolStripEditButton;
         private ToolStripButton toolStripAddButton;
 
-        private void buttonUpdate_Enter(object sender, EventArgs e)
+        private void 
+            _Enter(object sender, EventArgs e)
         {
             CyberButton clickedButton = sender as CyberButton;
             if (clickedButton != null)

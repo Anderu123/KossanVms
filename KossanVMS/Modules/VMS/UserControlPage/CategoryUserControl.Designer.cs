@@ -155,11 +155,11 @@
             // 
             // visitCategoryBindingSource
             // 
-            visitCategoryBindingSource.DataSource = typeof(Data.VisitCategory);
+            visitCategoryBindingSource.DataSource = typeof(Data.Category);
             // 
             // visitBranchBindingSource
             // 
-            visitBranchBindingSource.DataSource = typeof(Data.VisitBranch);
+            visitBranchBindingSource.DataSource = typeof(Data.Branch);
             // 
             // CategoryUserControl
             // 

@@ -42,8 +42,8 @@ namespace KossanVMS.UserControlPage
                     await _db.Visitors
                         // .Include(v => v.BlackList)
                         //.Include(v => v.Company)
-                        .Include(v => v.Contact)
-                        .Include(v => v.Photo)
+                        .Include(v => v.VisitorContact)
+                        .Include(v => v.VisitorPhoto)
                         .LoadAsync();
 
 
@@ -65,7 +65,7 @@ namespace KossanVMS.UserControlPage
             if (grid.Columns[e.ColumnIndex].Name == "colPhoto")
             {
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v)
-                    e.Value = v.Photo?.UploadPhotoPath ?? string.Empty;   // always set
+                    e.Value = v.VisitorPhoto?.PhotoUploadPath ?? string.Empty;   // always set
                 else
                     e.Value = string.Empty;
 
@@ -76,7 +76,7 @@ namespace KossanVMS.UserControlPage
             {
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v1)
                 {
-                    e.Value = v1.Contact?.Tel ?? string.Empty;
+                    e.Value = v1.VisitorContact?.ContactTel ?? string.Empty;
                 }
                 else
                 {
@@ -91,7 +91,7 @@ namespace KossanVMS.UserControlPage
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v2)
                 {
                     var names = _db.VisitorCategoryLinks.Local
-                                 .Where(l => l.IdNo == v2.IdNo)
+                                 .Where(l => l.IdNo == v2.VisitorIdNo)
            .Join(_db.VisitCategories.Local,
                                        l => l.CategoryID, c => c.CategoryID,
                                        (l, c) => c.CategoryName)
@@ -175,13 +175,13 @@ namespace KossanVMS.UserControlPage
             var copyVisitorModel = new Visitor
             {
                 VisitorNo = selectedItem.VisitorNo,
-                IdNo = selectedItem.IdNo,
-                FullName = selectedItem.FullName,
-                IdType = selectedItem.IdType,
+                VisitorIdNo = selectedItem.VisitorIdNo,
+                VisitorFullName = selectedItem.VisitorFullName,
+                VisitorIdType = selectedItem.VisitorIdType,
                 //Company = selectedItem.Company,
-                Contact = selectedItem.Contact,
-                Photo = selectedItem.Photo,
-                BlackList = selectedItem.BlackList
+                VisitorContact = selectedItem.VisitorContact,
+                VisitorPhoto = selectedItem.VisitorPhoto,
+                VisitorBlackList = selectedItem.VisitorBlackList
             };
 
             using var editVisitorModel = new VisitorPreEditForm(_db, copyVisitorModel);
@@ -191,25 +191,25 @@ namespace KossanVMS.UserControlPage
             }
 
             var updatedVisitorModel = editVisitorModel.visitorModel;
-            selectedItem.IdNo = (updatedVisitorModel.IdNo ?? "").Trim();
-            selectedItem.FullName = (updatedVisitorModel.FullName ?? "").Trim();
-            selectedItem.IdType = updatedVisitorModel.IdType;
-            if (selectedItem.Contact != null)
+            selectedItem.VisitorIdNo = (updatedVisitorModel.VisitorIdNo ?? "").Trim();
+            selectedItem.VisitorFullName = (updatedVisitorModel.VisitorFullName ?? "").Trim();
+            selectedItem.VisitorIdType = updatedVisitorModel.VisitorIdType;
+            if (selectedItem.VisitorContact != null)
             {
-                selectedItem.Contact = new VisitorContact { IdNo = selectedItem.IdNo };
-                selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
-                selectedItem.Contact.City = updatedVisitorModel.Contact.City;
-                selectedItem.Contact.Address = updatedVisitorModel.Contact.Address;
-                selectedItem.Contact.PostCode = updatedVisitorModel.Contact.PostCode;
+                selectedItem.VisitorContact = new Contact { IdNo = selectedItem.VisitorIdNo };
+                selectedItem.VisitorContact.ContactTel = updatedVisitorModel.VisitorContact.ContactTel;
+                selectedItem.VisitorContact.ContactTel = updatedVisitorModel.VisitorContact.ContactCity;
+                selectedItem.VisitorContact.ContactAddress = updatedVisitorModel.VisitorContact.ContactAddress;
+                selectedItem.VisitorContact.ContactPostCode = updatedVisitorModel.VisitorContact.ContactPostCode;
 
             }
             else
             {
-                selectedItem.Contact = new VisitorContact { IdNo = selectedItem.IdNo };
-                selectedItem.Contact.Tel = updatedVisitorModel.Contact.Tel;
-                selectedItem.Contact.City = updatedVisitorModel.Contact.City;
-                selectedItem.Contact.Address = updatedVisitorModel.Contact.Address;
-                selectedItem.Contact.PostCode = updatedVisitorModel.Contact.PostCode;
+                selectedItem.VisitorContact = new Contact { IdNo = selectedItem.VisitorIdNo };
+                selectedItem.VisitorContact.ContactTel = updatedVisitorModel.VisitorContact.ContactTel;
+                selectedItem.VisitorContact.ContactCity = updatedVisitorModel.VisitorContact.ContactCity;
+                selectedItem.VisitorContact.ContactAddress = updatedVisitorModel.VisitorContact.ContactAddress;
+                selectedItem.VisitorContact.ContactPostCode = updatedVisitorModel.VisitorContact.ContactPostCode;
 
             }
             //if (!string.IsNullOrWhiteSpace(updatedVisitorModel?.Contact.Tel))
@@ -260,21 +260,21 @@ namespace KossanVMS.UserControlPage
             // after: var updatedVisitorModel = editVisitorModel.visitorModel;
 
             // --- COPY PHOTO BACK FROM DIALOG ---
-            if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Photo?.UploadPhotoPath))
+            if (!string.IsNullOrWhiteSpace(updatedVisitorModel.VisitorPhoto?.PhotoUploadPath))
             {
-                if (selectedItem.Photo == null)
-                    selectedItem.Photo = new VisitorPhoto { IdNo = selectedItem.IdNo };
+                if (selectedItem.VisitorPhoto == null)
+                    selectedItem.VisitorPhoto = new Photo { IdNo = selectedItem.VisitorIdNo };
 
-                selectedItem.Photo.UploadPhotoPath = updatedVisitorModel.Photo.UploadPhotoPath;
-                selectedItem.Photo.CaptureDate = updatedVisitorModel.Photo.CaptureDate; // or DateTime.UtcNow
+                selectedItem.VisitorPhoto.PhotoUploadPath = updatedVisitorModel.VisitorPhoto.PhotoUploadPath;
+                selectedItem.VisitorPhoto.PhotoCaptureDate = updatedVisitorModel.VisitorPhoto.PhotoCaptureDate; // or DateTime.UtcNow
             }
             else
             {
                 // Optional: if user cleared the photo in dialog
-                if (selectedItem.Photo != null)
+                if (selectedItem.VisitorPhoto != null)
                 {
-                    _db.Remove(selectedItem.Photo);   // only if you want it removed from DB
-                    selectedItem.Photo = null;
+                    _db.Remove(selectedItem.VisitorPhoto);   // only if you want it removed from DB
+                    selectedItem.VisitorPhoto = null;
                 }
             }
 
@@ -344,7 +344,7 @@ namespace KossanVMS.UserControlPage
           
             if (pb.Image != null) { pb.Image.Dispose(); SetFallbackImage(pb); }
 
-            var path = v?.Photo?.CapturePhotoPath;
+            var path = v?.VisitorPhoto?.PhotoCapturePath;
             if (string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
             {
                 SetFallbackImage(pb);
@@ -387,7 +387,7 @@ namespace KossanVMS.UserControlPage
            
             if (pb.Image != null) { pb.Image.Dispose(); SetFallbackImage(pb); }
 
-            var path = v?.Photo?.UploadPhotoPath;
+            var path = v?.VisitorPhoto?.PhotoCapturePath;
             if (string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
             {
                 SetFallbackImage(pb);
@@ -443,7 +443,7 @@ namespace KossanVMS.UserControlPage
                 pb.Image.Dispose();
                 pb.Image = null;
             }
-            var path = v?.Photo?.UploadPhotoPath;
+            var path = v?.VisitorPhoto?.PhotoUploadPath;
             if (string.IsNullOrWhiteSpace(path) || !System.IO.File.Exists(path))
             {
                 return;

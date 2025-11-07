@@ -23,7 +23,7 @@ namespace KossanVMS
         private bool isMoving = false;
         private readonly VmsContext _db;
         private bool _isNew = false;
-        private List<VisitCategory> _category { get; set; }
+        private List<Category> _category { get; set; }
         private VisitorContactEditForm visitorContactEditForm;
        private VisitRecord _visitRecord { get; set; }
 
@@ -64,9 +64,9 @@ namespace KossanVMS
                 visitorModel = existingVisitor;
             }
             //buttonUpdateID.Text = visitorModel.VisitorNo.ToString();
-            maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
-            textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
-            buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
+            maskedTextBoxIC.Text = visitorModel.VisitorIdNo ?? "";
+            textboxVisitorFullName.textBox.Text = visitorModel.VisitorFullName ?? "";
+            buttonLabelUpdateContact.TextButton = visitorModel.VisitorContact?.ContactTel ?? "";
             //var visitType= visitorModel.IdType;
            
 
@@ -77,7 +77,7 @@ namespace KossanVMS
             comboBoxIdType.DataSource = Enum.GetValues(typeof(Data.IdType));
           
 
-            comboBoxIdType.SelectedItem = visitorModel.IdType;
+            comboBoxIdType.SelectedItem = visitorModel.VisitorIdType;
 
             comboBoxIdType.DrawItem += ComboBoxIdType_DrawItem;  // only if OwnerDraw
             HideRow(tableLayoutPanel1, 2, false);
@@ -145,7 +145,7 @@ namespace KossanVMS
                 var linkedIds = (visitorModel?.VisitorNo > 0)
                     ? new HashSet<int>(
                         _db.VisitorBranchLinks
-                           .Where(x => x.IdNo == visitorModel.IdNo)
+                           .Where(x => x.IdNo == visitorModel.VisitorIdNo)
                            .Select(x => x.BranchID)
                            .ToList())
                     : new HashSet<int>();
@@ -183,7 +183,7 @@ namespace KossanVMS
                 var linkedIds = (visitorModel?.VisitorNo > 0)
                     ? new HashSet<int>(
                         _db.VisitorCategoryLinks
-                           .Where(x => x.IdNo == visitorModel.IdNo)
+                           .Where(x => x.IdNo == visitorModel.VisitorIdNo)
                            .Select(x => x.CategoryID)
                            .ToList())
                     : new HashSet<int>();
@@ -211,7 +211,7 @@ namespace KossanVMS
                                 .Select(li => li.Id)
                                 .ToList();
             var existingLinks = _db.VisitorCategoryLinks
-                                   .Where(x => x.IdNo == visitorModel.IdNo)
+                                   .Where(x => x.IdNo == visitorModel.VisitorIdNo)
                                    .ToList();
             // Delete unselected links
             var toDelete = existingLinks
@@ -225,9 +225,9 @@ namespace KossanVMS
             var existingIds = existingLinks.Select(x => x.CategoryID).ToHashSet();
             var toAdd = selectedIds
                         .Where(id => !existingIds.Contains(id))
-                        .Select(id => new VisitorCategoryLink
+                        .Select(id => new CategoryLink
                         {   
-                            IdNo = visitorModel.IdNo,
+                            IdNo = visitorModel.VisitorIdNo,
                             CategoryID = id
                         })
                         .ToList();
@@ -245,13 +245,13 @@ namespace KossanVMS
             var visitorRecordDb = _db.VisitRecords.LoadAsync();
             var record = new VisitRecord
             {
-                IdNo = visitorModel.IdNo,
+                IdNo = visitorModel.VisitorIdNo,
                 //BranchID =  visitorModel.VisitorBranches.Where(x=> x.).Select(vb => vb.BranchID).FirstOrDefault(),
             };
         }
         public void SaveVisitRecord()
         {
-            _visitRecord.Visitor = visitorModel;
+            _visitRecord.VisitRecordVisitor = visitorModel;
             //_visitRecord.
         }
         private bool SaveResults()
@@ -266,10 +266,10 @@ namespace KossanVMS
                 return false;
             }
             // push values back into the model (if you’re not using data-binding)
-            visitorModel.IdNo = maskedTextBoxIC.Text.Trim();
-            visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
-            visitorModel.Contact ??= new VisitorContact();
-            visitorModel.IdType = (IdType)comboBoxIdType.SelectedIndex;
+            visitorModel.VisitorIdNo = maskedTextBoxIC.Text.Trim();
+            visitorModel.VisitorFullName = textboxVisitorFullName.textBox.Text.Trim();
+            visitorModel.VisitorContact ??= new Contact();
+            visitorModel.VisitorIdType = (IdType)comboBoxIdType.SelectedIndex;
             // visitorModel.Contact.Tel = buttonLabelUpdateContact.Text?.Trim();
 
             return true;
@@ -317,9 +317,9 @@ namespace KossanVMS
 
             if (visitorPhotoCapture.ShowDialog(this) == DialogResult.OK && !string.IsNullOrEmpty(visitorPhotoCapture.capturePath))
             {
-                visitorModel.Photo ??= new VisitorPhoto { IdNo = visitorModel.IdNo };
-                visitorModel.Photo.CapturePhotoPath = visitorPhotoCapture.capturePath;
-                visitorModel.Photo.CaptureDate = DateTime.UtcNow;
+                visitorModel.VisitorPhoto ??= new Photo { IdNo = visitorModel.VisitorIdNo };
+                visitorModel.VisitorPhoto.PhotoCapturePath = visitorPhotoCapture.capturePath;
+                visitorModel.VisitorPhoto.PhotoCaptureDate = DateTime.UtcNow;
 
             }
             CenterForms();
@@ -330,7 +330,7 @@ namespace KossanVMS
         {
             this.StartPosition = FormStartPosition.Manual;
             visitorContactEditForm?.Dispose();
-            visitorContactEditForm = new VisitorContactEditForm(visitorModel.Contact)
+            visitorContactEditForm = new VisitorContactEditForm(visitorModel.VisitorContact)
             {
                 StartPosition = FormStartPosition.Manual,
                 TopMost = true   // optional
@@ -355,14 +355,14 @@ namespace KossanVMS
             }
 
             var foundVisitor = await _db.Visitors
-                .Include(v => v.Contact)
-                .FirstOrDefaultAsync(v => v.IdNo == ic);
+                .Include(v => v.VisitorContact)
+                .FirstOrDefaultAsync(v => v.VisitorIdNo == ic);
 
             visitorModel = foundVisitor;      // OK (same type)
             //buttonUpdateID.Text = visitorModel.IdNo.ToString();
-            maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
-            textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
-            buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
+            maskedTextBoxIC.Text = visitorModel.VisitorIdNo ?? "";
+            textboxVisitorFullName.textBox.Text = visitorModel.VisitorFullName ?? "";
+            buttonLabelUpdateContact.TextButton = visitorModel.VisitorContact?.ContactTel ?? "";
         }
         #endregion
 
@@ -556,7 +556,7 @@ namespace KossanVMS
         {
             
             var type = (IdType)comboBoxIdType.SelectedIndex;
-            if (type == IdType.IC && string.IsNullOrEmpty(visitorModel.IdNo))
+            if (type == IdType.IC && string.IsNullOrEmpty(visitorModel.VisitorIdNo))
             {
                 maskedTextBoxIC.Mask = "000000-00-0000";
                 maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;

@@ -34,13 +34,13 @@ namespace KossanVMS.Modules.VMS.UserControlPage
          // var checkIns = _db.VisitRecords.AsNoTracking().Where(x=> x.OutTime == null).ToListAsync();
             var today = DateTime.Today;
             var tomorrow = today.AddDays(1);
-            var results = await _db.VisitRecords.AsNoTracking().Where(x => x.InTime >= today && x.InTime < tomorrow && x.OutTime == null)
+            var results = await _db.VisitRecords.AsNoTracking().Where(x => x.VisitRecordInTime >= today && x.VisitRecordInTime < tomorrow && x.VisitRecordOutTime == null)
                 .Select(x => new VmsDashboard.TotalCheckIn
                 {
-                    checkInName = x.Visitor.FullName,
+                    checkInName = x.VisitRecordVisitor.VisitorFullName,
                  //   checkInPurpose = x.Purpose.PurposeName,
-                    checkInTime = x.InTime,
-                    ExpiryDateTime = x.ExpiryDate
+                    checkInTime = x.VisitRecordInTime,
+                    ExpiryDateTime = x.VisitRecordExpiryDate
                 })
                 .ToListAsync();
             dataGridView1.DataSource = _db.VisitRecords.Local.ToBindingList();

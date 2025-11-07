@@ -13,16 +13,16 @@ namespace KossanVMS
 {
     public partial class VisitorCategoryEditForm : Form
     {
-        public VisitCategory visitCategoryModel { get; set; }
+        public Category visitCategoryModel { get; set; }
         private readonly VmsContext _db;
-        public VisitorCategoryEditForm(VmsContext db, VisitCategory existingVisitCategory = null )
+        public VisitorCategoryEditForm(VmsContext db, Category existingVisitCategory = null )
         {
             InitializeComponent();
             _db = db ?? throw new ArgumentNullException(nameof(db));
             if(existingVisitCategory == null)
             {
                 Text = "Add New Category";
-                visitCategoryModel = new VisitCategory();
+                visitCategoryModel = new Category();
                 
             }
             else

@@ -15,7 +15,7 @@ namespace KossanVMS.UserControlPage
     public partial class CategoryUserControl : UserControl
     {
         private VmsContext _db;
-        private VisitCategory? CurrentItem => visitCategoryBindingSource.Current as VisitCategory;
+        private Category? CurrentItem => visitCategoryBindingSource.Current as Category;
         public CategoryUserControl(VmsContext db)
         {
             InitializeComponent();
@@ -48,7 +48,7 @@ namespace KossanVMS.UserControlPage
                 MessageBox.Show("Please select a category to edit.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            var copyVisitCategoryModel = new VisitCategory
+            var copyVisitCategoryModel = new Category
             {
                 CategoryID = selecteditem.CategoryID,
                 CategoryName = selecteditem.CategoryName,

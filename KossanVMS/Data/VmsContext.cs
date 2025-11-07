@@ -18,19 +18,19 @@ namespace KossanVMS.Data
         // DbSets
         public DbSet<VmsUser> VmsUsers => Set<VmsUser>();
 
-        public DbSet<VisitCategory> VisitCategories => Set<VisitCategory>();
+        public DbSet<Category> VisitCategories => Set<Category>();
        // public DbSet<VisitPurpose> VisitPurposes => Set<VisitPurpose>();
-        public DbSet<VisitBranch> VisitBranches => Set<VisitBranch>();
-        public DbSet<VisitorCompany> VisitorCompanies => Set<VisitorCompany>();
-
+        public DbSet<Branch> VisitBranches => Set<Branch>();
+        //blic DbSet<Company> VisitorCompanies => Set<Company>();
+        public DbSet<Purpose> VisitPurposes => Set<Purpose>();
         public DbSet<Visitor> Visitors => Set<Visitor>();
-        public DbSet<VisitorContact> VisitorContacts => Set<VisitorContact>();
-        public DbSet<VisitorPhoto> VisitorPhotos => Set<VisitorPhoto>();
-        public DbSet<VisitorAffiliation> VisitorAffiliations => Set<VisitorAffiliation>();
+        public DbSet<Contact> VisitorContacts => Set<Contact>();
+        public DbSet<Photo> VisitorPhotos => Set<Photo>();
+        //public DbSet<VisitorAffiliation> VisitorAffiliations => Set<VisitorAffiliation>();
 
-        public DbSet<VisitorCategoryLink> VisitorCategoryLinks => Set<VisitorCategoryLink>();
+        public DbSet<CategoryLink> VisitorCategoryLinks => Set<CategoryLink>();
        // public DbSet<VisitorPurposeLink> VisitorPurposeLinks => Set<VisitorPurposeLink>();
-        public DbSet<VisitorBranchLink> VisitorBranchLinks => Set<VisitorBranchLink>();
+        public DbSet<BranchLink> VisitorBranchLinks => Set<BranchLink>();
 
         public DbSet<VisitRecord> VisitRecords => Set<VisitRecord>();
 
@@ -47,23 +47,43 @@ namespace KossanVMS.Data
                 b.HasKey(v => v.VisitorNo);
                 b.Property(v => v.VisitorNo).HasColumnOrder(0);
 
-                b.Property(v => v.IdNo).HasMaxLength(100).IsRequired();
-                b.HasAlternateKey(v => v.IdNo).HasName("AK_visitors_id_no");
-                b.Property(v => v.IdNo).HasColumnOrder(1);
+                b.Property(v => v.VisitorIdNo).HasMaxLength(100).IsRequired();
+                b.HasAlternateKey(v => v.VisitorIdNo).HasName("AK_visitors_id_no");
+                b.Property(v => v.VisitorIdNo).HasColumnOrder(1);
 
                 // Business columns
-                b.Property(v => v.IdType).HasColumnOrder(2);
-                b.Property(v => v.FullName).HasMaxLength(150).IsRequired().HasColumnOrder(3);
-                b.Property(v => v.CompanyName).HasColumnOrder(4);
-                b.Property(v => v.ExpiryDate).HasColumnOrder(5);
-                b.Property(v => v.BlackList).HasColumnOrder(6);
+                b.Property(v => v.VisitorIdType).HasColumnOrder(2);
+                b.Property(v => v.VisitorFullName).HasMaxLength(150).IsRequired().HasColumnOrder(3);
+                //b.Property(v => v.CompanyName).HasColumnOrder(4);
+                b.Property(v => v.VisitorExpiryDate).HasColumnOrder(5);
+                b.Property(v => v.VisitorBlackList).HasColumnOrder(6);
                 // audit columns (from VmsAuditEntity) left without explicit order so they come last
             });
+            modelBuilder.Entity<VmsUser>(b =>
+            {
+                // Explicitly map the table name and schema based on your SQL query
+                b.ToTable("vms_users", "dbo");
 
+                // Explicitly map the audit properties to their snake_case column names
+                // This resolves the "Invalid column name 'updated_date'" error.
+                // Assuming properties are CreatedDate/UpdatedDate from VmsAuditEntity
+                b.Property(u => u.CreatedDate).HasColumnName("created_date");
+                b.Property(u => u.UpdatedDate).HasColumnName("updated_date");
+                b.Property(u => u.CreatedBy).HasColumnName("created_by");
+                b.Property(u => u.UpdatedBy).HasColumnName("updated_by");
+
+                // Assuming other user properties also follow snake_case convention, map them here:
+                // Note: You must replace 'UserName' with the actual property name in VmsUser.cs
+                // b.Property(u => u.UserName).HasColumnName("user_name");
+                // b.Property(u => u.PasswordHash).HasColumnName("password_hash");
+                // b.Property(u => u.PasswordSalt).HasColumnName("password_salt");
+                // b.Property(u => u.UserRole).HasColumnName("user_role");
+                // b.Property(u => u.Status).HasColumnName("status");
+            });
             // =========================
             // VisitCategory
             // =========================
-            modelBuilder.Entity<VisitCategory>(b =>
+            modelBuilder.Entity<Category>(b =>
             {
                 b.HasKey(x => x.CategoryID);
                 b.Property(x => x.CategoryID).HasColumnOrder(0);
@@ -76,7 +96,7 @@ namespace KossanVMS.Data
             // =========================
             // VisitBranch
             // =========================
-            modelBuilder.Entity<VisitBranch>(b =>
+            modelBuilder.Entity<Branch>(b =>
             {
                 b.HasKey(x => x.BranchID);
                 b.Property(x => x.BranchID).HasColumnOrder(0);
@@ -85,7 +105,20 @@ namespace KossanVMS.Data
                 b.Property(x => x.BranchStatus).HasColumnOrder(3);
                 b.Property(x => x.BranchConnectionString).HasColumnOrder(4);
             });
+            //====================================
+            //VisitorPurpose
+            //====================================
 
+            modelBuilder.Entity<Purpose>(b =>
+            {
+                b.HasKey(x => x.PurposeID);
+                b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1);
+                b.HasOne(x => x.Visitor)
+                .WithOne(x => x.VisitorPurpose)
+                .HasForeignKey<Purpose>(x => x.IdNo)
+                .HasPrincipalKey<Visitor>(x => x.VisitorIdNo)
+                .OnDelete(DeleteBehavior.Restrict);
+            });
             // =========================
             // RegisterType
             // =========================
@@ -100,102 +133,102 @@ namespace KossanVMS.Data
             // =========================
             // VisitorCompany
             // =========================
-            modelBuilder.Entity<VisitorCompany>(b =>
-            {
-                b.HasKey(x => x.CompanyID);
-                b.Property(x => x.CompanyID).HasColumnOrder(0);
-                b.Property(x => x.CompanyName).HasMaxLength(100).HasColumnOrder(1);
-                b.Property(x => x.RegistrationNo).HasMaxLength(50).HasColumnOrder(2);
-                b.Property(x => x.CompanyAddress).HasColumnOrder(3);
-            });
+            //modelBuilder.Entity<VisitorCompany>(b =>
+            //{
+            //    b.HasKey(x => x.CompanyID);
+            //    b.Property(x => x.CompanyID).HasColumnOrder(0);
+            //    b.Property(x => x.CompanyName).HasMaxLength(100).HasColumnOrder(1);
+            //    b.Property(x => x.RegistrationNo).HasMaxLength(50).HasColumnOrder(2);
+            //    b.Property(x => x.CompanyAddress).HasColumnOrder(3);
+            //});
 
             // =========================
             // VisitorContact (1:1 via IdNo)
             // =========================
-            modelBuilder.Entity<VisitorContact>(b =>
+            modelBuilder.Entity<Contact>(b =>
             {
                 b.HasKey(x => x.ContactID);
                 b.Property(x => x.ContactID).HasColumnOrder(0);
 
                 b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1); // FK to Visitor.IdNo (unique in 1:1)
                 b.HasOne(x => x.Visitor)
-                 .WithOne(v => v.Contact)
-                 .HasForeignKey<VisitorContact>(x => x.IdNo)
-                 .HasPrincipalKey<Visitor>(v => v.IdNo)
+                 .WithOne(v => v.VisitorContact)
+                 .HasForeignKey<Contact>(x => x.IdNo)
+                 .HasPrincipalKey<Visitor>(v => v.VisitorIdNo)
                  .OnDelete(DeleteBehavior.Restrict);
 
-                b.Property(x => x.Address).HasColumnOrder(2);
-                b.Property(x => x.City).HasColumnOrder(3);
-                b.Property(x => x.State).HasColumnOrder(4);
-                b.Property(x => x.PostCode).HasColumnOrder(5);
-                b.Property(x => x.Tel).HasColumnOrder(6);
+                b.Property(x => x.ContactAddress).HasColumnOrder(2);
+                b.Property(x => x.ContactCity).HasColumnOrder(3);
+                b.Property(x => x.ContactState).HasColumnOrder(4);
+                b.Property(x => x.ContactPostCode).HasColumnOrder(5);
+                b.Property(x => x.ContactTel).HasColumnOrder(6);
             });
 
             // =========================
             // VisitorPhoto (1:1 via IdNo)
             // =========================
-            modelBuilder.Entity<VisitorPhoto>(b =>
+            modelBuilder.Entity<Photo>(b =>
             {
                 b.HasKey(x => x.PhotoID);
                 b.Property(x => x.PhotoID).HasColumnOrder(0);
 
                 b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1); // FK to Visitor.IdNo (unique in 1:1)
                 b.HasOne(x => x.Visitor)
-                 .WithOne(v => v.Photo)
-                 .HasForeignKey<VisitorPhoto>(x => x.IdNo)
-                 .HasPrincipalKey<Visitor>(v => v.IdNo)
+                 .WithOne(v => v.VisitorPhoto)
+                 .HasForeignKey<Photo>(x => x.IdNo)
+                 .HasPrincipalKey<Visitor>(v => v.VisitorIdNo)
                  .OnDelete(DeleteBehavior.Restrict);
 
-                b.Property(x => x.CapturePhotoPath).HasColumnOrder(2);
-                b.Property(x => x.UploadPhotoPath).HasColumnOrder(3);
+                b.Property(x => x.PhotoCapturePath).HasColumnOrder(2);
+                b.Property(x => x.PhotoUploadPath).HasColumnOrder(3);
                 b.Property(x => x.PhotoURL).HasMaxLength(255).IsRequired().HasColumnOrder(4);
-                b.Property(x => x.CaptureDate).HasColumnOrder(5);
-                b.Property(x => x.UploadDate).HasColumnOrder(6);
+                b.Property(x => x.PhotoCaptureDate).HasColumnOrder(5);
+                b.Property(x => x.PhotoUploadDate).HasColumnOrder(6);
             });
 
             // =========================
             // VisitorAffiliation (many-to-one to Visitor via IdNo; and to VisitorCompany)
             // =========================
-            modelBuilder.Entity<VisitorAffiliation>(b =>
-            {
-                b.HasKey(x => x.AffiliationID);
-                b.Property(x => x.AffiliationID).HasColumnOrder(0);
+            //modelBuilder.Entity<VisitorAffiliation>(b =>
+            //{
+            //    b.HasKey(x => x.AffiliationID);
+            //    b.Property(x => x.AffiliationID).HasColumnOrder(0);
 
-                b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1); // FK to Visitor.IdNo
-                b.HasOne(x => x.Visitor)
-                 .WithMany(v => v.VisitorAffiliations)
-                 .HasForeignKey(x => x.IdNo)
-                 .HasPrincipalKey(v => v.IdNo)
-                 .OnDelete(DeleteBehavior.Restrict);
+            //    b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1); // FK to Visitor.IdNo
+            //    b.HasOne(x => x.Visitor)
+            //     .WithMany(v => v.VisitorAffiliations)
+            //     .HasForeignKey(x => x.IdNo)
+            //     .HasPrincipalKey(v => v.IdNo)
+            //     .OnDelete(DeleteBehavior.Restrict);
 
-                b.Property(x => x.CompanyID).HasColumnOrder(2); // FK to VisitorCompany
-                b.HasOne(x => x.VisitorCompany)
-                 .WithMany()
-                 .HasForeignKey(x => x.CompanyID)
-                 .OnDelete(DeleteBehavior.Restrict);
+            //    b.Property(x => x.CompanyID).HasColumnOrder(2); // FK to VisitorCompany
+            //    b.HasOne(x => x.VisitorCompany)
+            //     .WithMany()
+            //     .HasForeignKey(x => x.CompanyID)
+            //     .OnDelete(DeleteBehavior.Restrict);
 
-                b.Property(x => x.Relationship).HasMaxLength(50).HasColumnOrder(3);
-                b.Property(x => x.ValidFrom).HasColumnOrder(4);
-                b.Property(x => x.ValidTo).HasColumnOrder(5);
-            });
+            //    b.Property(x => x.Relationship).HasMaxLength(50).HasColumnOrder(3);
+            //    b.Property(x => x.ValidFrom).HasColumnOrder(4);
+            //    b.Property(x => x.ValidTo).HasColumnOrder(5);
+            //});
 
             // =========================
             // VisitorCategoryLink (link: Id, IdNo, CategoryID)
             // =========================
-            modelBuilder.Entity<VisitorCategoryLink>(b =>
+            modelBuilder.Entity<CategoryLink>(b =>
             {
-                b.HasKey(x => x.ID);
-                b.Property(x => x.ID).HasColumnOrder(0);
+                b.HasKey(x => x.CategoryLinkID);
+                b.Property(x => x.CategoryLinkID).HasColumnOrder(0);
 
                 b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1); // FK to Visitor.IdNo
-                b.HasOne(x => x.Visitor)
+                b.HasOne(x => x.CategoryLinkVisitor)
                  .WithMany(v => v.VisitorCategories)
                  .HasForeignKey(x => x.IdNo)
-                 .HasPrincipalKey(v => v.IdNo)
+                 .HasPrincipalKey(v => v.VisitorIdNo)
                  .OnDelete(DeleteBehavior.Restrict);
 
                 b.Property(x => x.CategoryID).HasColumnOrder(2); // FK to VisitCategory
-                b.HasOne(x => x.Category)
+                b.HasOne(x => x.CategoryLinkCategory)
                  .WithMany()
                  .HasForeignKey(x => x.CategoryID)
                  .OnDelete(DeleteBehavior.Restrict);
@@ -204,20 +237,20 @@ namespace KossanVMS.Data
             // =========================
             // VisitorBranchLink (link: Id, IdNo, BranchID)
             // =========================
-            modelBuilder.Entity<VisitorBranchLink>(b =>
+            modelBuilder.Entity<BranchLink>(b =>
             {
-                b.HasKey(x => x.ID);
-                b.Property(x => x.ID).HasColumnOrder(0);
+                b.HasKey(x => x.BranchLinkID);
+                b.Property(x => x.BranchLinkID).HasColumnOrder(0);
 
                 b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1); // FK to Visitor.IdNo
-                b.HasOne(x => x.Visitor)
+                b.HasOne(x => x.BranchLinkVisitor)
                  .WithMany(v => v.VisitorBranches)
                  .HasForeignKey(x => x.IdNo)
-                 .HasPrincipalKey(v => v.IdNo)
+                 .HasPrincipalKey(v => v.VisitorIdNo)
                  .OnDelete(DeleteBehavior.Restrict);
 
                 b.Property(x => x.BranchID).HasColumnOrder(2); // FK to VisitBranch
-                b.HasOne(x => x.Branch)
+                b.HasOne(x => x.BranchLinkBranch)
                  .WithMany()
                  .HasForeignKey(x => x.BranchID)
                  .OnDelete(DeleteBehavior.Restrict);
@@ -232,19 +265,19 @@ namespace KossanVMS.Data
                 b.Property(x => x.VisitRecordID).HasColumnOrder(0);
 
                 b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1); // FK to Visitor.IdNo
-                b.HasOne(x => x.Visitor)
+                b.HasOne(x => x.VisitRecordVisitor)
                  .WithMany(v => v.VisitRecords)
                  .HasForeignKey(x => x.IdNo)
-                 .HasPrincipalKey(v => v.IdNo)
+                 .HasPrincipalKey(v => v.VisitorIdNo)
                  .OnDelete(DeleteBehavior.Restrict);
 
                 b.Property(x => x.BranchID).HasColumnOrder(2); // FK to VisitBranch
-                b.HasOne(x => x.Branch).WithMany()
+                b.HasOne(x => x.VisitRecordBranch).WithMany()
                  .HasForeignKey(x => x.BranchID)
                  .OnDelete(DeleteBehavior.Restrict);
 
                 b.Property(x => x.CategoryID).HasColumnOrder(3);
-                b.HasOne(x => x.Category).WithMany()
+                b.HasOne(x => x.VisitRecordCategory).WithMany()
                  .HasForeignKey(x => x.CategoryID)
                  .OnDelete(DeleteBehavior.Restrict);
                 //b.Property(x => x.CompanyID).HasColumnOrder(4);
@@ -257,22 +290,22 @@ namespace KossanVMS.Data
                 // .OnDelete(DeleteBehavior.Restrict);
 
                 b.Property(x => x.RegisterTypeID).HasColumnOrder(5);
-                b.HasOne(x => x.RegisterType).WithMany()
+                b.HasOne(x => x.VisitRecordRegisterType).WithMany()
                  .HasForeignKey(x => x.RegisterTypeID)
                  .OnDelete(DeleteBehavior.Restrict);
 
                 // Time & misc details
-                b.Property(x => x.InTime).HasColumnOrder(6);
-                b.Property(x => x.OutTime).HasColumnOrder(7);
-                b.Property(x => x.VehicleNo).HasColumnOrder(8);
-                b.Property(x => x.InRemarks).HasColumnOrder(9);
-                b.Property(x => x.InPhotoPath).HasColumnOrder(10);
-                b.Property(x => x.TagNo).HasColumnOrder(11);
-                b.Property(x => x.GatePass).HasColumnOrder(12);
-                b.Property(x => x.VisitPerson).HasColumnOrder(13);
-                b.Property(x => x.DONo).HasColumnOrder(14);
-                b.Property(x => x.BodyTemperature).HasPrecision(4, 1).HasColumnOrder(15);
-                b.Property(x => x.ExpiryDate).HasColumnOrder(16);
+                b.Property(x => x.VisitRecordInTime).HasColumnOrder(6);
+                b.Property(x => x.VisitRecordOutTime).HasColumnOrder(7);
+                b.Property(x => x.VisitRecordVehicleNo).HasColumnOrder(8);
+                b.Property(x => x.VisitRecordRemarks).HasColumnOrder(9);
+                b.Property(x => x.VisitRecordPhotoPath).HasColumnOrder(10);
+                b.Property(x => x.VisitRecordTagNo).HasColumnOrder(11);
+                b.Property(x => x.VisitRecordGatePass).HasColumnOrder(12);
+                b.Property(x => x.VisitRecordVisitPerson).HasColumnOrder(13);
+                b.Property(x => x.VisitRecordDONo).HasColumnOrder(14);
+                b.Property(x => x.VisitRecordBodyTemperature).HasPrecision(4, 1).HasColumnOrder(15);
+                b.Property(x => x.VisitRecordExpiryDate).HasColumnOrder(16);
             });
         }
 

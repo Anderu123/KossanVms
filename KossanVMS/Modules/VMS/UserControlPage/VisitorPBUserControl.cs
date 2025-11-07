@@ -57,8 +57,8 @@ namespace KossanVMS.UserControlPage
                     await _db.VisitCategories.LoadAsync();
                     await _db.VisitorCategoryLinks.LoadAsync();
                     await _db.Visitors//.Include(v => v.BlackList)
-                        .Include(v => v.Contact)
-                                      .Include(v => v.Photo).LoadAsync();
+                        .Include(v => v.VisitorContact)
+                                      .Include(v => v.VisitorPhoto).LoadAsync();
                     visitorBindingSource.DataSource = _db.Visitors.Local.ToBindingList();
                     UpdateHQPhotoPreview(CurrentItem);
                     UpdateSitePhotoPreview(CurrentItem);
@@ -85,10 +85,10 @@ namespace KossanVMS.UserControlPage
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v)
                 {
 
-                    if (v.Photo != null)
+                    if (v.VisitorPhoto != null)
                     {
 
-                        e.Value = v.Photo.CapturePhotoPath ?? string.Empty;
+                        e.Value = v.VisitorPhoto.PhotoCapturePath ?? string.Empty;
                     }
                     else
                     {
@@ -107,7 +107,7 @@ namespace KossanVMS.UserControlPage
             {
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v1)
                 {
-                    e.Value = v1.Contact?.Tel ?? string.Empty;
+                    e.Value = v1.VisitorContact?.ContactTel ?? string.Empty;
 
                 }
                 else
@@ -123,7 +123,7 @@ namespace KossanVMS.UserControlPage
                 if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v2)
                 {
                     var names = _db.VisitorCategoryLinks.Local
-                        .Where(l => l.IdNo == v2.IdNo)
+                        .Where(l => l.IdNo == v2.VisitorIdNo)
                         .Join((_db.VisitCategories.Local),
                               link => link.CategoryID,
                               category => category.CategoryID,
@@ -157,12 +157,12 @@ namespace KossanVMS.UserControlPage
             var copyVisitorModel = new Visitor
             {
                 VisitorNo = selecteditem.VisitorNo,
-                IdType = selecteditem.IdType,
-                IdNo = selecteditem.IdNo,
-                FullName = selecteditem.FullName,
-                Contact = selecteditem.Contact,
-                Photo = selecteditem.Photo,
-                BlackList = selecteditem.BlackList
+                VisitorIdType = selecteditem.VisitorIdType,
+                VisitorIdNo = selecteditem.VisitorIdNo,
+                VisitorFullName = selecteditem.VisitorFullName,
+                VisitorContact = selecteditem.VisitorContact,
+                VisitorPhoto = selecteditem.VisitorPhoto,
+                VisitorBlackList = selecteditem.VisitorBlackList
             };
 
             using var editVisitorModel = new VisitorPBEditForm(_db, copyVisitorModel, visitRecord);
@@ -171,32 +171,32 @@ namespace KossanVMS.UserControlPage
                 return;
             }
             var updatedVisitorModel = editVisitorModel.visitorModel;
-            selecteditem.IdNo = updatedVisitorModel.IdNo.Trim() ?? "";
-            selecteditem.IdType = updatedVisitorModel.IdType;
-            selecteditem.FullName = updatedVisitorModel.FullName.Trim() ?? "";
+            selecteditem.VisitorIdNo = updatedVisitorModel.VisitorIdNo.Trim() ?? "";
+            selecteditem.VisitorIdType = updatedVisitorModel.VisitorIdType;
+            selecteditem.VisitorFullName = updatedVisitorModel.VisitorFullName.Trim() ?? "";
 
-            selecteditem.Contact = new VisitorContact { IdNo = selecteditem.IdNo };
-            selecteditem.Contact.Tel = updatedVisitorModel.Contact.Tel;
-            selecteditem.Contact.City = updatedVisitorModel.Contact.City;
-            selecteditem.Contact.Address = updatedVisitorModel.Contact.Address;
-            selecteditem.Contact.PostCode = updatedVisitorModel.Contact.PostCode;
+            selecteditem.VisitorContact = new Contact { IdNo = selecteditem.VisitorIdNo };
+            selecteditem.VisitorContact.ContactTel = updatedVisitorModel.VisitorContact.ContactTel;
+            selecteditem.VisitorContact.ContactCity = updatedVisitorModel.VisitorContact.ContactCity;
+            selecteditem.VisitorContact.ContactAddress = updatedVisitorModel.VisitorContact.ContactAddress;
+            selecteditem.VisitorContact.ContactPostCode = updatedVisitorModel.VisitorContact.ContactPostCode;
 
-            if (!string.IsNullOrWhiteSpace(updatedVisitorModel.Photo?.CapturePhotoPath))
+            if (!string.IsNullOrWhiteSpace(updatedVisitorModel.VisitorPhoto?.PhotoCapturePath))
             {
-                if (selecteditem.Photo == null)
+                if (selecteditem.VisitorPhoto == null)
                 {
-                    selecteditem.Photo = new VisitorPhoto { IdNo = selecteditem.IdNo };
+                    selecteditem.VisitorPhoto = new Photo { IdNo = selecteditem.VisitorIdNo };
                 }
-                selecteditem.Photo.CapturePhotoPath = updatedVisitorModel.Photo.CapturePhotoPath;
-                selecteditem.Photo.CaptureDate = updatedVisitorModel.Photo.CaptureDate;
+                selecteditem.VisitorPhoto.PhotoCapturePath = updatedVisitorModel.VisitorPhoto.PhotoCapturePath;
+                selecteditem.VisitorPhoto.PhotoCaptureDate = updatedVisitorModel.VisitorPhoto.PhotoCaptureDate;
 
             }
             else
             {
                 if (selecteditem != null)
                 {
-                    _db.Remove(selecteditem.Photo);
-                    selecteditem.Photo = null;
+                    _db.Remove(selecteditem.VisitorPhoto);
+                    selecteditem.VisitorPhoto = null;
                 }
             }
             _db.SaveChanges();
@@ -236,7 +236,7 @@ namespace KossanVMS.UserControlPage
                 pb.Image.Dispose();
                 SetFallbackImage(pb);
             }
-            var path = v?.Photo?.CapturePhotoPath;
+            var path = v?.VisitorPhoto?.PhotoCapturePath;
             if (string.IsNullOrWhiteSpace(path))
             {
                 SetFallbackImage(pb);
@@ -268,7 +268,7 @@ namespace KossanVMS.UserControlPage
                 pb.Image.Dispose();
                 SetFallbackImage(pb);
             }
-            var path = v?.Photo?.UploadPhotoPath;
+            var path = v?.VisitorPhoto?.PhotoUploadPath;
             if (string.IsNullOrWhiteSpace(path))
             {
                 SetFallbackImage(pb);

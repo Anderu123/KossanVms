@@ -16,10 +16,10 @@ namespace KossanVMS
 
 
     {
-        public VisitBranch visitBranchModel { get; set; }
+        public Branch visitBranchModel { get; set; }
         private bool _updatingStatus;
         private bool _syncing;
-        public VisitBranchEditForm(VisitBranch exitingVisitBranch = null)
+        public VisitBranchEditForm(Branch exitingVisitBranch = null)
         {
             InitializeComponent();
             if (exitingVisitBranch != null)
@@ -30,7 +30,7 @@ namespace KossanVMS
             else
             {
                 Text = "Add Branch";
-                visitBranchModel = new VisitBranch();
+                visitBranchModel = new Branch();
             }
 
             textBoxBranchName.textBox.Text = visitBranchModel.BranchName;

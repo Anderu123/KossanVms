@@ -12,9 +12,9 @@ namespace KossanVMS
 {
     public partial class VisitorContactEditForm : Form
     {
-        private VisitorContact contactModel { get; set; }
+        private Contact contactModel { get; set; }
         private bool _isNew = false;
-        public VisitorContactEditForm(VisitorContact exitingContact = null)
+        public VisitorContactEditForm(Contact exitingContact = null)
         {
             InitializeComponent();
             if (exitingContact != null)
@@ -25,15 +25,15 @@ namespace KossanVMS
             else
             {
                 this.Text = "Add Contact";
-                contactModel = new VisitorContact();
+                contactModel = new Contact();
                 _isNew = true;
 
             }
-            cyberTextBoxTel.textBox.Text = contactModel.Tel ?? "";
-            cyberTextBoxAddress.textBox.Text = contactModel.Address ?? "";
-            cyberTextBoxCity.textBox.Text = contactModel.City ?? "";
-            cyberTextBoxPostCode.textBox.Text = contactModel.PostCode ?? "";
-            cyberTextBoxState.textBox.Text = contactModel.State ?? "";
+            cyberTextBoxTel.textBox.Text = contactModel.ContactTel ?? "";
+            cyberTextBoxAddress.textBox.Text = contactModel.ContactAddress ?? "";
+            cyberTextBoxCity.textBox.Text = contactModel.ContactCity ?? "";
+            cyberTextBoxPostCode.textBox.Text = contactModel.ContactPostCode ?? "";
+            cyberTextBoxState.textBox.Text = contactModel.ContactState ?? "";
         }
 
 
@@ -41,11 +41,11 @@ namespace KossanVMS
         {
             //if (_isNew)
             //    return false;
-            contactModel.Tel = cyberTextBoxTel.textBox.Text.Trim();
-            contactModel.Address = cyberTextBoxAddress.textBox.Text.Trim();
-            contactModel.City = cyberTextBoxCity.textBox.Text.Trim();
-            contactModel.PostCode = cyberTextBoxPostCode.textBox.Text.Trim();
-            contactModel.State = cyberTextBoxState.textBox.Text.Trim();
+            contactModel.ContactTel = cyberTextBoxTel.textBox.Text.Trim();
+            contactModel.ContactAddress = cyberTextBoxAddress.textBox.Text.Trim();
+            contactModel.ContactCity = cyberTextBoxCity.textBox.Text.Trim();
+            contactModel.ContactPostCode = cyberTextBoxPostCode.textBox.Text.Trim();
+            contactModel.ContactState = cyberTextBoxState.textBox.Text.Trim();
             return true;
 
         }

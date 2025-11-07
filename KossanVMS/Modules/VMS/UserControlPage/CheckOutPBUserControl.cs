@@ -122,14 +122,14 @@ namespace KossanVMS.Modules.VMS.UserControlPage
             var v = CurrentItem;
             if (v != null)
             {
-                textboxTagNo.textBox.Text = v.TagNo;
-                textboxRegisterType.textBox.Text = v.RegisterType?.RegisterTypeName;
-                textboxName.textBox.Text = v.Visitor.FullName;
-                textboxIdNo.textBox.Text = v.Company;
-                textboxContact.textBox.Text = v.Visitor.Contact.Tel;
-                textboxVehicleNo.textBox.Text = v.VehicleNo;
-                textboxCategory.textBox.Text = v.Category.CategoryName;
-                textboxGatePass.textBox.Text = v.GatePass;
+                textboxTagNo.textBox.Text = v.VisitRecordTagNo;
+                textboxRegisterType.textBox.Text = v.VisitRecordRegisterType?.RegisterTypeName;
+                textboxName.textBox.Text = v.VisitRecordVisitor.VisitorFullName;
+                textboxIdNo.textBox.Text = v.VisitRecordVisitor.VisitorContact.ContactCompany;
+                textboxContact.textBox.Text = v.VisitRecordVisitor.VisitorContact.ContactTel;
+                textboxVehicleNo.textBox.Text = v.VisitRecordVehicleNo;
+                textboxCategory.textBox.Text = v.VisitRecordCategory.CategoryName;
+                textboxGatePass.textBox.Text = v.VisitRecordGatePass;
 
 
 

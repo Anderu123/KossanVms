@@ -20,7 +20,7 @@ namespace KossanVMS
         private bool isMoving = false;
         private readonly VmsContext  _db;
         private bool _isNew  = false;
-        private List<VisitCategory> _category { get; set; }
+        private List<Category> _category { get; set; }
         private VisitorContactEditForm visitorContactEditForm;
         private string? savePhotoFilePath = @"C:\Vms\UploadPhotos";
         public string? uploadPath { get; set; }
@@ -58,15 +58,15 @@ namespace KossanVMS
                 visitorModel = exisitingVisitor;
             }
             buttonUpdateID.TextButton = visitorModel.VisitorNo.ToString();
-            maskedTextBoxIC.Text = visitorModel.IdNo ?? "";
-            textboxVisitorFullName.textBox.Text = visitorModel.FullName ?? "";
-            buttonLabelUpdateContact.TextButton = visitorModel.Contact?.Tel ?? "";
+            maskedTextBoxIC.Text = visitorModel.VisitorIdNo ?? "";
+            textboxVisitorFullName.textBox.Text = visitorModel.VisitorFullName ?? "";
+            buttonLabelUpdateContact.TextButton = visitorModel.VisitorContact?.ContactTel ?? "";
             LoadCategoryCheckList();
             comboBoxIdType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxIdType.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxIdType.ItemHeight = 45;
             comboBoxIdType.DataSource = Enum.GetValues(typeof(IdType)).Cast<IdType>();
-            comboBoxIdType.SelectedItem = visitorModel.IdType;
+            comboBoxIdType.SelectedItem = visitorModel.VisitorIdType;
              comboBoxIdType.DrawItem += ComboBoxIdType_DrawItem;
 
         }
@@ -83,7 +83,7 @@ namespace KossanVMS
                 checkedListBoxCat.ValueMember = nameof(ListItem.Id);
                 checkedListBoxCat.DataSource = items;
                 var linkedCategories = (visitorModel?.VisitorNo >0) ?  new HashSet<int>(_db
-                    .VisitorCategoryLinks.Where(x=>x.IdNo == visitorModel.IdNo)
+                    .VisitorCategoryLinks.Where(x=>x.IdNo == visitorModel.VisitorIdNo)
                     .Select(x => x.CategoryID).ToList())
                     : new HashSet<int>();   
                 for (int i = 0; i < checkedListBoxCat.Items.Count; i++)
@@ -157,11 +157,11 @@ namespace KossanVMS
             this.StartPosition = FormStartPosition.Manual;
             visitorContactEditForm?.Dispose();
 
-            if (visitorModel.Contact == null)
+            if (visitorModel.VisitorContact == null)
             {
-                visitorModel.Contact = new VisitorContact();
+                visitorModel.VisitorContact = new Contact();
             }
-            visitorContactEditForm = new VisitorContactEditForm(visitorModel.Contact)
+            visitorContactEditForm = new VisitorContactEditForm(visitorModel.VisitorContact)
             {
                 StartPosition = FormStartPosition.Manual,
                 TopMost = true
@@ -195,11 +195,11 @@ namespace KossanVMS
                 maskedTextBoxIC.Focus();
                 return false;
             }
-            visitorModel.IdNo = maskedTextBoxIC.Text.Trim();
-            visitorModel.FullName = textboxVisitorFullName.textBox.Text.Trim();
-            visitorModel.Contact ??= new VisitorContact();
-            visitorModel.IdType = (IdType)comboBoxIdType.SelectedIndex;
-            visitorModel.Photo.UploadPhotoPath = uploadPath ?? "";
+            visitorModel.VisitorIdNo = maskedTextBoxIC.Text.Trim();
+            visitorModel.VisitorFullName = textboxVisitorFullName.textBox.Text.Trim();
+            visitorModel.VisitorContact ??= new Contact();
+            visitorModel.VisitorIdType = (IdType)comboBoxIdType.SelectedIndex;
+            visitorModel.VisitorPhoto.PhotoUploadPath = uploadPath ?? "";
             return true;
         }
         private void SaveVisitorCategories()
@@ -208,7 +208,7 @@ namespace KossanVMS
             var selectedId = checkedListBoxCat.CheckedItems.Cast<ListItem>()
                 .Select(l => l.Id).ToList();
             var existingLinks = _db.VisitorCategoryLinks
-                .Where(x => x.IdNo == visitorModel.IdNo).ToList();
+                .Where(x => x.IdNo == visitorModel.VisitorIdNo).ToList();
 
             var toDelete = existingLinks
                           .Where(link => !selectedId.Contains(link.CategoryID))
@@ -221,9 +221,9 @@ namespace KossanVMS
             var existingIds = existingLinks.Select(x => x.CategoryID).ToHashSet();
             var toAdd = selectedId
                         .Where(id => !existingIds.Contains(id))
-                        .Select(id => new VisitorCategoryLink
+                        .Select(id => new CategoryLink
                         {
-                            IdNo = visitorModel.IdNo,
+                            IdNo = visitorModel.VisitorIdNo,
                             CategoryID = id
                         })
                         .ToList();
@@ -240,13 +240,13 @@ namespace KossanVMS
         {
            
             var identityNo = maskedTextBoxIC.Text.Trim();
-            var searchResult = _db.Visitors.FirstOrDefault(x => x.IdNo == identityNo);
+            var searchResult = _db.Visitors.FirstOrDefault(x => x.VisitorIdNo == identityNo);
             if (searchResult != null)
             {
                 MessageBox.Show(this, "Search Found!", "Success",
     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                textboxVisitorFullName.textBox.Text = searchResult.FullName.Trim();
+                textboxVisitorFullName.textBox.Text = searchResult.VisitorFullName.Trim();
 
 
             }

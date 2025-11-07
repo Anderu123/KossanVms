@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    [Migration("20251027062607_RemoveCompanyPropertiesAddCompanyString")]
-    partial class RemoveCompanyPropertiesAddCompanyString
+    [Migration("20251107095318_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,59 +24,12 @@ namespace KossanVMS.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("KossanVMS.Data.RegisterType", b =>
-                {
-                    b.Property<int>("RegisterTypeID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("register_type_id")
-                        .HasColumnOrder(0);
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RegisterTypeID"), 1L, 1);
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("created_date");
-
-                    b.Property<string>("RegisterTypeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("register_type_name")
-                        .HasColumnOrder(1);
-
-                    b.Property<string>("RegisterUserRole")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("register_user_role")
-                        .HasColumnOrder(2);
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasColumnName("status");
-
-                    b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("updated_by");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("updated_date");
-
-                    b.HasKey("RegisterTypeID");
-
-                    b.ToTable("register_types");
-                });
-
-            modelBuilder.Entity("KossanVMS.Data.VisitBranch", b =>
+            modelBuilder.Entity("KossanVMS.Data.Branch", b =>
                 {
                     b.Property<int>("BranchID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("branch_id")
+                        .HasColumnName("b_id")
                         .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BranchID"), 1L, 1);
@@ -84,25 +37,25 @@ namespace KossanVMS.Migrations
                     b.Property<string>("BranchConnectionString")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("branch_connection_string")
+                        .HasColumnName("b_connection_string")
                         .HasColumnOrder(4);
 
                     b.Property<string>("BranchDescription")
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)")
-                        .HasColumnName("branch_description")
+                        .HasColumnName("b_description")
                         .HasColumnOrder(2);
 
                     b.Property<string>("BranchName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("branch_name")
+                        .HasColumnName("b_name")
                         .HasColumnOrder(1);
 
                     b.Property<bool>("BranchStatus")
                         .HasColumnType("bit")
-                        .HasColumnName("branch_status")
+                        .HasColumnName("b_status")
                         .HasColumnOrder(3);
 
                     b.Property<int>("CreatedBy")
@@ -127,40 +80,91 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("BranchID");
 
-                    b.ToTable("visit_branches");
+                    b.ToTable("branch");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitCategory", b =>
+            modelBuilder.Entity("KossanVMS.Data.BranchLink", b =>
+                {
+                    b.Property<int>("BranchLinkID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("bl_id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BranchLinkID"), 1L, 1);
+
+                    b.Property<int>("BranchID")
+                        .HasColumnType("int")
+                        .HasColumnName("branch_id")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date");
+
+                    b.Property<string>("IdNo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("visitor_id_no")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date");
+
+                    b.HasKey("BranchLinkID");
+
+                    b.HasIndex("BranchID");
+
+                    b.HasIndex("IdNo");
+
+                    b.ToTable("branch_link");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.Category", b =>
                 {
                     b.Property<int>("CategoryID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("category_id")
+                        .HasColumnName("c_id")
                         .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryID"), 1L, 1);
 
                     b.Property<bool>("CategoryContract")
                         .HasColumnType("bit")
-                        .HasColumnName("category_contract")
+                        .HasColumnName("c_contract")
                         .HasColumnOrder(4);
 
                     b.Property<string>("CategoryDescription")
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)")
-                        .HasColumnName("category_description")
+                        .HasColumnName("c_description")
                         .HasColumnOrder(2);
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("category_name")
+                        .HasColumnName("c_name")
                         .HasColumnOrder(1);
 
                     b.Property<bool>("CategoryStatus")
                         .HasColumnType("bit")
-                        .HasColumnName("category_status")
+                        .HasColumnName("c_status")
                         .HasColumnOrder(3);
 
                     b.Property<int>("CreatedBy")
@@ -185,206 +189,18 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("visit_categories");
+                    b.ToTable("category");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.Visitor", b =>
+            modelBuilder.Entity("KossanVMS.Data.CategoryLink", b =>
                 {
-                    b.Property<int>("VisitorNo")
+                    b.Property<int>("CategoryLinkID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("visitor_no")
+                        .HasColumnName("cl_id")
                         .HasColumnOrder(0);
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitorNo"), 1L, 1);
-
-                    b.Property<bool>("BlackList")
-                        .HasColumnType("bit")
-                        .HasColumnName("black_list")
-                        .HasColumnOrder(6);
-
-                    b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("company_name")
-                        .HasColumnOrder(4);
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("created_date");
-
-                    b.Property<DateTime?>("ExpiryDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("expiry_date")
-                        .HasColumnOrder(5);
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)")
-                        .HasColumnName("full_name")
-                        .HasColumnOrder(3);
-
-                    b.Property<string>("IdNo")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("id_no")
-                        .HasColumnOrder(1);
-
-                    b.Property<byte>("IdType")
-                        .HasColumnType("tinyint")
-                        .HasColumnName("id_type")
-                        .HasColumnOrder(2);
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasColumnName("status");
-
-                    b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("updated_by");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("updated_date");
-
-                    b.HasKey("VisitorNo");
-
-                    b.HasAlternateKey("IdNo")
-                        .HasName("AK_visitors_id_no");
-
-                    b.ToTable("visitors");
-                });
-
-            modelBuilder.Entity("KossanVMS.Data.VisitorAffiliation", b =>
-                {
-                    b.Property<int>("AffiliationID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("affiliation_id")
-                        .HasColumnOrder(0);
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AffiliationID"), 1L, 1);
-
-                    b.Property<int>("CompanyID")
-                        .HasColumnType("int")
-                        .HasColumnName("company_id")
-                        .HasColumnOrder(2);
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("created_date");
-
-                    b.Property<string>("IdNo")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("id_no")
-                        .HasColumnOrder(1);
-
-                    b.Property<string>("Relationship")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("relationship")
-                        .HasColumnOrder(3);
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasColumnName("status");
-
-                    b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("updated_by");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("updated_date");
-
-                    b.Property<DateTime?>("ValidFrom")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("valid_from")
-                        .HasColumnOrder(4);
-
-                    b.Property<DateTime?>("ValidTo")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("valid_to")
-                        .HasColumnOrder(5);
-
-                    b.HasKey("AffiliationID");
-
-                    b.HasIndex("CompanyID");
-
-                    b.HasIndex("IdNo");
-
-                    b.ToTable("visitor_affiliations");
-                });
-
-            modelBuilder.Entity("KossanVMS.Data.VisitorBranchLink", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<int>("BranchID")
-                        .HasColumnType("int")
-                        .HasColumnName("branch_id")
-                        .HasColumnOrder(2);
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("created_date");
-
-                    b.Property<string>("IdNo")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("id_no")
-                        .HasColumnOrder(1);
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasColumnName("status");
-
-                    b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("updated_by");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("updated_date");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("BranchID");
-
-                    b.HasIndex("IdNo");
-
-                    b.ToTable("visitor_branch_links");
-                });
-
-            modelBuilder.Entity("KossanVMS.Data.VisitorCategoryLink", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryLinkID"), 1L, 1);
 
                     b.Property<int>("CategoryID")
                         .HasColumnType("int")
@@ -403,7 +219,7 @@ namespace KossanVMS.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("id_no")
+                        .HasColumnName("visitor_id_no")
                         .HasColumnOrder(1);
 
                     b.Property<int>("Status")
@@ -418,86 +234,57 @@ namespace KossanVMS.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
-                    b.HasKey("ID");
+                    b.HasKey("CategoryLinkID");
 
                     b.HasIndex("CategoryID");
 
                     b.HasIndex("IdNo");
 
-                    b.ToTable("visitor_category_links");
+                    b.ToTable("category_link");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitorCompany", b =>
-                {
-                    b.Property<int>("CompanyID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("company_id")
-                        .HasColumnOrder(0);
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompanyID"), 1L, 1);
-
-                    b.Property<string>("CompanyAddress")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("company_address")
-                        .HasColumnOrder(3);
-
-                    b.Property<string>("CompanyName")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("company_name")
-                        .HasColumnOrder(1);
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("created_date");
-
-                    b.Property<string>("RegistrationNo")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("registration_no")
-                        .HasColumnOrder(2);
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasColumnName("status");
-
-                    b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("updated_by");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("updated_date");
-
-                    b.HasKey("CompanyID");
-
-                    b.ToTable("visitor_companies");
-                });
-
-            modelBuilder.Entity("KossanVMS.Data.VisitorContact", b =>
+            modelBuilder.Entity("KossanVMS.Data.Contact", b =>
                 {
                     b.Property<int>("ContactID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("contact_id")
+                        .HasColumnName("c_id")
                         .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactID"), 1L, 1);
 
-                    b.Property<string>("Address")
+                    b.Property<string>("ContactAddress")
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("address")
+                        .HasColumnName("c_address")
                         .HasColumnOrder(2);
 
-                    b.Property<string>("City")
+                    b.Property<string>("ContactCity")
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("city")
+                        .HasColumnName("c_city")
                         .HasColumnOrder(3);
+
+                    b.Property<string>("ContactCompany")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("c_company");
+
+                    b.Property<string>("ContactCompanyNo")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("c_company_no");
+
+                    b.Property<string>("ContactPostCode")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("c_postcode")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("ContactState")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("c_state")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("ContactTel")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("c_tel")
+                        .HasColumnOrder(6);
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int")
@@ -511,27 +298,12 @@ namespace KossanVMS.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("id_no")
+                        .HasColumnName("visitor_id_no")
                         .HasColumnOrder(1);
-
-                    b.Property<string>("PostCode")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("postcode")
-                        .HasColumnOrder(5);
-
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("state")
-                        .HasColumnOrder(4);
 
                     b.Property<int>("Status")
                         .HasColumnType("int")
                         .HasColumnName("status");
-
-                    b.Property<string>("Tel")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("tel")
-                        .HasColumnOrder(6);
 
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int")
@@ -546,29 +318,18 @@ namespace KossanVMS.Migrations
                     b.HasIndex("IdNo")
                         .IsUnique();
 
-                    b.ToTable("visitor_contacts");
+                    b.ToTable("contact");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitorPhoto", b =>
+            modelBuilder.Entity("KossanVMS.Data.Photo", b =>
                 {
                     b.Property<int>("PhotoID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("photo_id")
+                        .HasColumnName("p_id")
                         .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PhotoID"), 1L, 1);
-
-                    b.Property<DateTime>("CaptureDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("capture_date")
-                        .HasColumnOrder(5);
-
-                    b.Property<string>("CapturePhotoPath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("capture_photo_path")
-                        .HasColumnOrder(2);
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int")
@@ -582,15 +343,37 @@ namespace KossanVMS.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("id_no")
+                        .HasColumnName("visitor_id_no")
                         .HasColumnOrder(1);
+
+                    b.Property<DateTime>("PhotoCaptureDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("p_capture_date")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("PhotoCapturePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("p_capture_path")
+                        .HasColumnOrder(2);
 
                     b.Property<string>("PhotoURL")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
-                        .HasColumnName("photo_url")
+                        .HasColumnName("p_url")
                         .HasColumnOrder(4);
+
+                    b.Property<DateTime>("PhotoUploadDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("p_upload_date")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("PhotoUploadPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("p_upload_path")
+                        .HasColumnOrder(3);
 
                     b.Property<int>("Status")
                         .HasColumnType("int")
@@ -604,55 +387,22 @@ namespace KossanVMS.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
-                    b.Property<DateTime>("UploadDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("upload_date")
-                        .HasColumnOrder(6);
-
-                    b.Property<string>("UploadPhotoPath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("upload_photo_path")
-                        .HasColumnOrder(3);
-
                     b.HasKey("PhotoID");
 
                     b.HasIndex("IdNo")
                         .IsUnique();
 
-                    b.ToTable("visitor_photos");
+                    b.ToTable("photo");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitRecord", b =>
+            modelBuilder.Entity("KossanVMS.Data.Purpose", b =>
                 {
-                    b.Property<int>("VisitRecordID")
+                    b.Property<int>("PurposeID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("visit_record_id")
-                        .HasColumnOrder(0);
+                        .HasColumnName("p_id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitRecordID"), 1L, 1);
-
-                    b.Property<decimal?>("BodyTemperature")
-                        .HasPrecision(4, 1)
-                        .HasColumnType("decimal(4,1)")
-                        .HasColumnName("body_temperature")
-                        .HasColumnOrder(15);
-
-                    b.Property<int>("BranchID")
-                        .HasColumnType("int")
-                        .HasColumnName("branch_id")
-                        .HasColumnOrder(2);
-
-                    b.Property<int?>("CategoryID")
-                        .HasColumnType("int")
-                        .HasColumnName("category_id")
-                        .HasColumnOrder(3);
-
-                    b.Property<string>("Company")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("company");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PurposeID"), 1L, 1);
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int")
@@ -662,47 +412,201 @@ namespace KossanVMS.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date");
 
-                    b.Property<string>("DONo")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("do_no")
-                        .HasColumnOrder(14);
+                    b.Property<string>("IdNo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("visitor_id_no")
+                        .HasColumnOrder(1);
 
-                    b.Property<DateTime>("ExpiryDate")
+                    b.Property<string>("PurposeDescription")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)")
+                        .HasColumnName("p_description");
+
+                    b.Property<string>("PurposeName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("p_name");
+
+                    b.Property<bool>("PurposeStatus")
+                        .HasColumnType("bit")
+                        .HasColumnName("p_status");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2")
-                        .HasColumnName("expiry_date")
-                        .HasColumnOrder(16);
+                        .HasColumnName("updated_date");
 
-                    b.Property<string>("GatePass")
+                    b.HasKey("PurposeID");
+
+                    b.HasIndex("IdNo")
+                        .IsUnique();
+
+                    b.ToTable("purpose");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.RegisterType", b =>
+                {
+                    b.Property<int>("RegisterTypeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("rt_type_id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RegisterTypeID"), 1L, 1);
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date");
+
+                    b.Property<string>("RegisterTypeName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("gate_pass")
-                        .HasColumnOrder(12);
+                        .HasColumnName("rt_type_name")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("RegisterUserRole")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("rt_user_role")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date");
+
+                    b.HasKey("RegisterTypeID");
+
+                    b.ToTable("register_type");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.Visitor", b =>
+                {
+                    b.Property<int>("VisitorNo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("v_no")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitorNo"), 1L, 1);
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date");
+
+                    b.Property<bool>("VisitorBlackList")
+                        .HasColumnType("bit")
+                        .HasColumnName("v_black_list")
+                        .HasColumnOrder(6);
+
+                    b.Property<DateTime?>("VisitorExpiryDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("v_expiry_date")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("VisitorFullName")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("v_full_name")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("VisitorIdNo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("v_id_no")
+                        .HasColumnOrder(1);
+
+                    b.Property<byte>("VisitorIdType")
+                        .HasColumnType("tinyint")
+                        .HasColumnName("v_id_type")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("VisitorNo");
+
+                    b.HasAlternateKey("VisitorIdNo")
+                        .HasName("AK_visitors_id_no");
+
+                    b.ToTable("visitor");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.VisitRecord", b =>
+                {
+                    b.Property<int>("VisitRecordID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("vr_id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitRecordID"), 1L, 1);
+
+                    b.Property<int?>("BranchID")
+                        .IsRequired()
+                        .HasColumnType("int")
+                        .HasColumnName("branch_id")
+                        .HasColumnOrder(2);
+
+                    b.Property<int?>("CategoryID")
+                        .HasColumnType("int")
+                        .HasColumnName("category_id")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date");
 
                     b.Property<string>("IdNo")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("id_no")
+                        .HasColumnName("visitor_id_no")
                         .HasColumnOrder(1);
 
-                    b.Property<string>("InPhotoPath")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("in_photo_path")
-                        .HasColumnOrder(10);
-
-                    b.Property<string>("InRemarks")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("in_remarks")
-                        .HasColumnOrder(9);
-
-                    b.Property<DateTime>("InTime")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("in_time")
-                        .HasColumnOrder(6);
-
-                    b.Property<DateTime?>("OutTime")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("out_time")
-                        .HasColumnOrder(7);
+                    b.Property<int?>("PurposeID")
+                        .HasColumnType("int")
+                        .HasColumnName("purpose_id");
 
                     b.Property<int?>("RegisterTypeID")
                         .HasColumnType("int")
@@ -713,11 +617,6 @@ namespace KossanVMS.Migrations
                         .HasColumnType("int")
                         .HasColumnName("status");
 
-                    b.Property<string>("TagNo")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("tag_no")
-                        .HasColumnOrder(11);
-
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int")
                         .HasColumnName("updated_by");
@@ -726,14 +625,63 @@ namespace KossanVMS.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
-                    b.Property<string>("VehicleNo")
+                    b.Property<decimal?>("VisitRecordBodyTemperature")
+                        .HasPrecision(4, 1)
+                        .HasColumnType("decimal(4,1)")
+                        .HasColumnName("vr_body_temperature")
+                        .HasColumnOrder(15);
+
+                    b.Property<int?>("VisitRecordContactContactID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VisitRecordDONo")
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("vehicle_no")
+                        .HasColumnName("vr_do_no")
+                        .HasColumnOrder(14);
+
+                    b.Property<DateTime>("VisitRecordExpiryDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("vr_expiry_date")
+                        .HasColumnOrder(16);
+
+                    b.Property<string>("VisitRecordGatePass")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("vr_gate_pass")
+                        .HasColumnOrder(12);
+
+                    b.Property<DateTime>("VisitRecordInTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("vr_in_time")
+                        .HasColumnOrder(6);
+
+                    b.Property<DateTime?>("VisitRecordOutTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("vr_out_time")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("VisitRecordPhotoPath")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("vr_photo_path")
+                        .HasColumnOrder(10);
+
+                    b.Property<string>("VisitRecordRemarks")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("vr_remarks")
+                        .HasColumnOrder(9);
+
+                    b.Property<string>("VisitRecordTagNo")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("vr_tag_no")
+                        .HasColumnOrder(11);
+
+                    b.Property<string>("VisitRecordVehicleNo")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("vr_vehicle_no")
                         .HasColumnOrder(8);
 
-                    b.Property<string>("VisitPerson")
+                    b.Property<string>("VisitRecordVisitPerson")
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("visit_person")
+                        .HasColumnName("vr_visit_person")
                         .HasColumnOrder(13);
 
                     b.HasKey("VisitRecordID");
@@ -744,9 +692,13 @@ namespace KossanVMS.Migrations
 
                     b.HasIndex("IdNo");
 
+                    b.HasIndex("PurposeID");
+
                     b.HasIndex("RegisterTypeID");
 
-                    b.ToTable("visit_records");
+                    b.HasIndex("VisitRecordContactContactID");
+
+                    b.ToTable("visit_record");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.VmsUser", b =>
@@ -798,87 +750,79 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("vms_users");
+                    b.ToTable("vms_users", "dbo");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitorAffiliation", b =>
+            modelBuilder.Entity("KossanVMS.Data.BranchLink", b =>
                 {
-                    b.HasOne("KossanVMS.Data.VisitorCompany", "VisitorCompany")
-                        .WithMany()
-                        .HasForeignKey("CompanyID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithMany("VisitorAffiliations")
-                        .HasForeignKey("IdNo")
-                        .HasPrincipalKey("IdNo")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Visitor");
-
-                    b.Navigation("VisitorCompany");
-                });
-
-            modelBuilder.Entity("KossanVMS.Data.VisitorBranchLink", b =>
-                {
-                    b.HasOne("KossanVMS.Data.VisitBranch", "Branch")
+                    b.HasOne("KossanVMS.Data.Branch", "BranchLinkBranch")
                         .WithMany()
                         .HasForeignKey("BranchID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("KossanVMS.Data.Visitor", "Visitor")
+                    b.HasOne("KossanVMS.Data.Visitor", "BranchLinkVisitor")
                         .WithMany("VisitorBranches")
                         .HasForeignKey("IdNo")
-                        .HasPrincipalKey("IdNo")
+                        .HasPrincipalKey("VisitorIdNo")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Branch");
+                    b.Navigation("BranchLinkBranch");
 
-                    b.Navigation("Visitor");
+                    b.Navigation("BranchLinkVisitor");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitorCategoryLink", b =>
+            modelBuilder.Entity("KossanVMS.Data.CategoryLink", b =>
                 {
-                    b.HasOne("KossanVMS.Data.VisitCategory", "Category")
+                    b.HasOne("KossanVMS.Data.Category", "CategoryLinkCategory")
                         .WithMany()
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("KossanVMS.Data.Visitor", "Visitor")
+                    b.HasOne("KossanVMS.Data.Visitor", "CategoryLinkVisitor")
                         .WithMany("VisitorCategories")
                         .HasForeignKey("IdNo")
-                        .HasPrincipalKey("IdNo")
+                        .HasPrincipalKey("VisitorIdNo")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("CategoryLinkCategory");
+
+                    b.Navigation("CategoryLinkVisitor");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.Contact", b =>
+                {
+                    b.HasOne("KossanVMS.Data.Visitor", "Visitor")
+                        .WithOne("VisitorContact")
+                        .HasForeignKey("KossanVMS.Data.Contact", "IdNo")
+                        .HasPrincipalKey("KossanVMS.Data.Visitor", "VisitorIdNo")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Visitor");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitorContact", b =>
+            modelBuilder.Entity("KossanVMS.Data.Photo", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithOne("Contact")
-                        .HasForeignKey("KossanVMS.Data.VisitorContact", "IdNo")
-                        .HasPrincipalKey("KossanVMS.Data.Visitor", "IdNo")
+                        .WithOne("VisitorPhoto")
+                        .HasForeignKey("KossanVMS.Data.Photo", "IdNo")
+                        .HasPrincipalKey("KossanVMS.Data.Visitor", "VisitorIdNo")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Visitor");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitorPhoto", b =>
+            modelBuilder.Entity("KossanVMS.Data.Purpose", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithOne("Photo")
-                        .HasForeignKey("KossanVMS.Data.VisitorPhoto", "IdNo")
-                        .HasPrincipalKey("KossanVMS.Data.Visitor", "IdNo")
+                        .WithOne("VisitorPurpose")
+                        .HasForeignKey("KossanVMS.Data.Purpose", "IdNo")
+                        .HasPrincipalKey("KossanVMS.Data.Visitor", "VisitorIdNo")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -887,51 +831,63 @@ namespace KossanVMS.Migrations
 
             modelBuilder.Entity("KossanVMS.Data.VisitRecord", b =>
                 {
-                    b.HasOne("KossanVMS.Data.VisitBranch", "Branch")
+                    b.HasOne("KossanVMS.Data.Branch", "VisitRecordBranch")
                         .WithMany()
                         .HasForeignKey("BranchID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("KossanVMS.Data.VisitCategory", "Category")
+                    b.HasOne("KossanVMS.Data.Category", "VisitRecordCategory")
                         .WithMany()
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("KossanVMS.Data.Visitor", "Visitor")
+                    b.HasOne("KossanVMS.Data.Visitor", "VisitRecordVisitor")
                         .WithMany("VisitRecords")
                         .HasForeignKey("IdNo")
-                        .HasPrincipalKey("IdNo")
+                        .HasPrincipalKey("VisitorIdNo")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("KossanVMS.Data.RegisterType", "RegisterType")
+                    b.HasOne("KossanVMS.Data.Purpose", "VisitRecordPurpose")
+                        .WithMany()
+                        .HasForeignKey("PurposeID");
+
+                    b.HasOne("KossanVMS.Data.RegisterType", "VisitRecordRegisterType")
                         .WithMany()
                         .HasForeignKey("RegisterTypeID")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("Branch");
+                    b.HasOne("KossanVMS.Data.Contact", "VisitRecordContact")
+                        .WithMany()
+                        .HasForeignKey("VisitRecordContactContactID");
 
-                    b.Navigation("Category");
+                    b.Navigation("VisitRecordBranch");
 
-                    b.Navigation("RegisterType");
+                    b.Navigation("VisitRecordCategory");
 
-                    b.Navigation("Visitor");
+                    b.Navigation("VisitRecordContact");
+
+                    b.Navigation("VisitRecordPurpose");
+
+                    b.Navigation("VisitRecordRegisterType");
+
+                    b.Navigation("VisitRecordVisitor");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.Visitor", b =>
                 {
-                    b.Navigation("Contact");
-
-                    b.Navigation("Photo");
-
                     b.Navigation("VisitRecords");
-
-                    b.Navigation("VisitorAffiliations");
 
                     b.Navigation("VisitorBranches");
 
                     b.Navigation("VisitorCategories");
+
+                    b.Navigation("VisitorContact");
+
+                    b.Navigation("VisitorPhoto");
+
+                    b.Navigation("VisitorPurpose");
                 });
 #pragma warning restore 612, 618
         }

@@ -29,12 +29,12 @@ namespace KossanVMS.Utility
                 var returnCopy = new Visitor
                 {
                     VisitorNo = CopyModel.VisitorNo,
-                    IdType = CopyModel.IdType,
-                    FullName = CopyModel.FullName,
-                    IdNo = CopyModel.IdNo,
-                    Contact = CopyModel.Contact,
-                    BlackList = CopyModel.BlackList,
-                    Photo = CopyModel.Photo
+                    VisitorIdType = CopyModel.VisitorIdType,
+                    VisitorFullName = CopyModel.VisitorFullName,
+                    VisitorIdNo = CopyModel.VisitorIdNo,
+                    VisitorContact = CopyModel.VisitorContact,
+                    VisitorBlackList = CopyModel.VisitorBlackList,
+                    VisitorPhoto = CopyModel.VisitorPhoto
 
                 };
                 if (returnCopy != null)
