@@ -22,394 +22,807 @@ namespace KossanVMS.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("KossanVMS.Data.RegisterType", b =>
+                {
+                    b.Property<int>("RegisterTypeID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("register_type_id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RegisterTypeID"), 1L, 1);
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<string>("RegisterTypeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("register_type_name");
+
+                    b.Property<string>("RegisterUserRole")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("register_user_role");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.HasKey("RegisterTypeID");
+
+                    b.ToTable("register_types");
+                });
+
             modelBuilder.Entity("KossanVMS.Data.VisitBranch", b =>
                 {
                     b.Property<int>("BranchID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("branch_id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BranchID"), 1L, 1);
 
-                    b.Property<bool>("BranchContract")
-                        .HasColumnType("bit");
+                    b.Property<string>("BranchConnectionString")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("branch_connection_string");
 
                     b.Property<string>("BranchDescription")
                         .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasColumnType("nvarchar(300)")
+                        .HasColumnName("branch_description");
 
                     b.Property<string>("BranchName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("branch_name");
 
                     b.Property<bool>("BranchStatus")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("branch_status");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
-                    b.Property<string>("LastEditUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.HasKey("BranchID");
 
                     b.HasIndex("BranchName")
                         .IsUnique();
 
-                    b.ToTable("VisitBranches");
+                    b.ToTable("visit_branches");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.VisitCategory", b =>
                 {
                     b.Property<int>("CategoryID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("category_id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryID"), 1L, 1);
 
                     b.Property<bool>("CategoryContract")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("category_contract");
 
                     b.Property<string>("CategoryDescription")
                         .IsRequired()
                         .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasColumnType("nvarchar(300)")
+                        .HasColumnName("category_description");
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("category_name");
 
                     b.Property<bool>("CategoryStatus")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("category_status");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
-                    b.Property<string>("LastEditUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.HasKey("CategoryID");
 
                     b.HasIndex("CategoryName")
                         .IsUnique();
 
-                    b.ToTable("VisitCategories");
+                    b.ToTable("visit_categories");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.Visitor", b =>
                 {
-                    b.Property<int>("VisitorID")
+                    b.Property<int>("VisitorNo")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("visitor_no");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitorID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitorNo"), 1L, 1);
+
+                    b.Property<bool>("BlackList")
+                        .HasColumnType("bit")
+                        .HasColumnName("black_list");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<DateTime?>("ExpiryDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("expiry_date");
 
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("full_name");
 
-                    b.HasKey("VisitorID");
+                    b.Property<string>("IdNo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("id_no");
 
-                    b.ToTable("Visitors");
+                    b.Property<byte>("IdType")
+                        .HasColumnType("tinyint")
+                        .HasColumnName("id_type");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.HasKey("VisitorNo");
+
+                    b.HasIndex("IdType", "IdNo")
+                        .IsUnique();
+
+                    b.ToTable("visitors");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitorBlackList", b =>
+            modelBuilder.Entity("KossanVMS.Data.VisitorAffiliation", b =>
                 {
-                    b.Property<int>("VisitorID")
+                    b.Property<int>("AffiliationID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("affiliation_id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AffiliationID"), 1L, 1);
+
+                    b.Property<int>("CompanyID")
+                        .HasColumnType("int")
+                        .HasColumnName("company_id");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<string>("Relationship")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("relationship");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("valid_from");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("valid_to");
+
+                    b.Property<int>("VisitorNo")
+                        .HasColumnType("int")
+                        .HasColumnName("visitor_no");
+
+                    b.HasKey("AffiliationID");
+
+                    b.HasIndex("CompanyID");
+
+                    b.HasIndex("VisitorNo", "CompanyID", "ValidFrom");
+
+                    b.ToTable("visitor_affiliations");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.VisitorBranchLink", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<bool>("IsBlackList")
-                        .HasColumnType("bit");
+                    b.Property<int>("BranchID")
+                        .HasColumnType("int")
+                        .HasColumnName("branch_id");
 
-                    b.Property<string>("LastEditUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.HasKey("VisitorID");
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
 
-                    b.ToTable("VisitorBlackList");
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<int>("VisitorNo")
+                        .HasColumnType("int")
+                        .HasColumnName("visitor_no");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("BranchID");
+
+                    b.HasIndex("VisitorNo", "BranchID")
+                        .IsUnique();
+
+                    b.ToTable("visitor_branch_links");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.VisitorCategoryLink", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int")
+                        .HasColumnName("category_id");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<int>("VisitorNo")
+                        .HasColumnType("int")
+                        .HasColumnName("visitor_no");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CategoryID");
+
+                    b.HasIndex("VisitorNo", "CategoryID")
+                        .IsUnique();
+
+                    b.ToTable("visitor_category_links");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.VisitorCompany", b =>
                 {
                     b.Property<int>("CompanyID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("company_id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompanyID"), 1L, 1);
 
-                    b.Property<string>("Company")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<string>("CompanyAddress")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("company_address");
 
-                    b.Property<int>("VisitorID")
-                        .HasColumnType("int");
+                    b.Property<string>("CompanyName")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("company_name");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<string>("RegistrationNo")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("registration_no");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.HasKey("CompanyID");
 
-                    b.HasIndex("VisitorID")
-                        .IsUnique();
-
-                    b.ToTable("VisitorCompanies");
+                    b.ToTable("visitor_companies");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.VisitorContact", b =>
                 {
                     b.Property<int>("ContactID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("contact_id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactID"), 1L, 1);
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("address");
 
                     b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("city");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<string>("PostCode")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("postcode");
 
                     b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("state");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
 
                     b.Property<string>("Tel")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("tel");
 
-                    b.Property<int>("VisitorID")
-                        .HasColumnType("int");
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<int>("VisitorNo")
+                        .HasColumnType("int")
+                        .HasColumnName("visitor_no");
 
                     b.HasKey("ContactID");
 
-                    b.HasIndex("VisitorID")
+                    b.HasIndex("VisitorNo")
                         .IsUnique();
 
-                    b.ToTable("VisitorContacts");
+                    b.ToTable("visitor_contacts");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.VisitorPhoto", b =>
                 {
                     b.Property<int>("PhotoID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("photo_id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PhotoID"), 1L, 1);
 
                     b.Property<DateTime>("CaptureDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("capture_date");
 
-                    b.Property<string>("PhotoPath")
+                    b.Property<string>("CapturePhotoPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("capture_photo_path");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<string>("PhotoURL")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("photo_url");
 
-                    b.Property<int>("VisitorID")
-                        .HasColumnType("int");
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("upload_date");
+
+                    b.Property<string>("UploadPhotoPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("upload_photo_path");
+
+                    b.Property<int>("VisitorNo")
+                        .HasColumnType("int")
+                        .HasColumnName("visitor_no");
 
                     b.HasKey("PhotoID");
 
-                    b.HasIndex("VisitorID")
+                    b.HasIndex("VisitorNo")
                         .IsUnique();
 
-                    b.ToTable("VisitorPhotos");
-                });
-
-            modelBuilder.Entity("KossanVMS.Data.VisitPurpose", b =>
-                {
-                    b.Property<int>("PurposeID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PurposeID"), 1L, 1);
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastEditUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PurposeContract")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("PurposeDescription")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("PurposeName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<bool>("PurposeStatus")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("PurposeID");
-
-                    b.HasIndex("PurposeName")
-                        .IsUnique();
-
-                    b.ToTable("VisitPurpose");
+                    b.ToTable("visitor_photos");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.VisitRecord", b =>
                 {
-                    b.Property<Guid>("VisitID")
+                    b.Property<int>("VisitRecordID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasColumnName("visit_record_id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitRecordID"), 1L, 1);
+
+                    b.Property<decimal?>("BodyTemperature")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("body_temperature");
 
                     b.Property<int>("BranchID")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("branch_id");
 
                     b.Property<int?>("CategoryID")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("category_id");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("CompanyID")
+                        .HasColumnType("int")
+                        .HasColumnName("company_id");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<string>("DONo")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("do_no");
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("expiry_date");
 
                     b.Property<string>("GatePass")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte>("InContainer")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("InContainerNO")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("InPBID")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("gate_pass");
 
                     b.Property<string>("InPhotoPath")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("in_photo_path");
 
                     b.Property<string>("InRemarks")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("in_remarks");
 
                     b.Property<DateTime>("InTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastEditUser")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<byte>("OutContainer")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("OutContainerNO")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OutPBID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OutPhotoPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OutRemarks")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("in_time");
 
                     b.Property<DateTime?>("OutTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("out_time");
 
-                    b.Property<int?>("PurposeID")
-                        .HasColumnType("int");
+                    b.Property<int?>("RegisterTypeID")
+                        .HasColumnType("int")
+                        .HasColumnName("register_type_id");
 
-                    b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<string>("TagNo")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("tag_no");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<string>("VehicleNo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("vehicle_no");
 
-                    b.Property<int>("VisitorID")
-                        .HasColumnType("int");
+                    b.Property<string>("VisitPerson")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("visit_person");
 
-                    b.HasKey("VisitID");
+                    b.Property<int>("VisitorNo")
+                        .HasColumnType("int")
+                        .HasColumnName("visitor_no");
+
+                    b.HasKey("VisitRecordID");
 
                     b.HasIndex("BranchID");
 
                     b.HasIndex("CategoryID");
 
-                    b.HasIndex("PurposeID");
+                    b.HasIndex("CompanyID");
 
-                    b.HasIndex("VisitorID");
+                    b.HasIndex("RegisterTypeID");
 
-                    b.ToTable("VisitRecord");
+                    b.HasIndex("VisitorNo", "InTime");
+
+                    b.ToTable("visit_records");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.VmsUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date");
 
                     b.Property<byte[]>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("varbinary(max)")
+                        .HasColumnName("password_hash");
 
                     b.Property<byte[]>("PasswordSalt")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("varbinary(max)")
+                        .HasColumnName("password_salt");
 
                     b.Property<int>("Role")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_role");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date");
 
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("user_name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("VmsUsers");
+                    b.ToTable("vms_users");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitorBlackList", b =>
+            modelBuilder.Entity("KossanVMS.Data.VisitorAffiliation", b =>
                 {
+                    b.HasOne("KossanVMS.Data.VisitorCompany", "VisitorCompany")
+                        .WithMany()
+                        .HasForeignKey("CompanyID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithOne("BlackList")
-                        .HasForeignKey("KossanVMS.Data.VisitorBlackList", "VisitorID")
+                        .WithMany("VisitorAffiliations")
+                        .HasForeignKey("VisitorNo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Visitor");
+
+                    b.Navigation("VisitorCompany");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.VisitorCompany", b =>
+            modelBuilder.Entity("KossanVMS.Data.VisitorBranchLink", b =>
                 {
+                    b.HasOne("KossanVMS.Data.VisitBranch", "Branch")
+                        .WithMany()
+                        .HasForeignKey("BranchID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithOne("Company")
-                        .HasForeignKey("KossanVMS.Data.VisitorCompany", "VisitorID")
+                        .WithMany("VisitorBranches")
+                        .HasForeignKey("VisitorNo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Branch");
+
+                    b.Navigation("Visitor");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.VisitorCategoryLink", b =>
+                {
+                    b.HasOne("KossanVMS.Data.VisitCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("KossanVMS.Data.Visitor", "Visitor")
+                        .WithMany("VisitorCategories")
+                        .HasForeignKey("VisitorNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
 
                     b.Navigation("Visitor");
                 });
@@ -418,7 +831,7 @@ namespace KossanVMS.Migrations
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
                         .WithOne("Contact")
-                        .HasForeignKey("KossanVMS.Data.VisitorContact", "VisitorID")
+                        .HasForeignKey("KossanVMS.Data.VisitorContact", "VisitorNo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -429,7 +842,7 @@ namespace KossanVMS.Migrations
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
                         .WithOne("Photo")
-                        .HasForeignKey("KossanVMS.Data.VisitorPhoto", "VisitorID")
+                        .HasForeignKey("KossanVMS.Data.VisitorPhoto", "VisitorNo")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -449,14 +862,19 @@ namespace KossanVMS.Migrations
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("KossanVMS.Data.VisitPurpose", "Purpose")
+                    b.HasOne("KossanVMS.Data.VisitorCompany", "Company")
                         .WithMany()
-                        .HasForeignKey("PurposeID")
+                        .HasForeignKey("CompanyID")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("KossanVMS.Data.RegisterType", "RegisterType")
+                        .WithMany()
+                        .HasForeignKey("RegisterTypeID")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
-                        .WithMany()
-                        .HasForeignKey("VisitorID")
+                        .WithMany("VisitRecords")
+                        .HasForeignKey("VisitorNo")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -464,23 +882,28 @@ namespace KossanVMS.Migrations
 
                     b.Navigation("Category");
 
-                    b.Navigation("Purpose");
+                    b.Navigation("Company");
+
+                    b.Navigation("RegisterType");
 
                     b.Navigation("Visitor");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.Visitor", b =>
                 {
-                    b.Navigation("BlackList");
-
-                    b.Navigation("Company")
-                        .IsRequired();
-
                     b.Navigation("Contact")
                         .IsRequired();
 
                     b.Navigation("Photo")
                         .IsRequired();
+
+                    b.Navigation("VisitRecords");
+
+                    b.Navigation("VisitorAffiliations");
+
+                    b.Navigation("VisitorBranches");
+
+                    b.Navigation("VisitorCategories");
                 });
 #pragma warning restore 612, 618
         }

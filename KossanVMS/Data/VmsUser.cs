@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,26 +14,34 @@ namespace KossanVMS.Data
         User = 0,
         Admin = 1
     }
-    public class VmsUser
+    [Table("vms_users")]
+    public class VmsUser 
     {
+        [Column("id")]
         public int Id { get;set; }
-
+        [Column("user_name")]
         [Required, MaxLength(50)]
         public string UserName { get; set; }
-
-        [Required]
-        public byte[] PasswordHash { get; set; } = Array.Empty<byte>();
-
-        [Required]
-        public byte[] PasswordSalt { get; set; } = Array.Empty<byte> ();
-
+        [Column("password_hash")]
+        
+        public byte[]? PasswordHash { get; set; } = Array.Empty<byte>();
+        [Column("password_salt")]
+   
+        public byte[]? PasswordSalt { get; set; } = Array.Empty<byte> ();
+        [Column("user_role")]
         [Required]
         public UserRole Role { get; set; } = UserRole.User;
+        [Column("status")]
+        public int? Status { get; set; } = 1;
+        [Column("created_by")]
+        public int? CreatedBy { get; set; }
+        [Column("created_date")]
+        public DateTime? CreatedDate { get; set; }
+        [Column("updated_by")]
+        public int? UpdatedBy { get; set; }
+        [Column("updated_date")]
+        public DateTime? UpdatedDate { get; set; }
 
-        public bool IsActive { get; set; } = true;
-
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
     }
     public static class PasswordHelper
@@ -68,7 +77,7 @@ namespace KossanVMS.Data
                      PasswordHash = hash,
                      PasswordSalt = salt,
                      Role = UserRole.User,
-                     IsActive = true
+                     //IsActive = true
 
                  });
                 db.SaveChanges();

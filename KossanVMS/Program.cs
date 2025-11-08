@@ -18,8 +18,9 @@ namespace KossanVMS
             var dbContext = new VmsContext(optionsBuilder.Options);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-           
-            Application.Run(new MainPage(dbContext));
+
+            // Application.Run(new MainPage(dbContext));
+            Application.Run(new ADLoginScreen());
         }
     }
 }
