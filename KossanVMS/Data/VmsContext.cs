@@ -12,7 +12,7 @@ namespace KossanVMS.Data
         {
             if (!optionsBuilder.IsConfigured)
                 optionsBuilder.UseSqlServer(
-                    "Server=(localdb)\\MSSQLLocalDB;Database=ktc;Trusted_Connection=True;TrustServerCertificate=True");
+                    "Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
         }
 
         // DbSets

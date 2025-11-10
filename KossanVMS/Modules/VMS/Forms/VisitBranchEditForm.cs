@@ -19,13 +19,13 @@ namespace KossanVMS
         public Branch visitBranchModel { get; set; }
         private bool _updatingStatus;
         private bool _syncing;
-        public VisitBranchEditForm(Branch exitingVisitBranch = null)
+        public VisitBranchEditForm(Branch existingVisitBranch = null)
         {
             InitializeComponent();
-            if (exitingVisitBranch != null)
+            if (existingVisitBranch != null)
             {
                 Text = "Edit Branch";
-                visitBranchModel = exitingVisitBranch;
+                visitBranchModel = existingVisitBranch;
             }
             else
             {

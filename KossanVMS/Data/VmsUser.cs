@@ -15,7 +15,7 @@ namespace KossanVMS.Data
         Admin = 1
     }
     [Table("vms_users")]
-    public class VmsUser 
+    public class VmsUser :VmsAuditEntity
     {
         [Column("id")]
         public int Id { get;set; }
@@ -31,17 +31,7 @@ namespace KossanVMS.Data
         [Column("user_role")]
         [Required]
         public UserRole Role { get; set; } = UserRole.User;
-        [Column("status")]
-        public int? Status { get; set; } = 1;
-        [Column("created_by")]
-        public int? CreatedBy { get; set; }
-        [Column("created_date")]
-        public DateTime? CreatedDate { get; set; }
-        [Column("updated_by")]
-        public int? UpdatedBy { get; set; }
-        [Column("updated_date")]
-        public DateTime? UpdatedDate { get; set; }
-
+        
 
     }
     public static class PasswordHelper

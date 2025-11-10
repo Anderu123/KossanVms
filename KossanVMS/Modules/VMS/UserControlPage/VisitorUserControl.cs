@@ -306,7 +306,12 @@ namespace KossanVMS.UserControlPage
 
         private void toolStripAddButton_Click(object sender, EventArgs e)
         {
-            using var addVisitorModel = new VisitorPreEditForm(_db);
+            using var addVisitorModel = new VisitorPreEditForm(_db)
+            {
+                StartPosition = FormStartPosition.CenterParent,
+                ShowInTaskbar = false,
+                TopMost = true
+            };
             var newVisitorModel = addVisitorModel.visitorModel;
             if (addVisitorModel.ShowDialog(this) != DialogResult.OK)
             {

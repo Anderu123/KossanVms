@@ -50,11 +50,17 @@ namespace KossanVMS.UserControlPage
             visitBranchBindingSource = new BindingSource(components);
             visitorBindingSource = new BindingSource(components);
             vmsUserBindingSource = new BindingSource(components);
+            registerTypeBindingSource = new BindingSource(components);
+            categoryBindingSource = new BindingSource(components);
+            branchBindingSource = new BindingSource(components);
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BranchGridViewUserControl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitBranchBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)vmsUserBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)registerTypeBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)branchBindingSource).BeginInit();
             SuspendLayout();
             // 
             // toolStrip1
@@ -109,7 +115,7 @@ namespace KossanVMS.UserControlPage
             BranchGridViewUserControl.BorderStyle = BorderStyle.None;
             BranchGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             BranchGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { BranchName, BranchDescription, BranchStatus, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
-            BranchGridViewUserControl.DataSource = visitBranchBindingSource;
+            BranchGridViewUserControl.DataSource = branchBindingSource;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -193,6 +199,18 @@ namespace KossanVMS.UserControlPage
             // 
             vmsUserBindingSource.DataSource = typeof(Data.VmsUser);
             // 
+            // registerTypeBindingSource
+            // 
+            registerTypeBindingSource.DataSource = typeof(Data.RegisterType);
+            // 
+            // categoryBindingSource
+            // 
+            categoryBindingSource.DataSource = typeof(Data.Category);
+            // 
+            // branchBindingSource
+            // 
+            branchBindingSource.DataSource = typeof(Data.Branch);
+            // 
             // BranchUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -208,6 +226,9 @@ namespace KossanVMS.UserControlPage
             ((System.ComponentModel.ISupportInitialize)visitBranchBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)vmsUserBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)registerTypeBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)branchBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -274,5 +295,8 @@ namespace KossanVMS.UserControlPage
         private DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn updatedDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private BindingSource branchBindingSource;
+        private BindingSource registerTypeBindingSource;
+        private BindingSource categoryBindingSource;
     }
 }

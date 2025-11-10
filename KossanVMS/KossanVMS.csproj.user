@@ -43,6 +43,9 @@
     <Compile Update="Modules\VMS\UserControlPage\PreRegisteredPBUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Modules\VMS\UserControlPage\PurposeUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Modules\VMS\UserControlPage\TempUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

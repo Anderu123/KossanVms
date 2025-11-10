@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KossanVMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b10c5f68263de492198c408665b75d338831e18a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b807d5ac0dc108bf1641cba0c97f8a3b9b1a4ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("KossanVMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KossanVMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

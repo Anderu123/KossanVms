@@ -37,23 +37,37 @@ namespace KossanVMS.Modules.VMS.UserControlPage
             hopeTabPage1.SuspendLayout();
             hopeTabPage1.TabPages.Clear();
 
-            var tabDashboard = new TabPage("Dashboard") { Name = "DashboardTab" };
-            tabDashboard.Controls.Add(new DashboardUserControl(_db) { Dock = DockStyle.Fill });
-            hopeTabPage1.TabPages.Add(tabDashboard);
+            //var tabDashboard = new TabPage("Dashboard") { Name = "DashboardTab" };
+            //tabDashboard.Controls.Add(new DashboardUserControl(_db) { Dock = DockStyle.Fill });
+            //hopeTabPage1.TabPages.Add(tabDashboard);
 
             var tabPreRegister = new TabPage("Pre-Register") { Name = "VisitorTab" };
             tabPreRegister.Controls.Add(new VisitorUserControl(_db) { Dock = DockStyle.Fill });
             hopeTabPage1.TabPages.Add(tabPreRegister);
 
-            var tabPbRegister = new TabPage("Register") { Name = "RegisterTab" };
-            tabPbRegister.Controls.Add(new VisitorPBUserControl(_db) { Dock = DockStyle.Fill });
-            hopeTabPage1.TabPages.Add(tabPbRegister);
+            var tabVisitBranch = new TabPage("Branch") { Name = "BranchTab" };
+            tabVisitBranch.Controls.Add(new BranchUserControl(_db) { Dock = DockStyle.Fill });
+            hopeTabPage1.TabPages.Add(tabVisitBranch);
 
-            var tabGatePass = new TabPage("GatePass") { Name = "GatePass" };
-            tabGatePass.Controls.Add(new GatePassUserControl(_db) { Dock = DockStyle.Fill });
-            hopeTabPage1.TabPages.Add(tabGatePass);
+            var tabVisitCategory = new TabPage("Category") { Name = "CategoryTab" };
+            tabVisitCategory.Controls.Add(new CategoryUserControl(_db) { Dock = DockStyle.Fill });
+            hopeTabPage1.TabPages.Add(tabVisitCategory);
 
-            hopeTabPage1.SelectedTab = tabDashboard;
+            var tabVisitPurpose = new TabPage("Purpose") { Name = "PurposeTab" };
+            tabVisitPurpose.Controls.Add(new PurposeUserControl(_db) { Dock = DockStyle.Fill });
+            hopeTabPage1.TabPages.Add(tabVisitPurpose); //
+
+            
+
+            //var tabPbRegister = new TabPage("Register") { Name = "RegisterTab" };
+            //tabPbRegister.Controls.Add(new VisitorPBUserControl(_db) { Dock = DockStyle.Fill });
+            //hopeTabPage1.TabPages.Add(tabPbRegister);
+
+            //var tabGatePass = new TabPage("GatePass") { Name = "GatePass" };
+            //tabGatePass.Controls.Add(new GatePassUserControl(_db) { Dock = DockStyle.Fill });
+            //hopeTabPage1.TabPages.Add(tabGatePass);
+
+            hopeTabPage1.SelectedTab = tabPreRegister;
             hopeTabPage1.ResumeLayout();
         }
     }
