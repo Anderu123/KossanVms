@@ -97,6 +97,26 @@ namespace KossanVMS.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "VisitPurposes",
+                columns: table => new
+                {
+                    p_id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    p_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    p_description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
+                    p_status = table.Column<bool>(type: "bit", nullable: false),
+                    status = table.Column<int>(type: "int", nullable: false),
+                    created_by = table.Column<int>(type: "int", nullable: false),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_by = table.Column<int>(type: "int", nullable: true),
+                    updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VisitPurposes", x => x.p_id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "vms_users",
                 schema: "dbo",
                 columns: table => new
@@ -107,9 +127,9 @@ namespace KossanVMS.Migrations
                     password_hash = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     password_salt = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     user_role = table.Column<int>(type: "int", nullable: false),
-                    status = table.Column<int>(type: "int", nullable: true),
-                    created_by = table.Column<int>(type: "int", nullable: true),
-                    created_date = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    status = table.Column<int>(type: "int", nullable: false),
+                    created_by = table.Column<int>(type: "int", nullable: false),
+                    created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     updated_by = table.Column<int>(type: "int", nullable: true),
                     updated_date = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -244,12 +264,10 @@ namespace KossanVMS.Migrations
                 name: "purpose",
                 columns: table => new
                 {
-                    visitor_id_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    p_id = table.Column<int>(type: "int", nullable: false)
+                    pl_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    p_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    p_description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
-                    p_status = table.Column<bool>(type: "bit", nullable: false),
+                    visitor_id_no = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    purpose_id = table.Column<int>(type: "int", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_by = table.Column<int>(type: "int", nullable: false),
                     created_date = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -258,13 +276,19 @@ namespace KossanVMS.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_purpose", x => x.p_id);
+                    table.PrimaryKey("PK_purpose", x => x.pl_id);
                     table.ForeignKey(
                         name: "FK_purpose_visitor_visitor_id_no",
                         column: x => x.visitor_id_no,
                         principalTable: "visitor",
                         principalColumn: "v_id_no",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_purpose_VisitPurposes_purpose_id",
+                        column: x => x.purpose_id,
+                        principalTable: "VisitPurposes",
+                        principalColumn: "p_id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -317,11 +341,6 @@ namespace KossanVMS.Migrations
                         principalTable: "contact",
                         principalColumn: "c_id");
                     table.ForeignKey(
-                        name: "FK_visit_record_purpose_purpose_id",
-                        column: x => x.purpose_id,
-                        principalTable: "purpose",
-                        principalColumn: "p_id");
-                    table.ForeignKey(
                         name: "FK_visit_record_register_type_register_type_id",
                         column: x => x.register_type_id,
                         principalTable: "register_type",
@@ -333,6 +352,11 @@ namespace KossanVMS.Migrations
                         principalTable: "visitor",
                         principalColumn: "v_id_no",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_visit_record_VisitPurposes_purpose_id",
+                        column: x => x.purpose_id,
+                        principalTable: "VisitPurposes",
+                        principalColumn: "p_id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -366,6 +390,11 @@ namespace KossanVMS.Migrations
                 table: "photo",
                 column: "visitor_id_no",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_purpose_purpose_id",
+                table: "purpose",
+                column: "purpose_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_purpose_visitor_id_no",
@@ -416,6 +445,9 @@ namespace KossanVMS.Migrations
                 name: "photo");
 
             migrationBuilder.DropTable(
+                name: "purpose");
+
+            migrationBuilder.DropTable(
                 name: "visit_record");
 
             migrationBuilder.DropTable(
@@ -432,10 +464,10 @@ namespace KossanVMS.Migrations
                 name: "contact");
 
             migrationBuilder.DropTable(
-                name: "purpose");
+                name: "register_type");
 
             migrationBuilder.DropTable(
-                name: "register_type");
+                name: "VisitPurposes");
 
             migrationBuilder.DropTable(
                 name: "visitor");

@@ -46,21 +46,20 @@ namespace KossanVMS.UserControlPage
             createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             updatedByDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             updatedDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            branchBindingSource = new BindingSource(components);
             visitBranchBindingSource = new BindingSource(components);
             visitorBindingSource = new BindingSource(components);
             vmsUserBindingSource = new BindingSource(components);
             registerTypeBindingSource = new BindingSource(components);
             categoryBindingSource = new BindingSource(components);
-            branchBindingSource = new BindingSource(components);
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BranchGridViewUserControl).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)branchBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitBranchBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)vmsUserBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)registerTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)branchBindingSource).BeginInit();
             SuspendLayout();
             // 
             // toolStrip1
@@ -68,7 +67,7 @@ namespace KossanVMS.UserControlPage
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripEditButton, toolStripAddButton });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(768, 25);
+            toolStrip1.Size = new Size(766, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -81,7 +80,7 @@ namespace KossanVMS.UserControlPage
             toolStripButton1.Name = "toolStripButton1";
             toolStripButton1.Size = new Size(23, 22);
             toolStripButton1.Text = "toolStripDelButton";
-            toolStripButton1.Click += toolStripButton1_Click;
+            toolStripButton1.Click += toolStripButtonDel_Click;
             // 
             // toolStripEditButton
             // 
@@ -110,11 +109,11 @@ namespace KossanVMS.UserControlPage
             BranchGridViewUserControl.AllowUserToAddRows = false;
             BranchGridViewUserControl.AllowUserToDeleteRows = false;
             BranchGridViewUserControl.AutoGenerateColumns = false;
-            BranchGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            BranchGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             BranchGridViewUserControl.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             BranchGridViewUserControl.BorderStyle = BorderStyle.None;
             BranchGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            BranchGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { BranchName, BranchDescription, BranchStatus, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
+            BranchGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { BranchName, BranchDescription, BranchStatus, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn });
             BranchGridViewUserControl.DataSource = branchBindingSource;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
@@ -128,64 +127,54 @@ namespace KossanVMS.UserControlPage
             BranchGridViewUserControl.Location = new Point(0, 25);
             BranchGridViewUserControl.Name = "BranchGridViewUserControl";
             BranchGridViewUserControl.RowTemplate.Height = 25;
-            BranchGridViewUserControl.Size = new Size(768, 432);
+            BranchGridViewUserControl.Size = new Size(766, 430);
             BranchGridViewUserControl.TabIndex = 1;
             // 
             // BranchName
             // 
             BranchName.DataPropertyName = "BranchName";
-            BranchName.HeaderText = "BranchName";
+            BranchName.HeaderText = "Name";
             BranchName.Name = "BranchName";
-            BranchName.Width = 101;
             // 
             // BranchDescription
             // 
             BranchDescription.DataPropertyName = "BranchDescription";
-            BranchDescription.HeaderText = "BranchDescription";
+            BranchDescription.HeaderText = "Description";
             BranchDescription.Name = "BranchDescription";
-            BranchDescription.Width = 129;
             // 
             // BranchStatus
             // 
             BranchStatus.DataPropertyName = "BranchStatus";
-            BranchStatus.HeaderText = "BranchStatus";
+            BranchStatus.HeaderText = "Status";
             BranchStatus.Name = "BranchStatus";
-            BranchStatus.Width = 82;
             // 
             // createdByDataGridViewTextBoxColumn
             // 
             createdByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy";
             createdByDataGridViewTextBoxColumn.HeaderText = "CreatedBy";
             createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
-            createdByDataGridViewTextBoxColumn.Width = 86;
             // 
             // createdDateDataGridViewTextBoxColumn
             // 
             createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
             createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
             createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            createdDateDataGridViewTextBoxColumn.Width = 97;
             // 
             // updatedByDataGridViewTextBoxColumn
             // 
             updatedByDataGridViewTextBoxColumn.DataPropertyName = "UpdatedBy";
             updatedByDataGridViewTextBoxColumn.HeaderText = "UpdatedBy";
             updatedByDataGridViewTextBoxColumn.Name = "updatedByDataGridViewTextBoxColumn";
-            updatedByDataGridViewTextBoxColumn.Width = 90;
             // 
             // updatedDateDataGridViewTextBoxColumn
             // 
             updatedDateDataGridViewTextBoxColumn.DataPropertyName = "UpdatedDate";
             updatedDateDataGridViewTextBoxColumn.HeaderText = "UpdatedDate";
             updatedDateDataGridViewTextBoxColumn.Name = "updatedDateDataGridViewTextBoxColumn";
-            updatedDateDataGridViewTextBoxColumn.Width = 101;
             // 
-            // statusDataGridViewTextBoxColumn
+            // branchBindingSource
             // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.Width = 64;
+            branchBindingSource.DataSource = typeof(Data.Branch);
             // 
             // visitBranchBindingSource
             // 
@@ -207,28 +196,25 @@ namespace KossanVMS.UserControlPage
             // 
             categoryBindingSource.DataSource = typeof(Data.Category);
             // 
-            // branchBindingSource
-            // 
-            branchBindingSource.DataSource = typeof(Data.Branch);
-            // 
             // BranchUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(BranchGridViewUserControl);
             Controls.Add(toolStrip1);
             Name = "BranchUserControl";
-            Size = new Size(768, 457);
+            Size = new Size(766, 455);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)BranchGridViewUserControl).EndInit();
+            ((System.ComponentModel.ISupportInitialize)branchBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitBranchBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitorBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)vmsUserBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)registerTypeBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)branchBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -287,6 +273,9 @@ namespace KossanVMS.UserControlPage
 
             }
         }
+        private BindingSource branchBindingSource;
+        private BindingSource registerTypeBindingSource;
+        private BindingSource categoryBindingSource;
         private DataGridViewTextBoxColumn BranchName;
         private DataGridViewTextBoxColumn BranchDescription;
         private DataGridViewCheckBoxColumn BranchStatus;
@@ -294,9 +283,5 @@ namespace KossanVMS.UserControlPage
         private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn updatedDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private BindingSource branchBindingSource;
-        private BindingSource registerTypeBindingSource;
-        private BindingSource categoryBindingSource;
     }
 }

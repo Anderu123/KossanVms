@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    [Migration("20251107095318_InitialCreate")]
+    [Migration("20251111072111_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -400,9 +400,63 @@ namespace KossanVMS.Migrations
                     b.Property<int>("PurposeID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("p_id");
+                        .HasColumnName("p_id")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PurposeID"), 1L, 1);
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_date");
+
+                    b.Property<string>("PurposeDescription")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)")
+                        .HasColumnName("p_description")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("PurposeName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("p_name")
+                        .HasColumnOrder(1);
+
+                    b.Property<bool>("PurposeStatus")
+                        .HasColumnType("bit")
+                        .HasColumnName("p_status")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnName("status");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_date");
+
+                    b.HasKey("PurposeID");
+
+                    b.ToTable("VisitPurposes");
+                });
+
+            modelBuilder.Entity("KossanVMS.Data.PurposeLink", b =>
+                {
+                    b.Property<int>("PurposeLinkID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("pl_id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PurposeLinkID"), 1L, 1);
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int")
@@ -419,20 +473,9 @@ namespace KossanVMS.Migrations
                         .HasColumnName("visitor_id_no")
                         .HasColumnOrder(1);
 
-                    b.Property<string>("PurposeDescription")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)")
-                        .HasColumnName("p_description");
-
-                    b.Property<string>("PurposeName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("p_name");
-
-                    b.Property<bool>("PurposeStatus")
-                        .HasColumnType("bit")
-                        .HasColumnName("p_status");
+                    b.Property<int>("PurposeID")
+                        .HasColumnType("int")
+                        .HasColumnName("purpose_id");
 
                     b.Property<int>("Status")
                         .HasColumnType("int")
@@ -446,10 +489,12 @@ namespace KossanVMS.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_date");
 
-                    b.HasKey("PurposeID");
+                    b.HasKey("PurposeLinkID");
 
                     b.HasIndex("IdNo")
                         .IsUnique();
+
+                    b.HasIndex("PurposeID");
 
                     b.ToTable("purpose");
                 });
@@ -710,11 +755,11 @@ namespace KossanVMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CreatedBy")
+                    b.Property<int>("CreatedBy")
                         .HasColumnType("int")
                         .HasColumnName("created_by");
 
-                    b.Property<DateTime?>("CreatedDate")
+                    b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("created_date");
 
@@ -730,7 +775,7 @@ namespace KossanVMS.Migrations
                         .HasColumnType("int")
                         .HasColumnName("user_role");
 
-                    b.Property<int?>("Status")
+                    b.Property<int>("Status")
                         .HasColumnType("int")
                         .HasColumnName("status");
 
@@ -817,14 +862,22 @@ namespace KossanVMS.Migrations
                     b.Navigation("Visitor");
                 });
 
-            modelBuilder.Entity("KossanVMS.Data.Purpose", b =>
+            modelBuilder.Entity("KossanVMS.Data.PurposeLink", b =>
                 {
                     b.HasOne("KossanVMS.Data.Visitor", "Visitor")
                         .WithOne("VisitorPurpose")
-                        .HasForeignKey("KossanVMS.Data.Purpose", "IdNo")
+                        .HasForeignKey("KossanVMS.Data.PurposeLink", "IdNo")
                         .HasPrincipalKey("KossanVMS.Data.Visitor", "VisitorIdNo")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("KossanVMS.Data.Purpose", "Purpose")
+                        .WithMany()
+                        .HasForeignKey("PurposeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Purpose");
 
                     b.Navigation("Visitor");
                 });

@@ -12,6 +12,7 @@ using KossanVMS.Data;
 using KossanVMS.Utility;
 using System.Configuration;
 using System.Drawing.Imaging;
+using Microsoft.EntityFrameworkCore;
 namespace KossanVMS
 {
     public partial class VisitorPreEditForm : Form
@@ -57,11 +58,12 @@ namespace KossanVMS
                 Text = "Edit Visitor";
                 visitorModel = exisitingVisitor;
             }
-            buttonUpdateID.TextButton = visitorModel.VisitorNo.ToString();
+            //buttonUpdateID.TextButton = visitorModel.VisitorNo.ToString();
             maskedTextBoxIC.Text = visitorModel.VisitorIdNo ?? "";
             textboxVisitorFullName.textBox.Text = visitorModel.VisitorFullName ?? "";
             buttonLabelUpdateContact.TextButton = visitorModel.VisitorContact?.ContactTel ?? "";
             LoadCategoryCheckList();
+            LoadPurposeList();
             comboBoxIdType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxIdType.DrawMode = DrawMode.OwnerDrawFixed;
             comboBoxIdType.ItemHeight = 45;
@@ -71,6 +73,20 @@ namespace KossanVMS
 
         }
 
+        private void LoadPurposeList()
+        {
+            var items = _db.VisitPurposes.Where(p=> p.PurposeStatus).OrderBy(p=> p.PurposeName).Select( p => new { p.PurposeID, p.PurposeName }).ToList();
+
+            comboBoxPurpose.DisplayMember = "PurposeName";  
+            comboBoxPurpose.ValueMember = "PurposeID";
+            comboBoxPurpose.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxPurpose.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBoxPurpose.DataSource = items;
+            //comboBoxPurpose.SelectedIndex = items.Count > 0 ? 0 : -1;
+            comboBoxPurpose.DrawItem += ComboBoxPurpose_DrawItem;
+
+
+        }
         private void LoadCategoryCheckList()
         {
             checkedListBoxCat.BeginUpdate();
@@ -200,6 +216,7 @@ namespace KossanVMS
             visitorModel.VisitorContact ??= new Contact();
             visitorModel.VisitorIdType = (IdType)comboBoxIdType.SelectedIndex;
             visitorModel.VisitorPhoto.PhotoUploadPath = uploadPath ?? "";
+            //visitorModel.
             return true;
         }
         private void SaveVisitorCategories()
@@ -266,6 +283,51 @@ namespace KossanVMS
                 TextRenderer.DrawText(e.Graphics, text, comboBoxIdType.Font, e.Bounds, Color.Black, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
             }
             e.DrawFocusRectangle();
+        }
+        private void ComboBoxPurpose_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            if (e.Index >= 0)
+            {
+                using var bg = new SolidBrush(Color.White);
+                e.Graphics.FillRectangle(bg, e.Bounds);
+                string text = comboBoxPurpose.GetItemText(comboBoxPurpose.Items[e.Index]);
+                bool selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+                var fore = selected ? SystemColors.HighlightText : comboBoxPurpose.ForeColor;
+                TextRenderer.DrawText(e.Graphics, text, comboBoxPurpose.Font, e.Bounds, Color.Black, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+            }
+            e.DrawFocusRectangle();
+        }
+        private void ComboBoxPurpose_Click(object sender, EventArgs e)
+        {
+            comboBoxPurpose.DroppedDown = false;
+            var messageBoxResult = MessageBox.Show("Changing ID Type will clear the existing ID Number. Do you want to proceed?", "Confirm Change", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (messageBoxResult == DialogResult.Yes)
+            {
+                comboBoxPurpose.DroppedDown = true;
+                var type = (IdType)comboBoxPurpose.SelectedItem;
+                if (type == IdType.IC) //&& string.IsNullOrEmpty(visitorModel.IdNo))
+                {
+                    maskedTextBoxIC.Mask = "000000-00-0000";
+                    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                }
+                else if (type == IdType.Passport) //&& string.IsNullOrEmpty(visitorModel.IdNo))
+                {
+                    maskedTextBoxIC.Mask = "AAAAAAAAAA";
+                    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                }
+                //else if (type == IdType.Permit)//&& string.IsNullOrEmpty(visitorModel.IdNo))
+                //{
+                //    maskedTextBoxIC.Mask = "00000000";
+                //    maskedTextBoxIC.TextMaskFormat = MaskFormat.IncludeLiterals;
+                //}
+            }
+            else
+            {
+                // Revert to previous selection if user cancels
+                comboBoxPurpose.DroppedDown = false;
+            }
+
         }
         private void ComboBoxIdType_Click(object sender, EventArgs e)
         {

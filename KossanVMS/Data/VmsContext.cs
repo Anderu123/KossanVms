@@ -23,6 +23,7 @@ namespace KossanVMS.Data
         public DbSet<Branch> VisitBranches => Set<Branch>();
         //blic DbSet<Company> VisitorCompanies => Set<Company>();
         public DbSet<Purpose> VisitPurposes => Set<Purpose>();
+        public DbSet<PurposeLink> VisitorPurposeLinks => Set<PurposeLink>();
         public DbSet<Visitor> Visitors => Set<Visitor>();
         public DbSet<Contact> VisitorContacts => Set<Contact>();
         public DbSet<Photo> VisitorPhotos => Set<Photo>();
@@ -105,19 +106,39 @@ namespace KossanVMS.Data
                 b.Property(x => x.BranchStatus).HasColumnOrder(3);
                 b.Property(x => x.BranchConnectionString).HasColumnOrder(4);
             });
+            modelBuilder.Entity<Purpose>(b =>
+            {
+                b.HasKey(x => x.PurposeID);
+                b.Property(x => x.PurposeID).HasColumnOrder(0);
+                b.Property(x => x.PurposeName).HasMaxLength(100).IsRequired().HasColumnOrder(1);
+                b.Property(x => x.PurposeDescription).HasMaxLength(300).HasColumnOrder(2);
+                b.Property(x => x.PurposeStatus).HasColumnOrder(3);
+            });
             //====================================
             //VisitorPurpose
             //====================================
 
-            modelBuilder.Entity<Purpose>(b =>
-            {
-                b.HasKey(x => x.PurposeID);
-                b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1);
+            //modelBuilder.Entity<Purpose>(b =>
+            //{
+            //    b.HasKey(x => x.PurposeID);
+            //    b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1);
+            //    b.HasOne(x => x.Visitor)
+            //    .WithOne(x => x.VisitorPurpose)
+            //    .HasForeignKey<Purpose>(x => x.IdNo)
+            //    .HasPrincipalKey<Visitor>(x => x.VisitorIdNo)
+            //    .OnDelete(DeleteBehavior.Restrict);
+            //});
+
+            modelBuilder.Entity<PurposeLink>(b =>
+            { b.HasKey(x => x.PurposeLinkID);
+                b.Property(x => x.PurposeLinkID).HasColumnOrder(0);
+                b.Property(x => x.IdNo).HasMaxLength(100).IsRequired().HasColumnOrder(1); // FK to Visitor.IdNo
                 b.HasOne(x => x.Visitor)
-                .WithOne(x => x.VisitorPurpose)
-                .HasForeignKey<Purpose>(x => x.IdNo)
-                .HasPrincipalKey<Visitor>(x => x.VisitorIdNo)
-                .OnDelete(DeleteBehavior.Restrict);
+                 .WithOne(v => v.VisitorPurpose)
+                 .HasForeignKey<PurposeLink>( x =>x.IdNo)
+                 .HasPrincipalKey<Visitor>(v => v.VisitorIdNo)
+                 .OnDelete(DeleteBehavior.Restrict);
+
             });
             // =========================
             // RegisterType
@@ -288,6 +309,7 @@ namespace KossanVMS.Data
                 //b.HasOne(x => x.Company).WithMany()
                 // .HasForeignKey(x => x.CompanyID)
                 // .OnDelete(DeleteBehavior.Restrict);
+    
 
                 b.Property(x => x.RegisterTypeID).HasColumnOrder(5);
                 b.HasOne(x => x.VisitRecordRegisterType).WithMany()

@@ -30,23 +30,26 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryUserControl));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             toolStrip1 = new ToolStrip();
             toolStripButton2 = new ToolStripButton();
             toolStripButton1 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
             visitorCatUserControlGridView = new DataGridView();
+            categoryBindingSource = new BindingSource(components);
+            visitCategoryBindingSource = new BindingSource(components);
+            visitBranchBindingSource = new BindingSource(components);
             CategoryName = new DataGridViewTextBoxColumn();
             CategoryDescription = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewCheckBoxColumn();
             createdByDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             updatedByDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             updatedDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            visitCategoryBindingSource = new BindingSource(components);
-            visitBranchBindingSource = new BindingSource(components);
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)visitorCatUserControlGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitCategoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)visitBranchBindingSource).BeginInit();
             SuspendLayout();
@@ -100,14 +103,14 @@
             visitorCatUserControlGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             visitorCatUserControlGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             visitorCatUserControlGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            visitorCatUserControlGridView.Columns.AddRange(new DataGridViewColumn[] { CategoryName, CategoryDescription, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn });
-            visitorCatUserControlGridView.DataSource = visitCategoryBindingSource;
+            visitorCatUserControlGridView.Columns.AddRange(new DataGridViewColumn[] { CategoryName, CategoryDescription, Status, createdByDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedByDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn });
+            visitorCatUserControlGridView.DataSource = categoryBindingSource;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.DarkTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             visitorCatUserControlGridView.DefaultCellStyle = dataGridViewCellStyle1;
             visitorCatUserControlGridView.Dock = DockStyle.Fill;
@@ -117,17 +120,35 @@
             visitorCatUserControlGridView.Size = new Size(1072, 463);
             visitorCatUserControlGridView.TabIndex = 1;
             // 
+            // categoryBindingSource
+            // 
+            categoryBindingSource.DataSource = typeof(Data.Category);
+            // 
+            // visitCategoryBindingSource
+            // 
+            visitCategoryBindingSource.DataSource = typeof(Data.Category);
+            // 
+            // visitBranchBindingSource
+            // 
+            visitBranchBindingSource.DataSource = typeof(Data.Branch);
+            // 
             // CategoryName
             // 
             CategoryName.DataPropertyName = "CategoryName";
-            CategoryName.HeaderText = "CategoryName";
+            CategoryName.HeaderText = "Name";
             CategoryName.Name = "CategoryName";
             // 
             // CategoryDescription
             // 
             CategoryDescription.DataPropertyName = "CategoryDescription";
-            CategoryDescription.HeaderText = "CategoryDescription";
+            CategoryDescription.HeaderText = "Description";
             CategoryDescription.Name = "CategoryDescription";
+            // 
+            // Status
+            // 
+            Status.DataPropertyName = "CategoryStatus";
+            Status.HeaderText = "Status";
+            Status.Name = "Status";
             // 
             // createdByDataGridViewTextBoxColumn
             // 
@@ -153,14 +174,6 @@
             updatedDateDataGridViewTextBoxColumn.HeaderText = "UpdatedDate";
             updatedDateDataGridViewTextBoxColumn.Name = "updatedDateDataGridViewTextBoxColumn";
             // 
-            // visitCategoryBindingSource
-            // 
-            visitCategoryBindingSource.DataSource = typeof(Data.Category);
-            // 
-            // visitBranchBindingSource
-            // 
-            visitBranchBindingSource.DataSource = typeof(Data.Branch);
-            // 
             // CategoryUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -173,6 +186,7 @@
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)visitorCatUserControlGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitCategoryBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)visitBranchBindingSource).EndInit();
             ResumeLayout(false);
@@ -188,8 +202,10 @@
         private DataGridView visitorCatUserControlGridView;
         private BindingSource visitCategoryBindingSource;
         private BindingSource visitBranchBindingSource;
+        private BindingSource categoryBindingSource;
         private DataGridViewTextBoxColumn CategoryName;
         private DataGridViewTextBoxColumn CategoryDescription;
+        private DataGridViewCheckBoxColumn Status;
         private DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn updatedByDataGridViewTextBoxColumn;

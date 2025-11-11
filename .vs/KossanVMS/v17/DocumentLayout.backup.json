@@ -3,248 +3,112 @@
   "WorkspaceRootPath": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\visitorusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\visitorusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\visitorusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\visitorusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\visitorusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\visitorusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\visitorusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitorpreeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorpreeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitorpreeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorpreeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\mainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\mainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\mainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\mainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\data\\vmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\data\\vmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\data\\vmsuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\data\\vmsuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\data\\visitdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\data\\visitdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitpurposeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitpurposeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\mainpageusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\mainpageusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\mainpageusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\mainpageusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitbrancheditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitbrancheditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitbrancheditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitbrancheditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitpurposeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitpurposeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\data\\vmsauditentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\data\\vmsauditentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\visitorpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\visitorpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\dashboardusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\dashboardusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\utility\\preregutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\utility\\preregutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\checkoutpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\checkoutpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\categoryusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\categoryusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitorpbeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorpbeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\utility\\copymodelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\utility\\copymodelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\visitorusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\visitorusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\categoryusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\categoryusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitorcontacteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorcontacteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitorcategoryeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorcategoryeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitrecordeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitrecordeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitorcategoryeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorcategoryeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\adloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\adloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\adloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\adloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\preregisteredpbusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\preregisteredpbusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\kossanvms.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\kossanvms.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitorcompanieseditform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorcompanieseditform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\utility\\vmscontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\utility\\vmscontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\gatepassusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\gatepassusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\checkoutpbusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\checkoutpbusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\mainpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\mainpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\security\\adauthenticator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\security\\adauthenticator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\visitorpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\visitorpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\preregisteredpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\preregisteredpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\gatepassusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\gatepassusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\gatepasseditusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\gatepasseditusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitorcompanieseditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorcompanieseditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitbrancheditform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitbrancheditform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitorcontacteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorcontacteditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\data\\userroleenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\data\\userroleenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\kossanvms.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\kossanvms.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\checkoutpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\checkoutpbusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\mainpageusercontrol.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\mainpageusercontrol.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\gatepassusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\gatepassusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\editformtemplateusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\editformtemplateusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\security\\sessioncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\security\\sessioncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\adloginscreen.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\adloginscreen.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitorphotocapture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorphotocapture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitpurposeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitpurposeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\adloginscreen.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\adloginscreen.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\branchusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitorpreeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorpreeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitorpreeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorpreeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\data\\vmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\data\\vmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\data\\visitdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\data\\visitdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitorpreeditform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorpreeditform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitbrancheditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitbrancheditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitpurposeeditform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitpurposeeditform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\forms\\visitpurposeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitpurposeeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\adloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\adloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\adloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\adloginscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\usercontrolpage\\purposeusercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitpbusereditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitpbusereditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitorpbeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorpbeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|c:\\users\\andrew.tan\\desktop\\kossanvms\\kossanvms\\data\\vmsdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\data\\vmsdashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitorcategoryeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitorcategoryeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\kossanvms\\modules\\vms\\forms\\visitrecordeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{540668DB-02C0-4312-AF07-32C421FDF896}|KossanVMS\\KossanVMS.csproj|solutionrelative:kossanvms\\modules\\vms\\forms\\visitrecordeditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -254,575 +118,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VisitorPreEditForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs [Design]*",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T01:33:31.438Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainPage.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\MainPage.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\MainPage.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\MainPage.cs",
-              "RelativeToolTip": "KossanVMS\\MainPage.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAswGcAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T01:24:35.971Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "BranchUserControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T00:55:13.905Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PurposeUserControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T00:54:55.107Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "PurposeUserControl.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAcwEYAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T00:54:49.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "VmsAuditEntity.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsAuditEntity.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Data\\VmsAuditEntity.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsAuditEntity.cs",
-              "RelativeToolTip": "KossanVMS\\Data\\VmsAuditEntity.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:46:46.676Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "DashboardUserControl.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\DashboardUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\DashboardUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\DashboardUserControl.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\DashboardUserControl.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAQwDoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:43:36.493Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "CategoryUserControl.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CategoryUserControl.Designer.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\CategoryUserControl.Designer.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CategoryUserControl.Designer.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\CategoryUserControl.Designer.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAYwJ0AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:36:07.266Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "VisitorUserControl.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs",
-              "ViewState": "AgIAAC4BAAAAAAAAAAAkwDkBAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:22:26.369Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "VisitorPBUserControl.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorPBUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorPBUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorPBUserControl.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorPBUserControl.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAAwFsAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:15:05.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "BranchUserControl.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAYwC8AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:11:44.781Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VisitBranchEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs*",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs*",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAswBcAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:11:30.182Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "CategoryUserControl.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CategoryUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\CategoryUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CategoryUserControl.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\CategoryUserControl.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAIAwwDIAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:11:01.165Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "VisitorPreEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs*",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs*",
-              "ViewState": "AgIAAMUAAAAAAAAAAADwv20AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:08:49.006Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "CopyModelHelper.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Utility\\CopyModelHelper.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Utility\\CopyModelHelper.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Utility\\CopyModelHelper.cs",
-              "RelativeToolTip": "KossanVMS\\Utility\\CopyModelHelper.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAowF0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:02:27.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "VisitorPBEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPBEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPBEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPBEditForm.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPBEditForm.cs",
-              "ViewState": "AgIAAEQBAAAAAAAAAAAAwEwBAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:02:24.239Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "VisitorContactEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorContactEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorContactEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorContactEditForm.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorContactEditForm.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAqwEMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T09:02:07.113Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "BranchUserControl.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.Designer.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.Designer.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.Designer.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.Designer.cs",
-              "ViewState": "AgIAALgAAAAAAAAAAAArwLkAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T01:08:31.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "VisitBranchEditForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs [Design]*",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:45:37.359Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "VisitorCompaniesEditForm.resx",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCompaniesEditForm.resx",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCompaniesEditForm.resx",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCompaniesEditForm.resx",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCompaniesEditForm.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-11-05T01:08:00.081Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "VmsContextFactory.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Utility\\VmsContextFactory.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Utility\\VmsContextFactory.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Utility\\VmsContextFactory.cs",
-              "RelativeToolTip": "KossanVMS\\Utility\\VmsContextFactory.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAqwBYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T09:37:43.345Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "KossanVMS.csproj",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\KossanVMS.csproj",
-              "RelativeDocumentMoniker": "KossanVMS\\KossanVMS.csproj",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\KossanVMS.csproj",
-              "RelativeToolTip": "KossanVMS\\KossanVMS.csproj",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACkAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-04T09:33:40.589Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "ADLoginScreen.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\ADLoginScreen.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.cs",
-              "RelativeToolTip": "KossanVMS\\ADLoginScreen.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T07:05:05.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "VisitDetails.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VisitDetails.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Data\\VisitDetails.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VisitDetails.cs",
-              "RelativeToolTip": "KossanVMS\\Data\\VisitDetails.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAqwMUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T06:01:41.454Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "VisitorCategoryEditForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:46:47.361Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "ADLoginScreen.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\ADLoginScreen.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\ADLoginScreen.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T06:55:51.183Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Program.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Program.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Program.cs",
-              "RelativeToolTip": "KossanVMS\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAACBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T06:53:13.514Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "PreRegisteredPBUserControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PreRegisteredPBUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\PreRegisteredPBUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PreRegisteredPBUserControl.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\PreRegisteredPBUserControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T02:49:26.096Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "MainPage.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\MainPage.Designer.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\MainPage.Designer.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\MainPage.Designer.cs",
-              "RelativeToolTip": "KossanVMS\\MainPage.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T02:35:06.406Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainPage.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\MainPage.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\MainPage.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\MainPage.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\MainPage.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T02:30:11.492Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "VmsContext.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsContext.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Data\\VmsContext.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsContext.cs",
-              "RelativeToolTip": "KossanVMS\\Data\\VmsContext.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAgwA4AAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T01:55:23.621Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "UserRoleEnum.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\UserRoleEnum.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Data\\UserRoleEnum.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\UserRoleEnum.cs",
-              "RelativeToolTip": "KossanVMS\\Data\\UserRoleEnum.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T01:55:21.787Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "KossanVMS",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\KossanVMS.csproj",
-              "RelativeDocumentMoniker": "KossanVMS\\KossanVMS.csproj",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\KossanVMS.csproj",
-              "RelativeToolTip": "KossanVMS\\KossanVMS.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-03T08:11:12.46Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "MainPageUserControl.resx",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.resx",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.resx",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.resx",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-11-03T03:39:34.879Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "GatePassUserControl.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T02:33:22.142Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "CheckOutPBUserControl.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAtwIMAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T02:38:07.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "GatePassUserControl.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.Designer.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.Designer.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.Designer.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T02:48:51.874Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "CheckOutPBUserControl.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.Designer.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.Designer.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.Designer.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.Designer.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAABkAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T02:48:27.961Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "CheckOutPBUserControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\CheckOutPBUserControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T02:33:28.671Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "PreRegisteredPBUserControl.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PreRegisteredPBUserControl.Designer.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\PreRegisteredPBUserControl.Designer.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PreRegisteredPBUserControl.Designer.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\PreRegisteredPBUserControl.Designer.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAABoAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T02:54:30.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "GatePassUserControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassUserControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T02:31:42.08Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "GatePassEditUserControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassEditUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassEditUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassEditUserControl.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\GatePassEditUserControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T02:16:39.574Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "EditFormTemplateUserControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\EditFormTemplateUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\EditFormTemplateUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\EditFormTemplateUserControl.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\EditFormTemplateUserControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T02:16:42.998Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "VisitorPBUserControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorPBUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorPBUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorPBUserControl.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorPBUserControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T01:58:36.951Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MainPageUserControl.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAcwDUAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T00:51:36.307Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MainPageUserControl.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\MainPageUserControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T00:51:32.736Z",
-              "EditorCaption": " [Design]"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -832,163 +129,270 @@
               "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs [Design]",
               "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T01:07:11.978Z",
+              "WhenOpened": "2025-11-11T09:09:34.936Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "PreRegUtil.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Utility\\PreRegUtil.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Utility\\PreRegUtil.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Utility\\PreRegUtil.cs",
-              "RelativeToolTip": "KossanVMS\\Utility\\PreRegUtil.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAYwCUAAAAuAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "VisitorUserControl.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.Designer.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.Designer.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.Designer.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.Designer.cs",
+              "ViewState": "AgIAAMsBAAAAAAAAAAAAAEwAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T03:00:02.509Z"
+              "WhenOpened": "2025-11-11T09:06:05.907Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "SessionContext.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Security\\SessionContext.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Security\\SessionContext.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Security\\SessionContext.cs",
-              "RelativeToolTip": "KossanVMS\\Security\\SessionContext.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "VisitorPreEditForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.Designer.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.Designer.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.Designer.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.Designer.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAowJMAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T02:30:32.27Z"
+              "WhenOpened": "2025-11-11T08:45:45.15Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "AdAuthenticator.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Security\\AdAuthenticator.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Security\\AdAuthenticator.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Security\\AdAuthenticator.cs",
-              "RelativeToolTip": "KossanVMS\\Security\\AdAuthenticator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "VisitPurposeEditForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.Designer.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.Designer.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.Designer.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.Designer.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T02:30:29.492Z"
+              "WhenOpened": "2025-11-11T07:54:55.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ADLoginScreen.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\ADLoginScreen.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.cs [Design]",
+              "RelativeToolTip": "KossanVMS\\ADLoginScreen.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T07:45:43.513Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PurposeUserControl.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.Designer.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.Designer.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.Designer.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.Designer.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAowG8AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T07:32:59.48Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "VmsUser.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsUser.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Data\\VmsUser.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsUser.cs",
-              "RelativeToolTip": "KossanVMS\\Data\\VmsUser.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAxwCEAAAAIAAAAAAAAAA==",
+              "Title": "BranchUserControl.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAIwG0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T02:26:28.5Z",
+              "WhenOpened": "2025-11-11T07:32:43.026Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "ADLoginScreen.resx",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.resx",
-              "RelativeDocumentMoniker": "KossanVMS\\ADLoginScreen.resx",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.resx",
-              "RelativeToolTip": "KossanVMS\\ADLoginScreen.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-10-27T02:25:10.751Z",
+              "DocumentIndex": 7,
+              "Title": "BranchUserControl.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs [Design]",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T07:32:40.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VisitorUserControl.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\VisitorUserControl.cs",
+              "ViewState": "AgIAAE8BAAAAAAAAAAAWwLUBAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T06:59:05.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "ADLoginScreen.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.Designer.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\ADLoginScreen.Designer.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.Designer.cs",
-              "RelativeToolTip": "KossanVMS\\ADLoginScreen.Designer.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAowCwAAAAtAAAAAAAAAA==",
+              "DocumentIndex": 21,
+              "Title": "PurposeUserControl.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAjwCMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T02:24:58.306Z",
+              "WhenOpened": "2025-11-11T06:56:04.015Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "VisitorCategoryEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAqwEYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "VisitorPreEditForm.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
+              "ViewState": "AgIAAMMAAAAAAAAAAAAnwNoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T02:23:32.587Z"
+              "WhenOpened": "2025-11-11T06:39:33.456Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 22,
+              "Title": "VisitPBUserEditForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPBUserEditForm.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitPBUserEditForm.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPBUserEditForm.cs [Design]",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitPBUserEditForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T06:39:20.387Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "VmsDashboard.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsDashboard.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Data\\VmsDashboard.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsDashboard.cs",
+              "RelativeToolTip": "KossanVMS\\Data\\VmsDashboard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T06:29:36.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "VmsContext.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsContext.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Data\\VmsContext.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VmsContext.cs",
+              "RelativeToolTip": "KossanVMS\\Data\\VmsContext.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAqwDkAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T06:11:38.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "VisitDetails.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VisitDetails.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Data\\VisitDetails.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Data\\VisitDetails.cs",
+              "RelativeToolTip": "KossanVMS\\Data\\VisitDetails.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAtwDoAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T06:13:29.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "VisitPurposeEditForm.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAIwGMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T06:03:31.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "VisitRecordEditForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitRecordEditForm.cs",
               "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitRecordEditForm.cs",
               "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitRecordEditForm.cs [Design]",
               "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitRecordEditForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T01:37:24.843Z"
+              "WhenOpened": "2025-11-11T06:01:41.24Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
+              "Title": "PurposeUserControl.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs [Design]",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\PurposeUserControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T06:01:37.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "VisitPurposeEditForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
               "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
               "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs [Design]",
               "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T01:37:22.079Z",
+              "WhenOpened": "2025-11-11T05:59:08.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "VisitorPreEditForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs [Design]",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPreEditForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T05:58:56.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "VisitorPBEditForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPBEditForm.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPBEditForm.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPBEditForm.cs [Design]",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPBEditForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T05:58:49.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "VisitorCategoryEditForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs [Design]",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T05:58:31.125Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "VisitorContactEditForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorContactEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorContactEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorContactEditForm.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorContactEditForm.cs [Design]",
+              "DocumentIndex": 14,
+              "Title": "VisitBranchEditForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs [Design]",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T01:36:08.343Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "VisitorCompaniesEditForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCompaniesEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCompaniesEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCompaniesEditForm.cs [Design]*",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCompaniesEditForm.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T01:03:14.838Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "VisitBranchEditForm.resx",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.resx",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.resx",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.resx*",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitBranchEditForm.resx*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-10-24T01:00:19.585Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "VisitorPhotoCapture.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPhotoCapture.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPhotoCapture.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorPhotoCapture.cs [Design]",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorPhotoCapture.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T03:07:05.246Z"
+              "WhenOpened": "2025-11-11T05:58:22.211Z"
             }
           ]
         }
@@ -998,12 +402,12 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "86bdc449-75b0-4971-b93a-8867e561a2cc",
+        "Id": "b52f5818-0a12-45eb-b6f7-a87c59068d6d",
         "Display": 1,
-        "X": 266,
-        "Y": 100,
+        "X": 20,
+        "Y": 40,
         "Width": 1373,
-        "Height": 320,
+        "Height": 704,
         "WindowState": 2
       },
       "DocumentGroups": [
@@ -1013,15 +417,102 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "VisitPurposeEditForm.cs",
-              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
-              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
-              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
-              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitPurposeEditForm.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAmwCMAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "BranchUserControl.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.Designer.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.Designer.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.Designer.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\UserControlPage\\BranchUserControl.Designer.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T02:24:30.475Z",
+              "WhenOpened": "2025-11-11T07:32:44.292Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "0cd410a5-51b6-4d42-84e5-fa71b318f5d7",
+        "Display": 1,
+        "X": 237,
+        "Y": 104,
+        "Width": 1348,
+        "Height": 704,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 192,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ADLoginScreen.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\ADLoginScreen.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.cs",
+              "RelativeToolTip": "KossanVMS\\ADLoginScreen.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T07:39:18.447Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 208,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ADLoginScreen.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.Designer.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\ADLoginScreen.Designer.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\ADLoginScreen.Designer.cs",
+              "RelativeToolTip": "KossanVMS\\ADLoginScreen.Designer.cs",
+              "ViewState": "AgIAAHABAAAAAAAAAAAAAIQBAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T07:41:06.84Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "dc536c42-dc94-48f7-bbaf-68fee411eca0",
+        "Display": 1,
+        "X": 16,
+        "Y": 83,
+        "Width": 1348,
+        "Height": 726,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VisitorCategoryEditForm.cs",
+              "DocumentMoniker": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
+              "RelativeDocumentMoniker": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
+              "ToolTip": "C:\\Users\\andrew.tan\\Desktop\\KossanVMS\\KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
+              "RelativeToolTip": "KossanVMS\\Modules\\VMS\\Forms\\VisitorCategoryEditForm.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAA1wEgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T06:01:23.244Z",
               "EditorCaption": ""
             }
           ]

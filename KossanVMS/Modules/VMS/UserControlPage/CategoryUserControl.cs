@@ -59,7 +59,12 @@ namespace KossanVMS.UserControlPage
                 //UpdatedBy = selecteditem.UpdatedBy,
                 //UpdatedDate = selecteditem.UpdatedDate
             };
-            using var editVisitCategoryModel = new VisitorCategoryEditForm(_db, copyVisitCategoryModel);
+            using var editVisitCategoryModel = new VisitorCategoryEditForm(_db, copyVisitCategoryModel)
+            {
+               // StartPosition = FormStartPosition.Manual,
+                TopMost = true,
+                ShowInTaskbar = false,
+            };
             if (editVisitCategoryModel.ShowDialog() != DialogResult.OK)
             {
                 return;
@@ -76,7 +81,13 @@ namespace KossanVMS.UserControlPage
         private async void toolStripAddButton_Click(object sender, EventArgs e)
         {
 
-            using var addVisitCategoryModel = new VisitorCategoryEditForm(_db);
+            using var addVisitCategoryModel = new VisitorCategoryEditForm(_db)
+            {
+              //  StartPosition = FormStartPosition.Manual,
+                ShowInTaskbar = false,
+                TopMost = true
+
+            };
             var newVisitCategory = addVisitCategoryModel.visitCategoryModel;
             if (addVisitCategoryModel.ShowDialog() != DialogResult.OK)
             {

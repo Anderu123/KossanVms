@@ -40,7 +40,12 @@ namespace KossanVMS.Modules.VMS.UserControlPage
 
         public void toolStripAddButton_Click(object sender, EventArgs e)
         {
-            using var addPurposeForm = new VisitPurposeEditForm();
+            using var addPurposeForm = new VisitPurposeEditForm()
+            {
+                //StartPosition = FormStartPosition.Manual,
+                TopMost = true,
+                ShowInTaskbar = false
+            };
             if (addPurposeForm.ShowDialog(this) != DialogResult.OK)
             {
                 return;
@@ -63,7 +68,12 @@ namespace KossanVMS.Modules.VMS.UserControlPage
                 PurposeDescription = selectedItem.PurposeDescription,
                 //PurposeStatus = selectedItem.PurposeStatus,
             };
-            using var editVisitPurposeModel = new VisitPurposeEditForm(copyVisitPurposeModel);
+            using var editVisitPurposeModel = new VisitPurposeEditForm(copyVisitPurposeModel)
+            {
+                TopMost = true,
+               // StartPosition = FormStartPosition.Manual,
+                ShowInTaskbar = false
+            };
             if (editVisitPurposeModel.ShowDialog(this) != DialogResult.OK)
             {
                 return;

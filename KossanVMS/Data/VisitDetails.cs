@@ -48,7 +48,7 @@ namespace KossanVMS.Data
         [Key, Column("v_no")] public int VisitorNo { get; set; }
 
         [Column("v_id_type")] public IdType VisitorIdType { get; set; }
-
+       // [Column("v_purpose_id")] public int? PurposeID { get; set; }
         // Business key used as principal for all FKs below
         [Required, MaxLength(100), Column("v_id_no")] public string VisitorIdNo { get; set; } = null!;
 
@@ -56,10 +56,11 @@ namespace KossanVMS.Data
 
         [Column("v_expiry_date")] public DateTime? VisitorExpiryDate { get; set; }
         [Column("v_black_list")] public bool VisitorBlackList { get; set; } = false;
+        [Column("v_vehicle_no")] public string? VisitorVehicleNo { get; set; }
        // [Column("company_name")] public string? CompanyName { get; set; }
         public Contact? VisitorContact { get; set; }
         public Photo? VisitorPhoto { get; set; }
-        public Purpose? VisitorPurpose { get; set; }
+        public PurposeLink? VisitorPurpose { get; set; }
        // public ICollection<VisitorAffiliation> VisitorAffiliations { get; set; } 
         public ICollection<CategoryLink> VisitorCategories { get; set; } 
         public ICollection<BranchLink> VisitorBranches { get; set; } 
@@ -186,13 +187,21 @@ namespace KossanVMS.Data
         public Branch? VisitRecordBranch { get; set; } = null!;
     }
     [Table("purpose")]
+    public class PurposeLink : VmsAuditEntity
+    {
+        [Key, Column("pl_id")] public int PurposeLinkID { get; set; }
+        [Required, MaxLength(100), Column("visitor_id_no")] public string IdNo { get; set; } = null!;
+        [Column("purpose_id")] public int PurposeID { get; set; }
+        public Visitor Visitor { get; set; } = null!;
+        public Purpose Purpose { get; set; } = null!;
+    }
     public class Purpose : VmsAuditEntity
     {
         [Key, Column("p_id")] public int PurposeID { get; set; }
-        [Required, MaxLength(100), Column("visitor_id_no")] public string IdNo { get; set; } = null!;
+        
         [Required, MaxLength(100), Column("p_name")] public string PurposeName { get; set; } = null!;
         [MaxLength(300), Column("p_description")] public string? PurposeDescription { get; set; }
         [Column("p_status")] public bool PurposeStatus { get; set; } = true;
-        public Visitor Visitor { get; set; } = null!;
+        
     }
 }

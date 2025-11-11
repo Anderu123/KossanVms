@@ -320,6 +320,7 @@ namespace KossanVMS
             ClientSize = new Size(518, 277);
             Controls.Add(tableLayoutPanel1);
             Name = "VisitorCategoryEditForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "VisitorCategoryEditForm";
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

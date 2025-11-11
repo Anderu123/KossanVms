@@ -53,7 +53,12 @@ namespace KossanVMS.UserControlPage
                 BranchConnectionString = selectedItem.BranchConnectionString
 
             };
-            using var editVisitBranchModel = new VisitBranchEditForm(copyVisitBranchModel);
+            using var editVisitBranchModel = new VisitBranchEditForm(copyVisitBranchModel)
+            {
+                TopMost = true,
+               // StartPosition = FormStartPosition.Manual,
+                ShowInTaskbar = false
+            };
             if (editVisitBranchModel.ShowDialog(this) != DialogResult.OK)
             {
                 return;
@@ -70,7 +75,12 @@ namespace KossanVMS.UserControlPage
 
         private void toolStripAddButton_Click(object sender, EventArgs e)
         {
-            using var addVisitBranchModel = new VisitBranchEditForm();
+            using var addVisitBranchModel = new VisitBranchEditForm()
+            {
+                //StartPosition = FormStartPosition.Manual,
+                ShowInTaskbar = false,
+                TopMost = true
+            };
             var newVisitBranchModel = addVisitBranchModel.visitBranchModel;
             if (addVisitBranchModel.ShowDialog(this) != DialogResult.OK)
             {
@@ -81,7 +91,7 @@ namespace KossanVMS.UserControlPage
             visitorBindingSource.ResetBindings(false);
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void toolStripButtonDel_Click(object sender, EventArgs e)
         {
             var selectedItem = CurrentItem;
             if(selectedItem == null)

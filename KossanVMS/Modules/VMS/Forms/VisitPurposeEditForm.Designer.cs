@@ -29,20 +29,25 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
+            textBoxPurposeName = new ReaLTaiizor.Controls.CyberTextBox();
             thunderLabel7 = new ReaLTaiizor.Controls.ThunderLabel();
             labelPurposeStatus = new ReaLTaiizor.Controls.ThunderLabel();
             labelPurposeDescription = new ReaLTaiizor.Controls.ThunderLabel();
             labelPurposeName = new ReaLTaiizor.Controls.ThunderLabel();
             textBoxPurposeDescription = new ReaLTaiizor.Controls.CyberTextBox();
             panel1 = new Panel();
-            cyberButton3 = new ReaLTaiizor.Controls.CyberButton();
-            cyberButton2 = new ReaLTaiizor.Controls.CyberButton();
+            buttonSave = new ReaLTaiizor.Controls.CyberButton();
+            buttonCancel = new ReaLTaiizor.Controls.CyberButton();
             panel2 = new Panel();
-            cyberTextBox3 = new ReaLTaiizor.Controls.CyberTextBox();
-            textBoxPurposeName = new ReaLTaiizor.Controls.CyberTextBox();
+            panel3 = new Panel();
+            panel4 = new Panel();
+            rbInactive = new RadioButton();
+            rbActive = new RadioButton();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -70,6 +75,39 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(615, 233);
             tableLayoutPanel1.TabIndex = 1;
+            // 
+            // textBoxPurposeName
+            // 
+            textBoxPurposeName.Alpha = 20;
+            textBoxPurposeName.BackColor = Color.Transparent;
+            textBoxPurposeName.Background_WidthPen = 6F;
+            textBoxPurposeName.BackgroundPen = true;
+            textBoxPurposeName.ColorBackground = Color.LightGray;
+            textBoxPurposeName.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            textBoxPurposeName.ColorLighting = Color.FromArgb(29, 200, 238);
+            textBoxPurposeName.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            textBoxPurposeName.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            textBoxPurposeName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            textBoxPurposeName.Dock = DockStyle.Fill;
+            textBoxPurposeName.Font = new Font("Arial", 12F);
+            textBoxPurposeName.ForeColor = Color.Black;
+            textBoxPurposeName.Lighting = false;
+            textBoxPurposeName.LinearGradientPen = false;
+            textBoxPurposeName.Location = new Point(161, 6);
+            textBoxPurposeName.Name = "textBoxPurposeName";
+            textBoxPurposeName.PenWidth = 15;
+            textBoxPurposeName.RGB = false;
+            textBoxPurposeName.Rounding = true;
+            textBoxPurposeName.RoundingInt = 60;
+            textBoxPurposeName.Size = new Size(448, 48);
+            textBoxPurposeName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            textBoxPurposeName.TabIndex = 15;
+            textBoxPurposeName.Tag = "Cyber";
+            textBoxPurposeName.TextButton = "";
+            textBoxPurposeName.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            textBoxPurposeName.Timer_RGB = 300;
+            textBoxPurposeName.Enter += textBoxUpdate_Enter;
+            textBoxPurposeName.Leave += textBoxUpdate_Leave;
             // 
             // thunderLabel7
             // 
@@ -144,169 +182,154 @@
             textBoxPurposeDescription.TextButton = "";
             textBoxPurposeDescription.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textBoxPurposeDescription.Timer_RGB = 300;
+            textBoxPurposeDescription.Enter += textBoxUpdate_Enter;
+            textBoxPurposeDescription.Leave += textBoxUpdate_Leave;
             // 
             // panel1
             // 
-            panel1.Controls.Add(cyberButton3);
-            panel1.Controls.Add(cyberButton2);
+            panel1.Controls.Add(buttonSave);
+            panel1.Controls.Add(buttonCancel);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(161, 177);
             panel1.Name = "panel1";
             panel1.Size = new Size(448, 50);
             panel1.TabIndex = 13;
             // 
-            // cyberButton3
+            // buttonSave
             // 
-            cyberButton3.Alpha = 20;
-            cyberButton3.BackColor = Color.Transparent;
-            cyberButton3.Background = true;
-            cyberButton3.Background_WidthPen = 4F;
-            cyberButton3.BackgroundPen = true;
-            cyberButton3.ColorBackground = Color.FromArgb(37, 52, 68);
-            cyberButton3.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            cyberButton3.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            cyberButton3.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberButton3.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberButton3.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            cyberButton3.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            cyberButton3.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberButton3.Dock = DockStyle.Right;
-            cyberButton3.Effect_1 = true;
-            cyberButton3.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            cyberButton3.Effect_1_Transparency = 25;
-            cyberButton3.Effect_2 = true;
-            cyberButton3.Effect_2_ColorBackground = Color.White;
-            cyberButton3.Effect_2_Transparency = 20;
-            cyberButton3.Font = new Font("Arial", 11F);
-            cyberButton3.ForeColor = Color.Lime;
-            cyberButton3.Lighting = false;
-            cyberButton3.LinearGradient_Background = false;
-            cyberButton3.LinearGradientPen = false;
-            cyberButton3.Location = new Point(188, 0);
-            cyberButton3.Name = "cyberButton3";
-            cyberButton3.PenWidth = 15;
-            cyberButton3.Rounding = true;
-            cyberButton3.RoundingInt = 70;
-            cyberButton3.Size = new Size(130, 50);
-            cyberButton3.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberButton3.TabIndex = 1;
-            cyberButton3.Tag = "Cyber";
-            cyberButton3.TextButton = "OK";
-            cyberButton3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberButton3.Timer_Effect_1 = 5;
-            cyberButton3.Timer_RGB = 300;
+            buttonSave.Alpha = 20;
+            buttonSave.BackColor = Color.Transparent;
+            buttonSave.Background = true;
+            buttonSave.Background_WidthPen = 4F;
+            buttonSave.BackgroundPen = true;
+            buttonSave.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonSave.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonSave.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonSave.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonSave.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonSave.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonSave.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonSave.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonSave.Dock = DockStyle.Right;
+            buttonSave.Effect_1 = true;
+            buttonSave.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonSave.Effect_1_Transparency = 25;
+            buttonSave.Effect_2 = true;
+            buttonSave.Effect_2_ColorBackground = Color.White;
+            buttonSave.Effect_2_Transparency = 20;
+            buttonSave.Font = new Font("Arial", 11F);
+            buttonSave.ForeColor = Color.Lime;
+            buttonSave.Lighting = false;
+            buttonSave.LinearGradient_Background = false;
+            buttonSave.LinearGradientPen = false;
+            buttonSave.Location = new Point(188, 0);
+            buttonSave.Name = "buttonSave";
+            buttonSave.PenWidth = 15;
+            buttonSave.Rounding = true;
+            buttonSave.RoundingInt = 70;
+            buttonSave.Size = new Size(130, 50);
+            buttonSave.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonSave.TabIndex = 1;
+            buttonSave.Tag = "Cyber";
+            buttonSave.TextButton = "Save";
+            buttonSave.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonSave.Timer_Effect_1 = 5;
+            buttonSave.Timer_RGB = 300;
+            buttonSave.Click += buttonSave_Click;
             // 
-            // cyberButton2
+            // buttonCancel
             // 
-            cyberButton2.Alpha = 20;
-            cyberButton2.BackColor = Color.Transparent;
-            cyberButton2.Background = true;
-            cyberButton2.Background_WidthPen = 4F;
-            cyberButton2.BackgroundPen = true;
-            cyberButton2.ColorBackground = Color.FromArgb(37, 52, 68);
-            cyberButton2.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            cyberButton2.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            cyberButton2.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberButton2.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberButton2.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            cyberButton2.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            cyberButton2.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberButton2.Dock = DockStyle.Right;
-            cyberButton2.Effect_1 = true;
-            cyberButton2.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            cyberButton2.Effect_1_Transparency = 25;
-            cyberButton2.Effect_2 = true;
-            cyberButton2.Effect_2_ColorBackground = Color.White;
-            cyberButton2.Effect_2_Transparency = 20;
-            cyberButton2.Font = new Font("Arial", 11F);
-            cyberButton2.ForeColor = Color.Red;
-            cyberButton2.Lighting = false;
-            cyberButton2.LinearGradient_Background = false;
-            cyberButton2.LinearGradientPen = false;
-            cyberButton2.Location = new Point(318, 0);
-            cyberButton2.Name = "cyberButton2";
-            cyberButton2.PenWidth = 15;
-            cyberButton2.Rounding = true;
-            cyberButton2.RoundingInt = 70;
-            cyberButton2.Size = new Size(130, 50);
-            cyberButton2.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberButton2.TabIndex = 0;
-            cyberButton2.Tag = "Cyber";
-            cyberButton2.TextButton = "Cancel";
-            cyberButton2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberButton2.Timer_Effect_1 = 5;
-            cyberButton2.Timer_RGB = 300;
+            buttonCancel.Alpha = 20;
+            buttonCancel.BackColor = Color.Transparent;
+            buttonCancel.Background = true;
+            buttonCancel.Background_WidthPen = 4F;
+            buttonCancel.BackgroundPen = true;
+            buttonCancel.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonCancel.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonCancel.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonCancel.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonCancel.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonCancel.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonCancel.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonCancel.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonCancel.Dock = DockStyle.Right;
+            buttonCancel.Effect_1 = true;
+            buttonCancel.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonCancel.Effect_1_Transparency = 25;
+            buttonCancel.Effect_2 = true;
+            buttonCancel.Effect_2_ColorBackground = Color.White;
+            buttonCancel.Effect_2_Transparency = 20;
+            buttonCancel.Font = new Font("Arial", 11F);
+            buttonCancel.ForeColor = Color.Red;
+            buttonCancel.Lighting = false;
+            buttonCancel.LinearGradient_Background = false;
+            buttonCancel.LinearGradientPen = false;
+            buttonCancel.Location = new Point(318, 0);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.PenWidth = 15;
+            buttonCancel.Rounding = true;
+            buttonCancel.RoundingInt = 70;
+            buttonCancel.Size = new Size(130, 50);
+            buttonCancel.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonCancel.TabIndex = 0;
+            buttonCancel.Tag = "Cyber";
+            buttonCancel.TextButton = "Cancel";
+            buttonCancel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonCancel.Timer_Effect_1 = 5;
+            buttonCancel.Timer_RGB = 300;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // panel2
             // 
-            panel2.Controls.Add(cyberTextBox3);
+            panel2.Controls.Add(panel3);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(161, 120);
             panel2.Name = "panel2";
             panel2.Size = new Size(448, 48);
             panel2.TabIndex = 14;
             // 
-            // cyberTextBox3
+            // panel3
             // 
-            cyberTextBox3.Alpha = 20;
-            cyberTextBox3.BackColor = Color.Transparent;
-            cyberTextBox3.Background_WidthPen = 6F;
-            cyberTextBox3.BackgroundPen = true;
-            cyberTextBox3.ColorBackground = Color.LightGray;
-            cyberTextBox3.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            cyberTextBox3.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberTextBox3.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            cyberTextBox3.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            cyberTextBox3.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox3.Dock = DockStyle.Fill;
-            cyberTextBox3.Font = new Font("Arial", 12F);
-            cyberTextBox3.ForeColor = Color.Black;
-            cyberTextBox3.Lighting = false;
-            cyberTextBox3.LinearGradientPen = false;
-            cyberTextBox3.Location = new Point(0, 0);
-            cyberTextBox3.Name = "cyberTextBox3";
-            cyberTextBox3.PenWidth = 15;
-            cyberTextBox3.RGB = false;
-            cyberTextBox3.Rounding = true;
-            cyberTextBox3.RoundingInt = 60;
-            cyberTextBox3.Size = new Size(448, 48);
-            cyberTextBox3.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox3.TabIndex = 8;
-            cyberTextBox3.Tag = "Cyber";
-            cyberTextBox3.TextButton = "";
-            cyberTextBox3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox3.Timer_RGB = 300;
+            panel3.Controls.Add(panel4);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(448, 48);
+            panel3.TabIndex = 0;
             // 
-            // textBoxPurposeName
+            // panel4
             // 
-            textBoxPurposeName.Alpha = 20;
-            textBoxPurposeName.BackColor = Color.Transparent;
-            textBoxPurposeName.Background_WidthPen = 6F;
-            textBoxPurposeName.BackgroundPen = true;
-            textBoxPurposeName.ColorBackground = Color.LightGray;
-            textBoxPurposeName.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            textBoxPurposeName.ColorLighting = Color.FromArgb(29, 200, 238);
-            textBoxPurposeName.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            textBoxPurposeName.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            textBoxPurposeName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            textBoxPurposeName.Dock = DockStyle.Fill;
-            textBoxPurposeName.Font = new Font("Arial", 12F);
-            textBoxPurposeName.ForeColor = Color.Black;
-            textBoxPurposeName.Lighting = false;
-            textBoxPurposeName.LinearGradientPen = false;
-            textBoxPurposeName.Location = new Point(161, 6);
-            textBoxPurposeName.Name = "textBoxPurposeName";
-            textBoxPurposeName.PenWidth = 15;
-            textBoxPurposeName.RGB = false;
-            textBoxPurposeName.Rounding = true;
-            textBoxPurposeName.RoundingInt = 60;
-            textBoxPurposeName.Size = new Size(448, 48);
-            textBoxPurposeName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            textBoxPurposeName.TabIndex = 15;
-            textBoxPurposeName.Tag = "Cyber";
-            textBoxPurposeName.TextButton = "";
-            textBoxPurposeName.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            textBoxPurposeName.Timer_RGB = 300;
+            panel4.Controls.Add(rbInactive);
+            panel4.Controls.Add(rbActive);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(448, 48);
+            panel4.TabIndex = 15;
+            // 
+            // rbInactive
+            // 
+            rbInactive.AutoSize = true;
+            rbInactive.ForeColor = Color.Red;
+            rbInactive.Location = new Point(111, 14);
+            rbInactive.Name = "rbInactive";
+            rbInactive.Size = new Size(66, 19);
+            rbInactive.TabIndex = 1;
+            rbInactive.TabStop = true;
+            rbInactive.Text = "Inactive";
+            rbInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbActive
+            // 
+            rbActive.AutoSize = true;
+            rbActive.ForeColor = Color.Lime;
+            rbActive.Location = new Point(3, 14);
+            rbActive.Name = "rbActive";
+            rbActive.Size = new Size(58, 19);
+            rbActive.TabIndex = 0;
+            rbActive.TabStop = true;
+            rbActive.Text = "Active";
+            rbActive.UseVisualStyleBackColor = true;
             // 
             // VisitPurposeEditForm
             // 
@@ -316,10 +339,14 @@
             ClientSize = new Size(615, 233);
             Controls.Add(tableLayoutPanel1);
             Name = "VisitPurposeEditForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "VisitPurposeEditForm";
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -333,10 +360,13 @@
         private ReaLTaiizor.Controls.CyberButton cyberButton1;
         private ReaLTaiizor.Controls.CyberTextBox textBoxPurposeDescription;
         private Panel panel1;
-        private ReaLTaiizor.Controls.CyberButton cyberButton3;
-        private ReaLTaiizor.Controls.CyberButton cyberButton2;
+        private ReaLTaiizor.Controls.CyberButton buttonSave;
+        private ReaLTaiizor.Controls.CyberButton buttonCancel;
         private Panel panel2;
-        private ReaLTaiizor.Controls.CyberTextBox cyberTextBox3;
         private ReaLTaiizor.Controls.CyberTextBox textBoxPurposeName;
+        private Panel panel3;
+        private Panel panel4;
+        private RadioButton rbInactive;
+        private RadioButton rbActive;
     }
 }

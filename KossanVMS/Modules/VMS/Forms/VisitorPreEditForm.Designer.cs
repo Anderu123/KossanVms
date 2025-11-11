@@ -30,16 +30,23 @@
         {
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
-            labelExpiryDate = new ReaLTaiizor.Controls.ThunderLabel();
-            cyberTextBox1 = new ReaLTaiizor.Controls.CyberTextBox();
-            thunderLabel3 = new ReaLTaiizor.Controls.ThunderLabel();
+            comboBoxPurpose = new ComboBox();
+            textboxVisitRemark = new ReaLTaiizor.Controls.CyberTextBox();
+            thunderLabel9 = new ReaLTaiizor.Controls.ThunderLabel();
+            cyberTextBox4 = new ReaLTaiizor.Controls.CyberTextBox();
+            thunderLabel8 = new ReaLTaiizor.Controls.ThunderLabel();
+            thunderLabel7 = new ReaLTaiizor.Controls.ThunderLabel();
+            textboxVisitVehicleNo = new ReaLTaiizor.Controls.CyberTextBox();
+            thunderLabel6 = new ReaLTaiizor.Controls.ThunderLabel();
             textboxVisitorFullName = new ReaLTaiizor.Controls.CyberTextBox();
+            thunderLabel5 = new ReaLTaiizor.Controls.ThunderLabel();
+            cyberTextBox2 = new ReaLTaiizor.Controls.CyberTextBox();
+            thunderLabel4 = new ReaLTaiizor.Controls.ThunderLabel();
+            labelExpiryDate = new ReaLTaiizor.Controls.ThunderLabel();
+            thunderLabel3 = new ReaLTaiizor.Controls.ThunderLabel();
             thunderLabel2 = new ReaLTaiizor.Controls.ThunderLabel();
-            labelVisitorID = new ReaLTaiizor.Controls.ThunderLabel();
             thunderLabel1 = new ReaLTaiizor.Controls.ThunderLabel();
-            labelVisitorCompany = new ReaLTaiizor.Controls.ThunderLabel();
             labelVisitorContact = new ReaLTaiizor.Controls.ThunderLabel();
-            labelVisitorFullName = new ReaLTaiizor.Controls.ThunderLabel();
             panel2 = new Panel();
             buttonVisitorUploadPhoto = new ReaLTaiizor.Controls.CyberButton();
             foxLinkLabel1 = new ReaLTaiizor.Controls.FoxLinkLabel();
@@ -49,7 +56,6 @@
             panel4 = new Panel();
             buttonLabelUpdateContact = new ReaLTaiizor.Controls.CyberButton();
             buttonEditContact = new ReaLTaiizor.Controls.CyberButton();
-            buttonUpdateID = new ReaLTaiizor.Controls.CyberButton();
             checkedListBoxCat = new CheckedListBox();
             panel5 = new Panel();
             buttonSearch = new ReaLTaiizor.Controls.CyberButton();
@@ -73,7 +79,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(487, 562);
+            panel1.Size = new Size(559, 725);
             panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -84,92 +90,199 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.44555F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.55445F));
-            tableLayoutPanel1.Controls.Add(labelExpiryDate, 0, 7);
-            tableLayoutPanel1.Controls.Add(cyberTextBox1, 1, 4);
-            tableLayoutPanel1.Controls.Add(thunderLabel3, 0, 6);
-            tableLayoutPanel1.Controls.Add(textboxVisitorFullName, 1, 2);
-            tableLayoutPanel1.Controls.Add(thunderLabel2, 0, 8);
-            tableLayoutPanel1.Controls.Add(labelVisitorID, 0, 0);
-            tableLayoutPanel1.Controls.Add(thunderLabel1, 0, 5);
-            tableLayoutPanel1.Controls.Add(labelVisitorCompany, 0, 4);
+            tableLayoutPanel1.Controls.Add(comboBoxPurpose, 1, 7);
+            tableLayoutPanel1.Controls.Add(textboxVisitRemark, 1, 9);
+            tableLayoutPanel1.Controls.Add(thunderLabel9, 0, 9);
+            tableLayoutPanel1.Controls.Add(cyberTextBox4, 1, 8);
+            tableLayoutPanel1.Controls.Add(thunderLabel8, 0, 8);
+            tableLayoutPanel1.Controls.Add(thunderLabel7, 0, 7);
+            tableLayoutPanel1.Controls.Add(textboxVisitVehicleNo, 1, 6);
+            tableLayoutPanel1.Controls.Add(thunderLabel6, 0, 6);
+            tableLayoutPanel1.Controls.Add(textboxVisitorFullName, 1, 0);
+            tableLayoutPanel1.Controls.Add(thunderLabel5, 0, 0);
+            tableLayoutPanel1.Controls.Add(cyberTextBox2, 1, 2);
+            tableLayoutPanel1.Controls.Add(thunderLabel4, 0, 2);
+            tableLayoutPanel1.Controls.Add(labelExpiryDate, 0, 10);
+            tableLayoutPanel1.Controls.Add(thunderLabel3, 0, 5);
+            tableLayoutPanel1.Controls.Add(thunderLabel2, 0, 11);
+            tableLayoutPanel1.Controls.Add(thunderLabel1, 0, 4);
             tableLayoutPanel1.Controls.Add(labelVisitorContact, 0, 3);
-            tableLayoutPanel1.Controls.Add(labelVisitorFullName, 0, 2);
-            tableLayoutPanel1.Controls.Add(panel2, 1, 5);
-            tableLayoutPanel1.Controls.Add(panel3, 1, 8);
+            tableLayoutPanel1.Controls.Add(panel2, 1, 4);
+            tableLayoutPanel1.Controls.Add(panel3, 1, 11);
             tableLayoutPanel1.Controls.Add(panel4, 1, 3);
-            tableLayoutPanel1.Controls.Add(buttonUpdateID, 1, 0);
-            tableLayoutPanel1.Controls.Add(checkedListBoxCat, 1, 6);
+            tableLayoutPanel1.Controls.Add(checkedListBoxCat, 1, 5);
             tableLayoutPanel1.Controls.Add(panel5, 1, 1);
             tableLayoutPanel1.Controls.Add(comboBoxIdType, 0, 1);
-            tableLayoutPanel1.Controls.Add(panel6, 1, 7);
+            tableLayoutPanel1.Controls.Add(panel6, 1, 10);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 9;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.0912628F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.9281435F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.928145F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.928149F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.928149F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.928149F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 21.2469521F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.090908F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.930136F));
-            tableLayoutPanel1.Size = new Size(487, 562);
+            tableLayoutPanel1.RowCount = 12;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.007401F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.352192F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.266052F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.264697F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.264697F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15.5469751F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.007401F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.236902F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.9402647F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.9402647F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.90700674F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 7.266151F));
+            tableLayoutPanel1.Size = new Size(559, 725);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // labelExpiryDate
+            // comboBoxPurpose
             // 
-            labelExpiryDate.BackColor = Color.PaleTurquoise;
-            labelExpiryDate.Dock = DockStyle.Fill;
-            labelExpiryDate.ForeColor = Color.Transparent;
-            labelExpiryDate.Location = new Point(6, 453);
-            labelExpiryDate.Name = "labelExpiryDate";
-            labelExpiryDate.Size = new Size(139, 42);
-            labelExpiryDate.TabIndex = 26;
-            labelExpiryDate.Text = "ExpiryDate";
+            comboBoxPurpose.BackColor = Color.PaleTurquoise;
+            comboBoxPurpose.Dock = DockStyle.Fill;
+            comboBoxPurpose.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBoxPurpose.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxPurpose.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBoxPurpose.FormattingEnabled = true;
+            comboBoxPurpose.ItemHeight = 30;
+            comboBoxPurpose.Location = new Point(176, 445);
+            comboBoxPurpose.Name = "comboBoxPurpose";
+            comboBoxPurpose.Size = new Size(377, 36);
+            comboBoxPurpose.TabIndex = 30;
             // 
-            // cyberTextBox1
+            // textboxVisitRemark
             // 
-            cyberTextBox1.Alpha = 20;
-            cyberTextBox1.BackColor = Color.Transparent;
-            cyberTextBox1.Background_WidthPen = 6F;
-            cyberTextBox1.BackgroundPen = true;
-            cyberTextBox1.ColorBackground = Color.LightGray;
-            cyberTextBox1.ColorBackground_Pen = Color.PaleTurquoise;
-            cyberTextBox1.ColorLighting = Color.FromArgb(29, 200, 238);
-            cyberTextBox1.ColorPen_1 = Color.FromArgb(29, 200, 238);
-            cyberTextBox1.ColorPen_2 = Color.FromArgb(37, 52, 68);
-            cyberTextBox1.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox1.Dock = DockStyle.Fill;
-            cyberTextBox1.Font = new Font("Arial", 11F);
-            cyberTextBox1.ForeColor = Color.Black;
-            cyberTextBox1.Lighting = false;
-            cyberTextBox1.LinearGradientPen = false;
-            cyberTextBox1.Location = new Point(154, 227);
-            cyberTextBox1.Name = "cyberTextBox1";
-            cyberTextBox1.PenWidth = 15;
-            cyberTextBox1.RGB = false;
-            cyberTextBox1.Rounding = true;
-            cyberTextBox1.RoundingInt = 60;
-            cyberTextBox1.Size = new Size(327, 46);
-            cyberTextBox1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox1.TabIndex = 24;
-            cyberTextBox1.Tag = "Cyber";
-            cyberTextBox1.TextButton = "";
-            cyberTextBox1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox1.Timer_RGB = 300;
+            textboxVisitRemark.Alpha = 20;
+            textboxVisitRemark.BackColor = Color.Transparent;
+            textboxVisitRemark.Background_WidthPen = 6F;
+            textboxVisitRemark.BackgroundPen = true;
+            textboxVisitRemark.ColorBackground = Color.LightGray;
+            textboxVisitRemark.ColorBackground_Pen = Color.PaleTurquoise;
+            textboxVisitRemark.ColorLighting = Color.FromArgb(29, 200, 238);
+            textboxVisitRemark.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            textboxVisitRemark.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            textboxVisitRemark.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            textboxVisitRemark.Dock = DockStyle.Fill;
+            textboxVisitRemark.Font = new Font("Arial", 12F);
+            textboxVisitRemark.ForeColor = Color.Black;
+            textboxVisitRemark.Lighting = false;
+            textboxVisitRemark.LinearGradientPen = false;
+            textboxVisitRemark.Location = new Point(176, 554);
+            textboxVisitRemark.Name = "textboxVisitRemark";
+            textboxVisitRemark.PenWidth = 15;
+            textboxVisitRemark.RGB = false;
+            textboxVisitRemark.Rounding = true;
+            textboxVisitRemark.RoundingInt = 60;
+            textboxVisitRemark.Size = new Size(377, 48);
+            textboxVisitRemark.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            textboxVisitRemark.TabIndex = 39;
+            textboxVisitRemark.Tag = "Cyber";
+            textboxVisitRemark.TextButton = "";
+            textboxVisitRemark.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            textboxVisitRemark.Timer_RGB = 300;
             // 
-            // thunderLabel3
+            // thunderLabel9
             // 
-            thunderLabel3.BackColor = Color.PaleTurquoise;
-            thunderLabel3.Dock = DockStyle.Fill;
-            thunderLabel3.ForeColor = Color.Transparent;
-            thunderLabel3.Location = new Point(6, 337);
-            thunderLabel3.Name = "thunderLabel3";
-            thunderLabel3.Size = new Size(139, 107);
-            thunderLabel3.TabIndex = 21;
-            thunderLabel3.Text = "Category";
+            thunderLabel9.BackColor = Color.PaleTurquoise;
+            thunderLabel9.Dock = DockStyle.Fill;
+            thunderLabel9.ForeColor = Color.Transparent;
+            thunderLabel9.Location = new Point(6, 554);
+            thunderLabel9.Name = "thunderLabel9";
+            thunderLabel9.Size = new Size(161, 48);
+            thunderLabel9.TabIndex = 38;
+            thunderLabel9.Text = "Remark";
+            // 
+            // cyberTextBox4
+            // 
+            cyberTextBox4.Alpha = 20;
+            cyberTextBox4.BackColor = Color.Transparent;
+            cyberTextBox4.Background_WidthPen = 6F;
+            cyberTextBox4.BackgroundPen = true;
+            cyberTextBox4.ColorBackground = Color.LightGray;
+            cyberTextBox4.ColorBackground_Pen = Color.PaleTurquoise;
+            cyberTextBox4.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberTextBox4.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            cyberTextBox4.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            cyberTextBox4.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberTextBox4.Dock = DockStyle.Fill;
+            cyberTextBox4.Font = new Font("Arial", 12F);
+            cyberTextBox4.ForeColor = Color.Black;
+            cyberTextBox4.Lighting = false;
+            cyberTextBox4.LinearGradientPen = false;
+            cyberTextBox4.Location = new Point(176, 497);
+            cyberTextBox4.Name = "cyberTextBox4";
+            cyberTextBox4.PenWidth = 15;
+            cyberTextBox4.RGB = false;
+            cyberTextBox4.Rounding = true;
+            cyberTextBox4.RoundingInt = 60;
+            cyberTextBox4.Size = new Size(377, 48);
+            cyberTextBox4.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberTextBox4.TabIndex = 37;
+            cyberTextBox4.Tag = "Cyber";
+            cyberTextBox4.TextButton = "";
+            cyberTextBox4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            cyberTextBox4.Timer_RGB = 300;
+            // 
+            // thunderLabel8
+            // 
+            thunderLabel8.BackColor = Color.PaleTurquoise;
+            thunderLabel8.Dock = DockStyle.Fill;
+            thunderLabel8.ForeColor = Color.Transparent;
+            thunderLabel8.Location = new Point(6, 497);
+            thunderLabel8.Name = "thunderLabel8";
+            thunderLabel8.Size = new Size(161, 48);
+            thunderLabel8.TabIndex = 36;
+            thunderLabel8.Text = "Person To Visit";
+            // 
+            // thunderLabel7
+            // 
+            thunderLabel7.BackColor = Color.PaleTurquoise;
+            thunderLabel7.Dock = DockStyle.Fill;
+            thunderLabel7.ForeColor = Color.Transparent;
+            thunderLabel7.Location = new Point(6, 445);
+            thunderLabel7.Name = "thunderLabel7";
+            thunderLabel7.Size = new Size(161, 43);
+            thunderLabel7.TabIndex = 34;
+            thunderLabel7.Text = "Purpose";
+            // 
+            // textboxVisitVehicleNo
+            // 
+            textboxVisitVehicleNo.Alpha = 20;
+            textboxVisitVehicleNo.BackColor = Color.Transparent;
+            textboxVisitVehicleNo.Background_WidthPen = 6F;
+            textboxVisitVehicleNo.BackgroundPen = true;
+            textboxVisitVehicleNo.ColorBackground = Color.LightGray;
+            textboxVisitVehicleNo.ColorBackground_Pen = Color.PaleTurquoise;
+            textboxVisitVehicleNo.ColorLighting = Color.FromArgb(29, 200, 238);
+            textboxVisitVehicleNo.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            textboxVisitVehicleNo.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            textboxVisitVehicleNo.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            textboxVisitVehicleNo.Dock = DockStyle.Fill;
+            textboxVisitVehicleNo.Font = new Font("Arial", 12F);
+            textboxVisitVehicleNo.ForeColor = Color.Black;
+            textboxVisitVehicleNo.Lighting = false;
+            textboxVisitVehicleNo.LinearGradientPen = false;
+            textboxVisitVehicleNo.Location = new Point(176, 388);
+            textboxVisitVehicleNo.Name = "textboxVisitVehicleNo";
+            textboxVisitVehicleNo.PenWidth = 15;
+            textboxVisitVehicleNo.RGB = false;
+            textboxVisitVehicleNo.Rounding = true;
+            textboxVisitVehicleNo.RoundingInt = 60;
+            textboxVisitVehicleNo.Size = new Size(377, 48);
+            textboxVisitVehicleNo.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            textboxVisitVehicleNo.TabIndex = 33;
+            textboxVisitVehicleNo.Tag = "Cyber";
+            textboxVisitVehicleNo.TextButton = "";
+            textboxVisitVehicleNo.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            textboxVisitVehicleNo.Timer_RGB = 300;
+            // 
+            // thunderLabel6
+            // 
+            thunderLabel6.BackColor = Color.PaleTurquoise;
+            thunderLabel6.Dock = DockStyle.Fill;
+            thunderLabel6.ForeColor = Color.Transparent;
+            thunderLabel6.Location = new Point(6, 388);
+            thunderLabel6.Name = "thunderLabel6";
+            thunderLabel6.Size = new Size(161, 48);
+            thunderLabel6.TabIndex = 32;
+            thunderLabel6.Text = "Vehicle No";
             // 
             // textboxVisitorFullName
             // 
@@ -184,97 +297,139 @@
             textboxVisitorFullName.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textboxVisitorFullName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textboxVisitorFullName.Dock = DockStyle.Fill;
-            textboxVisitorFullName.Font = new Font("Arial", 11F);
+            textboxVisitorFullName.Font = new Font("Arial", 12F);
             textboxVisitorFullName.ForeColor = Color.Black;
             textboxVisitorFullName.Lighting = false;
             textboxVisitorFullName.LinearGradientPen = false;
-            textboxVisitorFullName.Location = new Point(154, 117);
+            textboxVisitorFullName.Location = new Point(176, 6);
             textboxVisitorFullName.Name = "textboxVisitorFullName";
             textboxVisitorFullName.PenWidth = 15;
             textboxVisitorFullName.RGB = false;
             textboxVisitorFullName.Rounding = true;
             textboxVisitorFullName.RoundingInt = 60;
-            textboxVisitorFullName.Size = new Size(327, 46);
+            textboxVisitorFullName.Size = new Size(377, 48);
             textboxVisitorFullName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            textboxVisitorFullName.TabIndex = 18;
+            textboxVisitorFullName.TabIndex = 31;
             textboxVisitorFullName.Tag = "Cyber";
             textboxVisitorFullName.TextButton = "";
             textboxVisitorFullName.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textboxVisitorFullName.Timer_RGB = 300;
+            // 
+            // thunderLabel5
+            // 
+            thunderLabel5.BackColor = Color.PaleTurquoise;
+            thunderLabel5.Dock = DockStyle.Fill;
+            thunderLabel5.ForeColor = Color.Transparent;
+            thunderLabel5.Location = new Point(6, 6);
+            thunderLabel5.Name = "thunderLabel5";
+            thunderLabel5.Size = new Size(161, 48);
+            thunderLabel5.TabIndex = 30;
+            thunderLabel5.Text = "Full Name";
+            // 
+            // cyberTextBox2
+            // 
+            cyberTextBox2.Alpha = 20;
+            cyberTextBox2.BackColor = Color.Transparent;
+            cyberTextBox2.Background_WidthPen = 6F;
+            cyberTextBox2.BackgroundPen = true;
+            cyberTextBox2.ColorBackground = Color.LightGray;
+            cyberTextBox2.ColorBackground_Pen = Color.PaleTurquoise;
+            cyberTextBox2.ColorLighting = Color.FromArgb(29, 200, 238);
+            cyberTextBox2.ColorPen_1 = Color.FromArgb(29, 200, 238);
+            cyberTextBox2.ColorPen_2 = Color.FromArgb(37, 52, 68);
+            cyberTextBox2.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            cyberTextBox2.Dock = DockStyle.Fill;
+            cyberTextBox2.Font = new Font("Arial", 10F);
+            cyberTextBox2.ForeColor = Color.Black;
+            cyberTextBox2.Lighting = false;
+            cyberTextBox2.LinearGradientPen = false;
+            cyberTextBox2.Location = new Point(176, 123);
+            cyberTextBox2.Name = "cyberTextBox2";
+            cyberTextBox2.PenWidth = 15;
+            cyberTextBox2.RGB = false;
+            cyberTextBox2.Rounding = true;
+            cyberTextBox2.RoundingInt = 60;
+            cyberTextBox2.Size = new Size(377, 43);
+            cyberTextBox2.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cyberTextBox2.TabIndex = 29;
+            cyberTextBox2.Tag = "Cyber";
+            cyberTextBox2.TextButton = "";
+            cyberTextBox2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            cyberTextBox2.Timer_RGB = 300;
+            // 
+            // thunderLabel4
+            // 
+            thunderLabel4.BackColor = Color.PaleTurquoise;
+            thunderLabel4.Dock = DockStyle.Fill;
+            thunderLabel4.ForeColor = Color.Transparent;
+            thunderLabel4.Location = new Point(6, 123);
+            thunderLabel4.Name = "thunderLabel4";
+            thunderLabel4.Size = new Size(161, 43);
+            thunderLabel4.TabIndex = 28;
+            thunderLabel4.Text = "Permit No";
+            // 
+            // labelExpiryDate
+            // 
+            labelExpiryDate.BackColor = Color.PaleTurquoise;
+            labelExpiryDate.Dock = DockStyle.Fill;
+            labelExpiryDate.ForeColor = Color.Transparent;
+            labelExpiryDate.Location = new Point(6, 611);
+            labelExpiryDate.Name = "labelExpiryDate";
+            labelExpiryDate.Size = new Size(161, 48);
+            labelExpiryDate.TabIndex = 26;
+            labelExpiryDate.Text = "ExpiryDate";
+            // 
+            // thunderLabel3
+            // 
+            thunderLabel3.BackColor = Color.PaleTurquoise;
+            thunderLabel3.Dock = DockStyle.Fill;
+            thunderLabel3.ForeColor = Color.Transparent;
+            thunderLabel3.Location = new Point(6, 279);
+            thunderLabel3.Name = "thunderLabel3";
+            thunderLabel3.Size = new Size(161, 100);
+            thunderLabel3.TabIndex = 21;
+            thunderLabel3.Text = "Category";
             // 
             // thunderLabel2
             // 
             thunderLabel2.BackColor = Color.PaleTurquoise;
             thunderLabel2.Dock = DockStyle.Fill;
             thunderLabel2.ForeColor = Color.WhiteSmoke;
-            thunderLabel2.Location = new Point(6, 504);
+            thunderLabel2.Location = new Point(6, 668);
             thunderLabel2.Name = "thunderLabel2";
-            thunderLabel2.Size = new Size(139, 52);
+            thunderLabel2.Size = new Size(161, 51);
             thunderLabel2.TabIndex = 17;
-            // 
-            // labelVisitorID
-            // 
-            labelVisitorID.BackColor = Color.PaleTurquoise;
-            labelVisitorID.Dock = DockStyle.Fill;
-            labelVisitorID.ForeColor = Color.Transparent;
-            labelVisitorID.Location = new Point(6, 6);
-            labelVisitorID.Name = "labelVisitorID";
-            labelVisitorID.Size = new Size(139, 47);
-            labelVisitorID.TabIndex = 13;
-            labelVisitorID.Text = "ID";
             // 
             // thunderLabel1
             // 
             thunderLabel1.BackColor = Color.PaleTurquoise;
             thunderLabel1.Dock = DockStyle.Fill;
             thunderLabel1.ForeColor = Color.Transparent;
-            thunderLabel1.Location = new Point(6, 282);
+            thunderLabel1.Location = new Point(6, 227);
             thunderLabel1.Name = "thunderLabel1";
-            thunderLabel1.Size = new Size(139, 46);
+            thunderLabel1.Size = new Size(161, 43);
             thunderLabel1.TabIndex = 10;
             thunderLabel1.Text = "Photo";
-            // 
-            // labelVisitorCompany
-            // 
-            labelVisitorCompany.BackColor = Color.PaleTurquoise;
-            labelVisitorCompany.Dock = DockStyle.Fill;
-            labelVisitorCompany.ForeColor = Color.Transparent;
-            labelVisitorCompany.Location = new Point(6, 227);
-            labelVisitorCompany.Name = "labelVisitorCompany";
-            labelVisitorCompany.Size = new Size(139, 46);
-            labelVisitorCompany.TabIndex = 6;
-            labelVisitorCompany.Text = "Company";
             // 
             // labelVisitorContact
             // 
             labelVisitorContact.BackColor = Color.PaleTurquoise;
             labelVisitorContact.Dock = DockStyle.Fill;
             labelVisitorContact.ForeColor = Color.Transparent;
-            labelVisitorContact.Location = new Point(6, 172);
+            labelVisitorContact.Location = new Point(6, 175);
             labelVisitorContact.Name = "labelVisitorContact";
-            labelVisitorContact.Size = new Size(139, 46);
+            labelVisitorContact.Size = new Size(161, 43);
             labelVisitorContact.TabIndex = 4;
             labelVisitorContact.Text = "Contact";
-            // 
-            // labelVisitorFullName
-            // 
-            labelVisitorFullName.BackColor = Color.PaleTurquoise;
-            labelVisitorFullName.Dock = DockStyle.Fill;
-            labelVisitorFullName.ForeColor = Color.Transparent;
-            labelVisitorFullName.Location = new Point(6, 117);
-            labelVisitorFullName.Name = "labelVisitorFullName";
-            labelVisitorFullName.Size = new Size(139, 46);
-            labelVisitorFullName.TabIndex = 2;
-            labelVisitorFullName.Text = "Full Name";
             // 
             // panel2
             // 
             panel2.Controls.Add(buttonVisitorUploadPhoto);
             panel2.Controls.Add(foxLinkLabel1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(154, 282);
+            panel2.Location = new Point(176, 227);
             panel2.Name = "panel2";
-            panel2.Size = new Size(327, 46);
+            panel2.Size = new Size(377, 43);
             panel2.TabIndex = 11;
             // 
             // buttonVisitorUploadPhoto
@@ -309,7 +464,7 @@
             buttonVisitorUploadPhoto.PenWidth = 15;
             buttonVisitorUploadPhoto.Rounding = true;
             buttonVisitorUploadPhoto.RoundingInt = 70;
-            buttonVisitorUploadPhoto.Size = new Size(126, 46);
+            buttonVisitorUploadPhoto.Size = new Size(176, 43);
             buttonVisitorUploadPhoto.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonVisitorUploadPhoto.TabIndex = 1;
             buttonVisitorUploadPhoto.Tag = "Cyber";
@@ -330,7 +485,7 @@
             foxLinkLabel1.Location = new Point(0, 0);
             foxLinkLabel1.Name = "foxLinkLabel1";
             foxLinkLabel1.OverColor = Color.FromArgb(23, 140, 229);
-            foxLinkLabel1.Size = new Size(201, 46);
+            foxLinkLabel1.Size = new Size(201, 43);
             foxLinkLabel1.TabIndex = 0;
             // 
             // panel3
@@ -339,9 +494,9 @@
             panel3.Controls.Add(buttonSave);
             panel3.Controls.Add(cyberButton1);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(154, 504);
+            panel3.Location = new Point(176, 668);
             panel3.Name = "panel3";
-            panel3.Size = new Size(327, 52);
+            panel3.Size = new Size(377, 51);
             panel3.TabIndex = 12;
             // 
             // buttonSave
@@ -371,12 +526,12 @@
             buttonSave.Lighting = false;
             buttonSave.LinearGradient_Background = false;
             buttonSave.LinearGradientPen = false;
-            buttonSave.Location = new Point(121, 0);
+            buttonSave.Location = new Point(171, 0);
             buttonSave.Name = "buttonSave";
             buttonSave.PenWidth = 15;
             buttonSave.Rounding = true;
             buttonSave.RoundingInt = 70;
-            buttonSave.Size = new Size(103, 52);
+            buttonSave.Size = new Size(103, 51);
             buttonSave.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonSave.TabIndex = 4;
             buttonSave.Tag = "Cyber";
@@ -413,12 +568,12 @@
             cyberButton1.Lighting = false;
             cyberButton1.LinearGradient_Background = false;
             cyberButton1.LinearGradientPen = false;
-            cyberButton1.Location = new Point(224, 0);
+            cyberButton1.Location = new Point(274, 0);
             cyberButton1.Name = "cyberButton1";
             cyberButton1.PenWidth = 15;
             cyberButton1.Rounding = true;
             cyberButton1.RoundingInt = 70;
-            cyberButton1.Size = new Size(103, 52);
+            cyberButton1.Size = new Size(103, 51);
             cyberButton1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cyberButton1.TabIndex = 3;
             cyberButton1.Tag = "Cyber";
@@ -432,9 +587,9 @@
             panel4.Controls.Add(buttonLabelUpdateContact);
             panel4.Controls.Add(buttonEditContact);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(154, 172);
+            panel4.Location = new Point(176, 175);
             panel4.Name = "panel4";
-            panel4.Size = new Size(327, 46);
+            panel4.Size = new Size(377, 43);
             panel4.TabIndex = 15;
             // 
             // buttonLabelUpdateContact
@@ -470,7 +625,7 @@
             buttonLabelUpdateContact.RightToLeft = RightToLeft.No;
             buttonLabelUpdateContact.Rounding = true;
             buttonLabelUpdateContact.RoundingInt = 70;
-            buttonLabelUpdateContact.Size = new Size(224, 46);
+            buttonLabelUpdateContact.Size = new Size(274, 43);
             buttonLabelUpdateContact.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonLabelUpdateContact.TabIndex = 17;
             buttonLabelUpdateContact.Tag = "Cyber";
@@ -506,12 +661,12 @@
             buttonEditContact.Lighting = false;
             buttonEditContact.LinearGradient_Background = false;
             buttonEditContact.LinearGradientPen = false;
-            buttonEditContact.Location = new Point(224, 0);
+            buttonEditContact.Location = new Point(274, 0);
             buttonEditContact.Name = "buttonEditContact";
             buttonEditContact.PenWidth = 15;
             buttonEditContact.Rounding = true;
             buttonEditContact.RoundingInt = 70;
-            buttonEditContact.Size = new Size(103, 46);
+            buttonEditContact.Size = new Size(103, 43);
             buttonEditContact.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonEditContact.TabIndex = 2;
             buttonEditContact.Tag = "Cyber";
@@ -521,56 +676,14 @@
             buttonEditContact.Timer_RGB = 300;
             buttonEditContact.Click += buttonEditContact_Click;
             // 
-            // buttonUpdateID
-            // 
-            buttonUpdateID.Alpha = 20;
-            buttonUpdateID.BackColor = Color.Transparent;
-            buttonUpdateID.Background = true;
-            buttonUpdateID.Background_WidthPen = 6F;
-            buttonUpdateID.BackgroundPen = true;
-            buttonUpdateID.ColorBackground = Color.LightGray;
-            buttonUpdateID.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            buttonUpdateID.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            buttonUpdateID.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            buttonUpdateID.ColorLighting = Color.FromArgb(29, 200, 238);
-            buttonUpdateID.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            buttonUpdateID.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            buttonUpdateID.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            buttonUpdateID.Dock = DockStyle.Fill;
-            buttonUpdateID.Effect_1 = true;
-            buttonUpdateID.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            buttonUpdateID.Effect_1_Transparency = 25;
-            buttonUpdateID.Effect_2 = true;
-            buttonUpdateID.Effect_2_ColorBackground = Color.White;
-            buttonUpdateID.Effect_2_Transparency = 20;
-            buttonUpdateID.Font = new Font("Arial", 11F);
-            buttonUpdateID.ForeColor = SystemColors.ActiveCaptionText;
-            buttonUpdateID.Lighting = false;
-            buttonUpdateID.LinearGradient_Background = false;
-            buttonUpdateID.LinearGradientPen = false;
-            buttonUpdateID.Location = new Point(154, 6);
-            buttonUpdateID.Name = "buttonUpdateID";
-            buttonUpdateID.PenWidth = 15;
-            buttonUpdateID.RightToLeft = RightToLeft.No;
-            buttonUpdateID.Rounding = true;
-            buttonUpdateID.RoundingInt = 70;
-            buttonUpdateID.Size = new Size(327, 47);
-            buttonUpdateID.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonUpdateID.TabIndex = 16;
-            buttonUpdateID.Tag = "Cyber";
-            buttonUpdateID.TextButton = "ID";
-            buttonUpdateID.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            buttonUpdateID.Timer_Effect_1 = 5;
-            buttonUpdateID.Timer_RGB = 300;
-            // 
             // checkedListBoxCat
             // 
             checkedListBoxCat.BackColor = Color.PaleTurquoise;
             checkedListBoxCat.Dock = DockStyle.Fill;
             checkedListBoxCat.FormattingEnabled = true;
-            checkedListBoxCat.Location = new Point(154, 337);
+            checkedListBoxCat.Location = new Point(176, 279);
             checkedListBoxCat.Name = "checkedListBoxCat";
-            checkedListBoxCat.Size = new Size(327, 107);
+            checkedListBoxCat.Size = new Size(377, 100);
             checkedListBoxCat.TabIndex = 22;
             // 
             // panel5
@@ -578,9 +691,9 @@
             panel5.Controls.Add(buttonSearch);
             panel5.Controls.Add(maskedTextBoxIC);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(154, 62);
+            panel5.Location = new Point(176, 63);
             panel5.Name = "panel5";
-            panel5.Size = new Size(327, 46);
+            panel5.Size = new Size(377, 51);
             panel5.TabIndex = 23;
             // 
             // buttonSearch
@@ -610,12 +723,12 @@
             buttonSearch.Lighting = false;
             buttonSearch.LinearGradient_Background = false;
             buttonSearch.LinearGradientPen = false;
-            buttonSearch.Location = new Point(224, 0);
+            buttonSearch.Location = new Point(274, 0);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.PenWidth = 15;
             buttonSearch.Rounding = true;
             buttonSearch.RoundingInt = 70;
-            buttonSearch.Size = new Size(103, 46);
+            buttonSearch.Size = new Size(103, 51);
             buttonSearch.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonSearch.TabIndex = 21;
             buttonSearch.Tag = "Cyber";
@@ -629,11 +742,11 @@
             // 
             maskedTextBoxIC.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             maskedTextBoxIC.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBoxIC.Location = new Point(-1, 8);
+            maskedTextBoxIC.Location = new Point(7, 11);
             maskedTextBoxIC.Margin = new Padding(5);
             maskedTextBoxIC.Mask = "000000-00-0000";
             maskedTextBoxIC.Name = "maskedTextBoxIC";
-            maskedTextBoxIC.Size = new Size(217, 35);
+            maskedTextBoxIC.Size = new Size(267, 35);
             maskedTextBoxIC.TabIndex = 20;
             // 
             // comboBoxIdType
@@ -645,9 +758,9 @@
             comboBoxIdType.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxIdType.FormattingEnabled = true;
             comboBoxIdType.ItemHeight = 45;
-            comboBoxIdType.Location = new Point(6, 62);
+            comboBoxIdType.Location = new Point(6, 63);
             comboBoxIdType.Name = "comboBoxIdType";
-            comboBoxIdType.Size = new Size(139, 51);
+            comboBoxIdType.Size = new Size(161, 51);
             comboBoxIdType.TabIndex = 25;
             comboBoxIdType.Click += ComboBoxIdType_Click;
             // 
@@ -655,9 +768,9 @@
             // 
             panel6.Controls.Add(poisonDateTime1);
             panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(154, 453);
+            panel6.Location = new Point(176, 611);
             panel6.Name = "panel6";
-            panel6.Size = new Size(327, 42);
+            panel6.Size = new Size(377, 48);
             panel6.TabIndex = 27;
             // 
             // poisonDateTime1
@@ -668,14 +781,14 @@
             poisonDateTime1.Location = new Point(0, 0);
             poisonDateTime1.MinimumSize = new Size(0, 29);
             poisonDateTime1.Name = "poisonDateTime1";
-            poisonDateTime1.Size = new Size(327, 29);
+            poisonDateTime1.Size = new Size(377, 29);
             poisonDateTime1.TabIndex = 0;
             // 
             // VisitorPreEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(487, 562);
+            ClientSize = new Size(559, 725);
             Controls.Add(panel1);
             MaximizeBox = false;
             Name = "VisitorPreEditForm";
@@ -702,15 +815,10 @@
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
         private ReaLTaiizor.Controls.ThunderLabel labelExpiryDate;
-        private ReaLTaiizor.Controls.CyberTextBox cyberTextBox1;
         private ReaLTaiizor.Controls.ThunderLabel thunderLabel3;
-        private ReaLTaiizor.Controls.CyberTextBox textboxVisitorFullName;
         private ReaLTaiizor.Controls.ThunderLabel thunderLabel2;
-        private ReaLTaiizor.Controls.ThunderLabel labelVisitorID;
         private ReaLTaiizor.Controls.ThunderLabel thunderLabel1;
-        private ReaLTaiizor.Controls.ThunderLabel labelVisitorCompany;
         private ReaLTaiizor.Controls.ThunderLabel labelVisitorContact;
-        private ReaLTaiizor.Controls.ThunderLabel labelVisitorFullName;
         private Panel panel2;
         private ReaLTaiizor.Controls.CyberButton buttonVisitorUploadPhoto;
         private ReaLTaiizor.Controls.FoxLinkLabel foxLinkLabel1;
@@ -720,7 +828,6 @@
         private Panel panel4;
         private ReaLTaiizor.Controls.CyberButton buttonLabelUpdateContact;
         private ReaLTaiizor.Controls.CyberButton buttonEditContact;
-        private ReaLTaiizor.Controls.CyberButton buttonUpdateID;
         private CheckedListBox checkedListBoxCat;
         private Panel panel5;
         private ReaLTaiizor.Controls.CyberButton buttonSearch;
@@ -728,5 +835,17 @@
         private ComboBox comboBoxIdType;
         private Panel panel6;
         private ReaLTaiizor.Controls.PoisonDateTime poisonDateTime1;
+        private ReaLTaiizor.Controls.CyberTextBox cyberTextBox2;
+        private ReaLTaiizor.Controls.ThunderLabel thunderLabel4;
+        private ReaLTaiizor.Controls.CyberTextBox textboxVisitorFullName;
+        private ReaLTaiizor.Controls.ThunderLabel thunderLabel5;
+        private ReaLTaiizor.Controls.ThunderLabel thunderLabel6;
+        private ComboBox comboBoxPurpose;
+        private ReaLTaiizor.Controls.CyberTextBox textboxVisitRemark;
+        private ReaLTaiizor.Controls.ThunderLabel thunderLabel9;
+        private ReaLTaiizor.Controls.CyberTextBox cyberTextBox4;
+        private ReaLTaiizor.Controls.ThunderLabel thunderLabel8;
+        private ReaLTaiizor.Controls.ThunderLabel thunderLabel7;
+        private ReaLTaiizor.Controls.CyberTextBox textboxVisitVehicleNo;
     }
 }

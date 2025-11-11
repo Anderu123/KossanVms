@@ -35,16 +35,17 @@
             toolStripEditButton = new ToolStripButton();
             toolStripAddButton = new ToolStripButton();
             PurposeGridViewUserControl = new DataGridView();
-            idNoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             purposeNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             purposeDescriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Status = new DataGridViewCheckBoxColumn();
             CreatedBy = new DataGridViewTextBoxColumn();
             CreatedDate = new DataGridViewTextBoxColumn();
             purposeBindingSource = new BindingSource(components);
+            purposeBindingSource1 = new BindingSource(components);
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PurposeGridViewUserControl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)purposeBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)purposeBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // toolStrip1
@@ -91,14 +92,25 @@
             // 
             // PurposeGridViewUserControl
             // 
+            //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurposeUserControl));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             PurposeGridViewUserControl.AllowUserToAddRows = false;
             PurposeGridViewUserControl.AllowUserToDeleteRows = false;
             PurposeGridViewUserControl.AutoGenerateColumns = false;
             PurposeGridViewUserControl.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PurposeGridViewUserControl.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             PurposeGridViewUserControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PurposeGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { idNoDataGridViewTextBoxColumn, purposeNameDataGridViewTextBoxColumn, purposeDescriptionDataGridViewTextBoxColumn, Status, CreatedBy, CreatedDate });
-            PurposeGridViewUserControl.DataSource = purposeBindingSource;
+            PurposeGridViewUserControl.Columns.AddRange(new DataGridViewColumn[] { purposeNameDataGridViewTextBoxColumn, purposeDescriptionDataGridViewTextBoxColumn, Status, CreatedBy, CreatedDate });
+            PurposeGridViewUserControl.DataSource = purposeBindingSource1;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            PurposeGridViewUserControl.DefaultCellStyle = dataGridViewCellStyle1;
+
             PurposeGridViewUserControl.Dock = DockStyle.Fill;
             PurposeGridViewUserControl.Location = new Point(0, 25);
             PurposeGridViewUserControl.Name = "PurposeGridViewUserControl";
@@ -106,13 +118,6 @@
             PurposeGridViewUserControl.RowTemplate.Height = 25;
             PurposeGridViewUserControl.Size = new Size(747, 418);
             PurposeGridViewUserControl.TabIndex = 2;
-            // 
-            // idNoDataGridViewTextBoxColumn
-            // 
-            idNoDataGridViewTextBoxColumn.DataPropertyName = "IdNo";
-            idNoDataGridViewTextBoxColumn.HeaderText = "IdNo";
-            idNoDataGridViewTextBoxColumn.Name = "idNoDataGridViewTextBoxColumn";
-            idNoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // purposeNameDataGridViewTextBoxColumn
             // 
@@ -153,6 +158,10 @@
             // 
             purposeBindingSource.DataSource = typeof(Data.Purpose);
             // 
+            // purposeBindingSource1
+            // 
+            purposeBindingSource1.DataSource = typeof(Data.Purpose);
+            // 
             // PurposeUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -165,6 +174,7 @@
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PurposeGridViewUserControl).EndInit();
             ((System.ComponentModel.ISupportInitialize)purposeBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)purposeBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -178,11 +188,11 @@
         private DataGridView PurposeGridViewUserControl;
         private DataGridViewCheckBoxColumn purposeStatusDataGridViewCheckBoxColumn;
         private BindingSource purposeBindingSource;
-        private DataGridViewTextBoxColumn idNoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn purposeNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn purposeDescriptionDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn Status;
         private DataGridViewTextBoxColumn CreatedBy;
         private DataGridViewTextBoxColumn CreatedDate;
+        private BindingSource purposeBindingSource1;
     }
 }

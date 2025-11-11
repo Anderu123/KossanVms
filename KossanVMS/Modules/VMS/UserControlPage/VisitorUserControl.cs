@@ -15,7 +15,7 @@ namespace KossanVMS.UserControlPage
     public partial class VisitorUserControl : UserControl
     {
         private VmsContext _db;
-        private Visitor? CurrentItem => visitorBindingSource.Current as Visitor;
+        private Visitor? CurrentItem => visitorBindingSource1.Current as Visitor;
         //private readonly BindingSource bindingSource = new();
         // private BindingList<Visitor> _items = new();
         public VisitorUserControl(VmsContext db)
@@ -23,7 +23,7 @@ namespace KossanVMS.UserControlPage
             InitializeComponent();
             //_db = db;
             _db = db ?? throw new ArgumentNullException(nameof(db));
-            VisitorGridViewUserControl.DataSource = visitorBindingSource;
+            VisitorGridViewUserControl.DataSource = visitorBindingSource1;
             VisitorGridViewUserControl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             this.Load += VisitorUserControl_Load;
@@ -47,7 +47,7 @@ namespace KossanVMS.UserControlPage
                         .LoadAsync();
 
 
-                    visitorBindingSource.DataSource = _db.Visitors.Local.ToBindingList();
+                    visitorBindingSource1.DataSource = _db.Visitors.Local.ToBindingList();
                 }
             }
             catch (Exception ex)
@@ -184,7 +184,12 @@ namespace KossanVMS.UserControlPage
                 VisitorBlackList = selectedItem.VisitorBlackList
             };
 
-            using var editVisitorModel = new VisitorPreEditForm(_db, copyVisitorModel);
+            using var editVisitorModel = new VisitorPreEditForm(_db, copyVisitorModel)
+            {
+                // StartPosition = FormStartPosition.CenterParent,
+                ShowInTaskbar = false,
+                TopMost = true
+            }; ;
             if (editVisitorModel.ShowDialog(this) != DialogResult.OK)
             {
                 return;
@@ -282,7 +287,7 @@ namespace KossanVMS.UserControlPage
             _db.SaveChanges();
 
 
-            visitorBindingSource.ResetCurrentItem();
+            visitorBindingSource1.ResetCurrentItem();
 
             // repaint the specific computed cells
             var grid = VisitorGridViewUserControl;
@@ -308,7 +313,7 @@ namespace KossanVMS.UserControlPage
         {
             using var addVisitorModel = new VisitorPreEditForm(_db)
             {
-                StartPosition = FormStartPosition.CenterParent,
+               // StartPosition = FormStartPosition.CenterParent,
                 ShowInTaskbar = false,
                 TopMost = true
             };
@@ -320,7 +325,7 @@ namespace KossanVMS.UserControlPage
             }
             _db.Visitors.Add(newVisitorModel);
             _db.SaveChanges();
-            visitorBindingSource.ResetBindings(false);
+            visitorBindingSource1.ResetBindings(false);
 
             UpdateSitePhotoPreview(newVisitorModel);
             UpdateHQPhotoPreview(newVisitorModel);
@@ -430,7 +435,7 @@ namespace KossanVMS.UserControlPage
             // This method is called when the DataGridView is updated
             // You can handle any additional logic here if needed
             // For example, you might want to refresh the photo preview
-            visitorBindingSource.ResetCurrentItem();
+            visitorBindingSource1.ResetCurrentItem();
             // 1. Mark the entire control area as invalid (needs redrawing)
             VisitorGridViewUserControl.Invalidate();
 
