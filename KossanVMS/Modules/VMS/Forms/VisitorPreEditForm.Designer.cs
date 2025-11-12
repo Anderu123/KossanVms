@@ -177,6 +177,8 @@
             textboxVisitRemark.TextButton = "";
             textboxVisitRemark.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textboxVisitRemark.Timer_RGB = 300;
+            textboxVisitRemark.Enter += textBoxUpdate_Enter;
+            textboxVisitRemark.Leave += textBoxUpdate_Leave;
             // 
             // thunderLabel9
             // 
@@ -219,6 +221,8 @@
             cyberTextBox4.TextButton = "";
             cyberTextBox4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             cyberTextBox4.Timer_RGB = 300;
+            cyberTextBox4.Enter += textBoxUpdate_Enter;
+            cyberTextBox4.Leave += textBoxUpdate_Leave;
             // 
             // thunderLabel8
             // 
@@ -272,6 +276,8 @@
             textboxVisitVehicleNo.TextButton = "";
             textboxVisitVehicleNo.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textboxVisitVehicleNo.Timer_RGB = 300;
+            textboxVisitVehicleNo.Enter += textBoxUpdate_Enter;
+            textboxVisitVehicleNo.Leave += textBoxUpdate_Leave;
             // 
             // thunderLabel6
             // 
@@ -314,6 +320,8 @@
             textboxVisitorFullName.TextButton = "";
             textboxVisitorFullName.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             textboxVisitorFullName.Timer_RGB = 300;
+            textboxVisitorFullName.Enter += textBoxUpdate_Enter;
+            textboxVisitorFullName.Leave += textBoxUpdate_Leave;
             // 
             // thunderLabel5
             // 
@@ -356,6 +364,8 @@
             cyberTextBox2.TextButton = "";
             cyberTextBox2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             cyberTextBox2.Timer_RGB = 300;
+            cyberTextBox2.Enter += textBoxUpdate_Enter;
+            cyberTextBox2.Leave += textBoxUpdate_Leave;
             // 
             // thunderLabel4
             // 

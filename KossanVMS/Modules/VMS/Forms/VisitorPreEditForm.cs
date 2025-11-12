@@ -1,18 +1,19 @@
-﻿using System;
+﻿using KossanVMS.Data;
+using KossanVMS.Utility;
+using Microsoft.EntityFrameworkCore;
+using ReaLTaiizor.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KossanVMS.Data;
-using KossanVMS.Utility;
-using System.Configuration;
-using System.Drawing.Imaging;
-using Microsoft.EntityFrameworkCore;
 namespace KossanVMS
 {
     public partial class VisitorPreEditForm : Form
@@ -26,14 +27,21 @@ namespace KossanVMS
         private string? savePhotoFilePath = @"C:\Vms\UploadPhotos";
         public string? uploadPath { get; set; }
 
-        protected override CreateParams CreateParams
+        //protected override CreateParams CreateParams
+        //{
+        //    get
+        //    {
+        //        var cp = base.CreateParams;
+        //        cp.ExStyle |= 0x02000000;          
+        //        return cp;
+        //    }
+        //}
+      
+        private void EnableDoubleBufferingForCheckedListBox()
         {
-            get
-            {
-                var cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;          
-                return cp;
-            }
+            typeof(CheckedListBox).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                ?.SetValue(checkedListBoxCat, true, null);
         }
         static void EnableDoubleBuffering(Control c)
         {
@@ -45,7 +53,8 @@ namespace KossanVMS
         {
             InitializeComponent();
             EnableDoubleBuffering(tableLayoutPanel1);
-            EnableDoubleBuffering(checkedListBoxCat);
+            //EnableDoubleBuffering(checkedListBoxCat);
+            EnableDoubleBufferingForCheckedListBox();
             this._db = _db ?? throw new ArgumentNullException(nameof(_db));
             if (exisitingVisitor == null)
             {
@@ -529,6 +538,30 @@ namespace KossanVMS
             isMoving = false;
         }
         #endregion
+        #region Text Box Style
+        private void textBoxUpdate_Leave(object sender, EventArgs e)
+        {
+            CyberTextBox clickedButton = sender as CyberTextBox;
+            if (clickedButton != null)
+            {
+                clickedButton.ColorBackground_Pen = Color.PaleTurquoise;
+                clickedButton.ColorBackground = Color.LightGray;
+                clickedButton.Invalidate();
+            }
+        }
 
+        private void textBoxUpdate_Enter(object sender, EventArgs e)
+        {
+            CyberTextBox clickedButton = sender as CyberTextBox;
+
+            if (clickedButton != null)
+            {
+                clickedButton.ColorBackground_Pen = Color.Turquoise;
+                clickedButton.ColorBackground = Color.White;
+                clickedButton.Invalidate();
+            }
+
+        }
+        #endregion
     }
 }

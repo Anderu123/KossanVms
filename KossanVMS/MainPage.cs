@@ -7,7 +7,7 @@ using ReaLTaiizor.Controls;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
+using KossanVMS.Utility;
 namespace KossanVMS
 {
     public partial class MainPage : Form
@@ -135,8 +135,10 @@ namespace KossanVMS
 
         private void buttonNavBranch_Click(object sender, EventArgs e)
         {
-            var visitBranch = new BranchUserControl(_db) { Dock = DockStyle.Fill };
-            ShowPage(visitBranch, buttonNavDms);
+            //var visitBranch = new BranchUserControl(_db) { Dock = DockStyle.Fill };
+            //ShowPage(visitBranch, buttonNavDms);
+            GatePass gatepass = new GatePass();
+            var isGenerated = gatepass.GenerateGatePass();
         }
 
         private void buttonNavMain_Click(object sender, EventArgs e)

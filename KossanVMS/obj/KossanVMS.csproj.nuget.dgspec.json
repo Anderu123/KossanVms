@@ -79,6 +79,10 @@
               "target": "Package",
               "version": "[4.11.0.20250507, )"
             },
+            "PDFsharp-MigraDoc-GDI": {
+              "target": "Package",
+              "version": "[6.2.2, )"
+            },
             "ReaLTaiizor": {
               "target": "Package",
               "version": "[3.8.1.3, )"
