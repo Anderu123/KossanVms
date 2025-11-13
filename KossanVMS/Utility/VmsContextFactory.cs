@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 using KossanVMS.Data;
 
 namespace KossanVMS.Utility
@@ -14,7 +15,11 @@ namespace KossanVMS.Utility
         public VmsContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<VmsContext>();
-            optionsBuilder.UseSqlServer ("Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
+            var connStr = ConfigurationManager
+              .ConnectionStrings["DbConnStr"]?
+              .ConnectionString
+              ?? "Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True";
+            optionsBuilder.UseSqlServer (connStr);
 
             return new VmsContext(optionsBuilder.Options);
         }

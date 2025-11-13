@@ -21,7 +21,7 @@ namespace KossanVMS
             _db = db ?? throw new ArgumentNullException(nameof(db));
             if(existingVisitCategory == null)
             {
-                Text = "Add New Category";
+                Text = "Add Category";
                 visitCategoryModel = new Category();
                 
             }
@@ -40,8 +40,8 @@ namespace KossanVMS
             }
             else
             {
-                rbInactive.Checked = true;
-                rbActive.Checked = false;
+                rbInactive.Checked = false;
+                rbActive.Checked = true;
             }
         }
         private bool SaveResults()

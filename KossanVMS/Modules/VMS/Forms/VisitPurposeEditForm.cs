@@ -24,12 +24,12 @@ namespace KossanVMS
             InitializeComponent();
             if (existingVisitPurpose != null)
             {
-                Text = "Edit Branch";
+                Text = "Edit Purpose";
                 visitPurposeModel = existingVisitPurpose;
             }
             else
             {
-                Text = "Add Branch";
+                Text = "Add Purpose";
                 visitPurposeModel = new Purpose();
             }
             textBoxPurposeName.textBox.Text = visitPurposeModel.PurposeName ?? "";

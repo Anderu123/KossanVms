@@ -66,7 +66,7 @@ namespace KossanVMS.Modules.VMS.UserControlPage
             {
                 PurposeName = selectedItem.PurposeName,
                 PurposeDescription = selectedItem.PurposeDescription,
-                //PurposeStatus = selectedItem.PurposeStatus,
+                PurposeStatus = selectedItem.PurposeStatus,
             };
             using var editVisitPurposeModel = new VisitPurposeEditForm(copyVisitPurposeModel)
             {
@@ -81,7 +81,8 @@ namespace KossanVMS.Modules.VMS.UserControlPage
             var updatedPurposeModel = editVisitPurposeModel.visitPurposeModel;
             selectedItem.PurposeName = updatedPurposeModel.PurposeName;
             selectedItem.PurposeDescription = updatedPurposeModel.PurposeDescription;
-            //_db.SaveChanges();
+            selectedItem.PurposeStatus = updatedPurposeModel.PurposeStatus;
+            _db.SaveChanges();
             purposeBindingSource.ResetCurrentItem();
         }
 

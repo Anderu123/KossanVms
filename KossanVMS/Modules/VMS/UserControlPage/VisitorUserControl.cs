@@ -15,7 +15,7 @@ namespace KossanVMS.UserControlPage
     public partial class VisitorUserControl : UserControl
     {
         private VmsContext _db;
-        private Visitor? CurrentItem => visitorBindingSource1.Current as Visitor;
+        private Visitor? CurrentItem => visitorBindingSource.Current as Visitor;
         //private readonly BindingSource bindingSource = new();
         // private BindingList<Visitor> _items = new();
         public VisitorUserControl(VmsContext db)
@@ -23,8 +23,8 @@ namespace KossanVMS.UserControlPage
             InitializeComponent();
             //_db = db;
             _db = db ?? throw new ArgumentNullException(nameof(db));
-            VisitorGridViewUserControl.DataSource = visitorBindingSource1;
-            VisitorGridViewUserControl.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            VisitorGridView.DataSource = visitorBindingSource1;
+            VisitorGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             this.Load += VisitorUserControl_Load;
 
@@ -47,7 +47,7 @@ namespace KossanVMS.UserControlPage
                         .LoadAsync();
 
 
-                    visitorBindingSource1.DataSource = _db.Visitors.Local.ToBindingList();
+                    visitorBindingSource.DataSource = _db.Visitors.Local.ToBindingList();
                 }
             }
             catch (Exception ex)
@@ -58,7 +58,7 @@ namespace KossanVMS.UserControlPage
         }
         private void VisitorGridViewUserControl_CellFormatting(object s, DataGridViewCellFormattingEventArgs e)
         {
-            var grid = VisitorGridViewUserControl;
+            var grid = VisitorGridView;
             if (e.RowIndex < 0) return;
 
             // Photo column
@@ -142,7 +142,7 @@ namespace KossanVMS.UserControlPage
 
             //// repaint the whole row (good for unbound/computed cells like colCategories/colPhoto)
             // repaint the specific computed cells
-            var grid = VisitorGridViewUserControl;
+            var grid = VisitorGridView;
             var rowIndex = grid.CurrentCell?.RowIndex ?? -1;
             if (rowIndex >= 0)
             {
@@ -290,7 +290,7 @@ namespace KossanVMS.UserControlPage
             visitorBindingSource1.ResetCurrentItem();
 
             // repaint the specific computed cells
-            var grid = VisitorGridViewUserControl;
+            var grid = VisitorGridView;
             var r = grid.CurrentCell?.RowIndex ?? -1;
             if (r >= 0)
             {
@@ -437,12 +437,12 @@ namespace KossanVMS.UserControlPage
             // For example, you might want to refresh the photo preview
             visitorBindingSource1.ResetCurrentItem();
             // 1. Mark the entire control area as invalid (needs redrawing)
-            VisitorGridViewUserControl.Invalidate();
+            VisitorGridView.Invalidate();
 
             // 2. Force the immediate repaint operation
-            VisitorGridViewUserControl.Update();
+            VisitorGridView.Update();
 
-            VisitorGridViewUserControl.Refresh();
+            VisitorGridView.Refresh();
 
         }
         private void UploadPhotoPreview(Visitor v)

@@ -138,7 +138,7 @@ namespace KossanVMS
             //var visitBranch = new BranchUserControl(_db) { Dock = DockStyle.Fill };
             //ShowPage(visitBranch, buttonNavDms);
             GatePass gatepass = new GatePass();
-            var isGenerated = gatepass.GenerateGatePass();
+            var isGenerated = gatepass.TestGenerateGatePass();
         }
 
         private void buttonNavMain_Click(object sender, EventArgs e)

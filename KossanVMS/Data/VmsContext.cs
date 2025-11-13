@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-
+using System.Configuration;
 namespace KossanVMS.Data
 {
     public class VmsContext : DbContext
@@ -11,8 +11,21 @@ namespace KossanVMS.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer(
-                    "Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
+            {
+                var connStr = ConfigurationManager
+                    .ConnectionStrings["VmsDb"]?
+                    .ConnectionString;
+
+                if (!string.IsNullOrEmpty(connStr))
+                {
+                    optionsBuilder.UseSqlServer(connStr);
+                }
+                else
+                {
+                    optionsBuilder.UseSqlServer(
+                            "Server=(localdb)\\MSSQLLocalDB;Database=newVMS;Trusted_Connection=True;TrustServerCertificate=True");
+                }
+            }
         }
 
         // DbSets
@@ -58,6 +71,7 @@ namespace KossanVMS.Data
                 //b.Property(v => v.CompanyName).HasColumnOrder(4);
                 b.Property(v => v.VisitorExpiryDate).HasColumnOrder(5);
                 b.Property(v => v.VisitorBlackList).HasColumnOrder(6);
+                b.Property(v => v.VisitorVisitPerson).HasColumnOrder(7);
                 // audit columns (from VmsAuditEntity) left without explicit order so they come last
             });
             modelBuilder.Entity<VmsUser>(b =>
@@ -202,7 +216,7 @@ namespace KossanVMS.Data
 
                 b.Property(x => x.PhotoCapturePath).HasColumnOrder(2);
                 b.Property(x => x.PhotoUploadPath).HasColumnOrder(3);
-                b.Property(x => x.PhotoURL).HasMaxLength(255).IsRequired().HasColumnOrder(4);
+                b.Property(x => x.PhotoURL).HasMaxLength(255).HasColumnOrder(4);
                 b.Property(x => x.PhotoCaptureDate).HasColumnOrder(5);
                 b.Property(x => x.PhotoUploadDate).HasColumnOrder(6);
             });
@@ -337,7 +351,7 @@ namespace KossanVMS.Data
 
         public override int SaveChanges()
         {
-            var now = DateTime.UtcNow;
+            var now = DateTime.Now;
             foreach (var e in ChangeTracker.Entries())
             {
                 if (e.Entity is VmsAuditEntity aud)

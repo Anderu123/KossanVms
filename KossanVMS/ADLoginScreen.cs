@@ -23,7 +23,8 @@ namespace KossanVMS
             using (var VmsContext = new VmsContext())
             {
                 DbSeeder.EnsureAdmin(VmsContext);
-            };
+            }
+            ;
         }
 
         //private void ADLoginScreen_Shown(object sender, EventArgs e)
@@ -60,12 +61,12 @@ namespace KossanVMS
                 return;
             }
             toolStripLabelLogin.Text = "Verifying Credentials...";
-            cyberProgressBar1.Value = 50; 
+            cyberProgressBar1.Value = 50;
             bool adSuccess = await Task.Run(() => new AdAuthenticator().AuthenticateUser(username, password));
             if (adSuccess || bypass)
             {
-               
-                using (var context = new VmsContext()) 
+
+                using (var context = new VmsContext())
                 {
                     var user = context.VmsUsers
                                       .FirstOrDefault(u => u.UserName == username);
@@ -73,11 +74,11 @@ namespace KossanVMS
                     if (user != null)
                     {
                         toolStripLabelLogin.Text = "Login Successful";
-                        cyberProgressBar1.Value = 100; 
+                        cyberProgressBar1.Value = 100;
                         SessionContext.SetUser(user.Id, (SessionContext.UserRole)user.Role);
-                      
+
                         Thread.Sleep(3);
-                       
+
                         this.Hide();
                         var mainForm = new MainPage(context);
                         mainForm.ShowDialog();
@@ -89,7 +90,7 @@ namespace KossanVMS
                         toolStripLabelLogin.Text = "AD user found, but VMS role not assigned. Contact administrator.";
                         cyberProgressBar1.Value = 30;
                         MessageBox.Show("AD user found, but VMS role not assigned. Contact administrator.", "Login Failed");
-                        
+
                         toolStrip1.Text = "AD user found, but VMS role not assigned. Contact administrator.";
                         buttonLogin.Enabled = true;
                     }
@@ -100,7 +101,7 @@ namespace KossanVMS
                 toolStripLabelLogin.Text = "Invalid Username or Password. Please try again.";
                 cyberProgressBar1.Value = 50;
                 MessageBox.Show("Invalid Username or Password. Please try again.");
-                
+
                 toolStrip1.Text = "Invalid Username or Password. Please try again.";
                 textBoxLoginPassword.textBox.Clear();
                 buttonLogin.Enabled = true;
@@ -109,9 +110,9 @@ namespace KossanVMS
                     this.Hide();
                     var mainForm = new MainPage(context);
                     mainForm.ShowDialog();
-                    this.Close(); 
+                    this.Close();
                 }
-                
+
             }
 
         }
@@ -121,7 +122,7 @@ namespace KossanVMS
         {
             if (e.KeyCode == Keys.Tab || e.KeyCode == Keys.Enter)
             {
-             
+
                 e.IsInputKey = true;
                 textBoxLoginPassword.textBox.Select();
                 textBoxLoginPassword.textBox.Focus();
@@ -129,25 +130,25 @@ namespace KossanVMS
         }
 
 
-        private void textBoxLoginPassword_KeyDown(object sender, KeyEventArgs e) 
+        private void textBoxLoginPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
             {
-                
+
                 buttonLogin_Click(sender, EventArgs.Empty);
-            
+
             }
         }
 
         private void ADLoginScreen_Load(object sender, EventArgs e)
         {
-           
+
             this.BeginInvoke((MethodInvoker)delegate
             {
-               
+
                 textBoxLoginUser.textBox.Select();
 
-                
+
                 textBoxLoginUser.textBox.Focus();
             });
             textBoxLoginPassword.textBox.KeyDown += textBoxLoginPassword_KeyDown;
@@ -158,6 +159,10 @@ namespace KossanVMS
         {
 
         }
-       
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

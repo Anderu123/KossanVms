@@ -57,6 +57,10 @@ namespace KossanVMS.Data
         [Column("v_expiry_date")] public DateTime? VisitorExpiryDate { get; set; }
         [Column("v_black_list")] public bool VisitorBlackList { get; set; } = false;
         [Column("v_vehicle_no")] public string? VisitorVehicleNo { get; set; }
+
+        [Column("v_visit_person")] public string? VisitorVisitPerson { get; set; }
+
+        [Column("v_remarks")] public string? VisitorRemarks { get; set; }
        // [Column("company_name")] public string? CompanyName { get; set; }
         public Contact? VisitorContact { get; set; }
         public Photo? VisitorPhoto { get; set; }
@@ -94,11 +98,11 @@ namespace KossanVMS.Data
         [Required, MaxLength(100), Column("visitor_id_no")] public string IdNo { get; set; } = null!;
         public Visitor Visitor { get; set; } = null!;
 
-        [Column("p_capture_path")] public string PhotoCapturePath { get; set; } = null!;
-        [Column("p_upload_path")] public string PhotoUploadPath { get; set; } = null!;
-        [Required, MaxLength(255), Column("p_url")] public string PhotoURL { get; set; } = null!;
-        [Column("p_capture_date")] public DateTime PhotoCaptureDate { get; set; } = DateTime.UtcNow;
-        [Column("p_upload_date")] public DateTime PhotoUploadDate { get; set; } = DateTime.UtcNow;
+        [Column("p_capture_path")] public string? PhotoCapturePath { get; set; } = null!;
+        [Column("p_upload_path")] public string? PhotoUploadPath { get; set; } = null!;
+        [ Column("p_url")] public string? PhotoURL { get; set; } = null!;
+        [Column("p_capture_date")] public DateTime? PhotoCaptureDate { get; set; } = DateTime.UtcNow;
+        [Column("p_upload_date")] public DateTime? PhotoUploadDate { get; set; } = DateTime.UtcNow;
     }
 
     //[Table("visitor_affiliations")]

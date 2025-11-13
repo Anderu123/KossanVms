@@ -336,6 +336,7 @@ namespace KossanVMS
             buttonCancel.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             buttonCancel.Timer_Effect_1 = 5;
             buttonCancel.Timer_RGB = 300;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // cyberProgressBar1
             // 
@@ -405,7 +406,7 @@ namespace KossanVMS
             Controls.Add(splitContainer1);
             Name = "ADLoginScreen";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ADLoginScreen";
+            Text = "LoginScreen";
             Load += ADLoginScreen_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);

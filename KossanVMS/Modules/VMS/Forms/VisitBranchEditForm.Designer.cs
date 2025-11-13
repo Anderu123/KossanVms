@@ -44,11 +44,13 @@ namespace KossanVMS
             buttonSave = new CyberButton();
             buttonCancel = new CyberButton();
             radioPanelBranch = new System.Windows.Forms.Panel();
-            buttonBranchInactive = new CyberRadioButton();
-            buttonBranchActive = new CyberRadioButton();
+            panel2 = new System.Windows.Forms.Panel();
+            rbInactive = new System.Windows.Forms.RadioButton();
+            rbActive = new System.Windows.Forms.RadioButton();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             radioPanelBranch.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -79,7 +81,7 @@ namespace KossanVMS
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.9999962F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(702, 361);
+            tableLayoutPanel1.Size = new Size(636, 265);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // textBoxBranchName
@@ -95,17 +97,17 @@ namespace KossanVMS
             textBoxBranchName.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textBoxBranchName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textBoxBranchName.Dock = DockStyle.Fill;
-            textBoxBranchName.Font = new Font("Arial", 15F);
+            textBoxBranchName.Font = new Font("Arial", 10F);
             textBoxBranchName.ForeColor = Color.Black;
             textBoxBranchName.Lighting = false;
             textBoxBranchName.LinearGradientPen = false;
-            textBoxBranchName.Location = new Point(183, 6);
+            textBoxBranchName.Location = new Point(166, 6);
             textBoxBranchName.Name = "textBoxBranchName";
             textBoxBranchName.PenWidth = 15;
             textBoxBranchName.RGB = false;
             textBoxBranchName.Rounding = true;
             textBoxBranchName.RoundingInt = 60;
-            textBoxBranchName.Size = new Size(513, 62);
+            textBoxBranchName.Size = new Size(464, 43);
             textBoxBranchName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textBoxBranchName.TabIndex = 15;
             textBoxBranchName.Tag = "Cyber";
@@ -120,9 +122,9 @@ namespace KossanVMS
             thunderLabel7.BackColor = Color.PaleTurquoise;
             thunderLabel7.Dock = DockStyle.Fill;
             thunderLabel7.ForeColor = Color.Transparent;
-            thunderLabel7.Location = new Point(6, 290);
+            thunderLabel7.Location = new Point(6, 214);
             thunderLabel7.Name = "thunderLabel7";
-            thunderLabel7.Size = new Size(168, 65);
+            thunderLabel7.Size = new Size(151, 45);
             thunderLabel7.TabIndex = 12;
             // 
             // textBoxBranchConnStr
@@ -138,17 +140,17 @@ namespace KossanVMS
             textBoxBranchConnStr.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textBoxBranchConnStr.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textBoxBranchConnStr.Dock = DockStyle.Fill;
-            textBoxBranchConnStr.Font = new Font("Arial", 15F);
+            textBoxBranchConnStr.Font = new Font("Arial", 10F);
             textBoxBranchConnStr.ForeColor = Color.Black;
             textBoxBranchConnStr.Lighting = false;
             textBoxBranchConnStr.LinearGradientPen = false;
-            textBoxBranchConnStr.Location = new Point(183, 219);
+            textBoxBranchConnStr.Location = new Point(166, 162);
             textBoxBranchConnStr.Name = "textBoxBranchConnStr";
             textBoxBranchConnStr.PenWidth = 15;
             textBoxBranchConnStr.RGB = false;
             textBoxBranchConnStr.Rounding = true;
             textBoxBranchConnStr.RoundingInt = 60;
-            textBoxBranchConnStr.Size = new Size(513, 62);
+            textBoxBranchConnStr.Size = new Size(464, 43);
             textBoxBranchConnStr.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textBoxBranchConnStr.TabIndex = 7;
             textBoxBranchConnStr.Tag = "Cyber";
@@ -163,9 +165,9 @@ namespace KossanVMS
             labelBranchConnString.BackColor = Color.PaleTurquoise;
             labelBranchConnString.Dock = DockStyle.Fill;
             labelBranchConnString.ForeColor = Color.Transparent;
-            labelBranchConnString.Location = new Point(6, 219);
+            labelBranchConnString.Location = new Point(6, 162);
             labelBranchConnString.Name = "labelBranchConnString";
-            labelBranchConnString.Size = new Size(168, 62);
+            labelBranchConnString.Size = new Size(151, 43);
             labelBranchConnString.TabIndex = 6;
             labelBranchConnString.Text = "Branch Connection String";
             // 
@@ -174,9 +176,9 @@ namespace KossanVMS
             labelBranchStatus.BackColor = Color.PaleTurquoise;
             labelBranchStatus.Dock = DockStyle.Fill;
             labelBranchStatus.ForeColor = Color.Transparent;
-            labelBranchStatus.Location = new Point(6, 148);
+            labelBranchStatus.Location = new Point(6, 110);
             labelBranchStatus.Name = "labelBranchStatus";
-            labelBranchStatus.Size = new Size(168, 62);
+            labelBranchStatus.Size = new Size(151, 43);
             labelBranchStatus.TabIndex = 4;
             labelBranchStatus.Text = "Branch Status";
             // 
@@ -185,9 +187,9 @@ namespace KossanVMS
             labelBranchDescription.BackColor = Color.PaleTurquoise;
             labelBranchDescription.Dock = DockStyle.Fill;
             labelBranchDescription.ForeColor = Color.Transparent;
-            labelBranchDescription.Location = new Point(6, 77);
+            labelBranchDescription.Location = new Point(6, 58);
             labelBranchDescription.Name = "labelBranchDescription";
-            labelBranchDescription.Size = new Size(168, 62);
+            labelBranchDescription.Size = new Size(151, 43);
             labelBranchDescription.TabIndex = 3;
             labelBranchDescription.Text = "Branch Description";
             // 
@@ -198,7 +200,7 @@ namespace KossanVMS
             labelBranchName.ForeColor = Color.Transparent;
             labelBranchName.Location = new Point(6, 6);
             labelBranchName.Name = "labelBranchName";
-            labelBranchName.Size = new Size(168, 62);
+            labelBranchName.Size = new Size(151, 43);
             labelBranchName.TabIndex = 0;
             labelBranchName.Text = "Branch Name";
             // 
@@ -215,17 +217,17 @@ namespace KossanVMS
             textBoxBranchDescription.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textBoxBranchDescription.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textBoxBranchDescription.Dock = DockStyle.Fill;
-            textBoxBranchDescription.Font = new Font("Arial", 15F);
+            textBoxBranchDescription.Font = new Font("Arial", 10F);
             textBoxBranchDescription.ForeColor = Color.Black;
             textBoxBranchDescription.Lighting = false;
             textBoxBranchDescription.LinearGradientPen = false;
-            textBoxBranchDescription.Location = new Point(183, 77);
+            textBoxBranchDescription.Location = new Point(166, 58);
             textBoxBranchDescription.Name = "textBoxBranchDescription";
             textBoxBranchDescription.PenWidth = 15;
             textBoxBranchDescription.RGB = false;
             textBoxBranchDescription.Rounding = true;
             textBoxBranchDescription.RoundingInt = 60;
-            textBoxBranchDescription.Size = new Size(513, 62);
+            textBoxBranchDescription.Size = new Size(464, 43);
             textBoxBranchDescription.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textBoxBranchDescription.TabIndex = 2;
             textBoxBranchDescription.Tag = "Cyber";
@@ -240,9 +242,9 @@ namespace KossanVMS
             panel1.Controls.Add(buttonSave);
             panel1.Controls.Add(buttonCancel);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(183, 290);
+            panel1.Location = new Point(166, 214);
             panel1.Name = "panel1";
-            panel1.Size = new Size(513, 65);
+            panel1.Size = new Size(464, 45);
             panel1.TabIndex = 13;
             // 
             // buttonSave
@@ -272,12 +274,12 @@ namespace KossanVMS
             buttonSave.Lighting = false;
             buttonSave.LinearGradient_Background = false;
             buttonSave.LinearGradientPen = false;
-            buttonSave.Location = new Point(253, 0);
+            buttonSave.Location = new Point(204, 0);
             buttonSave.Name = "buttonSave";
             buttonSave.PenWidth = 15;
             buttonSave.Rounding = true;
             buttonSave.RoundingInt = 70;
-            buttonSave.Size = new Size(130, 65);
+            buttonSave.Size = new Size(130, 45);
             buttonSave.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonSave.TabIndex = 1;
             buttonSave.Tag = "Cyber";
@@ -314,12 +316,12 @@ namespace KossanVMS
             buttonCancel.Lighting = false;
             buttonCancel.LinearGradient_Background = false;
             buttonCancel.LinearGradientPen = false;
-            buttonCancel.Location = new Point(383, 0);
+            buttonCancel.Location = new Point(334, 0);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.PenWidth = 15;
             buttonCancel.Rounding = true;
             buttonCancel.RoundingInt = 70;
-            buttonCancel.Size = new Size(130, 65);
+            buttonCancel.Size = new Size(130, 45);
             buttonCancel.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             buttonCancel.TabIndex = 0;
             buttonCancel.Tag = "Cyber";
@@ -331,105 +333,52 @@ namespace KossanVMS
             // 
             // radioPanelBranch
             // 
-            radioPanelBranch.Controls.Add(buttonBranchInactive);
-            radioPanelBranch.Controls.Add(buttonBranchActive);
+            radioPanelBranch.Controls.Add(panel2);
             radioPanelBranch.Dock = DockStyle.Fill;
-            radioPanelBranch.Location = new Point(183, 148);
+            radioPanelBranch.Location = new Point(166, 110);
             radioPanelBranch.Name = "radioPanelBranch";
-            radioPanelBranch.Size = new Size(513, 62);
+            radioPanelBranch.Size = new Size(464, 43);
             radioPanelBranch.TabIndex = 14;
             // 
-            // buttonBranchInactive
+            // panel2
             // 
-            buttonBranchInactive.BackColor = Color.Transparent;
-            buttonBranchInactive.Background = true;
-            buttonBranchInactive.Background_WidthPen = 2F;
-            buttonBranchInactive.BackgroundPen = true;
-            buttonBranchInactive.Checked = false;
-            buttonBranchInactive.Color_1_Background_value = Color.Empty;
-            buttonBranchInactive.Color_2_Background_value = Color.Empty;
-            buttonBranchInactive.ColorBackground = Color.FromArgb(37, 52, 68);
-            buttonBranchInactive.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            buttonBranchInactive.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            buttonBranchInactive.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            buttonBranchInactive.ColorChecked = Color.FromArgb(29, 200, 238);
-            buttonBranchInactive.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            buttonBranchInactive.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            buttonBranchInactive.CyberRadioButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            buttonBranchInactive.Dock = DockStyle.Left;
-            buttonBranchInactive.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            buttonBranchInactive.Effect_1_Transparency = 25;
-            buttonBranchInactive.Effect_2 = true;
-            buttonBranchInactive.Effect_2_ColorBackground = Color.White;
-            buttonBranchInactive.Effect_2_Transparency = 15;
-            buttonBranchInactive.Font = new Font("Arial", 11F);
-            buttonBranchInactive.ForeColor = Color.FromArgb(245, 245, 245);
-            buttonBranchInactive.LinearGradient_Background = false;
-            buttonBranchInactive.LinearGradient_Value = false;
-            buttonBranchInactive.LinearGradientPen = false;
-            buttonBranchInactive.Location = new Point(180, 0);
-            buttonBranchInactive.Name = "buttonBranchInactive";
-            buttonBranchInactive.RGB = false;
-            buttonBranchInactive.Rounding = true;
-            buttonBranchInactive.RoundingInt = 100;
-            buttonBranchInactive.Size = new Size(180, 45);
-            buttonBranchInactive.SizeChecked = 8;
-            buttonBranchInactive.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonBranchInactive.TabIndex = 1;
-            buttonBranchInactive.Tag = "Cyber";
-            buttonBranchInactive.TextButton = "Inactive";
-            buttonBranchInactive.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            buttonBranchInactive.Timer_Effect_1 = 1;
-            buttonBranchInactive.Timer_RGB = 300;
+            panel2.Controls.Add(rbInactive);
+            panel2.Controls.Add(rbActive);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(464, 43);
+            panel2.TabIndex = 15;
             // 
-            // buttonBranchActive
+            // rbInactive
             // 
-            buttonBranchActive.BackColor = Color.Transparent;
-            buttonBranchActive.Background = true;
-            buttonBranchActive.Background_WidthPen = 2F;
-            buttonBranchActive.BackgroundPen = true;
-            buttonBranchActive.Checked = false;
-            buttonBranchActive.Color_1_Background_value = Color.Empty;
-            buttonBranchActive.Color_2_Background_value = Color.Empty;
-            buttonBranchActive.ColorBackground = Color.FromArgb(37, 52, 68);
-            buttonBranchActive.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            buttonBranchActive.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            buttonBranchActive.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            buttonBranchActive.ColorChecked = Color.FromArgb(29, 200, 238);
-            buttonBranchActive.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            buttonBranchActive.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            buttonBranchActive.CyberRadioButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            buttonBranchActive.Dock = DockStyle.Left;
-            buttonBranchActive.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            buttonBranchActive.Effect_1_Transparency = 25;
-            buttonBranchActive.Effect_2 = true;
-            buttonBranchActive.Effect_2_ColorBackground = Color.White;
-            buttonBranchActive.Effect_2_Transparency = 15;
-            buttonBranchActive.Font = new Font("Arial", 11F);
-            buttonBranchActive.ForeColor = Color.FromArgb(245, 245, 245);
-            buttonBranchActive.LinearGradient_Background = false;
-            buttonBranchActive.LinearGradient_Value = false;
-            buttonBranchActive.LinearGradientPen = false;
-            buttonBranchActive.Location = new Point(0, 0);
-            buttonBranchActive.Name = "buttonBranchActive";
-            buttonBranchActive.RGB = false;
-            buttonBranchActive.Rounding = true;
-            buttonBranchActive.RoundingInt = 100;
-            buttonBranchActive.Size = new Size(180, 45);
-            buttonBranchActive.SizeChecked = 8;
-            buttonBranchActive.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonBranchActive.TabIndex = 0;
-            buttonBranchActive.Tag = "Cyber";
-            buttonBranchActive.TextButton = "Active";
-            buttonBranchActive.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            buttonBranchActive.Timer_Effect_1 = 1;
-            buttonBranchActive.Timer_RGB = 300;
+            rbInactive.AutoSize = true;
+            rbInactive.ForeColor = Color.Red;
+            rbInactive.Location = new Point(111, 14);
+            rbInactive.Name = "rbInactive";
+            rbInactive.Size = new Size(66, 19);
+            rbInactive.TabIndex = 1;
+            rbInactive.TabStop = true;
+            rbInactive.Text = "Inactive";
+            rbInactive.UseVisualStyleBackColor = true;
+            // 
+            // rbActive
+            // 
+            rbActive.AutoSize = true;
+            rbActive.ForeColor = Color.Lime;
+            rbActive.Location = new Point(3, 14);
+            rbActive.Name = "rbActive";
+            rbActive.Size = new Size(58, 19);
+            rbActive.TabIndex = 0;
+            rbActive.TabStop = true;
+            rbActive.Text = "Active";
+            rbActive.UseVisualStyleBackColor = true;
             // 
             // VisitBranchEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(702, 361);
+            ClientSize = new Size(636, 265);
             Controls.Add(tableLayoutPanel1);
             Name = "VisitBranchEditForm";
             StartPosition = FormStartPosition.CenterParent;
@@ -437,6 +386,8 @@ namespace KossanVMS
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             radioPanelBranch.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -454,8 +405,6 @@ namespace KossanVMS
         private ReaLTaiizor.Controls.CyberButton buttonSave;
         private ReaLTaiizor.Controls.CyberButton buttonCancel;
         private System.Windows.Forms.Panel radioPanelBranch;
-        private ReaLTaiizor.Controls.CyberRadioButton buttonBranchActive;
-        private ReaLTaiizor.Controls.CyberRadioButton buttonBranchInactive;
         private ReaLTaiizor.Controls.CyberTextBox textBoxBranchName;
 
 
@@ -509,5 +458,8 @@ namespace KossanVMS
                 clickedButton.Invalidate(); // Force redraw
             }
         }
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rbInactive;
+        private System.Windows.Forms.RadioButton rbActive;
     }
 }

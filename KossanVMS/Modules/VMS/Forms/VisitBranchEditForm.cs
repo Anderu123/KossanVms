@@ -35,11 +35,21 @@ namespace KossanVMS
 
             textBoxBranchName.textBox.Text = visitBranchModel.BranchName;
             textBoxBranchDescription.textBox.Text = visitBranchModel.BranchDescription ?? "";
-            textBoxBranchConnStr.textBox.Text = visitBranchModel.BranchConnectionString ?? "";
-           // buttonBranchActive.A= false;
+            HideRow(tableLayoutPanel1, 3, false);
+            //textBoxBranchConnStr.textBox.Hide();
+            //textBoxBranchConnStr.textBox.Text = visitBranchModel.BranchConnectionString ?? "";
+            // buttonBranchActive.A= false;
             //buttonBranchInactive.AutoCheck = false; ;
-            buttonBranchActive.Click += buttonBranchActive_Click;
-            buttonBranchInactive.Click += buttonBranchInactive_Click;
+            if (visitBranchModel.BranchStatus)
+            {
+                rbActive.Checked = true;
+                rbInactive.Checked = false;
+            }
+            else
+            {
+                rbActive.Checked = true;
+                rbInactive.Checked = false;
+            }
 
         }
         private bool SaveResults()
@@ -54,7 +64,7 @@ namespace KossanVMS
             visitBranchModel.BranchName = branchName;
             visitBranchModel.BranchDescription = textBoxBranchDescription.textBox.Text.Trim();
             visitBranchModel.BranchConnectionString = textBoxBranchConnStr.textBox.Text.Trim();
-            visitBranchModel.BranchStatus = buttonBranchActive.Checked;
+            visitBranchModel.BranchStatus = rbActive.Checked;
 
             return true;
 
@@ -81,22 +91,57 @@ namespace KossanVMS
             DialogResult = DialogResult.Cancel;
             Close();
         }
-        private void buttonBranchActive_Click(object sender, EventArgs e)
+        public void HideRow(TableLayoutPanel panel, int rowIndex, bool showRow)
         {
-            if (_syncing) return;
-            _syncing = true;
-            buttonBranchActive.Checked = true;   // force the pair
-            buttonBranchInactive.Checked = false;
-            _syncing = false;
-        }
+            
+            foreach (Control control in panel.Controls)
+            {
+                
+                if (panel.GetRow(control) == rowIndex)
+                {
+                    control.Visible = showRow;
+                }
+            }
 
-        private void buttonBranchInactive_Click(object sender, EventArgs e)
-        {
-            if (_syncing) return;
-            _syncing = true;
-            buttonBranchActive.Checked = false;
-            buttonBranchInactive.Checked = true;
-            _syncing = false;
+            
+            if (rowIndex < panel.RowStyles.Count)
+            {
+               
+                panel.SuspendLayout();
+
+                if (showRow)
+                {
+                  
+                    panel.RowStyles[rowIndex].SizeType = SizeType.AutoSize;
+                }
+                else 
+                {
+                    
+                    panel.RowStyles[rowIndex].SizeType = SizeType.Absolute;
+                    panel.RowStyles[rowIndex].Height = 1F; 
+                }
+
+                
+                panel.ResumeLayout(true);
+                panel.PerformLayout();
+            }
         }
+        //private void buttonBranchActive_Click(object sender, EventArgs e)
+        //{
+        //    if (_syncing) return;
+        //    _syncing = true;
+        //    buttonBranchActive.Checked = true;   // force the pair
+        //    buttonBranchInactive.Checked = false;
+        //    _syncing = false;
+        //}
+
+        //private void buttonBranchInactive_Click(object sender, EventArgs e)
+        //{
+        //    if (_syncing) return;
+        //    _syncing = true;
+        //    buttonBranchActive.Checked = false;
+        //    buttonBranchInactive.Checked = true;
+        //    _syncing = false;
+        //}
     }
 }

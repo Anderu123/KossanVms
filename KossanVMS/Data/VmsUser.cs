@@ -88,6 +88,8 @@ namespace KossanVMS.Data
 
         public static UserRole Role { get; set; } = UserRole.User;
 
+        public static string BranchName { get; set; }
+        public static string DbConnStr { get;set; }
         public static bool IsAuthenticated => UserId > 0;
 
         public static void SignIn(VmsUser u)

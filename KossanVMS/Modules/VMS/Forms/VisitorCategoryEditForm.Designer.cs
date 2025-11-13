@@ -77,12 +77,12 @@ namespace KossanVMS
             cancelButton.Lighting = false;
             cancelButton.LinearGradient_Background = false;
             cancelButton.LinearGradientPen = false;
-            cancelButton.Location = new Point(246, 0);
+            cancelButton.Location = new Point(318, 0);
             cancelButton.Name = "cancelButton";
             cancelButton.PenWidth = 15;
             cancelButton.Rounding = true;
             cancelButton.RoundingInt = 70;
-            cancelButton.Size = new Size(130, 61);
+            cancelButton.Size = new Size(130, 51);
             cancelButton.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             cancelButton.TabIndex = 0;
             cancelButton.Tag = "Cyber";
@@ -90,15 +90,16 @@ namespace KossanVMS
             cancelButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             cancelButton.Timer_Effect_1 = 5;
             cancelButton.Timer_RGB = 300;
+            cancelButton.Click += buttonCancel_Click;
             // 
             // thunderLabel7
             // 
             thunderLabel7.BackColor = Color.PaleTurquoise;
             thunderLabel7.Dock = DockStyle.Fill;
             thunderLabel7.ForeColor = Color.Transparent;
-            thunderLabel7.Location = new Point(6, 210);
+            thunderLabel7.Location = new Point(6, 177);
             thunderLabel7.Name = "thunderLabel7";
-            thunderLabel7.Size = new Size(121, 61);
+            thunderLabel7.Size = new Size(145, 51);
             thunderLabel7.TabIndex = 12;
             // 
             // labelCategoryStatus
@@ -106,9 +107,9 @@ namespace KossanVMS
             labelCategoryStatus.BackColor = Color.PaleTurquoise;
             labelCategoryStatus.Dock = DockStyle.Fill;
             labelCategoryStatus.ForeColor = Color.Transparent;
-            labelCategoryStatus.Location = new Point(6, 142);
+            labelCategoryStatus.Location = new Point(6, 120);
             labelCategoryStatus.Name = "labelCategoryStatus";
-            labelCategoryStatus.Size = new Size(121, 59);
+            labelCategoryStatus.Size = new Size(145, 48);
             labelCategoryStatus.TabIndex = 6;
             labelCategoryStatus.Text = "Category Status";
             // 
@@ -135,7 +136,7 @@ namespace KossanVMS
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25.0000038F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 24.9999962F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(518, 277);
+            tableLayoutPanel1.Size = new Size(614, 234);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // textBoxCategoryDescription
@@ -151,17 +152,17 @@ namespace KossanVMS
             textBoxCategoryDescription.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textBoxCategoryDescription.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textBoxCategoryDescription.Dock = DockStyle.Fill;
-            textBoxCategoryDescription.Font = new Font("Arial", 14F);
+            textBoxCategoryDescription.Font = new Font("Arial", 12F);
             textBoxCategoryDescription.ForeColor = Color.Black;
             textBoxCategoryDescription.Lighting = false;
             textBoxCategoryDescription.LinearGradientPen = false;
-            textBoxCategoryDescription.Location = new Point(136, 74);
+            textBoxCategoryDescription.Location = new Point(160, 63);
             textBoxCategoryDescription.Name = "textBoxCategoryDescription";
             textBoxCategoryDescription.PenWidth = 15;
             textBoxCategoryDescription.RGB = false;
             textBoxCategoryDescription.Rounding = true;
             textBoxCategoryDescription.RoundingInt = 60;
-            textBoxCategoryDescription.Size = new Size(376, 59);
+            textBoxCategoryDescription.Size = new Size(448, 48);
             textBoxCategoryDescription.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textBoxCategoryDescription.TabIndex = 5;
             textBoxCategoryDescription.Tag = "Cyber";
@@ -176,9 +177,9 @@ namespace KossanVMS
             labelCategoryDescription.BackColor = Color.PaleTurquoise;
             labelCategoryDescription.Dock = DockStyle.Fill;
             labelCategoryDescription.ForeColor = Color.Transparent;
-            labelCategoryDescription.Location = new Point(6, 74);
+            labelCategoryDescription.Location = new Point(6, 63);
             labelCategoryDescription.Name = "labelCategoryDescription";
-            labelCategoryDescription.Size = new Size(121, 59);
+            labelCategoryDescription.Size = new Size(145, 48);
             labelCategoryDescription.TabIndex = 4;
             labelCategoryDescription.Text = "Category Description";
             // 
@@ -189,7 +190,7 @@ namespace KossanVMS
             labelCategoryName.ForeColor = Color.Transparent;
             labelCategoryName.Location = new Point(6, 6);
             labelCategoryName.Name = "labelCategoryName";
-            labelCategoryName.Size = new Size(121, 59);
+            labelCategoryName.Size = new Size(145, 48);
             labelCategoryName.TabIndex = 3;
             labelCategoryName.Text = "Category Name";
             // 
@@ -206,17 +207,17 @@ namespace KossanVMS
             textBoxCategoryName.ColorPen_2 = Color.FromArgb(37, 52, 68);
             textBoxCategoryName.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             textBoxCategoryName.Dock = DockStyle.Fill;
-            textBoxCategoryName.Font = new Font("Arial", 14F);
+            textBoxCategoryName.Font = new Font("Arial", 12F);
             textBoxCategoryName.ForeColor = Color.Black;
             textBoxCategoryName.Lighting = false;
             textBoxCategoryName.LinearGradientPen = false;
-            textBoxCategoryName.Location = new Point(136, 6);
+            textBoxCategoryName.Location = new Point(160, 6);
             textBoxCategoryName.Name = "textBoxCategoryName";
             textBoxCategoryName.PenWidth = 15;
             textBoxCategoryName.RGB = false;
             textBoxCategoryName.Rounding = true;
             textBoxCategoryName.RoundingInt = 60;
-            textBoxCategoryName.Size = new Size(376, 59);
+            textBoxCategoryName.Size = new Size(448, 48);
             textBoxCategoryName.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             textBoxCategoryName.TabIndex = 2;
             textBoxCategoryName.Tag = "Cyber";
@@ -231,9 +232,9 @@ namespace KossanVMS
             panel1.Controls.Add(saveButton);
             panel1.Controls.Add(cancelButton);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(136, 210);
+            panel1.Location = new Point(160, 177);
             panel1.Name = "panel1";
-            panel1.Size = new Size(376, 61);
+            panel1.Size = new Size(448, 51);
             panel1.TabIndex = 13;
             // 
             // saveButton
@@ -263,12 +264,12 @@ namespace KossanVMS
             saveButton.Lighting = false;
             saveButton.LinearGradient_Background = false;
             saveButton.LinearGradientPen = false;
-            saveButton.Location = new Point(116, 0);
+            saveButton.Location = new Point(188, 0);
             saveButton.Name = "saveButton";
             saveButton.PenWidth = 15;
             saveButton.Rounding = true;
             saveButton.RoundingInt = 70;
-            saveButton.Size = new Size(130, 61);
+            saveButton.Size = new Size(130, 51);
             saveButton.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             saveButton.TabIndex = 1;
             saveButton.Tag = "Cyber";
@@ -283,9 +284,9 @@ namespace KossanVMS
             panel2.Controls.Add(rbInactive);
             panel2.Controls.Add(rbActive);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(136, 142);
+            panel2.Location = new Point(160, 120);
             panel2.Name = "panel2";
-            panel2.Size = new Size(376, 59);
+            panel2.Size = new Size(448, 48);
             panel2.TabIndex = 14;
             // 
             // rbInactive
@@ -317,7 +318,7 @@ namespace KossanVMS
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(37, 52, 68);
-            ClientSize = new Size(518, 277);
+            ClientSize = new Size(614, 234);
             Controls.Add(tableLayoutPanel1);
             Name = "VisitorCategoryEditForm";
             StartPosition = FormStartPosition.CenterParent;

@@ -4,6 +4,7 @@ using KossanVMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    partial class VmsContextModelSnapshot : ModelSnapshot
+    [Migration("20251113061710_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -344,28 +346,31 @@ namespace KossanVMS.Migrations
                         .HasColumnName("visitor_id_no")
                         .HasColumnOrder(1);
 
-                    b.Property<DateTime?>("PhotoCaptureDate")
+                    b.Property<DateTime>("PhotoCaptureDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("p_capture_date")
                         .HasColumnOrder(5);
 
                     b.Property<string>("PhotoCapturePath")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("p_capture_path")
                         .HasColumnOrder(2);
 
                     b.Property<string>("PhotoURL")
+                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("p_url")
                         .HasColumnOrder(4);
 
-                    b.Property<DateTime?>("PhotoUploadDate")
+                    b.Property<DateTime>("PhotoUploadDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("p_upload_date")
                         .HasColumnOrder(6);
 
                     b.Property<string>("PhotoUploadPath")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("p_upload_path")
                         .HasColumnOrder(3);

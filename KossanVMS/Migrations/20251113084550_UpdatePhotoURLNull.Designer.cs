@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    [Migration("20251111072111_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251113084550_UpdatePhotoURLNull")]
+    partial class UpdatePhotoURLNull
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -346,13 +346,12 @@ namespace KossanVMS.Migrations
                         .HasColumnName("visitor_id_no")
                         .HasColumnOrder(1);
 
-                    b.Property<DateTime>("PhotoCaptureDate")
+                    b.Property<DateTime?>("PhotoCaptureDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("p_capture_date")
                         .HasColumnOrder(5);
 
                     b.Property<string>("PhotoCapturePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("p_capture_path")
                         .HasColumnOrder(2);
@@ -364,13 +363,12 @@ namespace KossanVMS.Migrations
                         .HasColumnName("p_url")
                         .HasColumnOrder(4);
 
-                    b.Property<DateTime>("PhotoUploadDate")
+                    b.Property<DateTime?>("PhotoUploadDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("p_upload_date")
                         .HasColumnOrder(6);
 
                     b.Property<string>("PhotoUploadPath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("p_upload_path")
                         .HasColumnOrder(3);
@@ -604,6 +602,19 @@ namespace KossanVMS.Migrations
                         .HasColumnType("tinyint")
                         .HasColumnName("v_id_type")
                         .HasColumnOrder(2);
+
+                    b.Property<string>("VisitorRemarks")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("v_remarks");
+
+                    b.Property<string>("VisitorVehicleNo")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("v_vehicle_no");
+
+                    b.Property<string>("VisitorVisitPerson")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("v_visit_person")
+                        .HasColumnOrder(7);
 
                     b.HasKey("VisitorNo");
 
