@@ -33,7 +33,7 @@ namespace KossanVMS
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             parrotPanel = new ReaLTaiizor.Controls.ParrotSlidingPanel();
-            buttonNavDms = new ReaLTaiizor.Controls.CyberButton();
+            buttonNavUser = new ReaLTaiizor.Controls.CyberButton();
             buttonNavVms = new ReaLTaiizor.Controls.CyberButton();
             dreamButton1 = new ReaLTaiizor.Controls.DreamButton();
             mainPanel = new ReaLTaiizor.Controls.Panel();
@@ -65,7 +65,7 @@ namespace KossanVMS
             parrotPanel.CollapseControl = null;
             parrotPanel.Collapsed = true;
             parrotPanel.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotPanel.Controls.Add(buttonNavDms);
+            parrotPanel.Controls.Add(buttonNavUser);
             parrotPanel.Controls.Add(buttonNavVms);
             parrotPanel.Controls.Add(dreamButton1);
             parrotPanel.Dock = DockStyle.Left;
@@ -86,48 +86,48 @@ namespace KossanVMS
             parrotPanel.TopLeft = Color.Black;
             parrotPanel.TopRight = Color.Black;
             // 
-            // buttonNavDms
+            // buttonNavUser
             // 
-            buttonNavDms.Alpha = 20;
-            buttonNavDms.BackColor = Color.Transparent;
-            buttonNavDms.Background = true;
-            buttonNavDms.Background_WidthPen = 4F;
-            buttonNavDms.BackgroundPen = true;
-            buttonNavDms.ColorBackground = Color.FromArgb(37, 52, 68);
-            buttonNavDms.ColorBackground_1 = Color.FromArgb(37, 52, 68);
-            buttonNavDms.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            buttonNavDms.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            buttonNavDms.ColorLighting = Color.FromArgb(29, 200, 238);
-            buttonNavDms.ColorPen_1 = Color.FromArgb(37, 52, 68);
-            buttonNavDms.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            buttonNavDms.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            buttonNavDms.Dock = DockStyle.Top;
-            buttonNavDms.Effect_1 = true;
-            buttonNavDms.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
-            buttonNavDms.Effect_1_Transparency = 25;
-            buttonNavDms.Effect_2 = true;
-            buttonNavDms.Effect_2_ColorBackground = Color.White;
-            buttonNavDms.Effect_2_Transparency = 20;
-            buttonNavDms.Font = new Font("Arial", 11F);
-            buttonNavDms.ForeColor = Color.FromArgb(245, 245, 245);
-            buttonNavDms.Lighting = false;
-            buttonNavDms.LinearGradient_Background = false;
-            buttonNavDms.LinearGradientPen = false;
-            buttonNavDms.Location = new Point(0, 90);
-            buttonNavDms.Margin = new Padding(10, 10, 5, 5);
-            buttonNavDms.Name = "buttonNavDms";
-            buttonNavDms.PenWidth = 15;
-            buttonNavDms.Rounding = true;
-            buttonNavDms.RoundingInt = 70;
-            buttonNavDms.Size = new Size(100, 50);
-            buttonNavDms.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            buttonNavDms.TabIndex = 10;
-            buttonNavDms.Tag = "Cyber";
-            buttonNavDms.TextButton = "DMS";
-            buttonNavDms.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            buttonNavDms.Timer_Effect_1 = 5;
-            buttonNavDms.Timer_RGB = 300;
-            buttonNavDms.Click += buttonNavBranch_Click;
+            buttonNavUser.Alpha = 20;
+            buttonNavUser.BackColor = Color.Transparent;
+            buttonNavUser.Background = true;
+            buttonNavUser.Background_WidthPen = 4F;
+            buttonNavUser.BackgroundPen = true;
+            buttonNavUser.ColorBackground = Color.FromArgb(37, 52, 68);
+            buttonNavUser.ColorBackground_1 = Color.FromArgb(37, 52, 68);
+            buttonNavUser.ColorBackground_2 = Color.FromArgb(41, 63, 86);
+            buttonNavUser.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
+            buttonNavUser.ColorLighting = Color.FromArgb(29, 200, 238);
+            buttonNavUser.ColorPen_1 = Color.FromArgb(37, 52, 68);
+            buttonNavUser.ColorPen_2 = Color.FromArgb(41, 63, 86);
+            buttonNavUser.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            buttonNavUser.Dock = DockStyle.Top;
+            buttonNavUser.Effect_1 = true;
+            buttonNavUser.Effect_1_ColorBackground = Color.FromArgb(29, 200, 238);
+            buttonNavUser.Effect_1_Transparency = 25;
+            buttonNavUser.Effect_2 = true;
+            buttonNavUser.Effect_2_ColorBackground = Color.White;
+            buttonNavUser.Effect_2_Transparency = 20;
+            buttonNavUser.Font = new Font("Arial", 11F);
+            buttonNavUser.ForeColor = Color.FromArgb(245, 245, 245);
+            buttonNavUser.Lighting = false;
+            buttonNavUser.LinearGradient_Background = false;
+            buttonNavUser.LinearGradientPen = false;
+            buttonNavUser.Location = new Point(0, 90);
+            buttonNavUser.Margin = new Padding(10, 10, 5, 5);
+            buttonNavUser.Name = "buttonNavUser";
+            buttonNavUser.PenWidth = 15;
+            buttonNavUser.Rounding = true;
+            buttonNavUser.RoundingInt = 70;
+            buttonNavUser.Size = new Size(100, 50);
+            buttonNavUser.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            buttonNavUser.TabIndex = 10;
+            buttonNavUser.Tag = "Cyber";
+            buttonNavUser.TextButton = "USER";
+            buttonNavUser.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            buttonNavUser.Timer_Effect_1 = 5;
+            buttonNavUser.Timer_RGB = 300;
+            buttonNavUser.Click += buttonNavBranch_Click;
             // 
             // buttonNavVms
             // 
@@ -262,7 +262,7 @@ namespace KossanVMS
         private ReaLTaiizor.Controls.DreamButton dreamButton1;
         private ReaLTaiizor.Controls.Panel mainPanel;
         private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
-        private ReaLTaiizor.Controls.CyberButton buttonNavDms;
+        private ReaLTaiizor.Controls.CyberButton buttonNavUser;
         private ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

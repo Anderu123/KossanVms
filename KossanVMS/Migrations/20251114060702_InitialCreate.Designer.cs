@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KossanVMS.Migrations
 {
     [DbContext(typeof(VmsContext))]
-    [Migration("20251113084550_UpdatePhotoURLNull")]
-    partial class UpdatePhotoURLNull
+    [Migration("20251114060702_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -357,7 +357,6 @@ namespace KossanVMS.Migrations
                         .HasColumnOrder(2);
 
                     b.Property<string>("PhotoURL")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("p_url")
@@ -443,7 +442,7 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("PurposeID");
 
-                    b.ToTable("VisitPurposes");
+                    b.ToTable("purpose");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.PurposeLink", b =>
@@ -494,7 +493,7 @@ namespace KossanVMS.Migrations
 
                     b.HasIndex("PurposeID");
 
-                    b.ToTable("purpose");
+                    b.ToTable("purpose_link");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.RegisterType", b =>

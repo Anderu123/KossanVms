@@ -803,6 +803,7 @@
             comboBoxIdType.Name = "comboBoxIdType";
             comboBoxIdType.Size = new Size(161, 51);
             comboBoxIdType.TabIndex = 25;
+            comboBoxIdType.SelectedIndexChanged += ComboBoxIdType_SelectedIndexChanged;
             // 
             // panel6
             // 

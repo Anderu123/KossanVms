@@ -203,41 +203,114 @@ namespace KossanVMS
         #endregion
 
         #region Save Methods
+        public void SaveVisitorBranches()
+        {
+            if (_isNew)
+            {
+                var selectedIds = checkedListBoxBranch.CheckedItems.Cast<ListItem>()
+                    .Select(li => li.Id)
+                    .ToList();
+                var toAdd = selectedIds.Select(id => new BranchLink
+                {
+                    IdNo = visitorModel.VisitorIdNo,
+                     BranchID = id
+                }).ToList();
+
+                if (toAdd.Count > 0)
+                {
+                    _db.VisitorBranchLinks.AddRange(toAdd);
+                    _db.SaveChanges();
+                }
+
+            }
+            else
+            {
+                var selectedIds = checkedListBoxBranch.CheckedItems.
+                                    Cast<ListItem>()
+                                    .Select(li => li.Id)
+                                    .ToList();
+                var existingLinks = _db.VisitorBranchLinks
+                                    .Where(x => x.IdNo == visitorModel.VisitorIdNo)
+                                    .ToList();
+                var toDelete =  existingLinks.Where (l => !selectedIds.Contains(l.BranchID)).ToList();
+
+                if(toDelete.Count > 0)
+                {
+                    _db.VisitorBranchLinks.RemoveRange(toDelete);
+                }
+                var existingIds = existingLinks.Select(x => x.BranchID).ToHashSet();
+                var toAdd = selectedIds.Where(id => !existingIds.Contains(id))
+                            .Select(id => new BranchLink
+                            {
+                                IdNo = visitorModel.VisitorIdNo,
+                                BranchID = id
+                            });
+                if(toAdd.Count() > 0)
+                {
+                    _db.VisitorBranchLinks.AddRange(toAdd);
+                }
+                if (toDelete.Count > 0 || toAdd.Count() > 0)
+                {
+                    _db.SaveChanges();
+                }
+            }
+        }
         public void SaveVisitorCategories()
         {
-            if (_isNew) return; // no categories for new visitor yet
-            var selectedIds = checkedListBoxCat.CheckedItems
-                                .Cast<ListItem>()
-                                .Select(li => li.Id)
+            if (_isNew)
+            {
+                var selectedIds = checkedListBoxCat.CheckedItems
+                                    .Cast<ListItem>()
+                                    .Select(li => li.Id)
+                                    .ToList();
+                var toAdd = selectedIds.Select(id => new CategoryLink
+                {
+                    IdNo = visitorModel.VisitorIdNo,
+                    CategoryID = id
+                }).ToList();
+
+                if (toAdd.Count > 0)
+                {
+                    _db.VisitorCategoryLinks.AddRange(toAdd);
+                    _db.SaveChanges();
+                }
+
+            }
+            else
+            {
+                var selectedIds = checkedListBoxCat.CheckedItems
+                                    .Cast<ListItem>()
+                                    .Select(li => li.Id)
+                                    .ToList();
+                var existingLinks = _db.VisitorCategoryLinks
+                                       .Where(x => x.IdNo == visitorModel.VisitorIdNo)
+                                       .ToList();
+                // Delete unselected links
+                var toDelete = existingLinks
+                                .Where(link => !selectedIds.Contains(link.CategoryID))
                                 .ToList();
-            var existingLinks = _db.VisitorCategoryLinks
-                                   .Where(x => x.IdNo == visitorModel.VisitorIdNo)
-                                   .ToList();
-            // Delete unselected links
-            var toDelete = existingLinks
-                            .Where(link => !selectedIds.Contains(link.CategoryID))
+                if (toDelete.Count > 0)
+                {
+                    _db.VisitorCategoryLinks.RemoveRange(toDelete);
+                }
+                // Add new links
+                var existingIds = existingLinks.Select(x => x.CategoryID).ToHashSet();
+                var toAdd = selectedIds
+                            .Where(id => !existingIds.Contains(id))
+                            .Select(id => new CategoryLink
+                            {
+                                IdNo = visitorModel.VisitorIdNo,
+                                CategoryID = id
+                            })
                             .ToList();
-            if (toDelete.Count > 0)
-            {
-                _db.VisitorCategoryLinks.RemoveRange(toDelete);
-            }
-            // Add new links
-            var existingIds = existingLinks.Select(x => x.CategoryID).ToHashSet();
-            var toAdd = selectedIds
-                        .Where(id => !existingIds.Contains(id))
-                        .Select(id => new CategoryLink
-                        {   
-                            IdNo = visitorModel.VisitorIdNo,
-                            CategoryID = id
-                        })
-                        .ToList();
-            if (toAdd.Count > 0)
-            {
-                _db.VisitorCategoryLinks.AddRange(toAdd);
-            }
-            if (toDelete.Count > 0 || toAdd.Count > 0)
-            {
-                _db.SaveChanges();
+                if (toAdd.Count > 0)
+                {
+                    _db.VisitorCategoryLinks.AddRange(toAdd);
+                }
+                if (toDelete.Count > 0 || toAdd.Count > 0)
+                {
+                    _db.SaveChanges();
+                }
             }
         }
         public void SaveVisitorRecord()

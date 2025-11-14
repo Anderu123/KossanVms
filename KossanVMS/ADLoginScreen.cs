@@ -23,6 +23,7 @@ namespace KossanVMS
             using (var VmsContext = new VmsContext())
             {
                 DbSeeder.EnsureAdmin(VmsContext);
+                DbSeeder.EnsureSuperAdmin(VmsContext);
             }
             ;
         }
@@ -76,7 +77,7 @@ namespace KossanVMS
                         toolStripLabelLogin.Text = "Login Successful";
                         cyberProgressBar1.Value = 100;
                         SessionContext.SetUser(user.Id, (SessionContext.UserRole)user.Role);
-
+                        AppSession.UserName = user.UserName;
                         Thread.Sleep(3);
 
                         this.Hide();
@@ -105,6 +106,7 @@ namespace KossanVMS
                 toolStrip1.Text = "Invalid Username or Password. Please try again.";
                 textBoxLoginPassword.textBox.Clear();
                 buttonLogin.Enabled = true;
+
                 using (var context = new VmsContext())
                 {
                     this.Hide();

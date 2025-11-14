@@ -23,7 +23,7 @@ namespace KossanVMS.UserControlPage
             InitializeComponent();
             //_db = db;
             _db = db ?? throw new ArgumentNullException(nameof(db));
-            VisitorGridView.DataSource = visitorBindingSource1;
+            VisitorGridView.DataSource = visitorBindingSource;
             VisitorGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             this.Load += VisitorUserControl_Load;
@@ -37,11 +37,15 @@ namespace KossanVMS.UserControlPage
                 if (_db != null)
                 {
                     await _db.VisitCategories.LoadAsync();
+                    await _db.VisitPurposes.LoadAsync();
                     await _db.VisitorCategoryLinks.LoadAsync();
+                    await _db.VisitorPurposeLinks.LoadAsync();
                     // LOAD INTO THE CONTEXT (no AsNoTracking, no ToListAsync)
                     await _db.Visitors
                         // .Include(v => v.BlackList)
                         //.Include(v => v.Company)
+                        .Include(v=>v.VisitorCategories)
+                        .Include(v => v.VisitorPurpose)
                         .Include(v => v.VisitorContact)
                         .Include(v => v.VisitorPhoto)
                         .LoadAsync();
@@ -82,6 +86,26 @@ namespace KossanVMS.UserControlPage
                 {
                     e.Value = string.Empty;
                 }
+                e.FormattingApplied = true;
+                return;
+            }
+            if (grid.Columns[e.ColumnIndex].Name == "colPurpose")
+            {
+                if (grid.Rows[e.RowIndex].DataBoundItem is Visitor v3)
+                {
+                    var names = _db.VisitorPurposeLinks.Local.Where( l=> l.IdNo ==v3.VisitorIdNo)
+                        .Join(_db.VisitPurposes.Local, l=>l.PurposeID, p => p.PurposeID, (l, p) => p.PurposeName)
+                        .OrderBy(n=>n)
+                        .ToList();
+
+
+                    e.Value = names.Count > 0 ? string.Join(", ", names) : string.Empty;
+                }
+                else
+                {
+                    e.Value = string.Empty;
+                }
+
                 e.FormattingApplied = true;
                 return;
             }
@@ -174,7 +198,7 @@ namespace KossanVMS.UserControlPage
             }
             var copyVisitorModel = new Visitor
             {
-                VisitorNo = selectedItem.VisitorNo,
+                //VisitorNo = selectedItem.VisitorNo,
                 VisitorIdNo = selectedItem.VisitorIdNo,
                 VisitorFullName = selectedItem.VisitorFullName,
                 VisitorIdType = selectedItem.VisitorIdType,
@@ -284,10 +308,10 @@ namespace KossanVMS.UserControlPage
             }
 
 
-            _db.SaveChanges();
+            //_db.SaveChanges();
 
 
-            visitorBindingSource1.ResetCurrentItem();
+            visitorBindingSource.ResetCurrentItem();
 
             // repaint the specific computed cells
             var grid = VisitorGridView;
@@ -323,8 +347,8 @@ namespace KossanVMS.UserControlPage
                 return;
 
             }
-            _db.Visitors.Add(newVisitorModel);
-            _db.SaveChanges();
+           // _db.Visitors.Add(newVisitorModel);
+            //_db.SaveChanges();
             visitorBindingSource1.ResetBindings(false);
 
             UpdateSitePhotoPreview(newVisitorModel);

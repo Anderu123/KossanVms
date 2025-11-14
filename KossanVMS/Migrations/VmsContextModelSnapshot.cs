@@ -440,7 +440,7 @@ namespace KossanVMS.Migrations
 
                     b.HasKey("PurposeID");
 
-                    b.ToTable("VisitPurposes");
+                    b.ToTable("purpose");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.PurposeLink", b =>
@@ -491,7 +491,7 @@ namespace KossanVMS.Migrations
 
                     b.HasIndex("PurposeID");
 
-                    b.ToTable("purpose");
+                    b.ToTable("purpose_link");
                 });
 
             modelBuilder.Entity("KossanVMS.Data.RegisterType", b =>

@@ -202,6 +202,11 @@ namespace KossanVMS
         public MainPage(VmsContext db)
         {
             InitializeComponent();
+            buttonNavUser.Hide();
+            if(AppSession.UserName.ToLower() == "superadmin")
+            {
+                buttonNavUser.Show();
+            }
             this.StartPosition = FormStartPosition.Manual;
 
             this.Resize += MainPage_Resize;        // keep maximize/restore sane

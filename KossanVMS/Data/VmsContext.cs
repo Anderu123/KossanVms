@@ -74,6 +74,9 @@ namespace KossanVMS.Data
                 b.Property(v => v.VisitorVisitPerson).HasColumnOrder(7);
                 // audit columns (from VmsAuditEntity) left without explicit order so they come last
             });
+            modelBuilder.Entity<Visitor>()
+        .Property(v => v.VisitorNo)
+        .ValueGeneratedOnAdd();
             modelBuilder.Entity<VmsUser>(b =>
             {
                 // Explicitly map the table name and schema based on your SQL query

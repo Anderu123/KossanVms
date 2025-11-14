@@ -12,7 +12,8 @@ namespace KossanVMS.Data
     public enum UserRole
     {
         User = 0,
-        Admin = 1
+        Admin = 1, 
+        SuperAdmin = -1
     }
     [Table("vms_users")]
     public class VmsUser :VmsAuditEntity
@@ -77,6 +78,23 @@ namespace KossanVMS.Data
 
                 db.SaveChanges();
             }
+        }
+        public static void EnsureSuperAdmin(VmsContext db)
+        {
+            var superAdminName = "SuperAdmin";
+            var exists = db.VmsUsers.Any(su => su.UserName.ToLower().Contains(superAdminName.ToLower()));
+            if (!exists) {
+                PasswordHelper.CreatePassworHash("SuperAdmin@123456", out var hash, out var salt);
+                db.VmsUsers.Add(new VmsUser
+                {
+                    UserName = superAdminName,
+                    PasswordHash = hash,
+                    PasswordSalt = salt,
+                    Role = UserRole.SuperAdmin
+                });
+                db.SaveChanges();
+                    }
+
         }
     }
 

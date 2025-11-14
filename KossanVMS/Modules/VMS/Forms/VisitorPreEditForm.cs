@@ -100,6 +100,22 @@ namespace KossanVMS
             //comboBoxBranch.SelectedIndex = items.Count > 0 ? 0 : -1;
             comboBoxBranch.DrawItem += ComboBoxBranch_DrawItem;
         }
+        private void ComboBoxBranch_SelectedChangeCommited(object sender, EventArgs e)
+        {
+           var branch = ((dynamic)comboBoxBranch.SelectedItem).BranchName ?? "";
+            if (!branch.ToLower().Equals(AppSession.BranchName.ToLower()))
+            {
+                if (branch.ToLower() != "HQ".ToLower())
+                {
+                    MessageBox.Show("Wrong branch! Contact PIC for more info");
+                    this.Close();
+                    return;
+                }
+            }
+         
+
+
+        }
         private void LoadPurposeList()
         {
             var items = _db.VisitPurposes.Where(p => p.PurposeStatus).OrderBy(p => p.PurposeName).Select(p => new { p.PurposeID, p.PurposeName }).ToList();
@@ -184,6 +200,16 @@ namespace KossanVMS
         {
             if (!SaveResults())
                 return;
+            //if (_isNew)
+            //{
+            //    _db.Visitors.Add(visitorModel);
+            //}
+            //else
+            //{
+            //    _db.Visitors.Update(visitorModel);
+            //}
+
+           // _db.SaveChanges();
             SaveVisitorCategories();
             DialogResult = DialogResult.OK;
             Close();
@@ -241,57 +267,178 @@ namespace KossanVMS
                 maskedTextBoxIC.Focus();
                 return false;
             }
+            var branch = ((dynamic)comboBoxBranch.SelectedItem).BranchName ?? "";
+            if (!branch.ToLower().Equals(AppSession.BranchName.ToLower()))
+            {
+                if (branch.ToLower() != "HQ".ToLower())
+                {
+                    MessageBox.Show("Wrong branch, cannot save!");
+                    return false;
+                    //this.Close();
+                    //return;
+                }
+            }
+            var selectedIds = checkedListBoxCat.CheckedItems
+                                  .Cast<ListItem>()
+                                  .Select(li => li.Id)
+                                  .ToList();
+
+            if (selectedIds.Count <= 0)
+            {
+                MessageBox.Show("Please select at least one category");
+                return false;
+            }
             visitorModel.VisitorIdNo = maskedTextBoxIC.Text.Trim();
             visitorModel.VisitorFullName = textboxVisitorFullName.textBox.Text.Trim();
             visitorModel.VisitorContact ??= new Contact();
             visitorModel.VisitorIdType = (IdType)comboBoxIdType.SelectedIndex;
             visitorModel.VisitorPhoto ??= new Photo();
             visitorModel.VisitorPhoto.PhotoUploadPath = uploadPath ?? "";
-            visitorModel.VisitorCategories ??= new List<CategoryLink>();
+            //visitorModel.VisitorCategories ??= new List<CategoryLink>();
             visitorModel.VisitorVehicleNo = textboxVisitVehicleNo.textBox.Text.Trim();
-            visitorModel.VisitorBranches ??= new List<BranchLink>();
-            visitorModel.VisitorPurpose ??= new PurposeLink();
+            visitorModel.VisitorBranches =  comboBoxBranch.SelectedIndex >= 0 ? new List<BranchLink>
+            {
+                new BranchLink
+                {
+                    IdNo = visitorModel.VisitorIdNo,
+                    BranchID = ((dynamic)comboBoxBranch.SelectedItem).BranchID
+                }
+            } : new List<BranchLink>();
+            visitorModel.VisitorPurpose = comboBoxBranch.SelectedIndex >= 0 ? new PurposeLink
+            {
+                IdNo = visitorModel.VisitorIdNo,
+                PurposeID = ((dynamic)comboBoxPurpose.SelectedItem).PurposeID
+            } : new PurposeLink();
+            //visitorModel.VisitorBranches ??= new List<BranchLink>();
+            // visitorModel.VisitorPurpose ??= new PurposeLink();
             visitorModel.VisitorVisitPerson = textboxVisitPerson.textBox.Text.Trim();
             visitorModel.VisitorRemarks = textboxVisitRemark.textBox.Text.Trim();
-            visitorModel.VisitorExpiryDate = poisonDateTime1.Checked ? poisonDateTime1.Value : (DateTime?)null;
+            visitorModel.VisitorExpiryDate = poisonDateTime1.Checked ? poisonDateTime1.Value : DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
+            if (_isNew)
+            {
+                _db.Visitors.Add(visitorModel);
+            }
+            else
+            {
+                _db.Visitors.Update(visitorModel);
+            }
 
+            // First: insert/update Visitor
+            _db.SaveChanges();
             //visitorModel.
             return true;
         }
-        private void SaveVisitorCategories()
+        //public void SaveVisitorBranches()
+        //{
+        //    if (_isNew)
+        //    {
+        //        var selectedIds = comboBoxBranch     .Cast<ListItem>()
+        //            .Select(li => li.Id)
+        //            .ToList();
+        //        var toAdd = selectedIds.Select(id => new BranchLink
+        //        {
+        //            IdNo = visitorModel.VisitorIdNo,
+        //            BranchID = id
+        //        }).ToList();
+
+        //        if (toAdd.Count > 0)
+        //        {
+        //            _db.VisitorBranchLinks.AddRange(toAdd);
+        //            _db.SaveChanges();
+        //        }
+
+        //    }
+        //    else
+        //    {
+        //        var selectedIds = checkedListBoxBranch.CheckedItems.
+        //                            Cast<ListItem>()
+        //                            .Select(li => li.Id)
+        //                            .ToList();
+        //        var existingLinks = _db.VisitorBranchLinks
+        //                            .Where(x => x.IdNo == visitorModel.VisitorIdNo)
+        //                            .ToList();
+        //        var toDelete = existingLinks.Where(l => !selectedIds.Contains(l.BranchID)).ToList();
+
+        //        if (toDelete.Count > 0)
+        //        {
+        //            _db.VisitorBranchLinks.RemoveRange(toDelete);
+        //        }
+        //        var existingIds = existingLinks.Select(x => x.BranchID).ToHashSet();
+        //        var toAdd = selectedIds.Where(id => !existingIds.Contains(id))
+        //                    .Select(id => new BranchLink
+        //                    {
+        //                        IdNo = visitorModel.VisitorIdNo,
+        //                        BranchID = id
+        //                    });
+        //        if (toAdd.Count() > 0)
+        //        {
+        //            _db.VisitorBranchLinks.AddRange(toAdd);
+        //        }
+        //        if (toDelete.Count > 0 || toAdd.Count() > 0)
+        //        {
+        //            _db.SaveChanges();
+        //        }
+        //    }
+        //}
+        public void SaveVisitorCategories()
         {
-            if (_isNew) return;
-            var selectedId = checkedListBoxCat.CheckedItems.Cast<ListItem>()
-                .Select(l => l.Id).ToList();
-            var existingLinks = _db.VisitorCategoryLinks
-                .Where(x => x.IdNo == visitorModel.VisitorIdNo).ToList();
+            if (_isNew)
+            {
+                var selectedIds = checkedListBoxCat.CheckedItems
+                                    .Cast<ListItem>()
+                                    .Select(li => li.Id)
+                                    .ToList();
+                var toAdd = selectedIds.Select(id => new CategoryLink
+                {
+                    IdNo = visitorModel.VisitorIdNo,
+                    CategoryID = id
+                }).ToList();
 
-            var toDelete = existingLinks
-                          .Where(link => !selectedId.Contains(link.CategoryID))
-                          .ToList();
-            if (toDelete.Count > 0)
-            {
-                _db.VisitorCategoryLinks.RemoveRange(toDelete);
-            }
+                if (toAdd.Count > 0)
+                {
+                    _db.VisitorCategoryLinks.AddRange(toAdd);
+                    _db.SaveChanges();
+                }
 
-            var existingIds = existingLinks.Select(x => x.CategoryID).ToHashSet();
-            var toAdd = selectedId
-                        .Where(id => !existingIds.Contains(id))
-                        .Select(id => new CategoryLink
-                        {
-                            IdNo = visitorModel.VisitorIdNo,
-                            CategoryID = id
-                        })
-                        .ToList();
-            if (toAdd.Count > 0)
-            {
-                _db.VisitorCategoryLinks.AddRange(toAdd);
             }
-            if (toDelete.Count > 0 || toAdd.Count > 0)
+            else
             {
-                _db.SaveChanges();
+                var selectedIds = checkedListBoxCat.CheckedItems
+                                    .Cast<ListItem>()
+                                    .Select(li => li.Id)
+                                    .ToList();
+                var existingLinks = _db.VisitorCategoryLinks
+                                       .Where(x => x.IdNo == visitorModel.VisitorIdNo)
+                                       .ToList();
+                // Delete unselected links
+                var toDelete = existingLinks
+                                .Where(link => !selectedIds.Contains(link.CategoryID))
+                                .ToList();
+                if (toDelete.Count > 0)
+                {
+                    _db.VisitorCategoryLinks.RemoveRange(toDelete);
+                }
+                // Add new links
+                var existingIds = existingLinks.Select(x => x.CategoryID).ToHashSet();
+                var toAdd = selectedIds
+                            .Where(id => !existingIds.Contains(id))
+                            .Select(id => new CategoryLink
+                            {
+                                IdNo = visitorModel.VisitorIdNo,
+                                CategoryID = id
+                            })
+                            .ToList();
+                if (toAdd.Count > 0)
+                {
+                    _db.VisitorCategoryLinks.AddRange(toAdd);
+                }
+                if (toDelete.Count > 0 || toAdd.Count > 0)
+                {
+                    _db.SaveChanges();
+                }
             }
         }
+        
         private void buttonSearch_click(object sender, EventArgs e)
         {
 

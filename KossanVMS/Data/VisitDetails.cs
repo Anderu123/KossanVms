@@ -45,6 +45,7 @@ namespace KossanVMS.Data
     public class Visitor : VmsAuditEntity
     {
         // Keep numeric PK
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key, Column("v_no")] public int VisitorNo { get; set; }
 
         [Column("v_id_type")] public IdType VisitorIdType { get; set; }
@@ -190,7 +191,7 @@ namespace KossanVMS.Data
         public Visitor VisitRecordVisitor { get; set; } = null!;
         public Branch? VisitRecordBranch { get; set; } = null!;
     }
-    [Table("purpose")]
+    [Table("purpose_link")]
     public class PurposeLink : VmsAuditEntity
     {
         [Key, Column("pl_id")] public int PurposeLinkID { get; set; }
@@ -199,6 +200,7 @@ namespace KossanVMS.Data
         public Visitor Visitor { get; set; } = null!;
         public Purpose Purpose { get; set; } = null!;
     }
+    [Table("purpose")]
     public class Purpose : VmsAuditEntity
     {
         [Key, Column("p_id")] public int PurposeID { get; set; }

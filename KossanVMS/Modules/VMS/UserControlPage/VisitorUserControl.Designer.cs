@@ -47,17 +47,15 @@ namespace KossanVMS.UserControlPage
             visitorIdNoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             visitorFullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             visitorExpiryDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            visitorBlackListDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+            colCategories = new DataGridViewTextBoxColumn();
+            colContact = new DataGridViewTextBoxColumn();
             visitorVehicleNoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             visitorVisitPersonDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             visitorRemarksDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             visitorPhotoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            visitorPurposeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            colPurpose = new DataGridViewTextBoxColumn();
             visitorBranchesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            visitRecordsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            visitorBlackListDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
@@ -190,7 +188,7 @@ namespace KossanVMS.UserControlPage
             VisitorGridView.AllowUserToDeleteRows = false;
             VisitorGridView.AutoGenerateColumns = false;
             VisitorGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VisitorGridView.Columns.AddRange(new DataGridViewColumn[] { visitorIdTypeDataGridViewTextBoxColumn, visitorIdNoDataGridViewTextBoxColumn, visitorFullNameDataGridViewTextBoxColumn, visitorExpiryDateDataGridViewTextBoxColumn, visitorBlackListDataGridViewCheckBoxColumn, visitorVehicleNoDataGridViewTextBoxColumn, visitorVisitPersonDataGridViewTextBoxColumn, visitorRemarksDataGridViewTextBoxColumn, dataGridViewTextBoxColumn1, visitorPhotoDataGridViewTextBoxColumn, visitorPurposeDataGridViewTextBoxColumn, dataGridViewTextBoxColumn2, visitorBranchesDataGridViewTextBoxColumn, visitRecordsDataGridViewTextBoxColumn, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
+            VisitorGridView.Columns.AddRange(new DataGridViewColumn[] { visitorIdTypeDataGridViewTextBoxColumn, visitorIdNoDataGridViewTextBoxColumn, visitorFullNameDataGridViewTextBoxColumn, visitorExpiryDateDataGridViewTextBoxColumn, colCategories, colContact, visitorVehicleNoDataGridViewTextBoxColumn, visitorVisitPersonDataGridViewTextBoxColumn, visitorRemarksDataGridViewTextBoxColumn, visitorPhotoDataGridViewTextBoxColumn, colPurpose, visitorBranchesDataGridViewTextBoxColumn, visitorBlackListDataGridViewCheckBoxColumn, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
             VisitorGridView.DataSource = visitorBindingSource;
             VisitorGridView.Dock = DockStyle.Fill;
             VisitorGridView.Location = new Point(230, 30);
@@ -200,6 +198,7 @@ namespace KossanVMS.UserControlPage
             VisitorGridView.RowTemplate.Height = 25;
             VisitorGridView.Size = new Size(1136, 991);
             VisitorGridView.TabIndex = 9;
+            VisitorGridView.CellFormatting += VisitorGridViewUserControl_CellFormatting;
             // 
             // visitorBindingSource
             // 
@@ -233,12 +232,17 @@ namespace KossanVMS.UserControlPage
             visitorExpiryDateDataGridViewTextBoxColumn.Name = "visitorExpiryDateDataGridViewTextBoxColumn";
             visitorExpiryDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // visitorBlackListDataGridViewCheckBoxColumn
+            // colCategories
             // 
-            visitorBlackListDataGridViewCheckBoxColumn.DataPropertyName = "VisitorBlackList";
-            visitorBlackListDataGridViewCheckBoxColumn.HeaderText = "Black List";
-            visitorBlackListDataGridViewCheckBoxColumn.Name = "visitorBlackListDataGridViewCheckBoxColumn";
-            visitorBlackListDataGridViewCheckBoxColumn.ReadOnly = true;
+            colCategories.HeaderText = "Category";
+            colCategories.Name = "colCategories";
+            colCategories.ReadOnly = true;
+            // 
+            // colContact
+            // 
+            colContact.HeaderText = "Contact";
+            colContact.Name = "colContact";
+            colContact.ReadOnly = true;
             // 
             // visitorVehicleNoDataGridViewTextBoxColumn
             // 
@@ -261,13 +265,6 @@ namespace KossanVMS.UserControlPage
             visitorRemarksDataGridViewTextBoxColumn.Name = "visitorRemarksDataGridViewTextBoxColumn";
             visitorRemarksDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "VisitorContact";
-            dataGridViewTextBoxColumn1.HeaderText = "Contact";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
             // visitorPhotoDataGridViewTextBoxColumn
             // 
             visitorPhotoDataGridViewTextBoxColumn.DataPropertyName = "VisitorPhoto";
@@ -275,19 +272,11 @@ namespace KossanVMS.UserControlPage
             visitorPhotoDataGridViewTextBoxColumn.Name = "visitorPhotoDataGridViewTextBoxColumn";
             visitorPhotoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // visitorPurposeDataGridViewTextBoxColumn
+            // colPurpose
             // 
-            visitorPurposeDataGridViewTextBoxColumn.DataPropertyName = "VisitorPurpose";
-            visitorPurposeDataGridViewTextBoxColumn.HeaderText = "Purpose";
-            visitorPurposeDataGridViewTextBoxColumn.Name = "visitorPurposeDataGridViewTextBoxColumn";
-            visitorPurposeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "VisitorCategories";
-            dataGridViewTextBoxColumn2.HeaderText = "Categories";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
+            colPurpose.HeaderText = "Purpose";
+            colPurpose.Name = "colPurpose";
+            colPurpose.ReadOnly = true;
             // 
             // visitorBranchesDataGridViewTextBoxColumn
             // 
@@ -296,19 +285,12 @@ namespace KossanVMS.UserControlPage
             visitorBranchesDataGridViewTextBoxColumn.Name = "visitorBranchesDataGridViewTextBoxColumn";
             visitorBranchesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // visitRecordsDataGridViewTextBoxColumn
+            // visitorBlackListDataGridViewCheckBoxColumn
             // 
-            visitRecordsDataGridViewTextBoxColumn.DataPropertyName = "VisitRecords";
-            visitRecordsDataGridViewTextBoxColumn.HeaderText = "Records";
-            visitRecordsDataGridViewTextBoxColumn.Name = "visitRecordsDataGridViewTextBoxColumn";
-            visitRecordsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "Status";
-            dataGridViewTextBoxColumn3.HeaderText = "Status";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
+            visitorBlackListDataGridViewCheckBoxColumn.DataPropertyName = "VisitorBlackList";
+            visitorBlackListDataGridViewCheckBoxColumn.HeaderText = "Black List";
+            visitorBlackListDataGridViewCheckBoxColumn.Name = "visitorBlackListDataGridViewCheckBoxColumn";
+            visitorBlackListDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -379,21 +361,21 @@ namespace KossanVMS.UserControlPage
         private DataGridViewTextBoxColumn visitorContactDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn visitorCategoriesDataGridViewTextBoxColumn;
         private DataGridView VisitorGridView;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn visitorIdTypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn visitorIdNoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn visitorFullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn visitorExpiryDateDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn visitorBlackListDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn colCategories;
+        private DataGridViewTextBoxColumn colContact;
         private DataGridViewTextBoxColumn visitorVehicleNoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn visitorVisitPersonDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn visitorRemarksDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn visitorPhotoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn visitorPurposeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn colPurpose;
         private DataGridViewTextBoxColumn visitorBranchesDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn visitRecordsDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewCheckBoxColumn visitorBlackListDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
